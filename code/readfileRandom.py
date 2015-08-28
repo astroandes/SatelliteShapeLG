@@ -17,10 +17,31 @@ def loading_snapshot(snap_name,i):
 	Mag  = data[:,8]
 	return x, y, z, vx, vy, vz, vmax, Mag
 
-def CalculateAngularMomentum(x, y, z, vx, vy, vz):
-	posHalo = np.sqrt(x*x+y*y+z*z)
-        velHalo = np.sqrt(vx*vx+vy*vy+vz*vz)
-        L_halo  = np.cross(posHalo, velHalo)  
+def CalculateAngularMomentum(x, y, z, vx, vy, vz, Numb):
+	posHalo_modulus=np.zeros([Numb])
+	#velHalo=np.zeros([Numb])
+	#L_Halo=np.zeros([Numb])
+	L_Halo_modulus=np.zeros([Numb])
+	for j in range (Numb):
+		posHalo = 10.**(-3)*np.array([x[j],y[j],z[j]])
+		print "posHalo" , posHalo
+		posHalo_modulus[j] = 10.**(-3)*np.sqrt(x[j]*x[j]+y[j]*y[j]+z[j]*z[j])
+		print "posHalo_modulus" , posHalo_modulus[j]
+        	velHalo = np.array([vx[j],vy[j],vz[j]])
+        	#velHalo_modulus[j] = np.sqrt(vx[j]*vx[j]+vy[j]*vy[j]+vz[j]*vz[j])
+		print "velHalo" , velHalo
+        	L_Halo  = np.cross(posHalo, velHalo)  
+		print "L_Halo" , L_Halo
+		L_Halo_modulus[j] = np.sqrt((L_Halo*L_Halo).sum())
+		print "j", j ,"L_Halo_modulus[j]", L_Halo_modulus[j] 
+	#HaloVY_H1.append(velH1_Y)
+	#posHaloH1.append(posHalo_modulus)
+	#L_haloH1.append(L_halo_modulus)
+	## kinetic energy per unit mass
+	#VelVel = ((velHalo*velHalo).sum())	
+	#K_halo = 0.5*VelVel
+	#K_haloH1.append(K_halo)
+	return L_Halo_modulus[j], posHalo_modulus[j] 
 
 def MainHalos(x, y, z, vx, vy, vz, vmax, Mag):
         max_vmax = np.amax(vmax)
@@ -33,7 +54,7 @@ def MainHalos(x, y, z, vx, vy, vz, vmax, Mag):
 def AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, dist_a, dist_b, DistTreshold, MagTresholdUPPER, MagTresholdLOWER):
         index = np.where((dist_a < dist_b)*(dist_a < DistTreshold)*(Mag<MagTresholdUPPER)*(Mag>MagTresholdLOWER)) 
         index = index[0]
-        return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index] 
+	return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index] 
 
 def inertiaTensor(x, y, z):
 	I=[]
@@ -296,11 +317,11 @@ All_AxisRatioH1random_mean =[]
 All_AxisRatioH1random_mean_err =[] 
 All_AxisRatioH2random_mean =[]
 All_AxisRatioH2random_mean_err =[]
-
+count=0
 #Npairs =19 #mstar 19
-Npairs =53 #dm 53
+Npairs = 5 #53 #dm 53
+N=1000
 for i in range (Npairs):
-	N=1000
 	AxisRatioH1_r=np.zeros([N])
 	AxisRatioH2_r=np.zeros([N])
 	#snap_name ="../data/mstar_selected/Illustris_group_"+str(i)+".dat"
@@ -349,39 +370,34 @@ for i in range (Npairs):
 	x_AllH2, y_AllH2, z_AllH2 = x_AllH2 - x_H2, y_AllH2 - y_H2, z_AllH2 - z_H2
 	x_satH2, y_satH2, z_satH2 = x_satH2 - x_H2, y_satH2 - y_H2, z_satH2 - z_H2
 	x_DMsatH2, y_DMsatH2, z_DMsatH2 = x_DMsatH2 - x_H2, y_DMsatH2 - y_H2, z_DMsatH2 - z_H2
-	
+
 	x_H1, y_H1, z_H1, x_H2, y_H2, z_H2 = 0.,0.,0.,0.,0.,0.
 	GroupNum =np.str(i)
 	PairNumber = i
 	#Positionsplot(x_H1, y_H1, z_H1, x_satH1, y_satH1, z_satH1, x_H2, y_H2, z_H2, x_satH2, y_satH2, z_satH2, x_DMsatH1, y_DMsatH1, z_DMsatH1, x_DMsatH2, y_DMsatH2, z_DMsatH2)
 	
-	
-	## Angular momentum per unit mass
-	#L_halo = np.cross(posHalo, velHalo)	
-	#L_halo_modulus = np.sqrt((L_halo*L_halo).sum())
-	#HaloVY_H1.append(velH1_Y)
-	#posHaloH1.append(posHalo_modulus)
-	#L_haloH1.append(L_halo_modulus)
-	## kinetic energy per unit mass
-	#VelVel = ((velHalo*velHalo).sum())	
-	#K_halo = 0.5*VelVel
-	#K_haloH1.append(K_halo)
-	
-	
 	num_x_H1   =len(x_AllH1)
+	print "num_x_H1  ", num_x_H1
+	num_x_DMsatH1   =len(x_DMsatH1)
+	print "num_x_DMsatH1", num_x_DMsatH1
 	num_x_satH1   =len(x_satH1)
-	#num_x_DMsatH1 =len(x_DMsatH1)
-	#print "h1" ,num_x_H1, num_x_satH1
+	print "num_x_satH1" , num_x_satH1
 	num_x_H2   =len(x_AllH2)
+	num_x_DMsatH2   =len(x_DMsatH2)
 	num_x_satH2   =len(x_satH2)
+	#L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, num_x_satH1)
+	#L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, num_x_satH2)
+	L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, num_x_DMsatH1)
+	#L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, num_x_H2)
+	#return L_Halo_modulus[j], posHalo_modulus[j] 
 	#if num_x_satH1>=0.2*num_x_H1 and num_x_satH2>=0.2*num_x_H2:
 	#if num_x_satH1>=6 and num_x_satH2>=6:
 	if num_x_satH1>=4 and num_x_satH2>=4:
 		#print "h1'" ,num_x_H1, num_x_satH1
 		if num_x_satH1>=16:
-			print "MW num sats" ,num_x_H1, num_x_satH1
-		#num_x_DMsatH2 =len(x_DMsatH2)
-		#print "h2" , num_x_H2, num_x_satH2, num_x_DMsatH2 
+			count=count+1
+			print "MW num sats: num_x_H1", num_x_H1, "num_x_satH1", num_x_satH1 , "count" , count
+		
 		for j in range (N):
         	        index_randH1=np.random.randint(0, num_x_H1, num_x_satH1+1) #genero num_x_satH1 numeros aleatorios
         	        index_randH2=np.random.randint(0, num_x_H2, num_x_satH2+1) #genero num_x_satH2 numeros aleatorios
@@ -445,13 +461,13 @@ for i in range (Npairs):
 Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All, All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err)
 #InertiaplotsrandomHistogram(All_AxisRatioH1, All_AxisRatioH1All,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random)
 
-plt.figure()
-plt.hist(ratioAxisRatioH1,  bins =5, color ="red", alpha =0.7 )
-plt.hist(ratioAxisRatioH2,  bins =5, color ="blue", alpha =0.7 )
-plt.xlim([0,2])
-plt.xlabel('Axis ratio ', fontsize=15) 
-plt.ylabel('N Halos', fontsize=15)
-plt.savefig('Hist_ratioAxisRatio.pdf')
+#######plt.figure()
+#######plt.hist(ratioAxisRatioH1,  bins =5, color ="red", alpha =0.7 )
+#######plt.hist(ratioAxisRatioH2,  bins =5, color ="blue", alpha =0.7 )
+#######plt.xlim([0,2])
+#######plt.xlabel('Axis ratio ', fontsize=15) 
+#######plt.ylabel('N Halos', fontsize=15)
+#######plt.savefig('Hist_ratioAxisRatio.pdf')
 
 #Halo_Pos_L_plot(posHaloH1, L_haloH1, posHaloH2, L_haloH2):
 Halo_Pos_L_plot(0.2, 11.5, 0.250,  11.85)
