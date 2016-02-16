@@ -180,6 +180,8 @@ for i in range (Npairs):
 	x_AllH2, y_AllH2, z_AllH2 = x_AllH2 - x_H2, y_AllH2 - y_H2, z_AllH2 - z_H2
 	x_satH2, y_satH2, z_satH2 = x_satH2 - x_H2, y_satH2 - y_H2, z_satH2 - z_H2
 	x_DMsatH2, y_DMsatH2, z_DMsatH2 = x_DMsatH2 - x_H2, y_DMsatH2 - y_H2, z_DMsatH2 - z_H2
+	HaloVec = (x_H1- x_H2, y_H1- y_H2, z_H1 - z_H2)
+	print "HaloVec", HaloVec
 	x_H1, y_H1, z_H1, x_H2, y_H2, z_H2 = 0.,0.,0.,0.,0.,0.
 	#GroupNum =np.str(i)
 	#PairNumber = i
@@ -262,6 +264,7 @@ for i in range (Npairs):
 			#calculates the axis ratio of each subset
 			eiValH2_r2, eiVecH2_r2 , TriaxParamH2_r2, AxisRatioH2_r2 = inertiaTensor(ran_x_satH2, ran_y_satH2, ran_z_satH2)
 			AxisRatioH2_r[j]=AxisRatioH2_r2
+			#print "EI vecr2" , eiVecH2_r2 
 	
 		#calculates the mean axis ratio of all the subsets
 		AxisRatioH2_r_mean = scipy.stats.tmean(AxisRatioH2_r, limits=None, inclusive=(True, True))
@@ -269,6 +272,7 @@ for i in range (Npairs):
 	
 		#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
 		eiValH2, eiVecH2 , TriaxParamH2, AxisRatioH2 = inertiaTensor(x_satH2, y_satH2, z_satH2)
+		print "eivecH2",  eiVecH2
 		eiValH2DM, eiVecH2DM , TriaxParamH2DM, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
 		eiValH2All, eiVecH2All , TriaxParamH2All, AxisRatioH2All = inertiaTensor(x_AllH2, y_AllH2, z_AllH2)
 
