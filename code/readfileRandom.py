@@ -77,32 +77,56 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec):
 	###cosAngleH1_H1H2.append(cos_angleH1e3)
 	dotH2_H1H2 = np.dot(SemimajorAxisH2, vecH1H2)
 	cos_angleH2_H1H2 = np.absolute (dotH2_H1H2 / vecH1H2_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
+	###cosAngleH1H2.append(cos_angleH1e3)
+	dotH1H2 = np.dot(SemimajorAxisH1, SemimajorAxisH2)
+	cos_angleH1H2 = np.absolute (dotH1H2 / SemimajorAxisH1_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
+	
+	All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
+	All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
+	All_cos_angleH1H2.append(cos_angleH1H2)
+
+def Alignment_haloShape_halosahpe(eiVecH1, eiVecH2, HaloVec):
+	vecH1H2 = HaloVec 
+	print "vecH!H2", vecH1H2
+	print "eiVecH1", eiVecH1 
+	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
+	vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
+	SemimajorAxisH1=eiVecH1[0] 
+	SemimajorAxisH2=eiVecH2[0]
+	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
+	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
+
+	###e3_modulus = np.sqrt((e3*e3).sum())
+	dotH1_H1H2 = np.dot(SemimajorAxisH1, vecH1H2)
+	cos_angleH1_H1H2 = np.absolute (dotH1_H1H2 / vecH1H2_modulus / SemimajorAxisH1_modulus) # cosine of angle between poshalo and e3
+	###cosAngleH1_H1H2.append(cos_angleH1e3)
+	dotH2_H1H2 = np.dot(SemimajorAxisH2, vecH1H2)
+	cos_angleH2_H1H2 = np.absolute (dotH2_H1H2 / vecH1H2_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
 	All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
 	All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
 
-
-def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2):
+def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
 	fig = plt.figure(figsize=(6, 6))
 	ax = fig.add_subplot(1,1,1) # one row, one column, first plot
 	#plt.hist(cosAngleH1,  bins =25, color ="blue", alpha =0.7 )
 	#plt.hist(cosAngleH2,  bins =25, color ="red", alpha =0.7 )
-	ax.hist((All_cos_angleH1_H1H2, All_cos_angleH2_H1H2),  bins =7, color =("red", "blue"))
+	ax.hist((All_cos_angleH1_H1H2, All_cos_angleH2_H1H2),  bins =5, color =("red", "blue"))
 	plt.xlabel('cos angle pos ', fontsize=15) 
 	plt.ylabel('N Halos', fontsize=15)
-	plt.savefig('Hist_pos_dot.pdf')
-
+	plt.savefig('Hist_H1H2_shape.pdf')
 
 	plt.figure()
 	fig = plt.figure(figsize=(6, 6))
 	#ax = fig.add_subplot(1,1,1) # one row, one column, first plot
 	#plt.hist(cosAngleH1,  bins =25, color ="blue", alpha =0.7 )
 	#plt.hist(cosAngleH2,  bins =25, color ="red", alpha =0.7 )
-	plt.scatter(All_cos_angleH1_H1H2,All_cos_angleH1_H1H2,  color = "red")
-	plt.scatter(All_cos_angleH2_H1H2,All_cos_angleH2_H1H2,  color = "blue")
+	plt.hist(All_cos_angleH1H2,  bins =10, color ="black")
 	plt.xlabel('cos angle pos ', fontsize=15) 
-	#plt.ylabel('N Halos', fontsize=15)
-	plt.savefig('angulos.pdf')
+	plt.ylabel('N Halos', fontsize=15)
+	plt.savefig('Hist_shape.pdf')
+
+
 
 
 def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err):
@@ -187,6 +211,7 @@ All_SatNumH2 =[]
 
 All_cos_angleH1_H1H2 =[]
 All_cos_angleH2_H1H2 =[]
+All_cos_angleH1H2 =[]
 
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
@@ -349,6 +374,6 @@ for i in range (Npairs):
 		Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec)
 
 
-Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2)
+Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
 
 Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All, All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err)
