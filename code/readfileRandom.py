@@ -49,10 +49,60 @@ def inertiaTensor(x, y, z):
 	eig_ord = np.argsort(vals)  # a thing to note is that here COLUMN i corrensponds to eigenvalue i.
 	ord_vals = vals[eig_ord]
 	ord_vects = vects[:, eig_ord].T
+	#ord_vects1 = [[1,0,0],[0,1,0],[0,0,1]]
+	#print "XXXXXXXXXXX", ord_vects1 
+	#print "XXXXXXXXXXXXXXXXX T" , ord_vects 
+	#ord_vects = vects[:, eig_ord]
+	#print "XXXXXXXXXXXXXXXXXXX" , ord_vects
 
 	TriaxParam = (ord_vals[2]*ord_vals[2]-ord_vals[1]*ord_vals[1])/(ord_vals[2]*ord_vals[2]-ord_vals[0]*ord_vals[0])
 	AxisRatio = ord_vals[0]/ord_vals[2]
 	return ord_vals, ord_vects, TriaxParam, AxisRatio
+
+
+def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec):
+	vecH1H2 = HaloVec 
+	print "vecH!H2", vecH1H2
+	print "eiVecH1", eiVecH1 
+	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
+	vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
+	SemimajorAxisH1=eiVecH1[0] 
+	SemimajorAxisH2=eiVecH2[0]
+	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
+	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
+
+	###e3_modulus = np.sqrt((e3*e3).sum())
+	dotH1_H1H2 = np.dot(SemimajorAxisH1, vecH1H2)
+	cos_angleH1_H1H2 = np.absolute (dotH1_H1H2 / vecH1H2_modulus / SemimajorAxisH1_modulus) # cosine of angle between poshalo and e3
+	###cosAngleH1_H1H2.append(cos_angleH1e3)
+	dotH2_H1H2 = np.dot(SemimajorAxisH2, vecH1H2)
+	cos_angleH2_H1H2 = np.absolute (dotH2_H1H2 / vecH1H2_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
+	All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
+	All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
+
+
+def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2):
+	plt.figure()
+	fig = plt.figure(figsize=(6, 6))
+	ax = fig.add_subplot(1,1,1) # one row, one column, first plot
+	#plt.hist(cosAngleH1,  bins =25, color ="blue", alpha =0.7 )
+	#plt.hist(cosAngleH2,  bins =25, color ="red", alpha =0.7 )
+	ax.hist((All_cos_angleH1_H1H2, All_cos_angleH2_H1H2),  bins =7, color =("red", "blue"))
+	plt.xlabel('cos angle pos ', fontsize=15) 
+	plt.ylabel('N Halos', fontsize=15)
+	plt.savefig('Hist_pos_dot.pdf')
+
+
+	plt.figure()
+	fig = plt.figure(figsize=(6, 6))
+	#ax = fig.add_subplot(1,1,1) # one row, one column, first plot
+	#plt.hist(cosAngleH1,  bins =25, color ="blue", alpha =0.7 )
+	#plt.hist(cosAngleH2,  bins =25, color ="red", alpha =0.7 )
+	plt.scatter(All_cos_angleH1_H1H2,All_cos_angleH1_H1H2,  color = "red")
+	plt.scatter(All_cos_angleH2_H1H2,All_cos_angleH2_H1H2,  color = "blue")
+	plt.xlabel('cos angle pos ', fontsize=15) 
+	#plt.ylabel('N Halos', fontsize=15)
+	plt.savefig('angulos.pdf')
 
 
 def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err):
@@ -135,6 +185,9 @@ All_AxisRatioH2random_mean_err =[]
 All_SatNumH1 =[] 
 All_SatNumH2 =[]
 
+All_cos_angleH1_H1H2 =[]
+All_cos_angleH2_H1H2 =[]
+
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
 	AxisRatioH2_r=np.zeros([N])
@@ -154,7 +207,6 @@ for i in range (Npairs):
 	distH2 = np.sqrt((x-x_H2)*(x-x_H2) + (y-y_H2)*(y-y_H2) + (z-z_H2)*(z-z_H2))
 	#distance between the 2 main halos
 	distH1H2 = np.sqrt((x_H1-x_H2)*(x_H1-x_H2) + (y_H1-y_H2)*(y_H1-y_H2) + (z_H1-z_H2)*(z_H1-z_H2))
- 
 
 	if distH1H2 >=600:
 		Radius = 300. #guess of the virial radius. NOTE: could be improved using Vmax
@@ -180,8 +232,9 @@ for i in range (Npairs):
 	x_AllH2, y_AllH2, z_AllH2 = x_AllH2 - x_H2, y_AllH2 - y_H2, z_AllH2 - z_H2
 	x_satH2, y_satH2, z_satH2 = x_satH2 - x_H2, y_satH2 - y_H2, z_satH2 - z_H2
 	x_DMsatH2, y_DMsatH2, z_DMsatH2 = x_DMsatH2 - x_H2, y_DMsatH2 - y_H2, z_DMsatH2 - z_H2
-	HaloVec = (x_H1- x_H2, y_H1- y_H2, z_H1 - z_H2)
-	print "HaloVec", HaloVec
+	HaloVec = (x_H1[0]- x_H2[0], y_H1[0]- y_H2[0], z_H1[0] - z_H2[0])
+	#print "x, y ,z halos ", x_H1, x_H2, y_H1, y_H2, z_H1, z_H2
+	print "HaloVec", HaloVec, HaloVec[0], HaloVec[1], HaloVec[2]
 	x_H1, y_H1, z_H1, x_H2, y_H2, z_H2 = 0.,0.,0.,0.,0.,0.
 	#GroupNum =np.str(i)
 	#PairNumber = i
@@ -273,7 +326,10 @@ for i in range (Npairs):
 		#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
 		eiValH2, eiVecH2 , TriaxParamH2, AxisRatioH2 = inertiaTensor(x_satH2, y_satH2, z_satH2)
 		print "eivecH2",  eiVecH2
-		eiValH2DM, eiVecH2DM , TriaxParamH2DM, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
+		print "eivecH2[0][0]",  eiVecH2[0][0]
+		print "eivecH2[0][1]",  eiVecH2[0][1]
+		print "eivecH2[1][0]",  eiVecH2[1][0]
+		eiValH2DM, eiVecH2DM , TriaxParamH2D0M, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
 		eiValH2All, eiVecH2All , TriaxParamH2All, AxisRatioH2All = inertiaTensor(x_AllH2, y_AllH2, z_AllH2)
 
 		H2_ratioAxisRatioH2=AxisRatioH2/AxisRatioH2_r_mean
@@ -289,7 +345,10 @@ for i in range (Npairs):
 		All_AxisRatioH2random_mean.append(AxisRatioH2_r_mean) 
 		All_AxisRatioH2random_mean_err.append(AxisRatioH2_r_mean_err) 
 		All_SatNumH2.append(4.*num_x_satH2)
+			
+		Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec)
 
 
+Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2)
 
 Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All, All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err)
