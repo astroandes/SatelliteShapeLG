@@ -80,30 +80,13 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec):
 	###cosAngleH1H2.append(cos_angleH1e3)
 	dotH1H2 = np.dot(SemimajorAxisH1, SemimajorAxisH2)
 	cos_angleH1H2 = np.absolute (dotH1H2 / SemimajorAxisH1_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
-	
-	All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
-	All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
-	All_cos_angleH1H2.append(cos_angleH1H2)
-
-def Alignment_haloShape_halosahpe(eiVecH1, eiVecH2, HaloVec):
-	vecH1H2 = HaloVec 
-	print "vecH!H2", vecH1H2
-	print "eiVecH1", eiVecH1 
-	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
-	vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
-	SemimajorAxisH1=eiVecH1[0] 
-	SemimajorAxisH2=eiVecH2[0]
-	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
-	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
-
-	###e3_modulus = np.sqrt((e3*e3).sum())
-	dotH1_H1H2 = np.dot(SemimajorAxisH1, vecH1H2)
-	cos_angleH1_H1H2 = np.absolute (dotH1_H1H2 / vecH1H2_modulus / SemimajorAxisH1_modulus) # cosine of angle between poshalo and e3
-	###cosAngleH1_H1H2.append(cos_angleH1e3)
-	dotH2_H1H2 = np.dot(SemimajorAxisH2, vecH1H2)
-	cos_angleH2_H1H2 = np.absolute (dotH2_H1H2 / vecH1H2_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
-	All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
-	All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
+	if num_x_satH1 > 11 :
+		All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
+	if num_x_satH2 > 11 :
+		All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
+	if num_x_satH1 > 11 :
+		if num_x_satH2 > 11 :
+			All_cos_angleH1H2.append(cos_angleH1H2)
 
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
@@ -126,7 +109,31 @@ def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, A
 	plt.ylabel('N Halos', fontsize=15)
 	plt.savefig('Hist_shape.pdf')
 
+#def cosangle_prob_plot(cosAngleH1,cosAngleH2, eigenvector, SubHalo1, SubHalo2):
+def cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2):
+	plt.figure()
+	
+	x = np.linspace(0, 20, 1000)  # 100 evenly-spaced values from 0 to 50
+	y = x
 
+	countsH1, startH1, dxH1, _ = scipy.stats.cumfreq(All_cos_angleH1_H1H2, numbins=50)
+	countsH2, startH2, dxH2, _ = scipy.stats.cumfreq(All_cos_angleH2_H1H2, numbins=50)
+	countsH1H2, startH1H2, dxH1H2, _ = scipy.stats.cumfreq(All_cos_angleH2_H1H2, numbins=50)
+	xH1 = np.arange(countsH1.size) * dxH1 + startH1
+	xH2 = np.arange(countsH2.size) * dxH2 + startH2
+	xH1H2 = np.arange(countsH1H2.size) * dxH1H2 + startH1H2
+	countsH1 = countsH1/len(All_cos_angleH1_H1H2)
+	countsH2 = countsH2/len(All_cos_angleH2_H1H2) 
+	
+	plt.plot(xH1, countsH1, linewidth=3, color = "red")
+	plt.plot(xH2, countsH2, linewidth=3, color = "blue")
+	plt.plot(xH1H2, countsH1H2, linewidth=3, color = "green")
+	plt.plot(x, y, color="black")
+	plt.xlim(0,1)
+	plt.ylim(0,1)
+	plt.xlabel('Cos theta ')
+	plt.ylabel('Cumulative Frequency')
+	plt.savefig('freq_pos_dot.pdf')
 
 
 def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err):
@@ -213,6 +220,9 @@ All_cos_angleH1_H1H2 =[]
 All_cos_angleH2_H1H2 =[]
 All_cos_angleH1H2 =[]
 
+countHaloPairsmas11 =0
+SatNumCutoff = 8
+
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
 	AxisRatioH2_r=np.zeros([N])
@@ -285,7 +295,7 @@ for i in range (Npairs):
 	###   #if num_x_satH1>=6 and num_x_satH2>=6:
 
 	#selects halos with a minimum number of luminous satellites:
-	if num_x_satH1>=11:
+	if num_x_satH1>=SatNumCutoff:
 		#counts how many of the halos have at least 16 luminous satellites
 		if num_x_satH1>=16:
 			count=count+1
@@ -326,7 +336,7 @@ for i in range (Npairs):
 		All_SatNumH1.append(4.*num_x_satH1)
 
 	#selects halos with a minimum number of luminous satellites:
-	if num_x_satH2>=11:
+	if num_x_satH2>=SatNumCutoff:
 		#counts how many of the halos have at least 16 luminous satellites
 		if num_x_satH2>=16:
 			count=count+1
@@ -370,9 +380,14 @@ for i in range (Npairs):
 		All_AxisRatioH2random_mean.append(AxisRatioH2_r_mean) 
 		All_AxisRatioH2random_mean_err.append(AxisRatioH2_r_mean_err) 
 		All_SatNumH2.append(4.*num_x_satH2)
-			
+	
+	#if num_x_satH1>=11 & num_x_satH2>=11: 	
 		Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec)
+		countHaloPairsmas11 = countHaloPairsmas11  +1 
+print "xxxxxxxxxxxxxxxx i, count halo pairs mas11xxxxxxxxxxxxxx", i, countHaloPairsmas11
 
+SubHalo1, SubHalo2 =  num_x_satH1,  num_x_satH2
+cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2)
 
 Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
 
