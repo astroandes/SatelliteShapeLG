@@ -30,6 +30,11 @@ def AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, dist_a, dist_b, DistTreshold, Ma
         index = index[0]
 	return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index] 
 
+def vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, dist_a, dist_b, DistTreshold, MagTresholdUPPER, MagTresholdLOWER, vmaxTresholdLOWER):
+        index = np.where((dist_a < dist_b)*(dist_a < DistTreshold)*(Mag<MagTresholdUPPER)*(Mag>MagTresholdLOWER)*(vmax>vmaxTresholdLOWER)) 
+        index = index[0]
+	return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index] 
+
 def inertiaTensor(x, y, z):
 	I=[]
 	for index in range(9):
@@ -49,11 +54,6 @@ def inertiaTensor(x, y, z):
 	eig_ord = np.argsort(vals)  # a thing to note is that here COLUMN i corrensponds to eigenvalue i.
 	ord_vals = vals[eig_ord]
 	ord_vects = vects[:, eig_ord].T
-	#ord_vects1 = [[1,0,0],[0,1,0],[0,0,1]]
-	#print "XXXXXXXXXXX", ord_vects1 
-	#print "XXXXXXXXXXXXXXXXX T" , ord_vects 
-	#ord_vects = vects[:, eig_ord]
-	#print "XXXXXXXXXXXXXXXXXXX" , ord_vects
 
 	TriaxParam = (ord_vals[2]*ord_vals[2]-ord_vals[1]*ord_vals[1])/(ord_vals[2]*ord_vals[2]-ord_vals[0]*ord_vals[0])
 	AxisRatio = ord_vals[0]/ord_vals[2]
@@ -179,6 +179,22 @@ def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2,
 	plt.ylabel('Axis ratio Luminous', fontsize=15)
 	plt.savefig('AxisRatio_All_VS_Luminous_VS_RandomMean.pdf')
 
+def plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2,i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax ):
+	plt.figure()
+	#print "vmax, Mag", vmax, Mag
+	plt.plot(vmax_satH1, Mag_satH1, marker='o', c='b')
+	plt.plot(vmax_satH2, Mag_satH2, marker='o', c='b')
+	plt.plot(vmax_DMsatH1, np.random.uniform(low=2.001, high=2.003, size=len(Mag_DMsatH1)), marker='o', c='green')
+	plt.plot(vmax_DMsatH1_vmax, np.random.uniform(low=1.5001, high=1.5001, size=len(Mag_DMsatH1_vmax)), marker='o', c='red')
+	plt.plot(vmax_DMsatH2, np.random.uniform(low=1.00, high=1.001, size=len(Mag_DMsatH2)), marker='o', c='green')
+	plt.plot(vmax_DMsatH2_vmax, np.random.uniform(low=0.500, high=0.5001, size=len(Mag_DMsatH2_vmax)), marker='o', c='red')
+	plt.xlabel('Mass', fontsize=15)
+	plt.ylabel('Magnitude', fontsize=15)
+	#plt.xlim([0,1])
+	plt.ylim([-25,2.5])
+	plt.savefig('Magnitude_vs_Mass_'+str(i)+'.pdf')
+
+
 def MW_data_AxisRatio():
 	x_MW_sats = np.array([17.1, -0.6, 16.5, -4.3, -22.2, -5.2, -36.7, -25.0, -41.3, -77.3, -123.6])
 	y_MW_sats = np.array([2.5, -41.8, -38.5, 62.2, 52.0, -9.8, -56.9, -95.9, -51.10, -58.3, -119.3])
@@ -194,7 +210,7 @@ def MW_data_AxisRatio():
 
 Npairs = 53 #53 #dm 53
 count=0
-N=10000
+N=100
 ratioAxisRatioH1=[]
 ratioAxisRatioH2=[]
 All_AxisRatioH1   =[] 
@@ -253,11 +269,13 @@ for i in range (Npairs):
 	x_AllH1, y_AllH1, z_AllH1, vx_AllH1, vy_AllH1, vz_AllH1, vmax_AllH1, Mag_AllH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER = 10e45, MagTresholdLOWER = -1000000.)
 	x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, vmax_satH1, Mag_satH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
 	x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, vmax_DMsatH1, Mag_DMsatH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+	x_DMsatH1_vmax, y_DMsatH1_vmax, z_DMsatH1_vmax, vx_DMsatH1_vmax, vy_DMsatH1_vmax, vz_DMsatH1_vmax, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = np.min(vmax_satH1))
 	
 	#if distH2 < distH1,  distH1 < distTreshold, luminous/not luminous, :
 	x_AllH2, y_AllH2, z_AllH2, vx_AllH2, vy_AllH2, vz_AllH2, vmax_allH2, Mag_AllH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =10e45, MagTresholdLOWER = -1000000.)
 	x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, vmax_satH2, Mag_satH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
 	x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, vmax_DMsatH2, Mag_DMsatH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+	x_DMsatH2_vmax, y_DMsatH2_vmax, z_DMsatH2_vmax, vx_DMsatH2_vmax, vy_DMsatH2_vmax, vz_DMsatH2_vmax, vmax_DMsatH2_vmax, Mag_DMsatH2_vmax = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = np.min(vmax_satH2))
 
 
 	#Centers all the coordinates in the center of the Parent Halo (H1 or H2)
@@ -286,6 +304,8 @@ for i in range (Npairs):
 	num_x_satH2   =len(x_satH2)
 
 
+	plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2, i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax)
+	
 	###   #L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, num_x_satH1)
 	###   #L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, num_x_satH2)
 	###   L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, num_x_DMsatH1)
