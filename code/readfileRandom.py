@@ -263,7 +263,7 @@ countHaloPairs =0
 #number of satelites cutoff for the distribution flatness comparison
 SatNumCutoff = 11 
 #number of satelites cutoff for the distribution and alignment between H1 and H2 luminous or dark satellites 
-SatNumCutoff_alignment =6   
+SatNumCutoff_alignment =11   
 
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
