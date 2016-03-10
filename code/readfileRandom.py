@@ -60,16 +60,21 @@ def inertiaTensor(x, y, z):
 	return ord_vals, ord_vects, TriaxParam, AxisRatio
 
 
-def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec):
+def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec):
+		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
 	vecH1H2 = HaloVec 
-	print "vecH!H2", vecH1H2
+	print "vecH1H2", vecH1H2
 	print "eiVecH1", eiVecH1 
 	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
 	vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
 	SemimajorAxisH1=eiVecH1[0] 
 	SemimajorAxisH2=eiVecH2[0]
+	SemimajorAxisH1DM=eiVecH1DM[0] 
+	SemimajorAxisH2DM=eiVecH2DM[0]
 	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
 	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
+	SemimajorAxisH1DM_modulus = np.sqrt((SemimajorAxisH1DM*SemimajorAxisH1DM).sum())
+	SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
 
 	###e3_modulus = np.sqrt((e3*e3).sum())
 	dotH1_H1H2 = np.dot(SemimajorAxisH1, vecH1H2)
@@ -80,13 +85,28 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec):
 	###cosAngleH1H2.append(cos_angleH1e3)
 	dotH1H2 = np.dot(SemimajorAxisH1, SemimajorAxisH2)
 	cos_angleH1H2 = np.absolute (dotH1H2 / SemimajorAxisH1_modulus / SemimajorAxisH2_modulus) # cosine of angle between poshalo and e3
-	if num_x_satH1 > 11 :
+
+	###e3_modulus = np.sqrt((e3*e3).sum())
+	dotH1DM_H1H2 = np.dot(SemimajorAxisH1DM, vecH1H2)
+	cos_angleH1DM_H1H2 = np.absolute (dotH1DM_H1H2 / vecH1H2_modulus / SemimajorAxisH1DM_modulus) # cosine of angle between poshalo and e3
+	###cosAngleH1_H1H2.append(cos_angleH1e3)
+	dotH2DM_H1H2 = np.dot(SemimajorAxisH2DM, vecH1H2)
+	cos_angleH2DM_H1H2 = np.absolute (dotH2DM_H1H2 / vecH1H2_modulus / SemimajorAxisH2DM_modulus) # cosine of angle between poshalo and e3
+	###cosAngleH1H2.append(cos_angleH1e3)
+	dotH1H2DM = np.dot(SemimajorAxisH1DM, SemimajorAxisH2DM)
+	cos_angleH1DMH2DM = np.absolute (dotH1H2DM / SemimajorAxisH1DM_modulus / SemimajorAxisH2DM_modulus) # cosine of angle between poshalo and e3
+
+	if num_x_satH1 > SatNumCutoff_alignment :
 		All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
-	if num_x_satH2 > 11 :
+		All_cos_angleH1DM_H1H2.append(cos_angleH1DM_H1H2)
+	if num_x_satH2 > SatNumCutoff_alignment :
 		All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
-	if num_x_satH1 > 11 :
-		if num_x_satH2 > 11 :
+		All_cos_angleH2DM_H1H2.append(cos_angleH2DM_H1H2)
+	if num_x_satH1 > SatNumCutoff_alignment :
+		if num_x_satH2 > SatNumCutoff_alignment :
 			All_cos_angleH1H2.append(cos_angleH1H2)
+			All_cos_angleH1DMH2DM.append(cos_angleH1DMH2DM)
+	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM 	
 
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
@@ -109,21 +129,21 @@ def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, A
 	plt.ylabel('N Halos', fontsize=15)
 	plt.savefig('Hist_shape.pdf')
 
-#def cosangle_prob_plot(cosAngleH1,cosAngleH2, eigenvector, SubHalo1, SubHalo2):
-def cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2):
+def cosangle_prob_plot(p_All_cos_angleH1_H1H2, p_All_cos_angleH2_H1H2, p_All_cos_angleH1H2, SubHalo1, SubHalo2, name, numSat):
 	plt.figure()
 	
 	x = np.linspace(0, 20, 1000)  # 100 evenly-spaced values from 0 to 50
 	y = x
 
-	countsH1, startH1, dxH1, _ = scipy.stats.cumfreq(All_cos_angleH1_H1H2, numbins=50)
-	countsH2, startH2, dxH2, _ = scipy.stats.cumfreq(All_cos_angleH2_H1H2, numbins=50)
-	countsH1H2, startH1H2, dxH1H2, _ = scipy.stats.cumfreq(All_cos_angleH2_H1H2, numbins=50)
+	countsH1, startH1, dxH1, _ = scipy.stats.cumfreq(p_All_cos_angleH1_H1H2, numbins=50)
+	countsH2, startH2, dxH2, _ = scipy.stats.cumfreq(p_All_cos_angleH2_H1H2, numbins=50)
+	countsH1H2, startH1H2, dxH1H2, _ = scipy.stats.cumfreq(p_All_cos_angleH1H2, numbins=50)
 	xH1 = np.arange(countsH1.size) * dxH1 + startH1
 	xH2 = np.arange(countsH2.size) * dxH2 + startH2
 	xH1H2 = np.arange(countsH1H2.size) * dxH1H2 + startH1H2
-	countsH1 = countsH1/len(All_cos_angleH1_H1H2)
-	countsH2 = countsH2/len(All_cos_angleH2_H1H2) 
+	countsH1 = countsH1/len(p_All_cos_angleH1_H1H2)
+	countsH2 = countsH2/len(p_All_cos_angleH2_H1H2) 
+	countsH1H2 = countsH1H2/len(p_All_cos_angleH1H2) 
 	
 	plt.plot(xH1, countsH1, linewidth=3, color = "red")
 	plt.plot(xH2, countsH2, linewidth=3, color = "blue")
@@ -133,7 +153,7 @@ def cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angle
 	plt.ylim(0,1)
 	plt.xlabel('Cos theta ')
 	plt.ylabel('Cumulative Frequency')
-	plt.savefig('freq_pos_dot.pdf')
+	plt.savefig('freq_pos_dot_'+str(name)+'_'+str(numSat)+'.pdf')
 
 
 def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err):
@@ -182,10 +202,10 @@ def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2,
 def plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2,i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax ):
 	plt.figure()
 	#print "vmax, Mag", vmax, Mag
-	plt.plot(vmax_satH1, Mag_satH1, marker='o', c='b')
+	plt.plot(vmax_satH1, Mag_satH1, marker='*', c='b')
 	plt.plot(vmax_satH2, Mag_satH2, marker='o', c='b')
-	plt.plot(vmax_DMsatH1, np.random.uniform(low=2.001, high=2.003, size=len(Mag_DMsatH1)), marker='o', c='green')
-	plt.plot(vmax_DMsatH1_vmax, np.random.uniform(low=1.5001, high=1.5001, size=len(Mag_DMsatH1_vmax)), marker='o', c='red')
+	plt.plot(vmax_DMsatH1, np.random.uniform(low=2.001, high=2.003, size=len(Mag_DMsatH1)), marker='*', c='green')
+	plt.plot(vmax_DMsatH1_vmax, np.random.uniform(low=1.5001, high=1.5001, size=len(Mag_DMsatH1_vmax)), marker='*', c='red')
 	plt.plot(vmax_DMsatH2, np.random.uniform(low=1.00, high=1.001, size=len(Mag_DMsatH2)), marker='o', c='green')
 	plt.plot(vmax_DMsatH2_vmax, np.random.uniform(low=0.500, high=0.5001, size=len(Mag_DMsatH2_vmax)), marker='o', c='red')
 	plt.xlabel('Mass', fontsize=15)
@@ -211,8 +231,8 @@ def MW_data_AxisRatio():
 Npairs = 53 #53 #dm 53
 count=0
 N=100
-ratioAxisRatioH1=[]
-ratioAxisRatioH2=[]
+#*ratioAxisRatioH1=[]
+#*ratioAxisRatioH2=[]
 All_AxisRatioH1   =[] 
 All_AxisRatioH1DM =[] 
 All_AxisRatioH2   =[] 
@@ -235,9 +255,15 @@ All_SatNumH2 =[]
 All_cos_angleH1_H1H2 =[]
 All_cos_angleH2_H1H2 =[]
 All_cos_angleH1H2 =[]
+All_cos_angleH1DM_H1H2 =[]
+All_cos_angleH2DM_H1H2 =[]
+All_cos_angleH1DMH2DM =[]
 
-countHaloPairsmas11 =0
-SatNumCutoff = 8
+countHaloPairs =0
+#number of satelites cutoff for the distribution flatness comparison
+SatNumCutoff = 11 
+#number of satelites cutoff for the distribution and alignment between H1 and H2 luminous or dark satellites 
+SatNumCutoff_alignment =6   
 
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
@@ -262,7 +288,6 @@ for i in range (Npairs):
 	if distH1H2 >=600:
 		Radius = 300. #guess of the virial radius. NOTE: could be improved using Vmax
 	else:
-		#print "XXXXXXXXXXXX  distH1H2=" ,distH1H2, "   XXXXXXXXXXXXX"
 		Radius = 0.4*distH1H2
 		print "i=", i, "Radius =", Radius
 
@@ -287,7 +312,7 @@ for i in range (Npairs):
 	x_DMsatH2, y_DMsatH2, z_DMsatH2 = x_DMsatH2 - x_H2, y_DMsatH2 - y_H2, z_DMsatH2 - z_H2
 	HaloVec = (x_H1[0]- x_H2[0], y_H1[0]- y_H2[0], z_H1[0] - z_H2[0])
 	#print "x, y ,z halos ", x_H1, x_H2, y_H1, y_H2, z_H1, z_H2
-	print "HaloVec", HaloVec, HaloVec[0], HaloVec[1], HaloVec[2]
+	#*print "HaloVec", HaloVec, HaloVec[0], HaloVec[1], HaloVec[2]
 	x_H1, y_H1, z_H1, x_H2, y_H2, z_H2 = 0.,0.,0.,0.,0.,0.
 	#GroupNum =np.str(i)
 	#PairNumber = i
@@ -303,47 +328,42 @@ for i in range (Npairs):
 	num_x_DMsatH2   =len(x_DMsatH2)
 	num_x_satH2   =len(x_satH2)
 
-
+	#plots to see how many dark sub-halos are more massive than the least massive luminous sub-halo
 	plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2, i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax)
-	
-	###   #L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, num_x_satH1)
-	###   #L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, num_x_satH2)
-	###   L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, num_x_DMsatH1)
-	###   #L_Halo_modulus, posHalo_modulus = CalculateAngularMomentum(x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, num_x_H2)
-	###   #return L_Halo_modulus[j], posHalo_modulus[j] 
-	###   #if num_x_satH1>=0.2*num_x_H1 and num_x_satH2>=0.2*num_x_H2:
-	###   #if num_x_satH1>=6 and num_x_satH2>=6:
+
+	#counts how many of the halos have at least 16 luminous satellites
+	#if num_x_satH1>=16:
+	#	count=count+1
+		#print "i=", i , "num_x_H1=", num_x_H1, "num_x_satH1", num_x_satH1 , "count" , count
+
+	#For each halo: from all the subhalos, I create N random subset of num_x_satH1+1 satellites, where num_x_satH1+1 is the number of luminous subhalos.
+	for j in range (N):
+	        index_randH1=np.random.randint(0, num_x_H1, num_x_satH1+1) #genero num_x_satH1 numeros aleatorios
+	        ran_x_satH1 = x_AllH1[index_randH1]
+	        ran_y_satH1 = y_AllH1[index_randH1]
+	        ran_z_satH1 = z_AllH1[index_randH1]
+
+		#calculates the axis ratio of each subset
+		eiValH1_r1, eiVecH1_r1 , TriaxParamH1_r1, AxisRatioH1_r1 = inertiaTensor(ran_x_satH1, ran_y_satH1, ran_z_satH1)
+		AxisRatioH1_r[j]=AxisRatioH1_r1
+		#print " eiVecH1_r1[0]", eiVecH1_r1#[0][0]
+		#eiVecH1_r[:j]=eiVecH1_r1[0]
+
+	#calculates the mean axis ratio of all the subsets
+	AxisRatioH1_r_mean = scipy.stats.tmean(AxisRatioH1_r, limits=None, inclusive=(True, True))
+	AxisRatioH1_r_mean_err = np.var(AxisRatioH1_r, axis=None, dtype=None, out=None, ddof=0)	
+
+	#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
+	eiValH1, eiVecH1 , TriaxParamH1, AxisRatioH1 = inertiaTensor(x_satH1, y_satH1, z_satH1)
+	#print "eiVecH1", eiVecH1
+	eiValH1DM, eiVecH1DM , TriaxParamH1DM, AxisRatioH1DM = inertiaTensor(x_DMsatH1, y_DMsatH1, z_DMsatH1)
+	eiValH1All, eiVecH1All , TriaxParamH1All, AxisRatioH1All = inertiaTensor(x_AllH1, y_AllH1, z_AllH1)
+
+	#*H1_ratioAxisRatioH1=AxisRatioH1/AxisRatioH1_r_mean
+	#*ratioAxisRatioH1.append(H1_ratioAxisRatioH1)
 
 	#selects halos with a minimum number of luminous satellites:
 	if num_x_satH1>=SatNumCutoff:
-		#counts how many of the halos have at least 16 luminous satellites
-		if num_x_satH1>=16:
-			count=count+1
-			print "i=", i , "num_x_H1=", num_x_H1, "num_x_satH1", num_x_satH1 , "count" , count
-
-		#For each halo: from all the subhalos, I create a random subset of N satellites, where N is the number of luminous subhalos.
-		for j in range (N):
-        	        index_randH1=np.random.randint(0, num_x_H1, num_x_satH1+1) #genero num_x_satH1 numeros aleatorios
-        	        ran_x_satH1 = x_AllH1[index_randH1]
-        	        ran_y_satH1 = y_AllH1[index_randH1]
-        	        ran_z_satH1 = z_AllH1[index_randH1]
-
-			#calculates the axis ratio of each subset
-			eiValH1_r1, eiVecH1_r1 , TriaxParamH1_r1, AxisRatioH1_r1 = inertiaTensor(ran_x_satH1, ran_y_satH1, ran_z_satH1)
-			AxisRatioH1_r[j]=AxisRatioH1_r1
-	
-		#calculates the mean axis ratio of all the subsets
-		AxisRatioH1_r_mean = scipy.stats.tmean(AxisRatioH1_r, limits=None, inclusive=(True, True))
-		AxisRatioH1_r_mean_err = np.var(AxisRatioH1_r, axis=None, dtype=None, out=None, ddof=0)	
-	
-		#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
-		eiValH1, eiVecH1 , TriaxParamH1, AxisRatioH1 = inertiaTensor(x_satH1, y_satH1, z_satH1)
-		eiValH1DM, eiVecH1DM , TriaxParamH1DM, AxisRatioH1DM = inertiaTensor(x_DMsatH1, y_DMsatH1, z_DMsatH1)
-		eiValH1All, eiVecH1All , TriaxParamH1All, AxisRatioH1All = inertiaTensor(x_AllH1, y_AllH1, z_AllH1)
-
-		H1_ratioAxisRatioH1=AxisRatioH1/AxisRatioH1_r_mean
-		ratioAxisRatioH1.append(H1_ratioAxisRatioH1)
-
 		All_AxisRatioH1.append(AxisRatioH1)
 		All_AxisRatioH1DM.append(AxisRatioH1DM)
 
@@ -355,41 +375,42 @@ for i in range (Npairs):
 		All_AxisRatioH1random_mean_err.append(AxisRatioH1_r_mean_err)
 		All_SatNumH1.append(4.*num_x_satH1)
 
+	#counts how many of the halos have at least 16 luminous satellites
+	#if num_x_satH2>=16:
+	#	count=count+1
+		#print "i=", i , "num_x_H2=", num_x_H2, "num_x_satH2", num_x_satH2 , "count" , count
+
+	#For each halo: from all the subhalos, I create N random subset of num_x_satH2+1 satellites, where num_x_satH2+1 is the number of luminous subhalos.
+	for j in range (N):
+	        index_randH2=np.random.randint(0, num_x_H2, num_x_satH2+1) #genero num_x_satH2 numeros aleatorios
+	        ran_x_satH2 = x_AllH2[index_randH2]
+	        ran_y_satH2 = y_AllH2[index_randH2]
+	        ran_z_satH2 = z_AllH2[index_randH2]
+
+		#calculates the axis ratio of each subset
+		eiValH2_r2, eiVecH2_r2 , TriaxParamH2_r2, AxisRatioH2_r2 = inertiaTensor(ran_x_satH2, ran_y_satH2, ran_z_satH2)
+		AxisRatioH2_r[j]=AxisRatioH2_r2
+		####****AxisRatioH2_r[j]=AxisRatioH2_r2
+		#print "EI vecr2" , eiVecH2_r2 
+
+	#calculates the mean axis ratio of all the subsets
+	AxisRatioH2_r_mean = scipy.stats.tmean(AxisRatioH2_r, limits=None, inclusive=(True, True))
+	AxisRatioH2_r_mean_err = np.var(AxisRatioH2_r, axis=None, dtype=None, out=None, ddof=0)	
+
+	#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
+	eiValH2, eiVecH2 , TriaxParamH2, AxisRatioH2 = inertiaTensor(x_satH2, y_satH2, z_satH2)
+	#print "eivecH2",  eiVecH2
+	#print "eivecH2[0][0]",  eiVecH2[0][0]
+	#print "eivecH2[0][1]",  eiVecH2[0][1]
+	#print "eivecH2[1][0]",  eiVecH2[1][0]
+	eiValH2DM, eiVecH2DM , TriaxParamH2D0M, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
+	eiValH2All, eiVecH2All , TriaxParamH2All, AxisRatioH2All = inertiaTensor(x_AllH2, y_AllH2, z_AllH2)
+
+	#*H2_ratioAxisRatioH2=AxisRatioH2/AxisRatioH2_r_mean
+	#*ratioAxisRatioH2.append(H2_ratioAxisRatioH2)
+
 	#selects halos with a minimum number of luminous satellites:
 	if num_x_satH2>=SatNumCutoff:
-		#counts how many of the halos have at least 16 luminous satellites
-		if num_x_satH2>=16:
-			count=count+1
-			print "i=", i , "num_x_H2=", num_x_H2, "num_x_satH2", num_x_satH2 , "count" , count
-
-		#For each halo: from all the subhalos, I create a random subset of N satellites, where N is the number of luminous subhalos.
-		for j in range (N):
-        	        index_randH2=np.random.randint(0, num_x_H2, num_x_satH2+1) #genero num_x_satH2 numeros aleatorios
-        	        ran_x_satH2 = x_AllH2[index_randH2]
-        	        ran_y_satH2 = y_AllH2[index_randH2]
-        	        ran_z_satH2 = z_AllH2[index_randH2]
-
-			#calculates the axis ratio of each subset
-			eiValH2_r2, eiVecH2_r2 , TriaxParamH2_r2, AxisRatioH2_r2 = inertiaTensor(ran_x_satH2, ran_y_satH2, ran_z_satH2)
-			AxisRatioH2_r[j]=AxisRatioH2_r2
-			#print "EI vecr2" , eiVecH2_r2 
-	
-		#calculates the mean axis ratio of all the subsets
-		AxisRatioH2_r_mean = scipy.stats.tmean(AxisRatioH2_r, limits=None, inclusive=(True, True))
-		AxisRatioH2_r_mean_err = np.var(AxisRatioH2_r, axis=None, dtype=None, out=None, ddof=0)	
-	
-		#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
-		eiValH2, eiVecH2 , TriaxParamH2, AxisRatioH2 = inertiaTensor(x_satH2, y_satH2, z_satH2)
-		print "eivecH2",  eiVecH2
-		print "eivecH2[0][0]",  eiVecH2[0][0]
-		print "eivecH2[0][1]",  eiVecH2[0][1]
-		print "eivecH2[1][0]",  eiVecH2[1][0]
-		eiValH2DM, eiVecH2DM , TriaxParamH2D0M, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
-		eiValH2All, eiVecH2All , TriaxParamH2All, AxisRatioH2All = inertiaTensor(x_AllH2, y_AllH2, z_AllH2)
-
-		H2_ratioAxisRatioH2=AxisRatioH2/AxisRatioH2_r_mean
-		ratioAxisRatioH2.append(H2_ratioAxisRatioH2)
-
 		All_AxisRatioH2.append(AxisRatioH2 )  
 		All_AxisRatioH2DM.append(AxisRatioH2DM ) 
 
@@ -399,16 +420,18 @@ for i in range (Npairs):
 
 		All_AxisRatioH2random_mean.append(AxisRatioH2_r_mean) 
 		All_AxisRatioH2random_mean_err.append(AxisRatioH2_r_mean_err) 
-		All_SatNumH2.append(4.*num_x_satH2)
-	
-	#if num_x_satH1>=11 & num_x_satH2>=11: 	
-		Alignment_H1H2_haloShape(eiVecH1, eiVecH2, HaloVec)
-		countHaloPairsmas11 = countHaloPairsmas11  +1 
-print "xxxxxxxxxxxxxxxx i, count halo pairs mas11xxxxxxxxxxxxxx", i, countHaloPairsmas11
+		All_SatNumH2.append(4.*num_x_satH2) #el 4 es solo para que en el plot se vean mejor
+	#print "eiVecH1", eiVecH1
+	#if num_x_satH1>= SatNumCutoff_alignment & num_x_satH2>= SatNumCutoff_alignment: 	
+	All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1 , eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
+		#All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1DM, eiVecH2DM, HaloVec)
+		#countHaloPairs = countHaloPairs  +1 
+print "xxxxxxxxxxxxxxxx i, countHaloPairs , SatNumCutoff xxxxxxxxxxxxxx", i, countHaloPairs, SatNumCutoff 
 
 SubHalo1, SubHalo2 =  num_x_satH1,  num_x_satH2
-cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2)
+cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2, name = 'luminous', numSat = str(SatNumCutoff_alignment))
+cosangle_prob_plot(All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, SubHalo1, SubHalo2, name = 'DM', numSat = str(SatNumCutoff_alignment))
 
-Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
+#*Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
 
 Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All, All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err)
