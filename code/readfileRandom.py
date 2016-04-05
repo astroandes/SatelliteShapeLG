@@ -4,6 +4,7 @@ import scipy.stats
 import pdb
 import matplotlib.pyplot as plt		# paquete para graficar
 import matplotlib.cm as cm
+from scipy.interpolate import interp1d
 
 def loading_snapshot(snap_name,i):
 	data = np.loadtxt(snap_name)
@@ -17,6 +18,7 @@ def loading_snapshot(snap_name,i):
 	Mag  = data[:,8]
 	return x, y, z, vx, vy, vz, vmax, Mag
 
+#finds the 2 main halos 
 def MainHalos(x, y, z, vx, vy, vz, vmax, Mag):
         max_vmax = np.amax(vmax)
         max_vmax = np.amax(vmax)
@@ -25,11 +27,13 @@ def MainHalos(x, y, z, vx, vy, vz, vmax, Mag):
         index = index[0]
 	return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index], x[indexH], y[indexH], z[indexH], vx[indexH], vy[indexH], vz[indexH], vmax[indexH], Mag[indexH]  
 
+# determines which subhalos "belong" to which main halo
 def AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, dist_a, dist_b, DistTreshold, MagTresholdUPPER, MagTresholdLOWER):
         index = np.where((dist_a < dist_b)*(dist_a < DistTreshold)*(Mag<MagTresholdUPPER)*(Mag>MagTresholdLOWER)) 
         index = index[0]
 	return x[index], y[index], z[index], vx[index], vy[index], vz[index], vmax[index], Mag[index] 
 
+#selects subhalos above a certain vmax
 def vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, dist_a, dist_b, DistTreshold, MagTresholdUPPER, MagTresholdLOWER, vmaxTresholdLOWER):
         index = np.where((dist_a < dist_b)*(dist_a < DistTreshold)*(Mag<MagTresholdUPPER)*(Mag>MagTresholdLOWER)*(vmax>vmaxTresholdLOWER)) 
         index = index[0]
@@ -60,7 +64,7 @@ def inertiaTensor(x, y, z):
 	return ord_vals, ord_vects, TriaxParam, AxisRatio
 
 
-def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec):
+def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, countH1, countH2, countH1H2):
 		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
 	vecH1H2 = HaloVec 
 	print "vecH1H2", vecH1H2
@@ -99,14 +103,17 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec):
 	if num_x_satH1 > SatNumCutoff_alignment :
 		All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
 		All_cos_angleH1DM_H1H2.append(cos_angleH1DM_H1H2)
+		countH1 = countH1 + 1
 	if num_x_satH2 > SatNumCutoff_alignment :
 		All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
 		All_cos_angleH2DM_H1H2.append(cos_angleH2DM_H1H2)
+		countH2 = countH2 + 1
 	if num_x_satH1 > SatNumCutoff_alignment :
 		if num_x_satH2 > SatNumCutoff_alignment :
 			All_cos_angleH1H2.append(cos_angleH1H2)
 			All_cos_angleH1DMH2DM.append(cos_angleH1DMH2DM)
-	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM 	
+		countH1H2 = countH1H2 + 1
+	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 	
 
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
@@ -135,6 +142,10 @@ def cosangle_prob_plot(p_All_cos_angleH1_H1H2, p_All_cos_angleH2_H1H2, p_All_cos
 	x = np.linspace(0, 20, 1000)  # 100 evenly-spaced values from 0 to 50
 	y = x
 
+	a1,b1,c1,d1 = get_randoms(n_points=countH1)
+	a2,b2,c2,d2 = get_randoms(n_points=countH2)
+	a12,b12,c12,d12 = get_randoms(n_points=countH2)
+
 	countsH1, startH1, dxH1, _ = scipy.stats.cumfreq(p_All_cos_angleH1_H1H2, numbins=50)
 	countsH2, startH2, dxH2, _ = scipy.stats.cumfreq(p_All_cos_angleH2_H1H2, numbins=50)
 	countsH1H2, startH1H2, dxH1H2, _ = scipy.stats.cumfreq(p_All_cos_angleH1H2, numbins=50)
@@ -148,12 +159,46 @@ def cosangle_prob_plot(p_All_cos_angleH1_H1H2, p_All_cos_angleH2_H1H2, p_All_cos
 	plt.plot(xH1, countsH1, linewidth=3, color = "red")
 	plt.plot(xH2, countsH2, linewidth=3, color = "blue")
 	plt.plot(xH1H2, countsH1H2, linewidth=3, color = "green")
+	plt.plot(a1, b1, linewidth=3, color = "red")
+	plt.plot(a1, c1, linewidth=3, color = "red")
+	plt.plot(a1, d1, linewidth=3, color = "red")
+	plt.plot(a2, b2, linewidth=3, color = "blue")
+	plt.plot(a2, c2, linewidth=3, color = "blue")
+	plt.plot(a2, d2, linewidth=3, color = "blue")
+	plt.plot(a12, b12, linewidth=3, color = "green")
+	plt.plot(a12, c12, linewidth=3, color = "green")
+	plt.plot(a12, d12, linewidth=3, color = "green")
 	plt.plot(x, y, color="black")
 	plt.xlim(0,1)
 	plt.ylim(0,1)
 	plt.xlabel('Cos theta ')
 	plt.ylabel('Cumulative Frequency')
 	plt.savefig('freq_pos_dot_'+str(name)+'_'+str(numSat)+'.pdf')
+
+def get_randoms(n_points=10):
+	n_random = 5000
+	n_points_x = 80
+	y_axis = np.linspace(0.0,1.0,n_points)
+	x_axis_dense = np.linspace(0.0,1.0,n_points_x)
+	y_axis_dense_all = np.zeros([n_random,n_points_x])
+	for i in range(n_random):
+	    ran_range = np.random.random(n_points)
+	    ran_range = np.sort(ran_range)
+	    ran_range[0] = 0.0
+	    ran_range[-1] = 1.0
+	    f = interp1d(ran_range, y_axis)
+	    y_axis_dense = f(x_axis_dense)
+	    y_axis_dense_all[i,:] = y_axis_dense[:]
+	
+	y_axis_median = np.ones(n_points_x)
+	y_axis_low = np.ones(n_points_x)
+	y_axis_high = np.ones(n_points_x)
+	for i in range(n_points_x):
+	    y_axis_median[i] = np.median(y_axis_dense_all[:,i])
+	    y_axis_low[i] = np.percentile(y_axis_dense_all[:,i],5)
+	    y_axis_high[i] = np.percentile(y_axis_dense_all[:,i],95)
+	
+	return x_axis_dense, y_axis_median, y_axis_low, y_axis_high
 
 
 def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err):
@@ -228,6 +273,7 @@ def MW_data_AxisRatio():
 
 #MAIN
 
+
 Npairs = 53 #53 #dm 53
 count=0
 N=100
@@ -264,6 +310,11 @@ countHaloPairs =0
 SatNumCutoff = 11 
 #number of satelites cutoff for the distribution and alignment between H1 and H2 luminous or dark satellites 
 SatNumCutoff_alignment =11   
+countH1 = 0
+countH2 = 0
+countH1H2 = 0
+
+
 
 for i in range (Npairs):
 	AxisRatioH1_r=np.zeros([N])
@@ -423,7 +474,7 @@ for i in range (Npairs):
 		All_SatNumH2.append(4.*num_x_satH2) #el 4 es solo para que en el plot se vean mejor
 	#print "eiVecH1", eiVecH1
 	#if num_x_satH1>= SatNumCutoff_alignment & num_x_satH2>= SatNumCutoff_alignment: 	
-	All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1 , eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
+	All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 = Alignment_H1H2_haloShape(eiVecH1 , eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, countH1, countH2, countH1H2)
 		#All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1DM, eiVecH2DM, HaloVec)
 		#countHaloPairs = countHaloPairs  +1 
 print "xxxxxxxxxxxxxxxx i, countHaloPairs , SatNumCutoff xxxxxxxxxxxxxx", i, countHaloPairs, SatNumCutoff 
