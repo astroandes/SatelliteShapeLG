@@ -307,9 +307,9 @@ All_cos_angleH1DMH2DM =[]
 
 countHaloPairs =0
 #number of satelites cutoff for the distribution flatness comparison
-SatNumCutoff = 11 
+SatNumCutoff = 3 
 #number of satelites cutoff for the distribution and alignment between H1 and H2 luminous or dark satellites 
-SatNumCutoff_alignment =11   
+SatNumCutoff_alignment = 3   
 countH1 = 0
 countH2 = 0
 countH1H2 = 0
