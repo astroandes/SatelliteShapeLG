@@ -115,6 +115,41 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, co
 		countH1H2 = countH1H2 + 1
 	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 	
 
+def Alignment_DM_luminous(eiVecH, eiVecHDM, countH, countHDM):
+		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
+	#vecH1H2 = HaloVec 
+	#print "vecH1H2", vecH1H2
+	#print "eiVecH1", eiVecH1 
+	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
+	#vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
+	SemimajorAxisH1=eiVecH[0] 
+	SemimajorAxisHDM=eiVecHDM[0]
+	#SemimajorAxisH1DM=eiVecH1DM[0] 
+	#SemimajorAxisH2DM=eiVecH2DM[0]
+	SemimajorAxisH_modulus = np.sqrt((SemimajorAxisH*SemimajorAxisH).sum())
+	#SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
+	SemimajorAxisHDM_modulus = np.sqrt((SemimajorAxisHDM*SemimajorAxisHDM).sum())
+	#SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
+
+	###cosAngleH1H2.append(cos_angleH1e3)
+	dotHHDM = np.dot(SemimajorAxisH, SemimajorAxisHDM)
+	cos_angleHHDM = np.absolute (dotHHDM / SemimajorAxisH_modulus / SemimajorAxisHDM_modulus) # cosine of angle between poshalo and e3
+
+	if num_x_satH1 > SatNumCutoff_alignment :
+		All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
+		All_cos_angleH1DM_H1H2.append(cos_angleH1DM_H1H2)
+		countH1 = countH1 + 1
+	if num_x_satH2 > SatNumCutoff_alignment :
+		All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
+		All_cos_angleH2DM_H1H2.append(cos_angleH2DM_H1H2)
+		countH2 = countH2 + 1
+	if num_x_satH1 > SatNumCutoff_alignment :
+		if num_x_satH2 > SatNumCutoff_alignment :
+			All_cos_angleH1H2.append(cos_angleH1H2)
+			All_cos_angleH1DMH2DM.append(cos_angleH1DMH2DM)
+		countH1H2 = countH1H2 + 1
+	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 	
+
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
 	fig = plt.figure(figsize=(6, 6))
