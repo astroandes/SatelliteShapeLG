@@ -115,41 +115,69 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, co
 		countH1H2 = countH1H2 + 1
 	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 	
 
-def Alignment_DM_luminous(eiVecH, eiVecHDM, countH, countHDM):
+
+def Alignment_DM_luminous(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, countH1, countH2, num_x_satH1, num_x_satH1DM, num_x_satH2, num_x_satH2DM):
 		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
 	#vecH1H2 = HaloVec 
 	#print "vecH1H2", vecH1H2
 	#print "eiVecH1", eiVecH1 
 	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
 	#vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
-	SemimajorAxisH1=eiVecH[0] 
-	SemimajorAxisHDM=eiVecHDM[0]
+	SemimajorAxisH1=eiVecH1[0] 
+	SemimajorAxisH2=eiVecH2[0] 
+	SemimajorAxisH1DM=eiVecH1DM[0]
+	SemimajorAxisH2DM=eiVecH2DM[0]
 	#SemimajorAxisH1DM=eiVecH1DM[0] 
 	#SemimajorAxisH2DM=eiVecH2DM[0]
-	SemimajorAxisH_modulus = np.sqrt((SemimajorAxisH*SemimajorAxisH).sum())
+	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
+	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
 	#SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
-	SemimajorAxisHDM_modulus = np.sqrt((SemimajorAxisHDM*SemimajorAxisHDM).sum())
+	SemimajorAxisH1DM_modulus = np.sqrt((SemimajorAxisH1DM*SemimajorAxisH1DM).sum())
+	SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
 	#SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
 
 	###cosAngleH1H2.append(cos_angleH1e3)
-	dotHHDM = np.dot(SemimajorAxisH, SemimajorAxisHDM)
-	cos_angleHHDM = np.absolute (dotHHDM / SemimajorAxisH_modulus / SemimajorAxisHDM_modulus) # cosine of angle between poshalo and e3
+	dotH1DM = np.dot(SemimajorAxisH1, SemimajorAxisH1DM)
+	dotH2DM = np.dot(SemimajorAxisH2, SemimajorAxisH2DM)
+	cos_angleH1DM = np.absolute (dotH1DM / SemimajorAxisH1_modulus / SemimajorAxisH1DM_modulus) # cosine of angle between poshalo and e3
+	cos_angleH2DM = np.absolute (dotH2DM / SemimajorAxisH2_modulus / SemimajorAxisH2DM_modulus) # cosine of angle between poshalo and e3
 
 	if num_x_satH1 > SatNumCutoff_alignment :
-		All_cos_angleH1_H1H2.append(cos_angleH1_H1H2)
-		All_cos_angleH1DM_H1H2.append(cos_angleH1DM_H1H2)
-		countH1 = countH1 + 1
+		if num_x_satH1DM > SatNumCutoff_alignment :
+			All_cos_angleH1DM.append(cos_angleH1DM)
+			countH1 = countH1 + 1
 	if num_x_satH2 > SatNumCutoff_alignment :
-		All_cos_angleH2_H1H2.append(cos_angleH2_H1H2)
-		All_cos_angleH2DM_H1H2.append(cos_angleH2DM_H1H2)
-		countH2 = countH2 + 1
-	if num_x_satH1 > SatNumCutoff_alignment :
-		if num_x_satH2 > SatNumCutoff_alignment :
-			All_cos_angleH1H2.append(cos_angleH1H2)
-			All_cos_angleH1DMH2DM.append(cos_angleH1DMH2DM)
-		countH1H2 = countH1H2 + 1
-	return All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 	
+		if num_x_satH2DM > SatNumCutoff_alignment :
+			All_cos_angleH2DM.append(cos_angleH2DM)
+			countH2 = countH2 + 1
+	return All_cos_angleH1DM, All_cos_angleH2DM, countH1, countH2 	
 
+######b    def Alignment_DM_luminous(eiVecH, eiVecHDM, countH, num_x_satH, num_x_satHDM):
+######b    		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
+######b    	#vecH1H2 = HaloVec 
+######b    	#print "vecH1H2", vecH1H2
+######b    	#print "eiVecH1", eiVecH1 
+######b    	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
+######b    	#vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
+######b    	SemimajorAxisH=eiVecH[0] 
+######b    	SemimajorAxisHDM=eiVecHDM[0]
+######b    	#SemimajorAxisH1DM=eiVecH1DM[0] 
+######b    	#SemimajorAxisH2DM=eiVecH2DM[0]
+######b    	SemimajorAxisH_modulus = np.sqrt((SemimajorAxisH*SemimajorAxisH).sum())
+######b    	#SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
+######b    	SemimajorAxisHDM_modulus = np.sqrt((SemimajorAxisHDM*SemimajorAxisHDM).sum())
+######b    	#SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
+######b    
+######b    	###cosAngleH1H2.append(cos_angleH1e3)
+######b    	dotHHDM = np.dot(SemimajorAxisH, SemimajorAxisHDM)
+######b    	cos_angleHHDM = np.absolute (dotHHDM / SemimajorAxisH_modulus / SemimajorAxisHDM_modulus) # cosine of angle between poshalo and e3
+######b    
+######b    	if num_x_satH > SatNumCutoff_alignment :
+######b    		if num_x_satHDM > SatNumCutoff_alignment :
+######b    			All_cos_angleHDM.append(cos_angleHHDM)
+######b    			countH = countH + 1
+######b    	return All_cos_angleHDM, countH 	
+######b    
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
 	fig = plt.figure(figsize=(6, 6))
@@ -170,6 +198,7 @@ def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, A
 	plt.xlabel('cos angle pos ', fontsize=15) 
 	plt.ylabel('N Halos', fontsize=15)
 	plt.savefig('Hist_shape.pdf')
+
 
 def cosangle_prob_plot(p_All_cos_angleH1_H1H2, p_All_cos_angleH2_H1H2, p_All_cos_angleH1H2, SubHalo1, SubHalo2, name, numSat):
 	plt.figure()
@@ -209,6 +238,38 @@ def cosangle_prob_plot(p_All_cos_angleH1_H1H2, p_All_cos_angleH2_H1H2, p_All_cos
 	plt.xlabel('Cos theta ')
 	plt.ylabel('Cumulative Frequency')
 	plt.savefig('freq_pos_dot_'+str(name)+'_'+str(numSat)+'.pdf')
+
+def cosangle_HDM_prob_plot(p_All_cos_angleH1DM, p_All_cos_angleH2DM, SubHalo1, SubHalo2, name, numSat):
+	plt.figure()
+	
+	x = np.linspace(0, 20, 1000)  # 100 evenly-spaced values from 0 to 50
+	y = x
+
+	a1,b1,c1,d1 = get_randoms(n_points=countH_1)
+	a2,b2,c2,d2 = get_randoms(n_points=countH_2)
+	#a12,b12,c12,d12 = get_randoms(n_points=countH2)
+
+	countsH1, startH1, dxH1, _ = scipy.stats.cumfreq(p_All_cos_angleH1DM, numbins=50)
+	countsH2, startH2, dxH2, _ = scipy.stats.cumfreq(p_All_cos_angleH2DM, numbins=50)
+	xH1 = np.arange(countsH1.size) * dxH1 + startH1
+	xH2 = np.arange(countsH2.size) * dxH2 + startH2
+	countsH1 = countsH1/len(p_All_cos_angleH1DM)
+	countsH2 = countsH2/len(p_All_cos_angleH2DM) 
+	
+	plt.plot(xH1, countsH1, linewidth=3, color = "red")
+	plt.plot(xH2, countsH2, linewidth=3, color = "blue")
+	plt.plot(a1, b1, linewidth=3, color = "red")
+	plt.plot(a1, c1, linewidth=3, color = "red")
+	plt.plot(a1, d1, linewidth=3, color = "red")
+	plt.plot(a2, b2, linewidth=3, color = "blue")
+	plt.plot(a2, c2, linewidth=3, color = "blue")
+	plt.plot(a2, d2, linewidth=3, color = "blue")
+	plt.plot(x, y, color="black")
+	plt.xlim(0,1)
+	plt.ylim(0,1)
+	plt.xlabel('Cos theta ')
+	plt.ylabel('Cumulative Frequency')
+	plt.savefig('freq_pos_dot_'+str(name)+'_'+str(numSat)+'HDM.pdf')
 
 def get_randoms(n_points=10):
 	n_random = 5000
@@ -339,15 +400,21 @@ All_cos_angleH1H2 =[]
 All_cos_angleH1DM_H1H2 =[]
 All_cos_angleH2DM_H1H2 =[]
 All_cos_angleH1DMH2DM =[]
+All_cos_angleH1DM =[]
+All_cos_angleH2DM =[]
+All_cos_angleHDM =[]
 
 countHaloPairs =0
 #number of satelites cutoff for the distribution flatness comparison
-SatNumCutoff = 3 
+SatNumCutoff = 6 
 #number of satelites cutoff for the distribution and alignment between H1 and H2 luminous or dark satellites 
-SatNumCutoff_alignment = 3   
+SatNumCutoff_alignment = 6   
 countH1 = 0
 countH2 = 0
 countH1H2 = 0
+countH_1 = 0
+countH_2= 0
+countHDM = 0
 
 
 
@@ -511,12 +578,16 @@ for i in range (Npairs):
 	#if num_x_satH1>= SatNumCutoff_alignment & num_x_satH2>= SatNumCutoff_alignment: 	
 	All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 = Alignment_H1H2_haloShape(eiVecH1 , eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, countH1, countH2, countH1H2)
 		#All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1DM, eiVecH2DM, HaloVec)
+	#All_cos_angleH1DM, countH_1 = Alignment_DM_luminous(eiVecH1, eiVecH1DM, countH_1, num_x_satH1,  num_x_DMsatH1)
+	#All_cos_angleH2DM, countH_2 = Alignment_DM_luminous(eiVecH2, eiVecH2DM, countH_2, num_x_satH2,  num_x_DMsatH2)
+	All_cos_angleH1DM, All_cos_angleH2DM, countH_1, countH_2 = Alignment_DM_luminous(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, countH_1, countH_2, num_x_satH1, num_x_DMsatH1, num_x_satH2, num_x_DMsatH2)
 		#countHaloPairs = countHaloPairs  +1 
 print "xxxxxxxxxxxxxxxx i, countHaloPairs , SatNumCutoff xxxxxxxxxxxxxx", i, countHaloPairs, SatNumCutoff 
 
 SubHalo1, SubHalo2 =  num_x_satH1,  num_x_satH2
 cosangle_prob_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, SubHalo1, SubHalo2, name = 'luminous', numSat = str(SatNumCutoff_alignment))
 cosangle_prob_plot(All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, SubHalo1, SubHalo2, name = 'DM', numSat = str(SatNumCutoff_alignment))
+cosangle_HDM_prob_plot(All_cos_angleH1DM, All_cos_angleH2DM, SubHalo1, SubHalo2, name='luminousDM', numSat=str(SatNumCutoff_alignment))
 
 #*Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
 
