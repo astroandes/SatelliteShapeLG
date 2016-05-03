@@ -65,7 +65,7 @@ def inertiaTensor(x, y, z):
 
 
 def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, countH1, countH2, countH1H2):
-		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
+	#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
 	vecH1H2 = HaloVec 
 	print "vecH1H2", vecH1H2
 	print "eiVecH1", eiVecH1 
@@ -117,24 +117,17 @@ def Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, co
 
 
 def Alignment_DM_luminous(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, countH1, countH2, num_x_satH1, num_x_satH1DM, num_x_satH2, num_x_satH2DM):
-		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
-	#vecH1H2 = HaloVec 
-	#print "vecH1H2", vecH1H2
-	#print "eiVecH1", eiVecH1 
+	#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
 	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
 	#vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
 	SemimajorAxisH1=eiVecH1[0] 
 	SemimajorAxisH2=eiVecH2[0] 
 	SemimajorAxisH1DM=eiVecH1DM[0]
 	SemimajorAxisH2DM=eiVecH2DM[0]
-	#SemimajorAxisH1DM=eiVecH1DM[0] 
-	#SemimajorAxisH2DM=eiVecH2DM[0]
 	SemimajorAxisH1_modulus = np.sqrt((SemimajorAxisH1*SemimajorAxisH1).sum())
 	SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
-	#SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
 	SemimajorAxisH1DM_modulus = np.sqrt((SemimajorAxisH1DM*SemimajorAxisH1DM).sum())
 	SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
-	#SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
 
 	###cosAngleH1H2.append(cos_angleH1e3)
 	dotH1DM = np.dot(SemimajorAxisH1, SemimajorAxisH1DM)
@@ -152,32 +145,6 @@ def Alignment_DM_luminous(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, countH1, count
 			countH2 = countH2 + 1
 	return All_cos_angleH1DM, All_cos_angleH2DM, countH1, countH2 	
 
-######b    def Alignment_DM_luminous(eiVecH, eiVecHDM, countH, num_x_satH, num_x_satHDM):
-######b    		#All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec)
-######b    	#vecH1H2 = HaloVec 
-######b    	#print "vecH1H2", vecH1H2
-######b    	#print "eiVecH1", eiVecH1 
-######b    	#vecH1H2_modulus = np.sqrt((HaloVec*HaloVec).sum())  
-######b    	#vecH1H2_modulus = np.sqrt(vecH1H2[0]*vecH1H2[0]+vecH1H2[1]*vecH1H2[1]+vecH1H2[2]*vecH1H2[2])  
-######b    	SemimajorAxisH=eiVecH[0] 
-######b    	SemimajorAxisHDM=eiVecHDM[0]
-######b    	#SemimajorAxisH1DM=eiVecH1DM[0] 
-######b    	#SemimajorAxisH2DM=eiVecH2DM[0]
-######b    	SemimajorAxisH_modulus = np.sqrt((SemimajorAxisH*SemimajorAxisH).sum())
-######b    	#SemimajorAxisH2_modulus = np.sqrt((SemimajorAxisH2*SemimajorAxisH2).sum())
-######b    	SemimajorAxisHDM_modulus = np.sqrt((SemimajorAxisHDM*SemimajorAxisHDM).sum())
-######b    	#SemimajorAxisH2DM_modulus = np.sqrt((SemimajorAxisH2DM*SemimajorAxisH2DM).sum())
-######b    
-######b    	###cosAngleH1H2.append(cos_angleH1e3)
-######b    	dotHHDM = np.dot(SemimajorAxisH, SemimajorAxisHDM)
-######b    	cos_angleHHDM = np.absolute (dotHHDM / SemimajorAxisH_modulus / SemimajorAxisHDM_modulus) # cosine of angle between poshalo and e3
-######b    
-######b    	if num_x_satH > SatNumCutoff_alignment :
-######b    		if num_x_satHDM > SatNumCutoff_alignment :
-######b    			All_cos_angleHDM.append(cos_angleHHDM)
-######b    			countH = countH + 1
-######b    	return All_cos_angleHDM, countH 	
-######b    
 def Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2):
 	plt.figure()
 	fig = plt.figure(figsize=(6, 6))
@@ -342,7 +309,6 @@ def Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All ,All_AxisRatioH2,
 
 def plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2,i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax ):
 	plt.figure()
-	#print "vmax, Mag", vmax, Mag
 	plt.plot(vmax_satH1, Mag_satH1, marker='*', c='b')
 	plt.plot(vmax_satH2, Mag_satH2, marker='o', c='b')
 	plt.plot(vmax_DMsatH1, np.random.uniform(low=2.001, high=2.003, size=len(Mag_DMsatH1)), marker='*', c='green')
@@ -351,7 +317,6 @@ def plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_sat
 	plt.plot(vmax_DMsatH2_vmax, np.random.uniform(low=0.500, high=0.5001, size=len(Mag_DMsatH2_vmax)), marker='o', c='red')
 	plt.xlabel('Mass', fontsize=15)
 	plt.ylabel('Magnitude', fontsize=15)
-	#plt.xlim([0,1])
 	plt.ylim([-25,2.5])
 	plt.savefig('Magnitude_vs_Mass_'+str(i)+'.pdf')
 
@@ -373,6 +338,7 @@ def MW_data_AxisRatio():
 Npairs = 53 #53 #dm 53
 count=0
 N=100
+Vmaxlimit = 05.
 #*ratioAxisRatioH1=[]
 #*ratioAxisRatioH2=[]
 All_AxisRatioH1   =[] 
@@ -444,15 +410,27 @@ for i in range (Npairs):
 		Radius = 0.4*distH1H2
 		print "i=", i, "Radius =", Radius
 
-	x_AllH1, y_AllH1, z_AllH1, vx_AllH1, vy_AllH1, vz_AllH1, vmax_AllH1, Mag_AllH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER = 10e45, MagTresholdLOWER = -1000000.)
-	x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, vmax_satH1, Mag_satH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
-	x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, vmax_DMsatH1, Mag_DMsatH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+	#x_AllH1, y_AllH1, z_AllH1, vx_AllH1, vy_AllH1, vz_AllH1, vmax_AllH1, Mag_AllH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER = 10e45, MagTresholdLOWER = -1000000.)
+	#x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, vmax_satH1, Mag_satH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
+	#x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, vmax_DMsatH1, Mag_DMsatH1 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+
+
+	x_AllH1, y_AllH1, z_AllH1, vx_AllH1, vy_AllH1, vz_AllH1, vmax_AllH1, Mag_AllH1 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER = 10e45, MagTresholdLOWER = -1000000., vmaxTresholdLOWER = Vmaxlimit)
+	x_satH1, y_satH1, z_satH1, vx_satH1, vy_satH1, vz_satH1, vmax_satH1, Mag_satH1 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000., vmaxTresholdLOWER = Vmaxlimit)
+	x_DMsatH1, y_DMsatH1, z_DMsatH1, vx_DMsatH1, vy_DMsatH1, vz_DMsatH1, vmax_DMsatH1, Mag_DMsatH1 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = Vmaxlimit)
+
 	x_DMsatH1_vmax, y_DMsatH1_vmax, z_DMsatH1_vmax, vx_DMsatH1_vmax, vy_DMsatH1_vmax, vz_DMsatH1_vmax, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH1, distH2, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = np.min(vmax_satH1))
 	
 	#if distH2 < distH1,  distH1 < distTreshold, luminous/not luminous, :
-	x_AllH2, y_AllH2, z_AllH2, vx_AllH2, vy_AllH2, vz_AllH2, vmax_allH2, Mag_AllH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =10e45, MagTresholdLOWER = -1000000.)
-	x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, vmax_satH2, Mag_satH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
-	x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, vmax_DMsatH2, Mag_DMsatH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+	#x_AllH2, y_AllH2, z_AllH2, vx_AllH2, vy_AllH2, vz_AllH2, vmax_allH2, Mag_AllH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =10e45, MagTresholdLOWER = -1000000.)
+	#x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, vmax_satH2, Mag_satH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000.)
+	#x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, vmax_DMsatH2, Mag_DMsatH2 = AllCriteria(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000.)
+
+
+	x_AllH2, y_AllH2, z_AllH2, vx_AllH2, vy_AllH2, vz_AllH2, vmax_allH2, Mag_AllH2 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =10e45, MagTresholdLOWER = -1000000., vmaxTresholdLOWER = Vmaxlimit)
+	x_satH2, y_satH2, z_satH2, vx_satH2, vy_satH2, vz_satH2, vmax_satH2, Mag_satH2 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius , MagTresholdUPPER =-6., MagTresholdLOWER = -1000000., vmaxTresholdLOWER = Vmaxlimit)
+	x_DMsatH2, y_DMsatH2, z_DMsatH2, vx_DMsatH2, vy_DMsatH2, vz_DMsatH2, vmax_DMsatH2, Mag_DMsatH2 = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = Vmaxlimit)
+
 	x_DMsatH2_vmax, y_DMsatH2_vmax, z_DMsatH2_vmax, vx_DMsatH2_vmax, vy_DMsatH2_vmax, vz_DMsatH2_vmax, vmax_DMsatH2_vmax, Mag_DMsatH2_vmax = vmaxCut(x, y, z, vx, vy, vz, vmax, Mag, distH2, distH1, DistTreshold = Radius, MagTresholdUPPER = 10e45, MagTresholdLOWER = 10000., vmaxTresholdLOWER = np.min(vmax_satH2))
 
 
@@ -464,25 +442,17 @@ for i in range (Npairs):
 	x_satH2, y_satH2, z_satH2 = x_satH2 - x_H2, y_satH2 - y_H2, z_satH2 - z_H2
 	x_DMsatH2, y_DMsatH2, z_DMsatH2 = x_DMsatH2 - x_H2, y_DMsatH2 - y_H2, z_DMsatH2 - z_H2
 	HaloVec = (x_H1[0]- x_H2[0], y_H1[0]- y_H2[0], z_H1[0] - z_H2[0])
-	#print "x, y ,z halos ", x_H1, x_H2, y_H1, y_H2, z_H1, z_H2
-	#*print "HaloVec", HaloVec, HaloVec[0], HaloVec[1], HaloVec[2]
 	x_H1, y_H1, z_H1, x_H2, y_H2, z_H2 = 0.,0.,0.,0.,0.,0.
-	#GroupNum =np.str(i)
-	#PairNumber = i
-	#print i, x_AllH1, x_AllH2, x_satH2
 
 	num_x_H1   =len(x_AllH1)
-	#print "i, num_x_H1  ", i, num_x_H1
 	num_x_DMsatH1   =len(x_DMsatH1)
-	#print "i ,num_x_DMsatH1", i, num_x_DMsatH1
 	num_x_satH1   =len(x_satH1)
-	#print "i, num_x_satH1" , i, num_x_satH1
 	num_x_H2   =len(x_AllH2)
 	num_x_DMsatH2   =len(x_DMsatH2)
 	num_x_satH2   =len(x_satH2)
 
 	#plots to see how many dark sub-halos are more massive than the least massive luminous sub-halo
-	plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2, i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax)
+	#####plots_Mass_VS_Mag(vmax_satH1, Mag_satH1, vmax_DMsatH1, Mag_DMsatH1, vmax_satH2, Mag_satH2, vmax_DMsatH2, Mag_DMsatH2, i, vmax_DMsatH1_vmax, Mag_DMsatH1_vmax)
 
 	#counts how many of the halos have at least 16 luminous satellites
 	#if num_x_satH1>=16:
@@ -499,8 +469,6 @@ for i in range (Npairs):
 		#calculates the axis ratio of each subset
 		eiValH1_r1, eiVecH1_r1 , TriaxParamH1_r1, AxisRatioH1_r1 = inertiaTensor(ran_x_satH1, ran_y_satH1, ran_z_satH1)
 		AxisRatioH1_r[j]=AxisRatioH1_r1
-		#print " eiVecH1_r1[0]", eiVecH1_r1#[0][0]
-		#eiVecH1_r[:j]=eiVecH1_r1[0]
 
 	#calculates the mean axis ratio of all the subsets
 	AxisRatioH1_r_mean = scipy.stats.tmean(AxisRatioH1_r, limits=None, inclusive=(True, True))
@@ -543,8 +511,6 @@ for i in range (Npairs):
 		#calculates the axis ratio of each subset
 		eiValH2_r2, eiVecH2_r2 , TriaxParamH2_r2, AxisRatioH2_r2 = inertiaTensor(ran_x_satH2, ran_y_satH2, ran_z_satH2)
 		AxisRatioH2_r[j]=AxisRatioH2_r2
-		####****AxisRatioH2_r[j]=AxisRatioH2_r2
-		#print "EI vecr2" , eiVecH2_r2 
 
 	#calculates the mean axis ratio of all the subsets
 	AxisRatioH2_r_mean = scipy.stats.tmean(AxisRatioH2_r, limits=None, inclusive=(True, True))
@@ -552,15 +518,8 @@ for i in range (Npairs):
 
 	#Calculates the axis ratio of the simulated subhalos for the total number of subhalos and for the luminous ones.	
 	eiValH2, eiVecH2 , TriaxParamH2, AxisRatioH2 = inertiaTensor(x_satH2, y_satH2, z_satH2)
-	#print "eivecH2",  eiVecH2
-	#print "eivecH2[0][0]",  eiVecH2[0][0]
-	#print "eivecH2[0][1]",  eiVecH2[0][1]
-	#print "eivecH2[1][0]",  eiVecH2[1][0]
 	eiValH2DM, eiVecH2DM , TriaxParamH2D0M, AxisRatioH2DM = inertiaTensor(x_DMsatH2, y_DMsatH2, z_DMsatH2)
 	eiValH2All, eiVecH2All , TriaxParamH2All, AxisRatioH2All = inertiaTensor(x_AllH2, y_AllH2, z_AllH2)
-
-	#*H2_ratioAxisRatioH2=AxisRatioH2/AxisRatioH2_r_mean
-	#*ratioAxisRatioH2.append(H2_ratioAxisRatioH2)
 
 	#selects halos with a minimum number of luminous satellites:
 	if num_x_satH2>=SatNumCutoff:
@@ -574,14 +533,12 @@ for i in range (Npairs):
 		All_AxisRatioH2random_mean.append(AxisRatioH2_r_mean) 
 		All_AxisRatioH2random_mean_err.append(AxisRatioH2_r_mean_err) 
 		All_SatNumH2.append(4.*num_x_satH2) #el 4 es solo para que en el plot se vean mejor
-	#print "eiVecH1", eiVecH1
-	#if num_x_satH1>= SatNumCutoff_alignment & num_x_satH2>= SatNumCutoff_alignment: 	
+	
 	All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2, All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM, countH1, countH2, countH1H2 = Alignment_H1H2_haloShape(eiVecH1 , eiVecH2, eiVecH1DM, eiVecH2DM, HaloVec, countH1, countH2, countH1H2)
-		#All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1DM, eiVecH2DM, HaloVec)
+	#All_cos_angleH1DM_H1H2, All_cos_angleH2DM_H1H2, All_cos_angleH1DMH2DM = Alignment_H1H2_haloShape(eiVecH1DM, eiVecH2DM, HaloVec)
 	#All_cos_angleH1DM, countH_1 = Alignment_DM_luminous(eiVecH1, eiVecH1DM, countH_1, num_x_satH1,  num_x_DMsatH1)
 	#All_cos_angleH2DM, countH_2 = Alignment_DM_luminous(eiVecH2, eiVecH2DM, countH_2, num_x_satH2,  num_x_DMsatH2)
 	All_cos_angleH1DM, All_cos_angleH2DM, countH_1, countH_2 = Alignment_DM_luminous(eiVecH1, eiVecH2, eiVecH1DM, eiVecH2DM, countH_1, countH_2, num_x_satH1, num_x_DMsatH1, num_x_satH2, num_x_DMsatH2)
-		#countHaloPairs = countHaloPairs  +1 
 print "xxxxxxxxxxxxxxxx i, countHaloPairs , SatNumCutoff xxxxxxxxxxxxxx", i, countHaloPairs, SatNumCutoff 
 
 SubHalo1, SubHalo2 =  num_x_satH1,  num_x_satH2
@@ -592,3 +549,8 @@ cosangle_HDM_prob_plot(All_cos_angleH1DM, All_cos_angleH2DM, SubHalo1, SubHalo2,
 #*Angle_HaloPos_eigenvector_plot(All_cos_angleH1_H1H2, All_cos_angleH2_H1H2, All_cos_angleH1H2)
 
 Inertiaplots_VS_random(All_AxisRatioH1, All_AxisRatioH1All, All_AxisRatioH2, All_AxisRatioH2All, All_AxisRatioH1random, All_AxisRatioH2random, All_AxisRatioH1random_mean,  All_AxisRatioH1random_mean_err, All_AxisRatioH2random_mean, All_AxisRatioH2random_mean_err)
+
+#MASS cuts : 
+#paper by Sales et al, whre take take Mstar>10^8Msun
+#http://arxiv.org/pdf/1410.7400v1.pdf
+# At the resolution of the simulation (mass per particle mp =  6.3x10^6 Msun and 1.3x10^6Msun for dark matter and baryons, gravitational softening 500 at z=  0)
