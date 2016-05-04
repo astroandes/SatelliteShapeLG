@@ -1,0 +1,1 @@
+[Table compiling positions of satellites](https://arxiv.org/pdf/1307.6210.pdf)  
