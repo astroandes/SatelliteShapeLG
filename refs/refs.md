@@ -8,3 +8,5 @@
 [THE OBSERVED PROPERTIES OF DWARF GALAXIES IN AND AROUND THE LOCAL GROUP](http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1204.1562) Reference for all the M_V magnitudes. 
 
 [Lacerta I and Cassiopeia III: Two luminous and distant Andromeda satellite dwarf galaxies found in the 3π Pan-STARRS1 survey](https://arxiv.org/abs/1305.5301v1) Esta es la referencia para las luminosidades de AndXXXI y AndXXXII  
+
+[A kinematic study of the Andromeda dwarf spheroidal system](https://arxiv.org/abs/1302.6590v1): referencia de magnitudes, especialmente AndXXX  
