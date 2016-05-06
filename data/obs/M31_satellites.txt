@@ -1,0 +1,41 @@
+#Name  x(kpc) y(kpc) z(kpc) -delta_sun(kpc) +delta_sun(kpc) M_V delta_M_V
+"Andromeda" -193 312 -144 25 26
+"M32" -202 328 -157 74 82
+"NGC 185" -121 201 -10 25 26    
+"NGC 147" -142 257 -22 27 29 
+"Andromeda VII" -66 396 12 34 36 
+"Andromeda II" -173 131 -173 18 18 
+"Andromeda I" -171 264 -169 24 24 
+"Andromeda VI" 0 295 -320 25 26 
+"LGS 3" -164 154 -359 24 25 
+"Andromeda XXIII" -278 220 -163 45 47 
+"Andromeda III" -145 273 -187 24 25 
+"Andromeda XXI" -108 414 -128 26 23 
+"Andromeda XXV" -197 371 -78 44 46 
+"Andromeda V" -256 290 -58 28 29 
+"Andromeda XV" -165 137 -116 34 80 
+"Andromeda XIX" -130 345 -233 147 31 
+"Andromeda XVI" -51 25 -98 30 44 
+"Andromeda XXVII" -215 370 -104 45 47 
+"Andromeda XVII" -163 285 -87 26 38 
+"Andromeda XIV" -177 246 -291 181 22 
+"Andromeda XXVIII" 173 297 -113 58 171 
+"Andromeda XXIX" -28 279 -230 70 78 
+"Andromeda IX" -211 291 -114 24 25 
+"Andromeda XXX" -153 261 -11 77 32 
+"NGC 205" -208 349 -153 26 27 
+"Andromeda XXVI" -163 338 -49 41 43 
+"Andromeda XI" -153 234 -213 17 17 
+"Andromeda XX" -73 298 -191 53 42 
+"Andromeda XIII" -212 299 -274 19 20 
+"Andromeda X" -188 205 -63 39 25 
+"Andromeda XXXII" -202 344 -7 48 52 
+"Andromeda XII" -248 381 -299 135 39 
+"Triangulum" -292 189 -277 22 23 
+"Andromeda XXIV" -169 143 -24 32 34 
+"IC 10" -200 382 98 43 45 
+"Andromeda XXXI" 44 401 -74 41 43 
+"Andromeda XXII" -331 249 -372 141 30 
+"Andromeda XVIII" -286 750 -209 44 40 
+"Sagittarius dIrr" 1140 56 -155 85 92 
+"UGC 4879" -778 -48 1071 25 2 
