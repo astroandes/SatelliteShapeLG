@@ -19,12 +19,9 @@
 "AndromedaXXV" -197 371 -78 44 46 -9.7 0.5
 "AndromedaXV" -165 137 -116 34 80 -9.4 0.4
 "AndromedaXIX" -130 345 -233 147 31 -9.2 0.6
-"AndromedaXVI" -51 25 -98 30 44 -9.2 0.4
 "AndromedaV" -256 290 -58 28 29 -9.1 0.2
 "AndromedaXVII" -163 285 -87 26 38 -8.7 0.4
-"AndromedaXVIII" -286 750 -209 44 40 -8.5 0.5
 "AndromedaXIV" -177 246 -291 181 22 -8.4 0.6
-"AndromedaXXVIII" 173 297 -113 58 171 -8.5 0.2
 "AndromedaXXIX" -28 279 -230 70 78 -8.3 0.4
 "AndromedaXXVII" -215 370 -104 45 47 -7.9 0.5
 "AndromedaIX" -211 291 -114 24 25 -8.1 1.1
