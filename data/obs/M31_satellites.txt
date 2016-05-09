@@ -1,5 +1,5 @@
 #Name  x(kpc) y(kpc) z(kpc) -delta_sun(kpc) +delta_sun(kpc) M_V delta_M_V
-"Andromeda" -193 312 -144 25 26 -20.0 0.0
+"Andromeda" -193 312 -144 25 26 -20.0 0.1
 "Triangulum" -292 189 -277 22 23 -18.8 0.1
 "NGC205" -208 349 -153 26 27 -16.5 0.1
 "M32" -202 328 -157 74 82 -16.4 0.2

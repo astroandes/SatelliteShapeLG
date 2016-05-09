@@ -1,5 +1,5 @@
 #Name  x(kpc) y(kpc) z(kpc) -delta_sun(kpc) +delta_sun(kpc) M_V delta_M_V
-TheGalaxy 193 -312 144 0 0	-20 0.0
+TheGalaxy 193 -312 144 0 0	-20 0.1
 LMC 192 -353 117 2 2 -18.1 0.1
 SMC 209 -350 99 3 4 -16.8 0.2
 CanisMajor 181 -318 143 1 1	-14.4 0.8
@@ -11,7 +11,7 @@ LeoII 115.0 -370 359 14 14  -9.8 0.3
 SextansI 156 -369 202 4 4 -9.3 0.5  
 Carina 168 -408 104 6 6 -9.1 0.5
 UrsaMinor 170 -260 197 3 4 -8.8 0.5 
-Draco 188 -249 187 6 6 -8.8 -0.3
+Draco 188 -249 187 6 6 -8.8 0.3
 CanesVenatici(I) 195 -275 358 10 10 -8.6 0.2
 Segue(I) 173 -321 162 2 2 -1.5 0.8
 UrsaMajorII 162 -300 163 4 5 -5.5 0.3
@@ -26,7 +26,7 @@ Hercules 277 -261 223 12 13 -6.6 0.4
 LeoIV 178 -396 273 6 7 -5.8 0.4
 CanesVenaticiII 176 -293 303 4 4 -4.9 0.5
 LeoV 171 -404 296 10 10 -5.2 0.4 
-PiscesII 208 -190 11 0 0 -5.0 -5.0
+PiscesII 208 -190 11 0 0 -5.0 1.0
 
 
 
