@@ -92,9 +92,6 @@ $^1$Departamento de F\'{i}sica, Universidad de los Andes, Cra. 1
 No. 18A-10, Edificio Ip, Bogot\'a, Colombia\\
 }
 
-
-
-
 \begin{abstract}
 Alineaciones.
 \end{abstract}
@@ -146,7 +143,7 @@ satellites was considered a rarity until the PAndAS survey of the
 Andromeda (M31) galaxy and its halo (missing reference on the survey)
 provided a complete sample of the satellite galaxy population (above a
 XXXX magnitude) of our neighboring galaxy, allowing their consistent distance
-estimations (Conn et al 2012). In a groundbreaking work, Ibata et.
+estimations (Conn et al. 2012). In a groundbreaking work, Ibata et
 al. (2013) found that 15 out of the 30 satellites are in a planar
 structure that is 15kpc thick and has an extension of 400kpc.
 Additionally, from line of sight velocity measurements, they
@@ -154,22 +151,22 @@ found that the structure has an apparent coherent rotation, with the
 satellites south of M31 moving away from us and those north of M31
 coming towards us. This apparent organized rotation of satellite galaxies was also
 statistically found to occur in diametrically opposed 
-pairs of satellites from the SDSS (Ibata et al 2014), although this
-results were contested in a follow up paper by Cuatun et al (2014).  
+pairs of satellites from the SDSS (Ibata et al. 2014), although this
+results were contested in a follow up paper by Cuatun et al. (2014).  
 
 These discoveries of the planes in M31 and the MW were followed by the
-remark from Shaya et al (2013) that the other satellite galaxies in
+remark from Shaya et al. (2013) that the other satellite galaxies in
 M31 could be part of a second plane, further reinforcing the idea that
 satellites in the local group are not isotropically distributed.
 Despite the challenges in estimating distances to the satellites
 galaxies, Tully et al. managed to go beyond the local group and found
 two planes of satellites galaxies in Centaurus A, making a clearer
-case for the planes of satellites>in all the galaxies where distance
+case for the planes of satellites: in all the galaxies where distance
 measurements could be performed evidence of satellite planar
 structures have been found.\\
 
 These observed planes present a challenge for current galaxy formation
-models (Pawlowski et. al 2014)
+models (Pawlowski et al. 2014)
 
 
 %The VPOS (Pawlowski et al 2012: https://arxiv.org/abs/1204.5176)\\
@@ -233,6 +230,8 @@ Problemas con la estabilidad a largo plazo de los planos: Bowden et al
 The Plane Truth: Andromeda analog thin Planes of Satellites are not
 kinematical coherent structures (Buck et al 2015)\\
 
+ 
+
 
 \section{Illustris simulation}
 
@@ -246,7 +245,7 @@ For each halo $A$ we find its closest halo $B$, if halo $A$ is also
 the closest to halo $B$, the two halos are considered as a pair. 
 Another way to phrase this selection is that pairs do not have
 neighbors closer than the pair's distance.
-We exclude the pairs that are closer thn
+We exclude the pairs that are closer than
 There are $53$ pairs with those conditions in the simulation.
 
 We extract from the simulation spheres of $2$ \hMpc in radius around
@@ -263,7 +262,7 @@ This reduces the sample to $24$ pairs.
 We call this sample the Full  Sample.
 
 From the Full Sample we build a second sample based on the pairs' kinematics. 
-Figure \ref{fig:samples} shows the comoving separation and relative
+Figure \ref{fig:samples} shows the co-moving separation and relative
 speed between the two halos in the pair.
 The stars in the Figure represent the pairs with a separation in the
 range $0.75\hMpc <R_{AB}< 1.50\hMpc$ and relative velocity in the
@@ -283,7 +282,7 @@ volume of the Illustris simulation, which is very close to the actual
 number of $49$ pairs.
 
 In the same study they found 158 pairs with broad kinematic
-caracteristics, similar to the definition of our LG sample. 
+characteristics, similar to the definition of our LG sample. 
 This represents a reduction of a factor of $12$ from their General
 Sample. 
 With those numbers in mind we would expect to keep at least $4$ pairs
@@ -380,9 +379,93 @@ scarce.
 \section{Discussion} 
 \section{Acknowledgements}
 Gracias.
+
+%\begin{wraptable}{l}{2\linewidth}
+%\centering
+%\begin{tabular}{|l|l|l|l|l|l|}
+%\hline
+%Bahl 2013       & MilleniumII & resolution & number of host halos& gas no        & planes yes? \\\hline
+%Ibata 2014      & MilleniumII & resolution & number of host halos& gas no        & planes no? \\\hline
+%Pawlowski 2015  & MilleniumII & resolution & number of host halos& gas no        & planes no? \\\hline
+%Gillet 2015     & CLUES       & resolution & number of host halos& gas yes and no& planes yes \\\hline
+%Cautun 201XXX   & ?           & resolution & number of host halos& gas ??????    & planes yes \\\hline
+%Buck            & their own   & resolution & number of host halos& gas no?       & planes yes \\\hline
+%Sawala          & Apostole?   & resolution & number of host halos& gas yes?      & planes yes \\\hline
+%Gonzalez        & their own?  & resolution & number of host halos& gas yes/no    & planes he does not care \\\hline
+%\end{tabular}
+%\end{wraptable}
+
+Simulation papers:
+\begin{itemize}
+\item{Bahl and Baumgardt 2013 "A comparison of the distribution (...)":\\
+MilleniumII and a semi-analytic model\\
+Baryonic mass cut: 2.8$\times 10^4 M\odot$\\
+PAndAS like field\\
+With orphan galaxies: planes are common (40$\%$) but overall distribution is different from that of M31 (more radially concentrated).\\
+Excluding \emph{some} orphan galaxies: overall distribution closer to M31's and finds planes.\\
+Conclusion: M31 like planes are not uncommon in MilleniumII simulations. Co-rotating structures are not stable structures. Plane of M31 could be a statistical fluctuation in an otherwise more spherical distribution.\\
+Simulation: Millenium II ()\\
+Gas: NO\\
+Resolution: sub-halos 2$\times 10^8 M\odot$ (orphan galaxies have less than 20 particles and could be tidally disrupted)\\
+Number of host halos: 1511 with orphan galaxies, 112 excluding orphan galaxies (mass between 1.1$\times 10^{12} M\odot$ and 1.7$\times 10^{12} M\odot$), younger that 10 Gyr and satelites smaller than 7$\times 10^{10} M\odot$\\
+Planes: yes (40$\%$ with orphan galaxies 2$\%$ without)\\
+co-rotation: yes (in 2$\%$ of the halos ???)\\
+Stable: No\\
+Note: PAndAS data has satellites with baryonic masses down to 2.9$\times 10^{4} M\odot$ and they take that as a lower limit for their data.\\
+}
+\item{Ibata et al 2014 "A thousand shadows (...)":\\
+MilleniumII and a semi-analytic model (Guo)\\
+%Baryonic mass cut: 2.8$\times 10^4 M\odot$\\
+Same analysis as in PAndAS data\\
+%With orphan galaxies: planes are common (40$\%$) but overall distribution is different from that of M31 (more radially concentrated).\\
+%Excluding \emph{some} orphan galaxies: overall distribution closer to M31's and finds planes.\\
+Conclusion: M31 like planes are NOT common in MilleniumII simulations.\\
+Simulation: Millenium II ()\\
+Gas: NO\\
+Resolution: sub-halos 2$\times 10^8 M\odot$ (orphan galaxies have less than 20 particles and could be tidally disrupted)\\
+Number of host halos: 679 (I assume with orphan galaxies) (mass between 1.1$\times 10^{12} M\odot$ and 1.7$\times 10^{12} M\odot$, younger that 10 Gyr and satellites smaller than 7$\times 10^{10} M\odot$ they also use LG upper mass limit, and an isolation criteria).\\
+Planes: no (with orphan galaxies only 0.04$\%$ of the system fulfill the thinness, extension and co-rotation criteria, and NONE does if orphans are not included. If co-rotation is not included then $2\%$ fulfill the thinness and extension criteria)\\
+co-rotation: only 0.04$\%$ with orphans and NONE without orphans\\
+Note: they use the 679 host halos and study them from different viewing angles\\
+}
+\item{Pawlowski et al 2014 "Co-orbitingsatellite galaxy structures are still in conflict with (...)":\\
+MilleniumII and a semi-analytic model (Guo)\\
+%Baryonic mass cut: 2.8$\times 10^4 M\odot$\\
+Same analysis as in PAndAS data\\
+Same analysis as in Wang et al. 2013\\
+%With orphan galaxies: planes are common (40$\%$) but overall distribution is different from that of M31 (more radially concentrated).\\
+%Excluding \emph{some} orphan galaxies: overall distribution closer to M31's and finds planes.\\
+Conclusion: M31 and MW like planes are NOT common in MilleniumII simulations.\\
+Simulation: Millenium II ()\\
+Gas: NO\\
+Resolution: sub-halos 2$\times 10^8 M\odot$ (orphan galaxies have less than 20 particles and could be tidally disrupted)\\
+Number of host halos:  1825 (mass between 1.1$\times 10^{12} M\odot$ and 1.7$\times 10^{12} M\odot$, younger that 10 Gyr and satellites smaller than 7$\times 10^{10} M\odot$ they also use LG upper mass limit, and an isolation criteria).\\
+Planes: no (M31: 0.09$\%$ fulfill the thinness, extension and co-rotation criteria. MW: 0.2$\%$)\\
+Note: they use the host halos and study them from different viewing angles so they end up with 15000 samples. They always consider orphan galaxies for comparison purposes. For one test they randomize the sample and find M31 like planes in only 0.002 per cent of the cases and MW like planes in 0.06$\%$ of the cases.\\
+MIRAR Wang et al. 2013 que busca MWlike planes en MilleniumII y encuentra que $13\%$ de los halos tienen planos
+}
+\item{Cautun et al. 2015 "Planes of satellite galaxies: when exceptions are the rule":\\
+MilleniumII and a semi-analytic model (Guo 2013)\\
+CoCo and a semi-analytic model (Guo 2015)\\
+%Baryonic mass cut: 2.8$\times 10^4 M\odot$\\
+Conclusion: planar structures are very common in $\Lambda$CDM (10$\%$)\\
+Simulation 1: Millenium IIi rescaled to WMAP\\
+Simulation 2: CoCo (Higher resolution than MilleniumII)\\
+Gas: NO\\
+Resolution 1: sub-halos 2$\times 10^8 M\odot$ (orphan galaxies have less than 20 particles and could be tidally disrupted)\\
+Number of host halos:  2849 (MilleniumII) and 63 8COCO halos) (selection criteria: "we adopted a broader mass range to account for the large uncertainty in the mass measurements and also for possible systematic effects").\\
+Resolution 2: sub-halos $\approx$ 2$\times 10^6 M\odot$ (75 times higher mass resolution
+and four times better spatial resolution)\\
+Planes: yes (10$\%$)\\
+Note: They found a great variety of plane and the M31 plane lies in general within the scatter of the simulated planes however it seem to have an "unusually large radial extent".\\
+Note 2: they find that each halos has a different planar configuration showing that the low incidence of the M31 plane is not in contradiction with simulations. This contradicts the Pawlowski et al. 2014 conclusions}
+\end{itemize}
+
+
+
+
 \bibliographystyle{apj}
 \bibliography{Dwarfs}
-
 
 \end{document}
 
