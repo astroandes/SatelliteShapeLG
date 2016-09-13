@@ -199,24 +199,28 @@ are up to $\sim 10\%$ more satellites in the space between the pair
 than expected from an uniform distribution. 
 
 Early filamentary accretion has been proposed as the formation mechanism for the Andromeda thin plane of satellites (Buck et al 2015), with early formed galaxies accreting their mass via cold thin filaments. 
-This formation mechanism results naturally in thin planes, but a follow up work shows that these are not kinematically coherent structures (Buck et al. 2015). These results are from dark matter only simulations, so it would be interesting to see if they still hold for simulations that include baryonic physics, since it was shown by Gonzales et al 2015 that satellites acrreted via filaments are destroyed faster than those that are not. 
+This formation mechanism results naturally in thin planes, but a follow up work shows that these are not kinematically coherent structures (Buck et al. 2015). These results are from dark matter only simulations, so it would be interesting to see if they still hold for simulations that include baryonic physics, since it was shown by Gonzales et al 2015 that satellites accreted via filaments are destroyed faster than those that are not. 
+So far, the planes found in simulations tend to be transient structures (XXXXXXX) and that poses two problems: one is why do we
+see planes in all the three galaxies were we can actually make the
+measurements if they are transient? 
+The second is that these findings seem to be at odds with the observed rotational coherence of the MW satellites for which proper motion measurements exist (Pawlowski et al. 2015).
+%Problem with the MW plane for which
+%some of the dwarfs have proper motion measurements. Another problem:
+%explicación de Buck 2015 sería rara entonces...
 
 In a more general numerical study,   
-\cite{2016arXiv160501728S} use the eagle simulation to study the
+\cite{2016arXiv160501728S} use the EAGLE simulation to study the
 alignment of satellites with respect to the central galaxy. They find
 a weak alignment. Around $20\%$ of the systems have a misalignment
-angle larger than the value observed for the Milky Way. 
+angle larger than the value observed for the Milky Way.
+In this work, we continue these approach of studying more generally the alignments between the satellites population, the dark matter substructures and the main host halos in the illustris simulation. This paper is organized as follows. 
+In Section \ref{NumericalSetup} we describe the numerical setup, the sample selection criteria, the method to determine the cosmic web environment and the method to quantify alignments. 
+The alignments and lack thereof obtained are presented in Section \ref{Results} and compared with the Local Group observations.
+Finally, these results are discussed more broadly in Section \ref{Discussion}.
 
 
-Planes in simulations tend to be transient structures (not
-kinematically coherent) and that poses two problems: one is why do we
-see planes in all the galaxies were we can actually make the
-measurements if they are transient? Problem with the MW plane for which
-some of the dwarfs have proper motion measurements. Another problem:
-explicación de Buck 2015 sería rara entonces...
 
-
-\section{Numerical Setup}
+\section{Numerical Setup}\label{NumericalSetup}
 
 \subsection{Illustris simulation}
 
@@ -245,7 +249,7 @@ There are $53$ pairs with those conditions in the simulation.
 We extract from the simulation spheres of $2$ \hMpc  in radius around
 the pair's center of mass. 
 We use this information to exclude all the pairs that have separations
-smaller than the sum  of their virial radii, i.e. we exclude
+smaller than the sum of their virial radii, i.e. we exclude
 interacting pairs. 
 This reduces to $49$ the number of pairs in the sample.
 
@@ -291,7 +295,7 @@ scarce.
 \centering
 \includegraphics[width=\hsize]{v_r_pairs.pdf}\\
 \caption{Halo pair samples used in this paper located in the
-  plane of relative comoving velocity $V_{AB}$ versus relative
+  plane of relative co-moving velocity $V_{AB}$ versus relative
   distance $R_{AB}$ between the two halos in the pair.
   The R\&V sample is the closest to the separation and kinematic
   conditions observed in the Local Group.} 
@@ -358,17 +362,40 @@ web environment for Local Group pairs in a cosmological context
 
 \subsection{Characterization of spatial distributions}
 \label{Method}
-In this paper, our aim is to study alignments: of the
+In this paper, our main aim is to study alignments: of the
 satellite population with the cosmic web, of the dark matter halos
-with the axis that unites them, etc... To do this, we fitted a triaxial spheroid to both the satellite (bright) and the dark matter (dark) subhalo distributions, to get both their semi-major and semi-minor axis.
-With this geometrical information we can study the alignments of the two distributions with the cosmic web, and also with the vector that unites the halo pair that host these substructures. %Jaime, falta el plot de alineaciones con la cosmic web
+with the axis that unites them, etc... 
+To do this, we fitted a triaxial spheroid to both the satellite (bright) and the dark matter (dark) subhalo distributions, to get both their semi-major and semi-minor axis. 
+With this geometrical information we can study the alignments of the two distributions with the cosmic web, and also with the vector that unites the halo pair that host these substructures.
+Additionally, we calculate the axis ratio of the distributions to determine its "flatness" and look for differences between dark and bright distributions and between substructure in the full sample and in the LG sample.
 
 \section{Results}
 \label{Results}
 
-Some papers claim that once baryonic physics is included more planar distributions are found.
-First we investigate if there is a difference in the bright and dark distribution in terms of their flatness.
-In Figure \ref{fig:StreamPlaneOrbit} we can see that indeed the bright distribution is flatter than the dark distribution.
+
+\subsection{Alignments of the galaxy pairs with the cosmic web}
+\label{AlignmentsGalCosmicWeb}
+Alignments between galaxies and the cosmic web were investigated by \citep{ForeroRomero2013} who found that the axis that unites halo pairs similar to the MW-M31 pair tends to align with the $\hat e_3$ vector. 
+We investigated this alignment on both our Full and LG samples. 
+In Figure \ref{fig:alignment_e3_cosmicweb} we plot the integrated probability of the dot product between the $\hat e_3$ vector and the vector that unites the galaxy pair ($\hat r_{AB}$). 
+This integrated probability shows that $\hat e_3$ and $\hat r_{AB}$ tend to be aligned, which is consistent with the literature results mentioned above. 
+It is also interesting to note that the full sample shows a stronger alignment than that of the LG sample. Since there is an alignment between $\hat e_3$ and $\hat r_{AB}$, in the following we will investigate the alignments of the distribution of satellites and of the dark substructures with $\hat r_{AB}$.\\
+\begin{figure}
+\centering
+\includegraphics[width=\hsize]{r_tweb_e3_alignment.pdf}\\
+\caption{.}
+\label{fig:alignment_e3_cosmicweb}
+\end{figure}
+
+\subsection{Comparison between the satellite and the dark substructure distributions}
+\label{DarkBright}
+In the comparisons between observations and simulations, the plane-finding efforts have often been made in dark matter only simulations (Citar a Baumgartdt, Ibata, Pawlowsky cautun, buck etc...), and Sawalla et al. claims that once baryonic physics is included more planar distributions are found.
+We wanted to test if this holds true in the Illustris simulation, that also includes baryonic physics. So we first investigate if there is a difference in the bright and dark distribution in terms of their flatness. 
+This flatness was quantified using the ratio of the semi-minor and semi-major axis of the triaxial distributions of both the bright satellite galaxies and the dark subhalos. 
+In Figure \ref{fig:StreamPlaneOrbit} we can see the integrated probability of the axis ratios for the different halo pairs in both our full and LG samples. 
+We find that indeed the bright distributions are flatter than the distributions that include also the dark substructure.
+This is in agreement with claims that the inclusion of baryonic physics results in more planar structures. 
+However, this result alone is not enough to infer anything about the mechanisms behind the formation of these flatter distribution or if this increased flatness corresponds to the planes of satellite galaxies observed in the Local Group.\\
 \begin{figure}
 \centering
 \includegraphics[width=\hsize]{axratio_dark_bright.pdf}\\
@@ -377,17 +404,27 @@ In Figure \ref{fig:StreamPlaneOrbit} we can see that indeed the bright distribut
 \label{fig:StreamPlaneOrbit}
 \end{figure}
 
-We then try to fit planes to both the dark and bright distributions in order to test if it is indeed easier to find thinner planes in the bright distribution. 
-We find that the bright planes are thinner.
+\subsection{Plane fitting: plane width versus object number}
+\label{DarkBright}
+We then fit planes to both the dark and bright distributions in order to test if it is indeed easier to find thinner planes in the bright distribution. 
+We first fit planes to all the bright satellites for each halo in both the Full and LG samples and then repeat the process for the distributions that includes also the dark substructure.
+We then calculate the plane width of the best fit plane. %de pronto acá deberia explicar mejor el metodo de plane fitting
+In Figure \ref{fig:plane_width} the integrated probability plot of the plane width for the different halo pairs shows that bright planes are thinner that dark planes in both our full and LG samples and the difference between the bright and dark distributions is starker than for the axis ratios. 
+This again is in agreement with the idea that planes planes in simulations occur naturally when baryonic physics are included, but again this result alone is not enough to infer anything about the mechanisms behind their formation.\\ 
+
 \begin{figure}
 \centering
 \includegraphics[width=\hsize]{plane_width.pdf}\\
 \caption{Plane width for the best planes in the luminious and dark cases.}
 \label{fig:plane_width}
 \end{figure}
-But is there a physical reason for that? Apparently not, since the thinness of the fitted planes seems to be only due to number of objects: number of bright satellites is smaller than of dark sub-halos and that results naturally in thinner fitted planes.
+
+To test if there is a physical reason for the difference in plane width between the bright and dark distributions or if this difference is due to a sampling effect, we look at the plane width as a function of number of objects in the plane. 
+Since the bright satellites are a sub-sample of the dark distribution (that includes also the dark substructure), the number objects in "bright" planes is larger than that of "dark" planes for each given halo. 
+In Figure \ref{fig:plane_width_nobjects} we can see that there is a strong correlation between the number of objects in the fitted plane and its width. Fewer objects are fitted by thinner planes. And in general, there are fewer brigth satellites, so the differences between the width of bright and dark distributions can be attributed to the number of objects and does not seem to be the result of other processes.
+
+{\color{red} Icluir acá gráficas de dark vs bright con el mismo numero?}
 %pregunta para Jaime: en tu código dark quiere decir dm only subhalos o todos los subhalos (dm only y bright)?
-%podríamos hacer como un test extra el plot que yo tenía en mis plot de antes, que es cojer al azar entre los dark un numero de subhalos igual al de bright y ver los anchos de los planos.
 
 \begin{figure}
 \centering
@@ -396,7 +433,16 @@ But is there a physical reason for that? Apparently not, since the thinness of t
 \label{fig:plane_width_nobjects}
 \end{figure}
 
-A second test is to look if there is any evidence of alignments between the distribution of satellites and the axis that unites the main halos that form the pair. 
+\subsection{Alignments of the distributions with their environment}
+\label{AlignemntH1H2_sats}
+
+From the comparison between the number of objects and the plane width we could conclude that there is not a physical mechanism behind the Local Group planar structures and that these are just due to the small number of satellites we observe. 
+Nevertheless, these observed structures have, besides their special spatial configuration, a dynamical coherence that demands a better explanation for their formation mechanism (Pawlowski et al. 2014, Ibata et al. 2013 ...).
+Preferential accretion of the satellites and of the dark substructure has been explored as a possible formation mechanism of the observed Local Group planes of satellites. 
+This mechanism would likely leave an imprint in the alignment between the distribution of satellites and dark substructure and the favoured accretion direction.     
+In this work we study the alignment between the semi-major axis of the distribution and the axis that unites the halo pair. 
+In Figure \ref{fig:lg_alignment} we plot the dot product of the semimajor axis and the axis that unites the two halos unit vectors, for each halo pair in both sub-samples. 
+%second test is to look if there is any evidence of alignments between the distribution of satellites and the axis that unites the main halos that form the pair. 
 
 
 \begin{figure}
@@ -422,6 +468,7 @@ A second test is to look if there is any evidence of alignments between the dist
 %\end{figure}
 
 \section{Discussion}
+\label{Discussion}
 Difference between bright and dark distributions are only due to number.\\
 We find significant alignments between distributions and H1H2 axis. But this alignments are the opposite as the one observed for the Local Group!!! 
  
