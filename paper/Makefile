@@ -1,5 +1,5 @@
 LATEX = pdflatex
-MAIN  = ms
+MAIN  = paper
 
 all: $(MAIN).pdf
 

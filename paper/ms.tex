@@ -1,33 +1,8 @@
-\documentclass{emulateapj}
-\submitted{{\it Submitted for publication in ApJ}}
-\usepackage{multirow,color,wrapfig,ulem}
-\usepackage {graphicx}
-\usepackage{graphics}
-\usepackage[dvips]{epsfig}
-
-%=========================================================================
-%		INTERNAL MACROS
-%=========================================================================
-\def\be{\begin{equation}}
-\def\ee{\end{equation}}
-\def\ba{\begin{eqnarray}}
-\def\ea{\end{eqnarray}}
 
 % To highlight comments 
 \definecolor{red}{rgb}{1,0.0,0.0}
 \newcommand{\red}{\color{red}}
 \definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
-\newcommand{\SRK}[1]{\textcolor{darkgreen}{\bf SRK: \textit{#1}}}
-\newcommand{\SRKED}[1]{\textcolor{darkgreen}{\bf #1}}
-\newcommand{\before}[1]{\textcolor{red}{ #1}}
-\newcommand{\after}[1]{\textcolor{darkgreen}{ #1}}
-
-\newcommand{\LCDM}{$\Lambda$CDM~}
-\newcommand{\beq}{\begin{eqnarray}}  
-\newcommand{\eeq}{\end{eqnarray}}  
-\newcommand{\zz}{$z\sim 3$} 
-\newcommand{\avg}[1]{\langle{#1}\rangle}  
-\newcommand{\ly}{{\ifmmode{{\rm Ly}\alpha}\else{Ly$\alpha$}\fi}}
 \newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc}\fi}}  
 \newcommand{\hGpc}{{\ifmmode{h^{-1}{\rm Gpc}}\else{$h^{-1}$Gpc}\fi}}  
 \newcommand{\hmpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc}\fi}}  
@@ -43,77 +18,40 @@
 \newcommand{\dm}{{\ifmmode{{\Delta M}}\else{$\Delta M$}\fi}}
 \newcommand{\dlm}{{\ifmmode{{\Delta \log M}}\else{$\Delta \log M$}\fi}}
 \newcommand{\focc}{{\ifmmode{{f_{\rm occ}}}\else{${f_{\rm occ}}$}\fi}}
-
-\newcommand{\Msun}{{\ifmmode{{\rm {M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}  
-\newcommand{\msun}{{\ifmmode{{\rm {M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}  
-\newcommand{\lya}{{Lyman$\alpha$~}}
-\newcommand{\clara}{{\texttt{CLARA}}~}
-\newcommand{\rand}{{\ifmmode{{\mathcal{R}}}\else{${\mathcal{R}}$ }\fi}}  
-%SAMPLES
-
-
-%MY COMMANDS #############################################################
-\newcommand{\sub}[1]{\mbox{\scriptsize{#1}}}
-\newcommand{\dtot}[2]{ \frac{ d #1 }{d #2} }
-\newcommand{\dpar}[2]{ \frac{ \partial #1 }{\partial #2} }
-\newcommand{\pr}[1]{ \left( #1 \right) }
-\newcommand{\corc}[1]{ \left[ #1 \right] }
-\newcommand{\lla}[1]{ \left\{ #1 \right\} }
-\newcommand{\bds}[1]{\boldsymbol{ #1 }}
-\newcommand{\oiint}{\displaystyle\bigcirc\!\!\!\!\!\!\!\!\int\!\!\!\!\!\int}
-\newcommand{\mathsize}[2]{\mbox{\fontsize{#1}{#1}\selectfont $#2$}}
-\newcommand{\eq}[2]{\begin{equation} \label{eq:#1} #2 \end{equation}}
-\newcommand{\lth}{$\lambda_{th}$ }
-\newcommand{\reff}{{\ifmmode{r_{\mbox{\tiny eff}}}\else{$r_{\mbox{\tiny eff}}$}\fi}}
-%#########################################################################
-
-%TO DO COMMANDS. Highlight region that needs extra work  #############################################################
-\newcommand{\todo}{\ifmmode \text{\Huge{\(\bullet\)}} \else {\Huge$\bullet$}\fi}
-% \newcommand{\todo}{\ifmmode {\Huge \bullet} \else {\Huge$\bullet$}\fi}
-\newcommand{\tido}{\ifmmode {\bullet} \else $\bullet$\fi}
-\newcommand{\REFS}{(\todo REFS) }
-\newcommand{\toref}{(\todo REFS)}
-%#########################################################################
+\newcommand{\hs}{{\hspace{1mm}}}  
+\newcommand{\tol}{Tololo 1214-277}
+\newcommand{\HI}{{\text{H\MakeUppercase{\romannumeral 1}}} }
+\newcommand{\HII}{{\text{H\MakeUppercase{\romannumeral 2}}} }
+\newcommand{\lya}{\ifmmode{{\rm Ly}\alpha}\else Ly$\alpha$\ \fi}
+\newcommand{\cm}{\ifmmode{{\rm cm}}\else cm\fi}
+\newcommand{\ccm}{\,\mathrm{cm}^{-3}}
+\newcommand{\ergps}{\,{\rm erg}\,{\rm s}\ifmmode{}^{-1}\else ${}^{-1}$\fi}
+\newcommand{\Mpch}{\,{\rm Mpc}\,\ifmmode h^{-1}\else $h^{-1}$\fi}
+%\newcommand{\kms}{\,\mathrm{km}\,\mathrm{s}^{-1}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\vek}[1]{\bm{#1}}
+%\newcommand{\lya}{Ly$\alpha$}
+\newcommand{\hb}{H$\beta$}
+\newcommand{\ha}{H$\alpha$}
+\newcommand{\oiii}{[OIII]}
+\newcommand{\oii}{[OII]}
+\newcommand{\nii}{[NII]}
+\newcommand{\esca}{erg cm$^{-2}$ s$^{-1}$ \AA$^{-1}$}
+\newcommand{\esc}{erg cm$^{-2}$ s$^{-1}$}
+\newcommand{\es}{erg s$^{-1}$}
+\newcommand{\esa}{erg s$^{-1}$}
+\newcommand{\kms}{km s$^{-1}$}
 
 
 
-\begin{document}
-%=========================================================================
-%		FRONT MATTER
-%=========================================================================
-\title{The Spatial Distribution of Local Group Satellites in a
-  Cosmological Context}  
-\author{
-  Ver\'onica Arias \thanks{v.arias@uniandes.edu.co}$^{1}$,
-  Jaime E. Forero-Romero \thanks{je.forero@uniandes.edu.co}$^{2}$ 
-}
-
-\affil{
-$^1$Departamento de F\'{i}sica, Universidad de los Andes, Cra. 1
-No. 18A-10, Edificio Ip, Bogot\'a, Colombia\\
-}
-
-\begin{abstract}
-We focus on the spatial distribution of bright ($M_V<-8$) satellites and
-pairs of galaxies with similar masses, isolation and kinematic
-configurations as the Local Group. 
-\end{abstract}
-
-\keywords{
-Galaxies: halos --- Galaxies: high-redshift --- Galaxies: statistics
---- Dark Matter --- Methods: numerical 
-}
-
-\section{Introduction}
-
-Since the early works of (el que libeskind dice que habló de
-eso primero) and \cite{1976MNRAS.174..695L}, the observed anisotropic
+Since the early works of (el que libeskind dice que habl\'o de
+eso primero) and %\cite{1976MNRAS.174..695L}, the observed anisotropic
 distribution of satellite galaxies in the Local Group has been a key
 point in the discussion of galaxy formation models within $\Lambda$CDM
 cosmology. These pioneer papers described that the then known satellite
 galaxies of the Milky May (MW) were distributed roughly following the plane
 that contained the Magelanic clouds and their stellar tails. This
-anisotropic distribution was further studied in the work of \cite{}Pawlowski
+anisotropic distribution was further studied in the work of Pawlowski
 et. al. (2012), where they included all the known MW satellite galaxies (XXX
 more than in the original Lynden-Bell paper) as well as some MW globular
 clusters, and found that they are all contained in what they call a
@@ -134,6 +72,8 @@ statistically found to occur in diametrically opposed
 pairs of satellites from the SDSS (Ibata et al. 2014), although this
 results were contested in a follow up paper by Cuatun et al. (2014).  
 
+
+
 These discoveries of the planes in M31 and the MW were followed by the
 remark from Shaya et al. (2013) that the other satellite galaxies in
 M31 could be part of a second plane, further reinforcing the idea that
@@ -143,7 +83,9 @@ galaxies, Tully et al. managed to go beyond the local group and found
 two planes of satellites galaxies in Centaurus A, making a clearer
 case for the planes of satellites: in all the galaxies where distance
 measurements could be performed evidence of satellite planar
-structures have been found.\\
+structures have been found.
+
+
 
 These observed planes and their apparent co-rotation seem to challenge
 current galaxy formation models (Pawlowski et al. 2014).
@@ -279,6 +221,10 @@ With the same number density we expect to find $52$ pairs in the
 volume of the Illustris simulation, which is very close to the actual
 number of $49$ pairs.
 
+
+
+
+
 In the same study they found 158 pairs with broad kinematic
 characteristics, similar to the definition of our LG sample. 
 This represents a reduction of a factor of $12$ from their General
@@ -289,16 +235,17 @@ Given that our conditions are slightly more relaxed (we do not ask for
 isolation criteria from massive halos) we end up with a larger sample
 size, but still consistent with the fact that LG-like pairs are
 scarce.  
-%no me es muy claro este ultimo parrafo. En nuestros samples pasamos de 49 a 24 (o sea se redujo en un factor 2 en vez de un factor 12)
+%no me es muy claro este ultimo parrafo. En nuestros samples pasamos de 49 a 24 (o sea se redujo en un factor 2 en vez de un factor 12) 
+
 
 \begin{figure}
 \centering
-\includegraphics[width=\hsize]{v_r_pairs.pdf}\\
+\includegraphics[width=0.5\textwidth]{v_r_pairs.pdf}
 \caption{Halo pair samples used in this paper located in the
   plane of relative co-moving velocity $V_{AB}$ versus relative
   distance $R_{AB}$ between the two halos in the pair.
   The R\&V sample is the closest to the separation and kinematic
-  conditions observed in the Local Group.} 
+  conditions observed in the Local Group.}
 \label{fig:samples}
 \end{figure}
 
@@ -312,8 +259,7 @@ scarce.
 %\end{figure}
 
 \begin{figure}
-\centering
-\includegraphics[width=\hsize]{n_structure.pdf}\\
+\includegraphics[width=\hsize]{n_structure.pdf}
 \caption{Number of bright substructures ($M_{B}<-9$) and dark matter
   substructures.}
 \label{fig:nstructure}
@@ -381,7 +327,6 @@ In Figure \ref{fig:alignment_e3_cosmicweb} we plot the integrated probability of
 This integrated probability shows that $\hat e_3$ and $\hat r_{AB}$ tend to be aligned, which is consistent with the literature results mentioned above. 
 It is also interesting to note that the full sample shows a stronger alignment than that of the LG sample. Since there is an alignment between $\hat e_3$ and $\hat r_{AB}$, in the following we will investigate the alignments of the distribution of satellites and of the dark substructures with $\hat r_{AB}$.\\
 \begin{figure}
-\centering
 \includegraphics[width=\hsize]{r_tweb_e3_alignment.pdf}\\
 \caption{.}
 \label{fig:alignment_e3_cosmicweb}
@@ -397,7 +342,6 @@ We find that indeed the bright distributions are flatter than the distributions 
 This is in agreement with claims that the inclusion of baryonic physics results in more planar structures. 
 However, this result alone is not enough to infer anything about the mechanisms behind the formation of these flatter distribution or if this increased flatness corresponds to the planes of satellite galaxies observed in the Local Group.\\
 \begin{figure}
-\centering
 \includegraphics[width=\hsize]{axratio_dark_bright.pdf}\\
 \caption{Axis ratio of luminous satellites versus the axis ratio for
   dark subhalos.}
@@ -413,7 +357,6 @@ In Figure \ref{fig:plane_width} the integrated probability plot of the plane wid
 This again is in agreement with the idea that planes planes in simulations occur naturally when baryonic physics are included, but again this result alone is not enough to infer anything about the mechanisms behind their formation.\\ 
 
 \begin{figure}
-\centering
 \includegraphics[width=\hsize]{plane_width.pdf}\\
 \caption{Plane width for the best planes in the luminious and dark cases.}
 \label{fig:plane_width}
@@ -427,7 +370,6 @@ In Figure \ref{fig:plane_width_nobjects} we can see that there is a strong corre
 %pregunta para Jaime: en tu código dark quiere decir dm only subhalos o todos los subhalos (dm only y bright)?
 
 \begin{figure}
-\centering
 \includegraphics[width=\hsize]{plane_width_n_dark.pdf}\\
 \caption{Plane width as a function of objects used to find the plane.}
 \label{fig:plane_width_nobjects}
@@ -446,7 +388,6 @@ In Figure \ref{fig:lg_alignment} we plot the dot product of the semimajor axis a
 
 
 \begin{figure}
-\centering
 \includegraphics[width=\hsize]{r_u_alignment.pdf}\\
 \caption{Alignment of the mayor axis with the vector connecting the
  two halos.}
@@ -454,7 +395,6 @@ In Figure \ref{fig:lg_alignment} we plot the dot product of the semimajor axis a
 \end{figure}
 
 \begin{figure*}
-\centering
 \includegraphics[width=0.48\hsize]{significance_full_bright.pdf}
 \includegraphics[width=0.48\hsize]{significance_lg_bright.pdf}
 \caption{Significance of alignments for both samples.}
@@ -922,9 +862,7 @@ Gracias.
 %
 %The initial conditions assume a LCDM cosmology consistent with WMAP-9 measurements, from which a linear power spectrum is used to create a random realization in a periodic box with side length 75 Mpc/h = 106.5 Mpc, at a starting redshift of 127. A series of simulations are run at different resolutions, and a second set is run with only dark matter. The main simulation initially has 18203 = 6,028,568,000 hydrodynamic cells, and the same number of DM particles and MC tracers (see table for more details, including mass resolutions and gravitational softening lengths). Evolving the main simulation to z=0 used 8,192 compute cores, a peak memory of 25 TB, and 19 million CPU hours.
 
-\bibliographystyle{apj}
+\bibliographystyle{mn2e}
 \bibliography{Dwarfs}
 
 \end{document}
-
-\grid
