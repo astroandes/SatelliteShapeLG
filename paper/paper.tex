@@ -23,15 +23,15 @@
 \newcommand{\physrep}{PhR}
 \newcommand{\pasp}{PASP}    
 \newcommand{\pasj}{PASJ}    
+\newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc}\fi}}  
 
 \begin{document}
 
 %=========================================================================
 %		FRONT MATTER
 %=========================================================================
-\title[LG satellites in a cosmological context]{
-The Spatial Distribution of Local Group Satellites in a
-  Cosmological Context}
+\title[LG satellite alignments]{
+Local Group Satellite Alignments in a Cosmological Context}
 \author[J.E. Forero-Romero \& V. Arias]
 {Jaime E. Forero-Romero $^{1}$ \thanks{je.forero@uniandes.edu.co},
 Ver\'onica Arias$^1$\\
@@ -53,6 +53,25 @@ configurations as the Local Group.
 \end{keywords}
 
 \section{Introduction}
+
+\section{Numerical Setup}
+\label{sec:NumericalSetup}
+
+\subsection{Illustris simulation}
+
+We use publicly available data from the Illustris Project 
+\citep{2014MNRAS.444.1518V}. 
+This suite of cosmological simulations, performed using the quasi-Lagrangian
+code AREPO \citep{2010MNRAS.401..791S}, follow the coupled evolution of dark 
+matter and gas and includes parametrizations to account for the effects of
+gas cooling, photoionization, star formation, stellar feedback, black
+hole and super massive black hole feedback. 
+
+The simulation volume is a cubic box of $75$ \hMpc\ on a side.
+The cosmological parameters are correspond to a $\Lambda$CDM cosmology
+consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}.   
+
+
 \cite{2012MNRAS.424...80P} 
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
