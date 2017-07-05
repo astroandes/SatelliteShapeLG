@@ -27,6 +27,8 @@
 \newcommand{\Mpc}{{\ifmmode{{\rm Mpc}}\else{Mpc}\fi}}  
 \newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm{M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}
 \newcommand{\Msun}{{\ifmmode{{\rm{M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}
+\newcommand{\kms}{{\ifmmode{{\rm{km\ s}^{-1}}}\else{km $\rm{s}^{-1}$}\fi}}
+
 
 \begin{document}
 
@@ -93,6 +95,38 @@ Illustris-3 has $455^3$ DM particles, corresponding to
 $4.0\times 10^8$ \Msun in DM particle mass and $5.7$ kpc for the DM
 gravitational softwning lentgh.
  
+
+\subsection{Galaxy Pair Selection}
+
+We build two samples of galaxy pairs. 
+The first is a general sample of isolated pairs (IP) and the
+second sample correspond to Local Group pairs (LGP).
+The halos in these samples only include the DM halos with maximum
+circular velocities in the range $ 150\ \kms <V_{\rm max}< 350\ \kms$. We
+exclude sub-halos from this selection. 
+
+From this set of DM halos we construct the IP sample as follows.
+For each halo $A$ we find its closest halo $B$, if halo $A$ is also
+the closest to halo $B$, the two halos are considered as a pair. 
+Another way to phrase this selection is that pairs do not have
+neighbors closer than the pair's distance.
+We exclude the pairs that have overlapping virial radii. 
+We use this information to exclude all the pairs that have separations
+smaller than the sum of their virial radii, i.e. we exclude
+We find $49$ pairs with those conditions.
+
+We then count the number of galaxies with $M_V<-9$ inside the virial
+radius of each halo, including the central galaxy.
+We only keep pairs where both halos have at least 5 bright galaxies. 
+This reduces the sample to $24$ pairs.  
+This is the IP sample.
+
+We build the LGP sample by keeping the pairs in the IP sample with
+a separation between its brightest galaxies of $0.75\ \Mpc <R_{AB}< 1.50\ \Mpc$
+and a relative radial velocity (including the Hubble flow) of $V_{AB}<-100$ km s$^{-1}$.
+These intervals are close to the Local Group observed values.
+
+
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
 
