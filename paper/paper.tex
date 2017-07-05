@@ -24,6 +24,9 @@
 \newcommand{\pasp}{PASP}    
 \newcommand{\pasj}{PASJ}    
 \newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc}\fi}}  
+\newcommand{\Mpc}{{\ifmmode{{\rm Mpc}}\else{Mpc}\fi}}  
+\newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm{M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}
+\newcommand{\Msun}{{\ifmmode{{\rm{M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}
 
 \begin{document}
 
@@ -54,10 +57,10 @@ configurations as the Local Group.
 
 \section{Introduction}
 
-\section{Numerical Setup}
+\section{Data and Algorithms}
 \label{sec:NumericalSetup}
 
-\subsection{Illustris simulation}
+\subsection{Data from the Illustris Project}
 
 We use publicly available data from the Illustris Project 
 \citep{2014MNRAS.444.1518V}. 
@@ -68,11 +71,28 @@ gas cooling, photoionization, star formation, stellar feedback, black
 hole and super massive black hole feedback. 
 
 The simulation volume is a cubic box of $75$ \hMpc\ on a side.
-The cosmological parameters are correspond to a $\Lambda$CDM cosmology
-consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}.   
+The cosmological parameters correspond to a $\Lambda$CDM cosmology
+consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
 
+We extract halo and galaxy information from the Illustris-1 simulation
+which has the highest resolution in the current release of the
+Illustris Project.
+Illustris-1 has $1820^3$ dark matter particles and $1820^3$ initial gas
+volumen elements. 
+This corresponds to a dark matter particle mass of
+$6.3\times 10^6$\Msun\ and a minimum mass for the baryonic volume
+element of $8.0\times 10^7$\Msun. 
+The corresponding spatial resolution is $1.4$ kpc for the dark matter
+gravitational softening and $0.7$ kpc for the typical size of the
+smallest gas cell size. 
 
-\cite{2012MNRAS.424...80P} 
+We compute the cosmic web from the DM information in the
+Illustris-3 simulation which share the same structure information with
+Illustris-1 on scales of $1$ \Mpc.  
+Illustris-3 has $455^3$ DM particles, corresponding to
+$4.0\times 10^8$ \Msun in DM particle mass and $5.7$ kpc for the DM
+gravitational softwning lentgh.
+ 
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
 
