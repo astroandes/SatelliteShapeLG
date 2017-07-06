@@ -114,8 +114,8 @@ We find $49$ pairs with those conditions.
 
 We then count the number of galaxies with $M_V<-9$ inside the virial
 radius of each halo, including the central galaxy.
-We only keep pairs where both halos have at least 5 bright galaxies. 
-This reduces the sample to $24$ pairs.  
+We only keep pairs where both halos have at least 5 bright galaxies, 
+reducing the sample to $24$ pairs.  
 This is the IP sample.
 
 We build the LGP sample by keeping the pairs in the IP sample with
@@ -141,6 +141,7 @@ in the plane of radial velocity versus distance.
 
 
 \section{Cosmic Web Calculations}
+\label{sec:CosmicWeb}
 
 We also find the place IS and LGS pairs into the cosmic web as quantified by the deformation tensor
 \citep{2007MNRAS.375..489H,2009MNRAS.396.1815F}.
@@ -150,7 +151,7 @@ T_{ij} \equiv \frac{\partial^2\phi}{\partial r_i \partial r_j},
 \end{equation}
 %
 where $\phi$ is a pseudo-gravitational potential that follows the
-Poisson equation $\nabla^2\phi=-\delta$, with $\delta$ the DM matter
+Poisson equation $\nabla^2\phi=\delta$, with $\delta$ the DM matter
 overdentisy, and the $r_i$ coordinates correspond to a cartesian
 system with $i=1,2,3$.   
 
@@ -175,12 +176,33 @@ We choose this interpolation and smoothing scale for two reasons.
 First, because it corresponds to the typical pair separation in our
 sample, making each halo in the pair share the same environment.
 Second, because it allows a direct comparison with previous results in
-the literature that used the same methodology to quantify the cosmic
+the literature that used the same setup to quantify the cosmic
 web environment for Local Group pairs in a cosmological context
 \citep{ForeroRomero2013,2015ApJ...799...45F}.  
 
+\section{Satellite Spatial Distribution and Alignment}
+\label{sec:SpatialMeasurements}
+
+We characterize the satellite spatial distribution in two ways. 
+First, by computing the inertia tensor defined as 
+
+\begin{equation}
+{\bf{\bar{I}}} = \sum_{k \in V}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
+  (\bf{r}_i-\bf{r}_0)\cdot (\bf{r}_i - \bf{r}_0)^{T}],
+\end{equation}
+%
+where $k$ indexes the set of satellites of interest
+$\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the
+positions pof the host DM halo, $\bf{1}$ is the unit matrix,  and
+${\bf r}^T$ is the transposed vector $\bf{r}$. 
+We finally compute the eigenvalues and eigenvector of this tensor.
+
+
+
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
+
+
 
 %% http://adsabs.harvard.edu/abs/2017MNRAS.464.3825P
 \end{document}
