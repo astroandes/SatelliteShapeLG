@@ -140,6 +140,45 @@ in the plane of radial velocity versus distance.
 \end{figure}
 
 
+\section{Cosmic Web Calculations}
+
+We also find the place IS and LGS pairs into the cosmic web as quantified by the deformation tensor
+\citep{2007MNRAS.375..489H,2009MNRAS.396.1815F}.
+This method computes a cartesian grid the tensor 
+\begin{equation}
+T_{ij} \equiv \frac{\partial^2\phi}{\partial r_i \partial r_j},
+\end{equation}
+%
+where $\phi$ is a pseudo-gravitational potential that follows the
+Poisson equation $\nabla^2\phi=-\delta$, with $\delta$ the DM matter
+overdentisy, and the $r_i$ coordinates correspond to a cartesian
+system with $i=1,2,3$.   
+
+This tensor can be diagonalized.
+Its eigenvalues ($\lambda_1 > \lambda_2 > \lambda_3$) and
+corresponding eigenvectors ($\hat{e}_1$, $\hat{e}_2$, $\hat{e}_3$)
+define the degree and direction of stability around the neighborhood
+where the tensor is computed. 
+This allows the classification of that region either as a peak,
+filament, sheet or voids in the case of three, two, one or zero
+eigenvalues larger than a given threshold $\lambda_{\rm th}$.
+
+In this study we compute these eigenvalues and eigenvectors over the
+dark matter component of the Illustris-3 simulation on a cubic mesh of
+$74$ cells on a side. 
+This resolution corresponds to $\sim 1$ \hMpc.
+We interpolate the DM density on that mesh using a Cloud-In-Cell (CIC)
+scheme, then smooth the density field with a gaussian window with a
+physical scale equal to the cell size. 
+
+We choose this interpolation and smoothing scale for two reasons.
+First, because it corresponds to the typical pair separation in our
+sample, making each halo in the pair share the same environment.
+Second, because it allows a direct comparison with previous results in
+the literature that used the same methodology to quantify the cosmic
+web environment for Local Group pairs in a cosmological context
+\citep{ForeroRomero2013,2015ApJ...799...45F}.  
+
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
 

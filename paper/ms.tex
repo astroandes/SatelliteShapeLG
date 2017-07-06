@@ -27,7 +27,7 @@
 \newcommand{\ccm}{\,\mathrm{cm}^{-3}}
 \newcommand{\ergps}{\,{\rm erg}\,{\rm s}\ifmmode{}^{-1}\else ${}^{-1}$\fi}
 \newcommand{\Mpch}{\,{\rm Mpc}\,\ifmmode h^{-1}\else $h^{-1}$\fi}
-%\newcommand{\kms}{\,\mathrm{km}\,\mathrm{s}^{-1}}
+\newcommand{\kms}{\,\mathrm{km}\,\mathrm{s}^{-1}}
 \newcommand{\dd}{\mathrm{d}}
 \newcommand{\vek}[1]{\bm{#1}}
 %\newcommand{\lya}{Ly$\alpha$}
@@ -164,79 +164,11 @@ Finally, these results are discussed more broadly in Section \ref{Discussion}.
 
 
 
-\subsection{Sample Selection}
 
-We select all halos with maximum circular velocities in the
-range 150 km s$^{-1}$ $<V_{\rm max}<$ 350 km s$^{1}$.
-We exclude sub-halos from this selection.
-From this set we construct a sample of pairs as follows.
-For each halo $A$ we find its closest halo $B$, if halo $A$ is also
-the closest to halo $B$, the two halos are considered as a pair. 
-Another way to phrase this selection is that pairs do not have
-neighbors closer than the pair's distance.
-We exclude the pairs that are closer than
-There are $53$ pairs with those conditions in the simulation.
-
-We extract from the simulation spheres of $2$ \hMpc  in radius around
-the pair's center of mass. 
-We use this information to exclude all the pairs that have separations
-smaller than the sum of their virial radii, i.e. we exclude
-interacting pairs. 
-This reduces to $49$ the number of pairs in the sample.
-
-We count the number of galaxies with $M_V<-9$ inside the virial
-radius of each halo, including the central galaxy.
-We only keep pairs where both halos have 5 bright galaxies at least. 
-This reduces the sample to $24$ pairs. 
-We call this sample the Full Sample.
-
-From the Full Sample we build a second sample based on the pairs' kinematics. 
-Figure \ref{fig:samples} shows the co-moving separation and relative
-speed between the two halos in the pair.
-The stars in the Figure represent the pairs with a separation in the
-range $0.75\hMpc <R_{AB}< 1.50\hMpc$ and relative velocity in the
-range $V_{AB}>100$ km s$^{-1}$, which are close to the Local Group
-Observed values.
-We call this sample the LG Sample.
-
-The number of pairs in the Full Sample is consistent with previous
-calculations. 
-\cite{ForeroRomero2013} performed a study of the LG kinematics using a
-cosmological N-body simulation as a benchmark. 
-In their study, using criteria similar to ours to define the Full
-Sample, they found 1923 pairs in a volume of $250^3$ $h^{-3}$
-Mpc$^{3}$. 
-With the same number density we expect to find $52$ pairs in the
-volume of the Illustris simulation, which is very close to the actual
-number of $49$ pairs.
-
-
-
-
-
-In the same study they found 158 pairs with broad kinematic
-characteristics, similar to the definition of our LG sample. 
-This represents a reduction of a factor of $12$ from their General
-Sample. 
-With those numbers in mind we would expect to keep at least $4$ pairs
-in the Illustris volume. 
-Given that our conditions are slightly more relaxed (we do not ask for
-isolation criteria from massive halos) we end up with a larger sample
-size, but still consistent with the fact that LG-like pairs are
-scarce.  
 %no me es muy claro este ultimo parrafo. En nuestros samples pasamos de 49 a 24 (o sea se redujo en un factor 2 en vez de un factor 12) 
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.5\textwidth]{v_r_pairs.pdf}
-\caption{Halo pair samples used in this paper located in the
-  plane of relative co-moving velocity $V_{AB}$ versus relative
-  distance $R_{AB}$ between the two halos in the pair.
-  The R\&V sample is the closest to the separation and kinematic
-  conditions observed in the Local Group.}
-\label{fig:samples}
-\end{figure}
+
 
 %\begin{figure}
 %\centering
