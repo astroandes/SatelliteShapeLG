@@ -95,37 +95,27 @@ gravitational softwning lentgh.
 
 \subsection{Sample Selection: Local Group Analogues}
 
-We build two samples of galaxy pairs. 
-The first is a general sample of isolated pairs (IP) and the
-second sample correspond to Local Group pairs (LGP).
-The halos in these samples only include the DM halos with maximum
-circular velocities in the range $ 150\ \kms <V_{\rm max}< 350\ \kms$. We
-exclude sub-halos from this selection. 
+We build a sample of Local Group Analgues (LGA) by performing a selection on
+the stellar mass and isolation properties of the galaxies in the
+simulation. The conditions to select LGA galaxies are the following.
 
-From this set of DM halos we construct the IP sample as follows.
-For each halo $A$ we find its closest halo $B$, if halo $A$ is also
+\begin{itemize}
+\item {\bf Stellar mass}. LGA galaxy pairs are composed by galaxies with stellar mass in the
+range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
+\item {\bf Dominant pairs}. For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
 the closest to halo $B$, the two halos are considered as a pair. 
 Another way to phrase this selection is that pairs do not have
 neighbors closer than the pair's distance.
-We exclude the pairs that have overlapping virial radii. 
-We use this information to exclude all the pairs that have separations
-smaller than the sum of their virial radii, i.e. we exclude
-We find $49$ pairs with those conditions.
+\item {\bf Separation}. The distance between the galaxies' center of
+  mass must be in the range $500$ kpc $<d_{AB}<$ $1500$ kpc. 
+\item {\bf Isolation}. For each galaxy in the pair there cannot be a galaxy more
+  massive than the lightest galaxy in the pair within a radius of $2$
+  Mpc. 
+\end{itemize}
 
-We then count the number of galaxies with $M_V<-9$ inside the virial
-radius of each halo, including the central galaxy.
-We only keep pairs where both halos have at least 5 bright galaxies, 
-reducing the sample to $24$ pairs.  
-This is the IP sample.
-
-We build the LGP sample by keeping the pairs in the IP sample with
-a separation between its brightest galaxies of $0.75\ \Mpc <R_{AB}< 1.50\ \Mpc$
-and a negative relative radial velocity (including the Hubble flow) 
-These intervals are close to the Local Group observed values.
-The LGP sample is reduced to $12$ pairs.
-
-Figure \ref{fig:samples} show the results for the IP and LGP samples
-in the plane of radial velocity versus distance.
+We find $19$ pairs of galaxies fulfilling these conditions.
+Figure \ref{fig:samples} shows the radial velocity versus distance for
+the LGA pairs.
 
 \begin{figure}
 \centering
@@ -198,6 +188,8 @@ ${\bf r}^T$ is the transposed vector $\bf{r}$.
 We finally compute the eigenvalues and eigenvector of this tensor.
 
 
+% referencia posiciones satellites
+% http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
 
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
