@@ -88,7 +88,7 @@ smallest gas cell size.
 We compute the cosmic web from the DM information in the
 Illustris-3 simulation which share the same structure information with
 Illustris-1 on scales of $1$ \Mpc.  
-Illustris-3 has $455^3$ DM particles, corresponding to
+Illustris-3 has $456^3$ DM particles, corresponding to
 $4.0\times 10^8$ \Msun in DM particle mass and $5.7$ kpc for the DM
 gravitational softwning lentgh.
  
@@ -102,10 +102,10 @@ simulation. The conditions to select LGA galaxies are the following.
 \begin{itemize}
 \item {\bf Stellar mass}. LGA galaxy pairs are composed by galaxies with stellar mass in the
 range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
-\item {\bf Dominant pairs}. For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
+\item {\bf Dominant pair}. For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
 the closest to halo $B$, the two halos are considered as a pair. 
 Another way to phrase this selection is that pairs do not have
-neighbors closer than the pair's distance.
+neighbors closer than the pair's separation.
 \item {\bf Separation}. The distance between the galaxies' center of
   mass must be in the range $500$ kpc $<d_{AB}<$ $1500$ kpc. 
 \item {\bf Isolation}. For each galaxy in the pair there cannot be a galaxy more
@@ -173,7 +173,22 @@ web environment for Local Group pairs in a cosmological context
 \section{Satellite Spatial Distribution and Alignment}
 \label{sec:SpatialMeasurements}
 
-We characterize the satellite spatial distribution in two ways. 
+We characterize the bright ($M_V<-9$) satellite spatial distribution
+with four different metrics. 
+
+\begin{enumerate}
+\item{The inertia tensor}.
+\item{Fitting planes}.
+\item{Velocity Anisotropy}.
+\item{Alignment with the cosmic web}. 
+\end{enumerate}
+
+I what follows we describe the details of implementation of each
+metric.
+
+
+\subsection{Inertia Tensor}
+\label{sub:inertia}
 First, by computing the inertia tensor defined as 
 
 \begin{equation}
@@ -191,10 +206,69 @@ We finally compute the eigenvalues and eigenvector of this tensor.
 % referencia posiciones satellites
 % http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
 
+\subsection{Plane fitting}
+\label{sub:planes}
+
+We fit satellite planes around each galaxy in the pair by randomly
+generating 10000 unit vectors over the  sphere, each vector
+representing the direction perpendicular to a plane passing through
+the main galaxy's center of mass. 
+We compute the dot product of the unit vector with the position vector
+for each satellite, this scalar gives us the satellite distance to the
+plane. 
+The best plane is determined by the vector that gives the lowest
+position satellite distance dispersion. 
+We take the dispersion value as a measure of the plane's width.
+For comparison we also store the value and direction giving the
+highest distance dispersion.
+
+
+\subsection{Velocity Anisotropy}
+\label{sub:beta}
+
+The velocity anisotropy paramenter, $\beta$ is defined as
+
+\begin{equation}
+  \beta = 1 - \frac{\sum_i v^2_{\rm{tan}; i}}{2\sum_i v^{2}_{\rm{rad};i}},
+\label{eq:beta}
+\end{equation}
+% 
+where $v_{\rm{tan/rad};i}$ correspond to the tangential/radial
+velocity of the $i$-th satellite with respect to the central galaxy.
+
+
+\begin{table*}
+  \centering
+\begin{tabular}{lll}
+\hline\hline
+Symbol & Units & Description\\\hline
+$M_{\star}$ & $10^{10}$\Msun & Stellar mass\\
+$N_s$ & & Number of satellites with $M_V<-9$\\
+$a > b> c$ & & Inertia tensor eigenvalues. \\
+$\hat{s}_1$, $\hat{s}_2$, $\hat{s}_3$ & & Inertia tensor eigenvectors. \\
+$\beta$  &  & Satellite Velocity Anisotropy\\
+$\sigma_s$ & kpc & Plane width\\
+$\lambda_1>\lambda_2>\lambda_3$ &  & Hessian Matrix
+eigenvalues\\
+$\hat{e}_{1}$,  $\hat{e}_{2}$,  $\hat{e}_{3}$ & - & Hessian Matrix
+eigenvectors\\ 
+$\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
+
+\hline\hline
+\end{tabular}
+  \caption{Overview of the parameters computed for each central galaxy
+    and its satellite system.
+  \label{tab:models}}
+\end{table*}
+
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
 
+%% Alignments between galaxies, satellite systems and haloes
+%% https://arxiv.org/pdf/1605.01728.pdf
 
+%% The tangential velocity excess of the Milky Way satellites
+%% https://arxiv.org/pdf/1612.01529.pdf
 
 %% http://adsabs.harvard.edu/abs/2017MNRAS.464.3825P
 \end{document}
