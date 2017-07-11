@@ -35,7 +35,7 @@
 %=========================================================================
 %		FRONT MATTER
 %=========================================================================
-\title[LG satellite alignments]{Satellite Alignments in the Local Group}
+\title[LG satellite alignments]{Local Group Satellite Alignments}
 \author[J.E. Forero-Romero \& V. Arias]
 {Jaime E. Forero-Romero $^{1}$ \thanks{je.forero@uniandes.edu.co},
 Ver\'onica Arias$^1$\\
@@ -57,6 +57,10 @@ configurations as the Local Group.
 \end{keywords}
 
 \section{Introduction}
+
+\section{Observational Characterists of Andromeda and the Milky Way}
+\label{sec:obs}
+
 
 \section{Local Group Analogues in the Illustris Simulation}
 \label{sec:NumericalSetup}
@@ -100,20 +104,20 @@ the stellar mass and isolation properties of the galaxies in the
 simulation. The conditions to select LGA galaxies are the following.
 
 \begin{itemize}
-\item {\bf Stellar mass}. LGA galaxy pairs are composed by galaxies with stellar mass in the
+\item LGA galaxy pairs are composed by galaxies with stellar mass in the
 range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
-\item {\bf Dominant pair}. For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
+\item For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
 the closest to halo $B$, the two halos are considered as a pair. 
 Another way to phrase this selection is that pairs do not have
 neighbors closer than the pair's separation.
-\item {\bf Separation}. The distance between the galaxies' center of
+\item The distance between the galaxies' center of
   mass must be in the range $500$ kpc $<d_{AB}<$ $1500$ kpc. 
-\item {\bf Isolation}. For each galaxy in the pair there cannot be a galaxy more
+\item For each galaxy in the pair there cannot be a galaxy more
   massive than the lightest galaxy in the pair within a radius of $2$
   Mpc. 
 \end{itemize}
 
-We find $19$ pairs of galaxies fulfilling these conditions.
+We find $19$ pairs with these conditions.
 Figure \ref{fig:samples} shows the radial velocity versus distance for
 the LGA pairs.
 
@@ -136,7 +140,7 @@ the LGA pairs.
 We place the LGA pairs into the cosmic web as quantified by the
 deformation tensor  
 \citep{2007MNRAS.375..489H,2009MNRAS.396.1815F}.
-This method computes a cartesian grid the tensor 
+This method computes a cartesian grid the tidal tensor 
 \begin{equation}
 T_{ij} \equiv \frac{\partial^2\phi}{\partial r_i \partial r_j},
 \end{equation}
@@ -243,20 +247,21 @@ where $v_{\rm{tan/rad};i}$ correspond to the tangential/radial
 velocity of the $i$-th satellite with respect to the central galaxy.
 
 
+
 \begin{table*}
   \centering
 \begin{tabular}{lll}
 \hline\hline
 Symbol & Units & Description\\\hline
-$M_{\star}$ & $10^{10}$\Msun & Stellar mass\\
+$M_{\star}$ & $10^{10}$\Msun & Stellar mass of the central galaxy\\
 $N_s$ & & Number of satellites with $M_V<-9$\\
 $a > b> c$ & & Inertia tensor eigenvalues. \\
-$\hat{s}_1$, $\hat{s}_2$, $\hat{s}_3$ & & Inertia tensor eigenvectors. \\
+$\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
 $\beta$  &  & Satellite Velocity Anisotropy\\
 $\sigma_s$ & kpc & Plane width\\
-$\lambda_1>\lambda_2>\lambda_3$ &  & Hessian Matrix
+$\lambda_1>\lambda_2>\lambda_3$ &  & Tidal tensor
 eigenvalues\\
-$\hat{e}_{1}$,  $\hat{e}_{2}$,  $\hat{e}_{3}$ & - & Hessian Matrix
+$\hat{e}_{1}$,  $\hat{e}_{2}$,  $\hat{e}_{3}$ &  & Tidal tensor
 eigenvectors\\ 
 $\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
 \hline\hline
@@ -278,9 +283,9 @@ The eigenvector $\hat{e}_3$ indicates the direction along
 which the cosmic web filament lies and in the case of being on a local
 sheet it is a vector lying on the pancakes' plane. 
 
-Following \cite{} we want to find the cosmic web preferential
-direction towards which the vectors $\hat{r}_{AB}$, $\hat{s}_3$ and 
-
+Following \cite{2014MNRAS.443.1090F} we compute the closest cosmic web
+eigenvalue  towards which the vectors $\hat{r}_{AB}$, $\hat{p}$ and
+$\hat{I}_a$ are aligned. 
 
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
