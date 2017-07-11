@@ -133,14 +133,15 @@ the LGA pairs.
 \section{Cosmic Web Calculations}
 \label{sec:CosmicWeb}
 
-We also find the place IS and LGS pairs into the cosmic web as quantified by the deformation tensor
+We place the LGA pairs into the cosmic web as quantified by the
+deformation tensor  
 \citep{2007MNRAS.375..489H,2009MNRAS.396.1815F}.
 This method computes a cartesian grid the tensor 
 \begin{equation}
 T_{ij} \equiv \frac{\partial^2\phi}{\partial r_i \partial r_j},
 \end{equation}
 %
-where $\phi$ is a pseudo-gravitational potential that follows the
+where $\phi$ is a pseudo-gravitational potential that satisfies the
 Poisson equation $\nabla^2\phi=\delta$, with $\delta$ the DM matter
 overdentisy, and the $r_i$ coordinates correspond to a cartesian
 system with $i=1,2,3$.   
@@ -200,8 +201,11 @@ where $k$ indexes the set of satellites of interest
 $\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the
 positions pof the host DM halo, $\bf{1}$ is the unit matrix,  and
 ${\bf r}^T$ is the transposed vector $\bf{r}$. 
-We finally compute the eigenvalues and eigenvector of this tensor.
-
+We finally compute the eigenvalues, $a>b>c$, and corresponding
+eigenvectors, $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$, of this tensor.
+In the case of a sheet-like configuration the vector perpendicular to
+the sheet would be signaled by, $\hat{I}_a$, the eigenvector of the
+largest eigenvalue. 
 
 % referencia posiciones satellites
 % http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
@@ -219,8 +223,10 @@ plane.
 The best plane is determined by the vector that gives the lowest
 position satellite distance dispersion. 
 We take the dispersion value as a measure of the plane's width.
-For comparison we also store the value and direction giving the
+For comparison we store the value and direction giving the
 highest distance dispersion.
+We denote by $\hat{p}$ the unit vector defining the direction
+perpendicular to the best plane.
 
 
 \subsection{Velocity Anisotropy}
@@ -253,13 +259,28 @@ eigenvalues\\
 $\hat{e}_{1}$,  $\hat{e}_{2}$,  $\hat{e}_{3}$ & - & Hessian Matrix
 eigenvectors\\ 
 $\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
-
 \hline\hline
 \end{tabular}
   \caption{Overview of the parameters computed for each central galaxy
     and its satellite system.
   \label{tab:models}}
 \end{table*}
+
+\subsection{Cosmic Web Alignment}
+\label{sub:webalignment}
+
+\cite{2015ApJ...799...45F} showed tha LGA pairs present alignments
+with the cosmic web.
+The strongest alignment is between the eigenvector associated  with the smallest
+eigenvalue, $\hat{e}_3$, and the vector $\hat{r}_{AB} $connecting the two halos in
+the pair. 
+The eigenvector $\hat{e}_3$ indicates the direction along
+which the cosmic web filament lies and in the case of being on a local
+sheet it is a vector lying on the pancakes' plane. 
+
+Following \cite{} we want to find the cosmic web preferential
+direction towards which the vectors $\hat{r}_{AB}$, $\hat{s}_3$ and 
+
 
 \bibliographystyle{mn2e}
 \bibliography{Dwarfs}
