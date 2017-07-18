@@ -1,4 +1,6 @@
-\documentclass[useAMS,usenatbib,usegraphicx]{mn2e} 
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
+
+
 %=========================================================================
 \usepackage{amsmath} 
 \usepackage{amssymb} 
@@ -7,28 +9,55 @@
 \usepackage[dvips]{epsfig}
 \usepackage{epsfig}  
 \usepackage{color}
+\usepackage{caption}
 \usepackage{hyperref}
-\newcommand{\apj}{ApJ}  
-\newcommand{\jcap}{JCAP}  
-\newcommand{\apjs}{ApJS}  
-\newcommand{\pasa}{PASA}  
-\newcommand{\apjl}{ApJL}  
-\newcommand{\aj}{AJ}  
-\newcommand{\mnras}{MNRAS}  
-\newcommand{\mnrassub}{MNRAS accepted}  
-\newcommand{\aap}{A\&A}  
-\newcommand{\aaps}{A\&AS}  
-\newcommand{\araa}{ARA\&A}  
-\newcommand{\nat}{Nature}  
-\newcommand{\physrep}{PhR}
-\newcommand{\pasp}{PASP}    
-\newcommand{\pasj}{PASJ}    
-\newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc}\fi}}  
-\newcommand{\Mpc}{{\ifmmode{{\rm Mpc}}\else{Mpc}\fi}}  
+\usepackage{bm}
+%Non reposionated tables
+
+
+
+
+%=========================================================================
+%		INTERNAL MACROS
+%=========================================================================
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+
+% To highlight comments 
+\definecolor{red}{rgb}{1,0.0,0.0}
+\newcommand{\red}{\color{red}}
+\definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
+\newcommand{\SRK}[1]{\textcolor{darkgreen}{\bf SRK: \textit{#1}}}
+\newcommand{\SRKED}[1]{\textcolor{darkgreen}{\bf #1}}
+\newcommand{\before}[1]{\textcolor{red}{ #1}}
+\newcommand{\after}[1]{\textcolor{darkgreen}{ #1}}
+\newcommand{\hs}{{\hspace{1mm}}}  
+\newcommand{\tol}{Tololo 1214-277}
+\newcommand{\HI}{{\text{H\MakeUppercase{\romannumeral 1}}} }
+\newcommand{\HII}{{\text{H\MakeUppercase{\romannumeral 2}}} }
+\newcommand{\lya}{\ifmmode{{\rm Ly}\alpha}\else Ly$\alpha$\ \fi}
+\newcommand{\cm}{\ifmmode{{\rm cm}}\else cm\fi}
+\newcommand{\ccm}{\,\mathrm{cm}^{-3}}
+\newcommand{\ergps}{\,{\rm erg}\,{\rm s}\ifmmode{}^{-1}\else ${}^{-1}$\fi}
+\newcommand{\Mpch}{\,{\rm Mpc}\,\ifmmode h^{-1}\else $h^{-1}$\fi}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\vek}[1]{\bm{#1}}
+\newcommand{\hb}{H$\beta$}
+\newcommand{\ha}{H$\alpha$}
+\newcommand{\oiii}{[OIII]}
+\newcommand{\oii}{[OII]}
+\newcommand{\nii}{[NII]}
+\newcommand{\esca}{erg cm$^{-2}$ s$^{-1}$ \AA$^{-1}$}
+\newcommand{\esc}{erg cm$^{-2}$ s$^{-1}$}
+\newcommand{\es}{erg s$^{-1}$}
+\newcommand{\esa}{erg s$^{-1}$}
+\newcommand{\kms}{\ifmmode\mathrm{km\ s}^{-1}\else km s$^{-1}$\fi}
 \newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm{M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}
 \newcommand{\Msun}{{\ifmmode{{\rm{M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}
-\newcommand{\kms}{{\ifmmode{{\rm{km\ s}^{-1}}}\else{km $\rm{s}^{-1}$}\fi}}
 
+\newcommand{\jefr}[1]{\textcolor{darkgreen}{\bf JEFR: \textit{#1}}}
 
 \begin{document}
 
@@ -73,7 +102,7 @@ matter and gas and includes parametrizations to account for the effects of
 gas cooling, photoionization, star formation, stellar feedback, black
 hole and super massive black hole feedback. 
 
-The simulation volume is a cubic box of $75$ \hMpc\ on a side.
+The simulation volume is a cubic box of $75$ \Mpch\ on a side.
 The cosmological parameters correspond to a $\Lambda$CDM cosmology
 consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
 
@@ -91,7 +120,7 @@ smallest gas cell size.
 
 We compute the cosmic web from the DM information in the
 Illustris-3 simulation which share the same structure information with
-Illustris-1 on scales of $1$ \Mpc.  
+Illustris-1 on scales of $1$ Mpc.  
 Illustris-3 has $456^3$ DM particles, corresponding to
 $4.0\times 10^8$ \Msun in DM particle mass and $5.7$ kpc for the DM
 gravitational softwning lentgh.
@@ -164,7 +193,7 @@ eigenvalues larger than a given threshold $\lambda_{\rm th}$.
 In this study we compute these eigenvalues and eigenvectors over the
 dark matter component of the Illustris-3 simulation on a cubic mesh of
 $74$ cells on a side. 
-This resolution corresponds to $\sim 1$ \hMpc.
+This resolution corresponds to $\sim 1$ \Mpch.
 We interpolate the DM density on that mesh using a Cloud-In-Cell (CIC)
 scheme, then smooth the density field with a gaussian window with a
 physical scale equal to the cell size. 
@@ -289,7 +318,7 @@ Following \cite{2014MNRAS.443.1090F} we compute the closest cosmic web
 eigenvalue  towards which the vectors $\hat{r}_{AB}$, $\hat{p}$ and
 $\hat{I}_a$ are aligned. 
 
-\bibliographystyle{mn2e}
+\bibliographystyle{mnras}
 \bibliography{Dwarfs}
 
 %% Alignments between galaxies, satellite systems and haloes
