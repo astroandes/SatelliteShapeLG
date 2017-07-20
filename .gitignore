@@ -4,5 +4,4 @@
 *.blg
 *.bbl
 *.out
-
-
+*.ipynb_checkpoints/
