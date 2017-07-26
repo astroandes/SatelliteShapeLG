@@ -117,12 +117,6 @@ The corresponding spatial resolution is $1.4$ kpc for the dark matter
 gravitational softening and $0.7$ kpc for the typical size of the
 smallest gas cell size. 
 
-We compute the cosmic web from the DM information in the
-Illustris-3 simulation which share the same structure information with
-Illustris-1 on scales of $1$ Mpc.  
-Illustris-3 has $456^3$ DM particles, corresponding to
-$4.0\times 10^8$ \Msun in DM particle mass and $5.7$ kpc for the DM
-gravitational softwning lentgh.
  
 
 \subsection{Sample Selection: Local Group Analogues}
@@ -168,46 +162,6 @@ the sample.
 
 
 
-\section{Cosmic Web Calculations}
-\label{sec:CosmicWeb}
-
-We place the LGA pairs into the cosmic web as quantified by the
-deformation tensor  
-\citep{2007MNRAS.375..489H,2009MNRAS.396.1815F}.
-This method computes a cartesian grid the tidal tensor 
-\begin{equation}
-T_{ij} \equiv \frac{\partial^2\phi}{\partial r_i \partial r_j},
-\end{equation}
-%
-where $\phi$ is a pseudo-gravitational potential that satisfies the
-Poisson equation $\nabla^2\phi=\delta$, with $\delta$ the DM matter
-overdentisy, and the $r_i$ coordinates correspond to a cartesian
-system with $i=1,2,3$.   
-
-This tensor can be diagonalized.
-Its eigenvalues ($\lambda_1 > \lambda_2 > \lambda_3$) and
-corresponding eigenvectors ($\hat{e}_1$, $\hat{e}_2$, $\hat{e}_3$)
-define the degree and direction of stability around the neighborhood
-where the tensor is computed. 
-This allows the classification of that region either as a peak,
-filament, sheet or voids in the case of three, two, one or zero
-eigenvalues larger than a given threshold $\lambda_{\rm th}$.
-
-In this study we compute these eigenvalues and eigenvectors over the
-dark matter component of the Illustris-3 simulation on a cubic mesh of
-$74$ cells on a side. 
-This resolution corresponds to $\sim 1$ \Mpch.
-We interpolate the DM density on that mesh using a Cloud-In-Cell (CIC)
-scheme, then smooth the density field with a gaussian window with a
-physical scale equal to the cell size. 
-
-We choose this interpolation and smoothing scale for two reasons.
-First, because it corresponds to the typical pair separation in our
-sample, making each halo in the pair share the same environment.
-Second, because it allows a direct comparison with previous results in
-the literature that used the same setup to quantify the cosmic
-web environment for Local Group pairs in a cosmological context
-\citep{ForeroRomero2013,2015ApJ...799...45F}.  
 
 \section{Satellite Spatial Distribution and Alignment}
 \label{sec:SpatialMeasurements}
@@ -219,7 +173,6 @@ with four different metrics.
 \item{The inertia tensor}.
 \item{Fitting planes}.
 \item{Velocity Anisotropy}.
-\item{Alignment with the cosmic web}. 
 \end{enumerate}
 
 I what follows we describe the details of implementation of each
@@ -293,10 +246,6 @@ $a > b> c$ & & Inertia tensor eigenvalues. \\
 $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
 $\beta$  &  & Satellite Velocity Anisotropy\\
 $\sigma_s$ & kpc & Plane width\\
-$\lambda_1>\lambda_2>\lambda_3$ &  & Tidal tensor
-eigenvalues\\
-$\hat{e}_{1}$,  $\hat{e}_{2}$,  $\hat{e}_{3}$ &  & Tidal tensor
-eigenvectors\\ 
 $\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
 \hline\hline
 \end{tabular}
@@ -305,21 +254,6 @@ $\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
   \label{tab:models}}
 \end{table*}
 
-\subsection{Cosmic Web Alignment}
-\label{sub:webalignment}
-
-\cite{2015ApJ...799...45F} showed tha LGA pairs present alignments
-with the cosmic web.
-The strongest alignment is between the eigenvector associated  with the smallest
-eigenvalue, $\hat{e}_3$, and the vector $\hat{r}_{AB} $connecting the two halos in
-the pair. 
-The eigenvector $\hat{e}_3$ indicates the direction along
-which the cosmic web filament lies and in the case of being on a local
-sheet it is a vector lying on the pancakes' plane. 
-
-Following \cite{2014MNRAS.443.1090F} we compute the closest cosmic web
-eigenvalue  towards which the vectors $\hat{r}_{AB}$, $\hat{p}$ and
-$\hat{I}_a$ are aligned. 
 
 \section{Results}
 \label{sec:results}
@@ -353,15 +287,6 @@ Cumulative distribution for the gelocity anisotropy $\beta$.
 \label{fig:mu_ri}}
 \end{figure*}
 
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.48\textwidth]{mu_ie_cum.pdf}
-\includegraphics[width=0.48\textwidth]{mu_re_cum.pdf}
-\caption{
-Cumulative distribution for the gelocity anisotropy $\beta$.
-\label{fig:mu_web}}
-\end{figure*}
 
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
