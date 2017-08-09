@@ -205,18 +205,20 @@ largest eigenvalue.
 \label{sub:planes}
 
 We fit satellite planes around each galaxy in the pair by randomly
-generating 10000 unit vectors over the  sphere, each vector
-representing the direction perpendicular to a plane passing through
+generating 10000 unit vectors homogeneously distributed over the
+sphere.
+Each vector represents the direction perpendicular to a plane passing through
 the main galaxy's center of mass. 
-We compute the dot product of the unit vector with the position vector
-for each satellite, this scalar gives us the satellite distance to the
+We compute the dot product of this unit vector with the position vector
+for each satellite, this gives us the satellite distances to the
 plane. 
 The best plane is determined by the vector that gives the lowest
-position satellite distance dispersion. 
-We take the dispersion value as a measure of the plane's width.
-For comparison we store the value and direction giving the
-highest distance dispersion.
-We denote by $\hat{p}$ the unit vector defining the direction
+sample standard deviation in the satellite distances to the plane.
+In the set of unit vectors to be considered we also include the vector
+$\hat{I}_a$, which provides the exact solution in the case of $3$
+satallites. 
+We take the sample standard deviation as a measure of the plane's width
+and denote by $\hat{p}$ the unit vector defining the direction
 perpendicular to the best plane.
 
 
