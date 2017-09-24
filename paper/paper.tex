@@ -86,7 +86,7 @@ configurations as the Local Group.
 
 \section{Introduction}
 
-\section{Observational Characterists of Andromeda and the Milky Way}
+\section{Observational Data}
 \label{sec:obs}
 
 
@@ -162,22 +162,8 @@ the sample.
 \section{Satellite Spatial Distribution and Alignment}
 \label{sec:SpatialMeasurements}
 
-We characterize the bright ($M_V<-9$) satellite spatial distribution
-with four different metrics. 
-
-\begin{enumerate}
-\item{The inertia tensor}.
-\item{Fitting planes}.
-\item{Velocity Anisotropy}.
-\end{enumerate}
-
-I what follows we describe the details of implementation of each
-metric.
-
-
-\subsection{Inertia Tensor}
-\label{sub:inertia}
-First, by computing the inertia tensor defined as 
+We use the inertia tensor to characterize the satellites.
+This tensor is defined as
 
 \begin{equation}
 {\bf{\bar{I}}} = \sum_{k \in V}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
@@ -193,45 +179,12 @@ eigenvectors, $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$, of this tensor.
 In the case of a sheet-like configuration the vector perpendicular to
 the sheet would be signaled by, $\hat{I}_a$, the eigenvector of the
 largest eigenvalue. 
+We measure the width of the satellite distribution as the standard
+deviation of all satellite distances to the plane defined by the
+vector $\hat{I}_a$. 
 
 % referencia posiciones satellites
 % http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
-
-\subsection{Plane fitting}
-\label{sub:planes}
-
-We fit satellite planes around each galaxy in the pair by randomly
-generating 10000 unit vectors homogeneously distributed over the
-sphere.
-Each vector represents the direction perpendicular to a plane passing through
-the main galaxy's center of mass. 
-We compute the dot product of this unit vector with the position vector
-for each satellite, this gives us the satellite distances to the
-plane. 
-The best plane is determined by the vector that gives the lowest
-sample standard deviation in the satellite distances to the plane.
-In the set of unit vectors to be considered we also include the vector
-$\hat{I}_a$, which provides the exact solution in the case of $3$
-satallites. 
-We take the sample standard deviation as a measure of the plane's width
-and denote by $\hat{p}$ the unit vector defining the direction
-perpendicular to the best plane.
-We also store the median of the satellite distances to the plane as a
-measure of the plane's location with respect to the central galaxy.
-
-\subsection{Velocity Anisotropy}
-\label{sub:beta}
-
-The velocity anisotropy paramenter, $\beta$ is defined as
-
-\begin{equation}
-  \beta = 1 - \frac{\sum_i v^2_{\rm{tan}; i}}{2\sum_i v^{2}_{\rm{rad};i}},
-\label{eq:beta}
-\end{equation}
-% 
-where $v_{\rm{tan/rad};i}$ correspond to the tangential/radial
-velocity of the $i$-th satellite with respect to the central galaxy.
-
 
 
 \begin{table*}
@@ -239,13 +192,14 @@ velocity of the $i$-th satellite with respect to the central galaxy.
 \begin{tabular}{lll}
 \hline\hline
 Symbol & Units & Description\\\hline
-$M_{\star}$ & $10^{10}$\Msun & Stellar mass of the central galaxy\\
-$N_s$ & & Number of satellites with $M_V<-9$\\
+$\hat{r}_{AB}$& & Unit vector along the direction connecting two
+dominant galaxies\\
+$N_s$ & & Number of satellites\\
 $a > b> c$ & & Inertia tensor eigenvalues. \\
 $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
-$\beta$  &  & Satellite Velocity Anisotropy\\
-$\sigma_s$ & kpc & Plane width\\
-$\hat{r}_{AB}$& & Unit vector in the direction to the galaxy companion\\
+$\sigma_s$ & kpc & Ellipsoid width\\
+
+
 \hline\hline
 \end{tabular}
   \caption{Overview of the parameters computed for each central galaxy
