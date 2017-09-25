@@ -75,9 +75,7 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 \maketitle
 
 \begin{abstract}
-We focus on the spatial distribution of bright ($M_V<-8$) satellites and
-pairs of galaxies with similar masses, isolation and kinematic
-configurations as the Local Group. 
+We quantify the joint spatial distribution of satellites around the Milky way and Andromeda.
 \end{abstract}
 
 \begin{keywords}Galaxies: halos --- Galaxies: high-redshift --- Galaxies: statistics
@@ -90,17 +88,16 @@ configurations as the Local Group.
 \label{sec:obs}
 
 
-\section{Local Group Analogues in the Illustris Simulation}
+\section{Local Group Satellites in the Illustris Simulation}
 \label{sec:NumericalSetup}
 
 We use publicly available data from the Illustris Project 
 \citep{2014MNRAS.444.1518V}. 
 This suite of cosmological simulations, performed using the quasi-Lagrangian
-code AREPO \citep{2010MNRAS.401..791S}, follow the coupled evolution of dark 
+code AREPO \citep{2010MNRAS.401..791S}, followed the coupled evolution of dark 
 matter and gas and includes parametrizations to account for the effects of
 gas cooling, photoionization, star formation, stellar feedback, black
 hole and super massive black hole feedback. 
-
 The simulation volume is a cubic box of $75$ \Mpch\ on a side.
 The cosmological parameters correspond to a $\Lambda$CDM cosmology
 consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
@@ -117,9 +114,19 @@ The corresponding spatial resolution is $1.4$ kpc for the dark matter
 gravitational softening and $0.7$ kpc for the typical size of the
 smallest gas cell size. 
 
- 
+The smallest satellites are barely resolved in stellar mass at magnitudes of
+$M_V=9$, however its dark matter structure is sampled with at least
+$100$ particles. 
+We find that all considered halos have at least $XX$ subhalos above
+a maximum circular velocity of $15$\kms.
+For this reason we select the satellite galaxy samples from the
+DM subhalo population and not from the galaxies with photometry.
+We chose in two different ways the sub-halo samples. 
+First, we rank the halos by decreasing order of its maximum circular
+velocity and select the first $N_p$ halos in the list.
+Second, we select all satellites above maximum circular velocity of
+$20$\kms to randmbly subsample $N_p$ subhalos.
 
-\subsection{Sample Selection: Local Group Analogues}
 
 We build a sample of Local Group Analgues (LGA) by performing a selection on
 the stellar mass and isolation properties of the galaxies in the
@@ -137,8 +144,6 @@ neighbors closer than the pair's separation.
 \item For each galaxy in the pair there cannot be a galaxy more
   massive than the lightest galaxy in the pair within a radius of $2$
   Mpc. 
-\item Each galaxy in the pair must have at least $5$ satellites
-  brighter than  $M_V<-9$.
 \end{itemize}
 
 We find $11$ pairs with these conditions.
