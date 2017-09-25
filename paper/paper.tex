@@ -128,38 +128,25 @@ Second, we select all satellites above maximum circular velocity of
 $20$\kms to randmbly subsample $N_p$ subhalos.
 
 
-We build a sample of Local Group Analgues (LGA) by performing a selection on
-the stellar mass and isolation properties of the galaxies in the
-simulation. The conditions to select LGA galaxies are the following.
+We build a sample of Local Group Analgues (LGA) by selecting first all
+galaxies with  an stellar mass in the range $1\times10^{10}\Msun
+<M_{\star}<1.5 \times 10^{11} \Msun$.
+Then we consider the following criteria for all galaxies in that
+sample.
 
 \begin{itemize}
-\item LGA galaxy pairs are composed by galaxies with stellar mass in the
-range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
 \item For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
-the closest to halo $B$, the two halos are considered as a pair. 
-Another way to phrase this selection is that pairs do not have
-neighbors closer than the pair's separation.
-\item The distance between the galaxies' center of
-  mass must be in the range $500$ kpc $<d_{AB}<$ $1500$ kpc. 
-\item For each galaxy in the pair there cannot be a galaxy more
-  massive than the lightest galaxy in the pair within a radius of $2$
-  Mpc. 
+the closest to halo $B$, the two are considered as a pair. 
+\item With $d_{AB}$ the distance between the two galaxies and
+  $M_{\star,min}$ the lowest stellar mass in the two galaxies, we
+  discard pairs that have any other galaxy $C$ with stellar mas
+  $M_{\star}>M_{\star, min}$ closer than $3\times d_{AB}$ from any of
+  the pair's members.
+\item The distance $d_{AB}>700$ kpc. 
+\item The radial velocity between the two galaxies is $120\kms <V_{AB, radial}<0\kms$
 \end{itemize}
 
-We find $11$ pairs with these conditions.
-Figure \ref{fig:general} shows the stellar masses, maximum circular
-velocities and the number of bright satellites for all the pairs in
-the sample.
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.7\textwidth]{mu_lg.pdf}
-\includegraphics[width=0.7\textwidth]{planewidth_lg.pdf}
-\includegraphics[width=0.7\textwidth]{ca_ratio_lg.pdf}
-\includegraphics[width=0.7\textwidth]{ba_ratio_lg.pdf}
-\caption{Basic characteristics for the MW and M31 satellite systems
-\label{fig:general}}
-\end{figure*}
+We find $XX$ pairs with these conditions.
 
 
 
@@ -203,8 +190,6 @@ $N_s$ & & Number of satellites\\
 $a > b> c$ & & Inertia tensor eigenvalues. \\
 $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
 $\sigma_s$ & kpc & Ellipsoid width\\
-
-
 \hline\hline
 \end{tabular}
   \caption{Overview of the parameters computed for each central galaxy
@@ -216,20 +201,21 @@ $\sigma_s$ & kpc & Ellipsoid width\\
 \section{Results}
 \label{sec:results}
 
+\begin{figure*}
+\centering
+\includegraphics[width=0.7\textwidth]{mu_lg.pdf}
+\includegraphics[width=0.7\textwidth]{planewidth_lg.pdf}
+\includegraphics[width=0.7\textwidth]{ca_ratio_lg.pdf}
+\includegraphics[width=0.7\textwidth]{ba_ratio_lg.pdf}
+\caption{Basic characteristics for the MW and M31 satellite systems
+\label{fig:general}}
+\end{figure*}
 
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
 
 %% Alignments between galaxies, satellite systems and haloes
 %% https://arxiv.org/pdf/1605.01728.pdf
-
-%% The tangential velocity excess of the Milky Way satellites
-%% https://arxiv.org/pdf/1612.01529.pdf
-
-%% Tambien deberiamos sacar las alineaciones con el momentum angular
-%% de las estrellas de las galaxias principales.
-
-%% http://adsabs.harvard.edu/abs/2017MNRAS.464.3825P
 
 %M31 mass
 %% https://arxiv.org/abs/1410.0017
