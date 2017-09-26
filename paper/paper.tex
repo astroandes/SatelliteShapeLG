@@ -63,7 +63,8 @@
 %=========================================================================
 %		FRONT MATTER
 %=========================================================================
-\title[Satellites in the MW and M31]{Joint Satellite Distributions in the Milky Way and Andromeda}
+\title[Satellites in the MW and M31]{Joint Satellite Distributions in
+  the Local Group}
 \author[J.E. Forero-Romero \& V. Arias]
 {Jaime E. Forero-Romero $^{1}$ \thanks{je.forero@uniandes.edu.co},
 Ver\'onica Arias$^1$\\
@@ -143,10 +144,13 @@ the closest to halo $B$, the two are considered as a pair.
   $M_{\star}>M_{\star, min}$ closer than $3\times d_{AB}$ from any of
   the pair's members. 
 \item The distance $d_{AB}$ greater than $700$ kpc.
-\item The radial velocity between the two galaxies is $-120\ \kms <v_{AB,r}<0\ \kms$. 
+\item The relative radial velocity between the two galaxies, including
+  the Hubble flow, is $-120\ \kms <v_{AB,r}<0\ \kms$. 
 \end{itemize}
 
-We find $XX$ pairs with these conditions.
+We find 32 pairs with these conditions. Figure shows the physical 
+properties (stellar masses, maximum circular velocities, radial
+velocities and separation) in those pairs. 
 
 
 
@@ -164,7 +168,7 @@ tensor defined by the satellites's positions.
 %
 where $k$ indexes the set of satellites of interest
 $\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the location
-of the satelites's geometric center $\bf{r}_{0}\equiv 1/N_s\sum_{k\in
+of the satelites's geometric center ${\bf r}_{0}\equiv \frac{1}{N_s}\sum_{k\in
   V} \bf{r}_i$, $\bf{1}$ is the unit matrix,  and  
 ${\bf r}^T$ is the transposed vector $\bf{r}$. 
 
@@ -199,6 +203,10 @@ plane defined by the $\hat{n}$.
 \section{Results}
 \label{sec:results}
 
+\subsection{Satellites in the Local Group}
+
+\subsection{Satellites in the Illustris Simulation}
+
 \begin{table*}
   \centering
 \begin{tabular}{lll}
@@ -208,7 +216,7 @@ $\hat{r}_{AB}$& & Unit vector along the direction connecting two
 dominant galaxies\\
 $N_s$ & & Number of satellites\\
 $a > b> c$ & kpc & Inertia tensor eigenvalues. \\
-$\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
+$\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$ & & Inertia tensor eigenvectors. \\
 $\sigma_s$ & kpc & Ellipsoid width\\
 \hline\hline
 \end{tabular}
