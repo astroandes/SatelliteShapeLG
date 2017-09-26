@@ -141,9 +141,9 @@ the closest to halo $B$, the two are considered as a pair.
   $M_{\star,min}$ the lowest stellar mass in the two galaxies, we
   discard pairs that have any other galaxy $C$ with stellar mas
   $M_{\star}>M_{\star, min}$ closer than $3\times d_{AB}$ from any of
-  the pair's members.
-\item The distance $d_{AB}>700$ kpc. 
-\item The radial velocity between the two galaxies is $120\kms <V_{AB, radial}<0\kms$
+  the pair's members. 
+\item The distance $d_{AB}$ greater than $700$ kpc.
+\item The radial velocity between the two galaxies is $-120\ \kms <v_{AB,r}<0\ \kms$. 
 \end{itemize}
 
 We find $XX$ pairs with these conditions.
@@ -151,11 +151,11 @@ We find $XX$ pairs with these conditions.
 
 
 
-\section{Satellite Spatial Distribution and Alignment}
+\section{Satellite Spatial Distribution}
 \label{sec:SpatialMeasurements}
 
-We use the inertia tensor to characterize the satellites.
-This tensor is defined as
+We base all our results on the description provide by the inertia
+tensor defined by the satellites's positions.  
 
 \begin{equation}
 {\bf{\bar{I}}} = \sum_{k \in V}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
@@ -163,43 +163,26 @@ This tensor is defined as
 \end{equation}
 %
 where $k$ indexes the set of satellites of interest
-$\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the
-positions pof the host DM halo, $\bf{1}$ is the unit matrix,  and
+$\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the location
+of the satelites's geometric center $\bf{r}_{0}\equiv 1/N_s\sum_{k\in
+  V} \bf{r}_i$, $\bf{1}$ is the unit matrix,  and  
 ${\bf r}^T$ is the transposed vector $\bf{r}$. 
-We finally compute the eigenvalues, $a>b>c$, and corresponding
-eigenvectors, $\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$, of this tensor.
-In the case of a sheet-like configuration the vector perpendicular to
-the sheet would be signaled by, $\hat{I}_a$, the eigenvector of the
-largest eigenvalue. 
-We measure the width of the satellite distribution as the standard
-deviation of all satellite distances to the plane defined by the
-vector $\hat{I}_a$. 
+
+From this tensor we compute its eigenvalues,
+$\lambda_1>\lambda_2>\lambda_3$, and corresponding eigenvectors,
+$\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$.
+We define the size of its three ellipsoidal axis as
+$a=\sqrt{\lambda_1}$, $b=\sqrt{\lambda_2}$ and $c=\sqrt{\lambda_3}$.
+
+We define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
+planar satellite distribution. 
+We also define the width of the planar satellite distribution,
+$\sigma_p$ as the standard deviation of all satellite distances to the
+plane defined by the $\hat{n}$.
 
 % referencia posiciones satellites
 % http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
 
-
-\begin{table*}
-  \centering
-\begin{tabular}{lll}
-\hline\hline
-Symbol & Units & Description\\\hline
-$\hat{r}_{AB}$& & Unit vector along the direction connecting two
-dominant galaxies\\
-$N_s$ & & Number of satellites\\
-$a > b> c$ & & Inertia tensor eigenvalues. \\
-$\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
-$\sigma_s$ & kpc & Ellipsoid width\\
-\hline\hline
-\end{tabular}
-  \caption{Overview of the parameters computed for each central galaxy
-    and its satellite system.
-  \label{tab:models}}
-\end{table*}
-
-
-\section{Results}
-\label{sec:results}
 
 \begin{figure*}
 \centering
@@ -210,6 +193,30 @@ $\sigma_s$ & kpc & Ellipsoid width\\
 \caption{Basic characteristics for the MW and M31 satellite systems
 \label{fig:general}}
 \end{figure*}
+
+
+
+\section{Results}
+\label{sec:results}
+
+\begin{table*}
+  \centering
+\begin{tabular}{lll}
+\hline\hline
+Symbol & Units & Description\\\hline
+$\hat{r}_{AB}$& & Unit vector along the direction connecting two
+dominant galaxies\\
+$N_s$ & & Number of satellites\\
+$a > b> c$ & kpc & Inertia tensor eigenvalues. \\
+$\hat{I}_a$, $\hat{I}_b$, $\hat{I}_c$ & & Inertia tensor eigenvectors. \\
+$\sigma_s$ & kpc & Ellipsoid width\\
+\hline\hline
+\end{tabular}
+  \caption{Overview of the parameters computed for each central galaxy
+    and its satellite system.
+  \label{tab:models}}
+\end{table*}
+
 
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
