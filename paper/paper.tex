@@ -195,6 +195,44 @@ Characterizing the satellite alignments with $\mu$ thus provide
 information about how satellites are distributed with respect to the
 cosmic web. 
 
+\subsection{Parameter Distributions}
+
+We charaterize the $\mu$ distribution by a power law probability
+density distribution
+\begin{equation}
+P(\mu) = \frac{1}{\alpha}\mu^{\alpha-1}.
+\end{equation}
+We estimate the $\alpha$ using a bayesian approach, such as that
+the likelihood of being $\alpha$ the power value given the observed values of $\{\mu_i\}$
+  can be written as:
+
+\begin{equation}
+\mathcal{L}(\alpha|\{\mu_i\})=\frac{1}{Z_\alpha}\prod_{i=1}^{N_s}
+\frac{1}{\alpha}\mu_i^{\alpha-1}, 
+\end{equation}
+%
+where $Z_{\alpha}$ is a constant such as $\int_{0}^{\infty}
+{\mathcal L}(\alpha|\{\mu_i\}) {\rm d}\alpha=1$. 
+We report as $\hat{\alpha}$ the value of $\alpha$ 
+maximizing the likelihood,
+
+We characterize the distributions for the plane width and axis ratio
+$b/a$, $b/c$ through a gaussian
+\begin{equation}
+P(x)  = \frac{1}{\sqrt{2\pi \sigma^2}} \exp{\left[-\frac{1}{2}\left(\frac{x-x_m}{\sigma}\right)^2\right]}
+\end{equation}
+In this case the maximum likelihood values for the parameter estimates
+$\hat{x_m}$ and $\hat{\sigma}$ correspond to the mean and standard
+deviation, respectively.
+
+We summarize the results from the Illustris simulation by reporting
+the maximum likelihood parameter estimates. 
+In turn we use this us to estimate the probability of finding the
+observed values in the Local Group and compare it against the highest
+probabilty values.
+
+
+
 
 % referencia posiciones satellites
 % http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
@@ -229,8 +267,8 @@ cosmic web.
 
 \subsection{Satellites in the Local Group}
 
-We compare the two satellite distributions by always keeping the same
-number of satellites around each galaxy.
+We compare the satellite distributions in the MW and M31 at fixed
+satellite number.
 This means that the magnitude cut corresponding to the faintest
 satellite included in the sample is different in each case.
 We make this choice for two reasons. 
