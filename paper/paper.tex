@@ -232,6 +232,46 @@ observed values in the Local Group and compare it against the highest
 probabilty values.
 
 
+\subsection{Satellite samples}
+
+We compare the satellite distributions in the MW and M31 at fixed
+satellite number.
+This means that the magnitude cut corresponding to the faintest
+satellite included in the sample is different in each case.
+We make this choice for two reasons. 
+First to always be sure that there is a non-zero number of satellites to make the computations. 
+Second, to be able to compare the two halos at a fixed number of
+satellites. 
+
+We test the shape and alignment statistics for 11 up 15 satellites.
+The lowest number corresponds to the number of classical Milky Way
+satellites.
+The upper limit corresponds to the minimum number of satellites that
+can be resolved in the simulations for both halos in each pair. 
+In the case of simulations we rank the subhalos by their maximum
+circular velocity. 
+We do not use their stellar properties because this represents the
+lower resolution limit for the hydrodynamics; most of these subhalos
+only have one stellar particle belonging to them. 
+In contrast, the detected sub-halos have at least 35 dark matter
+particles to determine their properties.
+
+
+We build two different kinds of statistics from these satellites
+First, we compute the shape and alignments for a varying number of
+satellites $11\leq N_{s}\leq 15$ keeping their ranking in
+$V_{mag}$/$V_{max}$. 
+This allows us to estimate the variation expected by changing the
+satellite number. 
+The second kind of statistics are computed for a fixed number of
+satellites $N_{s}=11$ randomly selected from the top $15$ ranked
+satellites. 
+We perform this bootstrapping $10$ times for each pair. 
+This allows us to estimate the variation expected by randomly sampling
+the satellites from a parent distribution.
+
+Figure \ref{fig:sampling} summarized the results. 
+
 
 
 % referencia posiciones satellites
@@ -275,45 +315,6 @@ probabilty values.
 \section{Results}
 \label{sec:results}
 
-\subsection{Satellites in the Local Group}
-
-We compare the satellite distributions in the MW and M31 at fixed
-satellite number.
-This means that the magnitude cut corresponding to the faintest
-satellite included in the sample is different in each case.
-We make this choice for two reasons. 
-First to always be sure that there is a non-zero number of satellites to make the computations. 
-Second, to be able to compare the two halos at a fixed number of
-satellites. 
-
-We test the shape and alignment statistics for 11 up 15 satellites.
-The lowest number corresponds to the number of classical Milky Way
-satellites.
-The upper limit corresponds to the minimum number of satellites that
-can be resolved in the simulations for both halos in each pair. 
-In the case of simulations we rank the subhalos by their maximum
-circular velocity. 
-We do not use their stellar properties because this represents the
-lower resolution limit for the hydrodynamics; most of these subhalos
-only have one stellar particle belonging to them. 
-In contrast, the detected sub-halos have at least 35 dark matter
-particles to determine their properties.
-
-
-We build two different kinds of statistics from these satellites
-First, we compute the shape and alignments for a varying number of
-satellites $11\leq N_{s}\leq 15$ keeping their ranking in
-$V_{mag}$/$V_{max}$. 
-This allows us to estimate the variation expected by changing the
-satellite number. 
-The second kind of statistics are computed for a fixed number of
-satellites $N_{s}=11$ randomly selected from the top $15$ ranked
-satellites. 
-We perform this bootstrapping $10$ times for each pair. 
-This allows us to estimate the variation expected by randomly sampling
-the satellites from a parent distribution.
-
-Figure \ref{fig:sampling} summarized the results. 
 
 
 
