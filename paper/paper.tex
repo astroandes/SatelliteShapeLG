@@ -244,7 +244,7 @@ probabilty values.
 \includegraphics[width=0.40\textwidth]{LG_scatter_ca_ratio.pdf}
 \includegraphics[width=0.40\textwidth]{LG_scatter_ba_ratio.pdf}
 \caption{Basic characteristics for the MW and M31 satellite systems
-\label{fig:general}}
+\label{fig:sampling}}
 \end{figure*}
 
 
@@ -286,15 +286,35 @@ First to always be sure that there is a non-zero number of satellites to make th
 Second, to be able to compare the two halos at a fixed number of
 satellites. 
 
-We test the shape and alignment statistics for 11 up 25 satellites.
+We test the shape and alignment statistics for 11 up 15 satellites.
 The lowest number corresponds to the number of classical Milky Way
 satellites.
-We compare the resuls of the satellite distributions with the average
-of from 10000 randomized version of the same satellites.
-The spherical randomization is done as described in Section X.
+The upper limit corresponds to the minimum number of satellites that
+can be resolved in the simulations for both halos in each pair. 
+In the case of simulations we rank the subhalos by their maximum
+circular velocity. 
+We do not use their stellar properties because this represents the
+lower resolution limit for the hydrodynamics; most of these subhalos
+only have one stellar particle belonging to them. 
+In contrast, the detected sub-halos have at least 35 dark matter
+particles to determine their properties.
 
-Figure \ref{fig:general} summarized the results. 
-The left column shows 
+
+We build two different kinds of statistics from these satellites
+First, we compute the shape and alignments for a varying number of
+satellites $11\leq N_{s}\leq 15$ keeping their ranking in
+$V_{mag}$/$V_{max}$. 
+This allows us to estimate the variation expected by changing the
+satellite number. 
+The second kind of statistics are computed for a fixed number of
+satellites $N_{s}=11$ randomly selected from the top $15$ ranked
+satellites. 
+We perform this bootstrapping $10$ times for each pair. 
+This allows us to estimate the variation expected by randomly sampling
+the satellites from a parent distribution.
+
+Figure \ref{fig:sampling} summarized the results. 
+
 
 
 
