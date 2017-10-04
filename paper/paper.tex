@@ -148,7 +148,7 @@ the closest to halo $B$, the two are considered as a pair.
   the Hubble flow, is $-120\ \kms <v_{AB,r}<0\ \kms$. 
 \end{itemize}
 
-We find 32 pairs with these conditions. Figure shows the physical 
+We find 27 pairs with these conditions. Figure shows the physical 
 properties (stellar masses, maximum circular velocities, radial
 velocities and separation) in those pairs. 
 
@@ -260,7 +260,7 @@ particles to determine their properties.
 We build two different kinds of statistics from these satellites
 First, we compute the shape and alignments for a varying number of
 satellites $11\leq N_{s}\leq 15$ keeping their ranking in
-$V_{mag}$/$V_{max}$. 
+$M_V$ or $V_{max}$. 
 This allows us to estimate the variation expected by changing the
 satellite number. 
 The second kind of statistics are computed for a fixed number of
@@ -270,7 +270,7 @@ We perform this bootstrapping $10$ times for each pair.
 This allows us to estimate the variation expected by randomly sampling
 the satellites from a parent distribution.
 
-Figure \ref{fig:sampling} summarized the results. 
+
 
 
 
@@ -284,7 +284,7 @@ Figure \ref{fig:sampling} summarized the results.
 \includegraphics[width=0.40\textwidth]{LG_scatter_ca_ratio.pdf}
 \includegraphics[width=0.40\textwidth]{LG_scatter_ba_ratio.pdf}
 \caption{Basic characteristics for the MW and M31 satellite systems
-\label{fig:sampling}}
+\label{fig:lg_scatter}}
 \end{figure*}
 
 
@@ -316,10 +316,31 @@ Figure \ref{fig:sampling} summarized the results.
 \label{sec:results}
 
 
+\subsection{Distributions in the Local Group}
+
+Figure \ref{fig:lg_scatter} summarizes our main results for the
+observed LG satellite distributions.
+In all panels the diagonal line corresponds to the 1:1 ratio.
+
+Here we can see that the mean values of the \texttt{Ranked} and
+\texttt{Bootstrapped} samples are similar within the scatter in each
+sample. 
+The scatter is itself tends to be larger in the \texttt{Bootstrapped}
+sample. 
+This allows to stablish the LG uncertainties to be used in the next
+sections to compare it against the distributions derived from the
+Illustris simulation.
+
+There is a third sample in Figure \ref{fig:lg_scatter}. 
+It corresponds to the set of \texttt{Random} points that were generated
+by randomizing the angular positions of the satellites in the
+\texttt{Bootstrapped} samples. 
+This allows us to understand the importance of intrinsic satellite's
+radial profile distribution in driving the results.  
 
 
 
-\subsection{Satellites in the Illustris Simulation}
+
 
 \begin{table*}
   \centering
@@ -338,6 +359,7 @@ $\sigma_s$ & kpc & Ellipsoid width\\
     and its satellite system.
   \label{tab:models}}
 \end{table*}
+
 
 
 \bibliographystyle{mnras}
