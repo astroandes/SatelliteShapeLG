@@ -34,6 +34,9 @@
 \newcommand{\after}[1]{\textcolor{darkgreen}{ #1}}
 \newcommand{\hs}{{\hspace{1mm}}}  
 \newcommand{\tol}{Tololo 1214-277}
+\newcommand{\rank}{\texttt{Ranked}}
+\newcommand{\boot}{\texttt{Bootstrapped}}
+\newcommand{\rand}{\texttt{Random}}
 \newcommand{\HI}{{\text{H\MakeUppercase{\romannumeral 1}}} }
 \newcommand{\HII}{{\text{H\MakeUppercase{\romannumeral 2}}} }
 \newcommand{\lya}{\ifmmode{{\rm Ly}\alpha}\else Ly$\alpha$\ \fi}
@@ -320,23 +323,30 @@ the satellites from a parent distribution.
 
 Figure \ref{fig:lg_scatter} summarizes our main results for the
 observed LG satellite distributions.
-In all panels the diagonal line corresponds to the 1:1 ratio.
-
-Here we can see that the mean values of the \texttt{Ranked} and
-\texttt{Bootstrapped} samples are similar within the scatter in each
-sample. 
-The scatter is itself tends to be larger in the \texttt{Bootstrapped}
-sample. 
-This allows to stablish the LG uncertainties to be used in the next
-sections to compare it against the distributions derived from the
-Illustris simulation.
+We see that the \rank\ and \boot\ samples are consistent 
+withing the scatter provided by each sample.
+We use the median and standard deviation in each sample to define the
+most probable value and its associated uncertaintiy.
+This allows us to compare the observational values gainst the
+distributions derived from the Illustris simulation.
 
 There is a third sample in Figure \ref{fig:lg_scatter}. 
-It corresponds to the set of \texttt{Random} points that were generated
-by randomizing the angular positions of the satellites in the
-\texttt{Bootstrapped} samples. 
-This allows us to understand the importance of intrinsic satellite's
-radial profile distribution in driving the results.  
+It corresponds to the set of \rand\ points generated
+by randomizing the angular positions of the satellites in each pair in
+the \boot\ sample. 
+This provides a baseline to understand the importance 
+of intrinsic satellite's radial profile distribution in driving the
+results.   
+
+The upper left panel in Figure \ref{fig:lg_scatter} shows that the
+planar satellite distributions are located perpendicular to the line
+connecting the two galaxies. 
+It is remarkable that this alignment is almost perfect for both
+satellite distributions. 
+The points in the \rand\ simply highlights the expected result for a
+random angular distribution is a flat distribution in the range
+$0\leq\mu\leq 1$.
+
 
 
 
