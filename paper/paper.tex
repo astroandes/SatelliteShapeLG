@@ -190,7 +190,7 @@ Although Illustris-1 has stellar particles, we do not use their
 properties to select the satelite population because the smallest
 galaxies are barely resolved in stellar mass at magnitudes of
 $M_V=9$. We prefer using the dark matter information as the smallest
-sub-halos are sampled with $100$ particles. 
+sub-halos are sampled with at least $35$ particles. 
 For this reason we select the satellite galaxy samples from the
 
 We chose the satellite samples by ranking the subhalos in decreasing
@@ -200,14 +200,45 @@ The results in the main body of the paper correspond to $11\leq
 N_p\leq 15$. 
 
 
-\section{Satellite Spatial Distribution}
+\section{Building, Characterizing and Comparing Satellites Spatial Distributions}
 \label{sec:SpatialMeasurements}
 
+
+\subsection{Building Satellite Samples}
+
+We compare the joint satellite distributions in the MW and M31 at fixed
+satellite number, $N_s$.
+This means that the magnitude cut corresponding to the faintest
+satellite included in the sample is different in each case.
+We make this choice for two reasons. 
+First, to be sure that there is a non-zero number of satellites in the
+simulations to make the computations.  
+Second, to rule out the influence of satellite numbers in the
+statistics. 
+
+We compute the satellite statistics fo 11 up to 15 satellites.
+The lowest bound corresponds to the number of classical Milky Way
+satellites.
+The upper limit corresponds to the maximum number of satellites that
+can be resolved in both halos for most of the isolated pairs in Illustris-1.
+In simulations we rank the subhalos by their maximum
+circular velocity, in observations we rank the satellites by its $M_V$
+magnitude. 
+
+We also use two kinds of satellite distributions. 
+The first keeps the positions for the satellites fixed as provided in
+the observations/simulations; the second randomizes the angular positions of
+the satellites around the central galaxy while keeping its radial
+distance fixed. The randomization process is done 100 times for each
+galaxy. 
+
+
+\subsection{Describing Samples with the Inertia Tensor}
 We base all our results on the description provided by the inertia
 tensor defined by the satellites's positions.  
 
 \begin{equation}
-{\bf{\bar{I}}} = \sum_{k \in V}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
+{\bf{\bar{I}}} = \sum_{k=1}^{N_s}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
   (\bf{r}_i-\bf{r}_0)\cdot (\bf{r}_i - \bf{r}_0)^{T}],
 \end{equation}
 %
@@ -244,45 +275,10 @@ quantities obtained from the inertia tensor:
 \end{itemize}
 
 
-\subsection{Satellite samples}
 
-We compare the satellite distributions in the MW and M31 at fixed
-satellite number.
-This means that the magnitude cut corresponding to the faintest
-satellite included in the sample is different in each case.
-We make this choice for two reasons. 
-First to always be sure that there is a non-zero number of satellites to make the computations. 
-Second, to be able to compare the two halos at a fixed number of
-satellites. 
+\subsection{Comparing Satellite Samples}
 
-We test the shape and alignment statistics for 11 up 15 satellites.
-The lowest number corresponds to the number of classical Milky Way
-satellites.
-The upper limit corresponds to the minimum number of satellites that
-can be resolved in the simulations for both halos in each pair. 
-In the case of simulations we rank the subhalos by their maximum
-circular velocity. 
-We do not use their stellar properties because this represents the
-lower resolution limit for the hydrodynamics; most of these subhalos
-only have one stellar particle belonging to them. 
-In contrast, the detected sub-halos have at least 35 dark matter
-particles to determine their properties.
-
-
-We build two different kinds of statistics from these satellites
-First, we compute the shape and alignments for a varying number of
-satellites $11\leq N_{s}\leq 15$ keeping their ranking in
-$M_V$ or $V_{max}$. 
-This allows us to estimate the variation expected by changing the
-satellite number. 
-The second kind of statistics are computed for a fixed number of
-satellites $N_{s}=11$ randomly selected from the top $15$ ranked
-satellites. 
-We perform this bootstrapping $5$ times for each pair. 
-This allows us to estimate the variation expected by randomly sampling
-the satellites from a parent distribution.
-
-
+\subsection{Describing joint satellite distributions}
 
 
 
