@@ -78,7 +78,26 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 \maketitle
 
 \begin{abstract}
-We quantify the joint spatial distribution of satellites around the Milky way and Andromeda.
+We quantify the joint spatial distribution of the brightest satellites
+around the Milky way and M31. 
+We find that the satellites in MW show a distribution significantly
+thinner and flattened compared to the expectaions of a random
+spherical distribution and simulations based on the Lambda Cold Dark
+Matter paradigm.
+In turn, M31 is completely consistent with the expectations from a
+spherical satellite distribution and LCDM simulations.
+The satellite planes in the MW and M31 are almost perpendicular to the line
+connecting the two galaxies. None of the pairs in the simulation show
+a similar degree of alignment. 
+However, the simulations are consistent with a random uniform
+distribution, making the result from the observations consistent with
+these theoretical expectations.
+This special satellite distribution in the Milky Way makes the Local
+Group an atypical pair in the expected cosmological context.
+We summarize these results in a simple multivariate Gaussian
+model to estimate that only $1\%$ of the pairs with isolation
+and dynamical characteristics similar to the LG are expected to have
+satellite distributions with the same degree of atipicality. 
 \end{abstract}
 
 \begin{keywords}Galaxies: halos --- Galaxies: high-redshift --- Galaxies: statistics
@@ -88,16 +107,18 @@ We quantify the joint spatial distribution of satellites around the Milky way an
 \section{Introduction}
 
 
-In Section we list the sources of the observatinal and
+In Section we list the sources of the observational and
 simulated data to be used throughout the paper.
 Next, in Section we describe the methods we use to quantify and
 characterize the satellite distributions.
 In section we present our results. 
-First we describe the observed satellite distributions and compare
-them against the expectation of an spherical randomization of its
-satellites. We then compute the expectation from the Illustris Simulation. 
-In Section we discuss the implication of our results to finally
-summarize in Section.
+In the discussion section we quantify the correlations between the main
+plane properties as described by the simulations.
+We use this results to quantify the degree of atipicality of the LG
+and estimate the volume that has to probed in simulations in order to
+find a pair with a satellite distribution as atipical as the LG. 
+Finally, we summarize our conclusions in Section .
+
 
 \section{Observational Data}
 \label{sec:obs}
@@ -129,44 +150,45 @@ The corresponding spatial resolution is $1.4$ kpc for the dark matter
 gravitational softening and $0.7$ kpc for the typical size of the
 smallest gas cell size. 
 
-The smallest satellites are barely resolved in stellar mass at magnitudes of
-$M_V=9$, however its dark matter structure is sampled with at least
-$100$ particles. 
-We find that all considered halos have at least $XX$ subhalos above
-a maximum circular velocity of $15$\kms.
-For this reason we select the satellite galaxy samples from the
-DM subhalo population and not from the galaxies with photometry.
-We chose in two different ways the sub-halo samples. 
-First, we rank the halos by decreasing order of its maximum circular
-velocity and select the first $N_p$ halos in the list.
-Second, we select all satellites above maximum circular velocity of
-$20$\kms to randmbly subsample $N_p$ subhalos.
-
-
-We build a sample of Local Group Analgues (LGA) by selecting first all
-galaxies with  an stellar mass in the range $1\times10^{10}\Msun
+We buid a sample of Isolated Pairs that resemble the conditions
+in the LG.
+To construct this sample we select first all galaxies with  an stellar mass in the range $1\times10^{10}\Msun
 <M_{\star}<1.5 \times 10^{11} \Msun$.
-Then we consider the following criteria for all galaxies in that
-sample.
+Then we consider the following criteria for all galaxies in that set.
+
 
 \begin{itemize}
 \item For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
 the closest to halo $B$, the two are considered as a pair. 
 \item With $d_{AB}$ the distance between the two galaxies and
   $M_{\star,min}$ the lowest stellar mass in the two galaxies, we
-  discard pairs that have any other galaxy $C$ with stellar mas
+  discard pairs that have any other galaxy $C$ with stellar mass
   $M_{\star}>M_{\star, min}$ closer than $3\times d_{AB}$ from any of
   the pair's members. 
-\item The distance $d_{AB}$ greater than $700$ kpc.
+\item The distance $d_{AB}$ is greater than $700$ kpc.
 \item The relative radial velocity between the two galaxies, including
   the Hubble flow, is $-120\ \kms <v_{AB,r}<0\ \kms$. 
 \end{itemize}
 
-We find 27 pairs with these conditions. Figure shows the physical 
-properties (stellar masses, maximum circular velocities, radial
-velocities and separation) in those pairs. 
+We find 27 pairs with these conditions. We show in the Appendix A the
+physical  properties (stellar masses, maximum circular velocities,
+radial velocities and separation) in those pairs. 
+We then select the pairs where in both halos there are at least 15
+detected subhalos. 
+We end up with a total of 20 pairs that fulfill these criteria. 
 
+Although Illustris-1 has stellar particles, we do not use their
+properties to select the satelite population because the smallest
+galaxies are barely resolved in stellar mass at magnitudes of
+$M_V=9$. We prefer using the dark matter information as the smallest
+sub-halos are sampled with $100$ particles. 
+For this reason we select the satellite galaxy samples from the
 
+We chose the satellite samples by ranking the subhalos in decreasing
+order of its maximum circular velocity and select the first $N_p$
+halos in the list. 
+The results in the main body of the paper correspond to $11\leq
+N_p\leq 15$. 
 
 
 \section{Satellite Spatial Distribution}
@@ -389,7 +411,7 @@ any other value.
 The star corresponds to the LG, black circles with errorbars are the
 results from simulations and the gray cloud is the resul from the
 multivariate gaussian model.
-Upper raw summarizes the results for M31 and the lower raw for the MW.
+Upper/lower row summarizes the results for M31/M31.
 This simplified description allows us to quantify how atypical is the
 LG compared to the simulation results. 
 \label{fig:correlations}}
@@ -525,7 +547,7 @@ $\sigma_s$ & kpc & Ellipsoid width\\
   \label{tab:models}}
 \end{table*}
 
-
+Prospects for observational measurement: DESI.
 
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
