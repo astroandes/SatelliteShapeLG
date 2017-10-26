@@ -107,6 +107,14 @@ satellite distributions with the same degree of atipicality.
 
 \section{Introduction}
 
+ 
+It has been shown that LG pair separation vector is aligned along the
+filaments in  which they are typically embeded
+\cite{2015ApJ...799...45F}, the LG pairs found in pancake-like DM
+matter arrangements are aligned with the plane itself. 
+Characterizing the satellite alignments with $\mu$ thus provide
+information about how satellites are distributed with respect to the
+cosmic web. 
 
 In Section we list the sources of the observational and
 simulated data to be used throughout the paper.
@@ -215,61 +223,25 @@ point.
 From this tensor we compute its eigenvalues,
 $\lambda_1>\lambda_2>\lambda_3$, and corresponding eigenvectors,
 $\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$.
-We define the size of its three ellipsoidal axis as
+We define the size of the three ellipsoidal axis as
 $a=\sqrt{\lambda_1}$, $b=\sqrt{\lambda_2}$ and $c=\sqrt{\lambda_3}$.
-
-We define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
+We also define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
 planar satellite distribution. 
-We also define the width of the planar satellite distribution,
+We also define the width, $w$, of the planar satellite distribution,
 $\sigma_p$ as the standard deviation of all satellite distances to the
-plane defined by the $\hat{n}$.
+plane defined by the vector $\hat{n}$. 
+Finally, we characterize the alignment between the satellite plane and the
+vector connecting the two dominant galaxies by $\mu=|\hat{r}_{AB}\cdot
+\hat{n}|$.
 
-We characterize the alignment between the satellite plane and the
-vector connecting the two dominant galaxies as $\mu=|\hat{r}_{AB}\cdot
-\hat{n}|$. 
-It has been shown that LG pair separation vector is aligned along the
-filaments in  which they are typically embeded
-\cite{2015ApJ...799...45F}, the LG pairs found in pancake-like DM
-matter arrangements are aligned with the plane itself. 
-Characterizing the satellite alignments with $\mu$ thus provide
-information about how satellites are distributed with respect to the
-cosmic web. 
-
-\subsection{Parameter Distributions}
-
-We charaterize the $\mu$ distribution by a power law probability
-density distribution
-\begin{equation}
-P(\mu) = \frac{1}{\alpha}\mu^{\alpha-1}.
-\end{equation}
-We estimate the $\alpha$ using a bayesian approach, such as that
-the likelihood of being $\alpha$ the power value given the observed values of $\{\mu_i\}$
-  can be written as:
-
-\begin{equation}
-\mathcal{L}(\alpha|\{\mu_i\})=\frac{1}{Z_\alpha}\prod_{i=1}^{N_s}
-\frac{1}{\alpha}\mu_i^{\alpha-1}, 
-\end{equation}
-%
-where $Z_{\alpha}$ is a constant such as $\int_{0}^{\infty}
-{\mathcal L}(\alpha|\{\mu_i\}) {\rm d}\alpha=1$. 
-We report as $\hat{\alpha}$ the value of $\alpha$ 
-maximizing the likelihood,
-
-We characterize the distributions for the plane width and axis ratio
-$b/a$, $b/c$ through a gaussian
-\begin{equation}
-P(x)  = \frac{1}{\sqrt{2\pi \sigma^2}} \exp{\left[-\frac{1}{2}\left(\frac{x-x_m}{\sigma}\right)^2\right]}
-\end{equation}
-In this case the maximum likelihood values for the parameter estimates
-$\hat{x_m}$ and $\hat{\sigma}$ correspond to the mean and standard
-deviation, respectively.
-
-We summarize the results from the Illustris simulation by reporting
-the maximum likelihood parameter estimates. 
-In turn we use this us to estimate the probability of finding the
-observed values in the Local Group and compare it against the highest
-probabilty values.
+To summarize we characterize the satellite distribution by for
+quantities obtained from the inertia tensor: 
+\begin{itemize}
+\item Plane width, $w$.
+\item $c/a$ axis ratio.
+\item $b/a$ axis ratio.
+\item $\mu$ as a measure of plane alignment.
+\end{itemize}
 
 
 \subsection{Satellite samples}
