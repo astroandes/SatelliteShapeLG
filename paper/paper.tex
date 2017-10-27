@@ -79,25 +79,16 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 \maketitle
 
 \begin{abstract}
-We quantify the joint spatial distribution of the brightest satellites
+In this paper we quantify the joint spatial distribution of the brightest satellites
 around the Milky Way (MW) and M31, the dominant galaxies in the Local
 Group (LG).
-We use the Illustris-1 and ELVIS simulations to show that the
-MW satellite distribution is significantly thinner and more oblate
-than the expectations from the Lambda Cold Dark Matter (LCDM)
-paradigm. In contrast, the satellites in M31 are fully consistent with the
-average expectations from simulations.
-We also find that the satellite planes in the MW and M31 are almost perpendicular to the line
-connecting the two galaxies. While none of the pairs in the simulations show
-a similar degree of alignment, these alignments are consistent with a
-random uniform distribution, making the observations
-consistent with theoretical expectations.
-The special MW satellite distribution makes the LG an atypical pair in
-the cosmological context provided by LCDM simulations. 
-We estimate that only $0.5\%$ to $1\%$ of the pairs with isolation
+We use the Illustris-1 and ELVIS simulations to quantify how the 
+unusual satellite distribution in the MW  makes the LG an atypical pair in
+the broader cosmological context provided by LCDM simulations. 
+We find that only $0.05\%$ to $0.25\%$ of the pairs with isolation
 and dynamical characteristics similar to the LG are expected to have
 satellite distributions with the same degree of atipicality, making
-the LG a $3\sigma$ outlier in a sample of simulated galaxy pairs.
+the LG a $3\sigma$ outlier.
 \end{abstract}
 
 \begin{keywords}Galaxies: halos --- Galaxies: high-redshift --- Galaxies: statistics
@@ -127,16 +118,17 @@ and estimate the volume that has to probed in simulations in order to
 find a pair with a satellite distribution as atipical as the LG. 
 Finally, we summarize our conclusions in Section .
 
+\label{Data Samples}
 
-\section{Observational Data}
+\subsection{Observational Data}
 \label{sec:obs}
 
 
 
-\section{Data from the ELVIS project}
+\subsection{Data from the ELVIS project}
 \label{sim:ELVIS}
 
-\section{Data from the Illustris project}
+\subsection{Data from the Illustris project}
 \label{sec:illustris}
 
 We use publicly available data from the Illustris Project 
@@ -196,13 +188,10 @@ properties to select the satelite population because the smallest
 galaxies are barely resolved in stellar mass at magnitudes of
 $M_V=9$. We prefer using the dark matter information as the smallest
 sub-halos are sampled with at least $35$ particles. 
-For this reason we select the satellite galaxy samples from the
-
 We chose the satellite samples by ranking the subhalos in decreasing
 order of its maximum circular velocity and select the first $N_p$
 halos in the list. 
-The results in the main body of the paper correspond to $11\leq
-N_p\leq 15$. 
+The results presented here correspond to $11\leq N_p\leq 15$. 
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
 \label{sec:SpatialMeasurements}
@@ -233,7 +222,7 @@ We also use two kinds of satellite distributions.
 The first keeps the positions for the satellites fixed as provided in
 the observations/simulations; the second randomizes the angular positions of
 the satellites around the central galaxy while keeping its radial
-distance fixed. The randomization process is done 100 times for each
+distance fixed. The randomization process is done 1000 times for each
 galaxy. 
 
 
@@ -298,9 +287,9 @@ quantities obtained from the inertia tensor:
   M31 or the most massive halo in the pair and the vertical axis to
   the MW or the least massive halo in the pair.
 The panel on the left shows the plane width in physical units
-comparing the results of five measurements from the observations
-(stars) and the result of spherically randomizing the satellite
-positions (circles). 
+comparing the results from observations
+(stars) against the result of spherically randomizing the satellite
+positions while keeping its radial distance (circles). 
 The panel in the middle compares the average from the observations
 (star) and the average from each one of the Isolated Pairs (circles
 with error bars).
@@ -366,7 +355,7 @@ This time for $\mu$ the absolute value of the dot product between the
 vector connecting the main galaxies and the vector perpendicular to
 the satellite plane.
 In this case both the MW and M31 show a strong alignment.
-Apparently this result is outside the expectations from the
+Apparently the LG is outside the expectations from
 simulations and atypical compared to the spherical results. 
 However, this is not the case. The $\mu$ distributions in the
 randomization and the simulation are consistent with a uniform
@@ -396,8 +385,8 @@ results in the Illustris-1 simulation.
 The cross indicates the LG values.
 This plot clearly shows how the M31 results are well within the
 expectations from simulations while MW has an unusual low value for
-the plane width and the $c/a$ axis ration.
-Similar results from the ELVIS data are presented in Figure
+the plane width and the $c/a$ axis ratio.
+Equivalent results from the ELVIS data are presented in Figure
 \ref{fig:correlations_elvis}.
 \label{fig:correlations_illustris}}
 \end{figure*}
@@ -407,9 +396,11 @@ Similar results from the ELVIS data are presented in Figure
 \centering
 \includegraphics[width=0.47\textwidth]{expected_numbers.pdf}
 \caption{Probability distribution for the expected number of pairs
-  showing the same degree of atipicality as the Local Group. The two
-  distributions correspond to different numbers of initial isolated
-  pairs. On average $1\%$ of the isolated pairs should present
+  showing the same degree of atipicality as the Local Group if drawn
+  from a sample of 2000 isolated pairs. 
+  The distributions correspond to results derived from Illustris-1
+  and ELVIS data.
+  On average between $0.05\%$ and $0.25\%$ of the isolated pairs should present
   satellite distributions as atypical as the Local Group.
 \label{fig:expected_number}}
 \end{figure}
@@ -440,7 +431,7 @@ while the M31 plane width is consistent with the same distribution.
 
 
 \section{Discussion}
-\subsection{Gaussian Model}
+\subsection{Outlier characterization with a Multivariate Gaussian Model}
 
 
 Prospects for observational measurement: DESI.
@@ -459,6 +450,8 @@ Prospects for observational measurement: DESI.
 \newpage
 \appendix
 
+\section{Physical Characteristics of the Isolated Pairs samples}
+
 \section{Results from ELVIS}
 \begin{figure*}
 \centering
@@ -470,25 +463,24 @@ Prospects for observational measurement: DESI.
 \includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}
 \includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}
 \includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_mu.pdf}
-\caption{Same layout as in Figure \ref{fig:scatter_width}. 
-This time for the $b/a$ axis ratio. In this case both the MW and M31
-are consistent with the results of a spherical distribution and the
-simulations. 
-\label{fig:scatter_ba_ratio}}
+\caption{ELVIs results for the quantities presented for the Illustris-1
+  simulation in Figures  \ref{fig:scatter_width},
+  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio} and
+  \ref{fig:scatter_mu}.
+Upper row corresponds to the raw values from observations and
+simulated pairs, while the second row normalizes the same values to
+the mean and standard deviation on its spherically randomized
+counterparts. 
+\label{fig:scatter_elvis}}
 \end{figure*}
 
 \begin{figure*}
 \centering
 \includegraphics[width=0.45\textwidth]{gaussian_model_elvis_M31.pdf}
 \includegraphics[width=0.45\textwidth]{gaussian_model_elvis_MW.pdf}
-\caption{Correlations between the normalized values for the plane
-  width, $c/a$ ratio and $b/a$ ratio. 
-The star corresponds to the LG, black circles with errorbars are the
-results from simulations and the gray cloud is the resul from the
-multivariate gaussian model.
-Upper/lower row summarizes the results for M31/M31.
-This simplified description allows us to quantify how atypical is the
-LG compared to the simulation results. 
+\caption{
+Same layout as Figure \ref{fig:correlations_illustris}, this time
+computed from the ELVIS data.
 \label{fig:correlations_elvis}}
 \end{figure*}
 
