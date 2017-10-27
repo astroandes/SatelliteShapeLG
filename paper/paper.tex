@@ -66,7 +66,8 @@
 %=========================================================================
 %		FRONT MATTER
 %=========================================================================
-\title[No Title]{No Title}
+\title[LG as an outlier]{We are not the 99 percent: the Local Group as an
+  outlier in galaxy pairs' satellite distributions}
 \author[J.E. Forero-Romero \& V. Arias]
 {Jaime E. Forero-Romero $^{1}$ \thanks{je.forero@uniandes.edu.co},
 Ver\'onica Arias$^1$\\
@@ -91,9 +92,8 @@ connecting the two galaxies. While none of the pairs in the simulations show
 a similar degree of alignment, these alignments are consistent with a
 random uniform distribution, making the observations
 consistent with theoretical expectations.
-The special satellite distribution in the Milky Way makes the Local
-Group an atypical pair in the cosmological context provided by
-LCDM simulations. 
+The special MW satellite distribution makes the LG an atypical pair in
+the cosmological context provided by LCDM simulations. 
 We estimate that only $0.5\%$ to $1\%$ of the pairs with isolation
 and dynamical characteristics similar to the LG are expected to have
 satellite distributions with the same degree of atipicality, making
@@ -279,7 +279,6 @@ quantities obtained from the inertia tensor:
 \end{itemize}
 
 
-
 \subsection{Comparing Satellite Samples}
 
 \subsection{Describing joint satellite distributions}
@@ -382,15 +381,25 @@ any other value.
 \centering
 \includegraphics[width=0.45\textwidth]{gaussian_model_illustris_M31.pdf}
 \includegraphics[width=0.45\textwidth]{gaussian_model_illustris_MW.pdf}
-\caption{Correlations between the normalized values for the plane
-  width, $c/a$ ratio and $b/a$ ratio. 
-The star corresponds to the LG, black circles with errorbars are the
-results from simulations and the gray cloud is the resul from the
-multivariate gaussian model.
-Upper/lower row summarizes the results for M31/M31.
-This simplified description allows us to quantify how atypical is the
-LG compared to the simulation results. 
-\label{fig:correlations}}
+\caption{Correlations between the multivariate gaussian model built on
+  the normalized values for the plane width $w$, $c/a$ ratio and $b/a$ ratio. 
+Left/right panel correspond to M31/MW. 
+The contour levels in the 2D histograms correspond to the $1\sigma$,
+$2\sigma$ and $3\sigma$ contours in two dimensions. 
+The dahsed vertical lines in the histograms along the diagonal
+correspond to the $1\sigma$ boundaries in one dimension.
+The results for the gaussian model are built from $10^6$ point
+realizations in the six-dimensional space spaned by the variables of
+interest. 
+The correlation matrix and the mean values are computed from the
+results in the Illustris-1 simulation.
+The cross indicates the LG values.
+This plot clearly shows how the M31 results are well within the
+expectations from simulations while MW has an unusual low value for
+the plane width and the $c/a$ axis ration.
+Similar results from the ELVIS data are presented in Figure
+\ref{fig:correlations_elvis}.
+\label{fig:correlations_illustris}}
 \end{figure*}
 
 
@@ -423,17 +432,9 @@ while the M31 plane width is consistent with the same distribution.
 
 \subsection{$b/a$ axis ratio}
 
-\subsection{s}
+\subsection{Plane alignment}
 
-\subsection{Satellite distributions in the Illustris Simulation}
 
-In the previous section we saw how the MW cannot be concealed with its
-randomized satellite distribution, while M31 is fully consistent with
-it. 
-We now quantify whether the MW and M31 are consistent with the
-expectations from the Illustris Simulation.
-We show here the results from the \rank\ sample. 
-The results from the \boot\ sample ara avaialble in the appendix.
 
 
 
@@ -441,24 +442,6 @@ The results from the \boot\ sample ara avaialble in the appendix.
 \section{Discussion}
 \subsection{Gaussian Model}
 
-
-\begin{table*}
-  \centering
-\begin{tabular}{lll}
-\hline\hline
-Symbol & Units & Description\\\hline
-$\hat{r}_{AB}$& & Unit vector along the direction connecting two
-dominant galaxies\\
-$N_s$ & & Number of satellites\\
-$a > b> c$ & kpc & Inertia tensor eigenvalues. \\
-$\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$ & & Inertia tensor eigenvectors. \\
-$\sigma_s$ & kpc & Ellipsoid width\\
-\hline\hline
-\end{tabular}
-  \caption{Overview of the parameters computed for each central galaxy
-    and its satellite system.
-  \label{tab:models}}
-\end{table*}
 
 Prospects for observational measurement: DESI.
 
@@ -473,18 +456,20 @@ Prospects for observational measurement: DESI.
 
 %MW mass
 %https://arxiv.org/abs/1407.1078
+\newpage
 \appendix
 
+\section{Results from ELVIS}
 \begin{figure*}
 \centering
-\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_width.pdf}
-\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_width.pdf}\\
-\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
-\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}\\
-\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
-\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}\\
-\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_mu.pdf}
-\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_mu.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_ranked_elvis_width.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_ranked_elvis_mu.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_width.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}
+\includegraphics[width=0.24\textwidth]{scatter_norm_ranked_elvis_mu.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $b/a$ axis ratio. In this case both the MW and M31
 are consistent with the results of a spherical distribution and the
@@ -504,7 +489,7 @@ multivariate gaussian model.
 Upper/lower row summarizes the results for M31/M31.
 This simplified description allows us to quantify how atypical is the
 LG compared to the simulation results. 
-\label{fig:correlations}}
+\label{fig:correlations_elvis}}
 \end{figure*}
 
 
