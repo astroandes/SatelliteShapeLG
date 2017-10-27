@@ -80,25 +80,23 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 \begin{abstract}
 We quantify the joint spatial distribution of the brightest satellites
 around the Milky way and M31. 
-We find that the satellites in MW show a distribution significantly
-thinner and flattened compared to the expectaions of a random
-spherical distribution and simulations based on the Lambda Cold Dark
-Matter paradigm.
-In turn, M31 is completely consistent with the expectations from a
-spherical satellite distribution and LCDM simulations.
-The satellite planes in the MW and M31 are almost perpendicular to the line
-connecting the two galaxies. None of the pairs in the simulation show
-a similar degree of alignment. 
-However, the simulations are consistent with a random uniform
-distribution, making the result from the observations consistent with
-these theoretical expectations.
-This special satellite distribution in the Milky Way makes the Local
+We use the Illustris-1 and ELVIS simulations to show that the
+MW satellite distribution is significantly thinner and more oblate
+than the expectations from the Lambda Cold Dark Matter (LCDM)
+paradigm. In contrast, the satellites in M31 are fully consistent with the
+average expectations from simulations.
+We also find that the satellite planes in the MW and M31 are almost perpendicular to the line
+connecting the two galaxies. While none of the pairs in the simulations show
+a similar degree of alignment, these alignments are consistent with a
+random uniform distribution, making the result from the observations
+consistent with these theoretical expectations.
+The special satellite distribution in the Milky Way makes the Local
 Group an atypical pair in the cosmological context provided by
-simulations. 
-We summarize these results in a simple multivariate Gaussian
-model to estimate that only $1\%$ of the pairs with isolation
+LCDM simulations. 
+We estimate that only $0.5\%$ to $1\%$ of the pairs with isolation
 and dynamical characteristics similar to the LG are expected to have
-satellite distributions with the same degree of atipicality. 
+satellite distributions with the same degree of atipicality, making
+the LG a $3\sigma$ outlier in a sample of simulated galaxy pairs.
 \end{abstract}
 
 \begin{keywords}Galaxies: halos --- Galaxies: high-redshift --- Galaxies: statistics
@@ -133,8 +131,12 @@ Finally, we summarize our conclusions in Section .
 \label{sec:obs}
 
 
-\section{Local Group Satellites in the Illustris Simulation}
-\label{sec:NumericalSetup}
+
+\section{Data from the ELVIS simulation}
+\label{sim:ELVIS}
+
+\section{Data from the Illustris Simulation}
+\label{sec:illustris}
 
 We use publicly available data from the Illustris Project 
 \citep{2014MNRAS.444.1518V}. 
@@ -179,12 +181,14 @@ the closest to halo $B$, the two are considered as a pair.
   the Hubble flow, is $-120\ \kms <v_{AB,r}<0\ \kms$. 
 \end{itemize}
 
-We find 27 pairs with these conditions. We show in the Appendix A the
-physical  properties (stellar masses, maximum circular velocities,
-radial velocities and separation) in those pairs. 
+We find 27 pairs with these conditions. 
 We then select the pairs where in both halos there are at least 15
-detected subhalos. 
-We end up with a total of 20 pairs that fulfill these criteria. 
+detected subhalos, thus discarding pairs with halos with the lowest
+mass.
+We end up with a total of 20 pairs that fulfill these criteria,
+Appendix A shows the physical  properties (stellar masses, maximum
+circular velocities, radial velocities and separation) in those pairs. 
+
 
 Although Illustris-1 has stellar particles, we do not use their
 properties to select the satelite population because the smallest
@@ -198,7 +202,6 @@ order of its maximum circular velocity and select the first $N_p$
 halos in the list. 
 The results in the main body of the paper correspond to $11\leq
 N_p\leq 15$. 
-
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
 \label{sec:SpatialMeasurements}
@@ -289,7 +292,7 @@ quantities obtained from the inertia tensor:
 \centering
 \includegraphics[width=0.32\textwidth]{scatter_random_ranked_width.pdf}
 \includegraphics[width=0.32\textwidth]{scatter_ranked_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_width.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_width.pdf}
 \caption{Plane width characterization in the Local Group and the
   Isolated Pairs. In all panels the horizontal axis corresponds to the
   M31 or the most massive halo in the pair and the vertical axis to
@@ -325,7 +328,7 @@ average is consistent with simulations.
 \centering
 \includegraphics[width=0.32\textwidth]{scatter_random_ranked_ca_ratio.pdf}
 \includegraphics[width=0.32\textwidth]{scatter_ranked_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ca_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $c/a$ axis ratio. 
 The message holds in this case as for the plane width.
@@ -345,7 +348,7 @@ is completeley consistent with the expectation from simulations.
 \centering
 \includegraphics[width=0.32\textwidth]{scatter_random_ranked_ba_ratio.pdf}
 \includegraphics[width=0.32\textwidth]{scatter_ranked_ba_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ba_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $b/a$ axis ratio. In this case both the MW and M31
 are consistent with the results of a spherical distribution and the
@@ -357,7 +360,7 @@ simulations.
 \centering
 \includegraphics[width=0.32\textwidth]{scatter_random_ranked_mu.pdf}
 \includegraphics[width=0.32\textwidth]{scatter_ranked_mu.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_mu.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_mu.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for $\mu$ the absolute value of the dot product between the
 vector connecting the main galaxies and the vector perpendicular to
@@ -376,8 +379,8 @@ any other value.
 
 \begin{figure*}
 \centering
-\includegraphics[width=1.0\textwidth]{correlations_M31.pdf}
-\includegraphics[width=1.0\textwidth]{correlations_MW.pdf}
+\includegraphics[width=0.45\textwidth]{gaussian_model_illustris_M31.pdf}
+\includegraphics[width=0.45\textwidth]{gaussian_model_illustris_MW.pdf}
 \caption{Correlations between the normalized values for the plane
   width, $c/a$ ratio and $b/a$ ratio. 
 The star corresponds to the LG, black circles with errorbars are the
@@ -415,6 +418,11 @@ The most interesting outcome is that the MW plane width is smaller
 than $95\%$ of the planes computed from the randomized distribution,
 while the M31 plane width is consistent with the same distribution. 
 
+\subsection{$c/a$ axis ratio}
+
+\subsection{$b/a$ axis ratio}
+
+\subsection{s}
 
 \subsection{Satellite distributions in the Illustris Simulation}
 
@@ -429,9 +437,21 @@ The results from the \boot\ sample ara avaialble in the appendix.
 
 
 
+\section{Discussion}
+\subsection{Gaussian Model}
 
 
-
+\begin{equation*}
+\begin{bmatrix}
+1.6  & 1.2 & 7.3\times10^{-1} & 7.9\times 10^{-2} & 1.0\times 10^{-1}
+& 6.5\times 10^{-2}\\
+ 1.2  & 1.2 & 3.5\times10^{-1} & 8.9\times 10^{-3} & 1.5\times 10^{-2} &-7.4\times10^{-2}\\
+ 7.3\times10^{-1} & 3.5\times10^{-1} & 0.668 & 0.102 &-0.00331 & 0.151\\
+ 7.9\times 10^{-2}  & 8.9\times 10^{-3} & 0.102 & 0.474   & 0.695 &-0.127\\
+ 1.0\times 10^{-1}  & 1.5\times 10^{-2} &-0.003  &0.695  &1.48 &-0.695\\
+ 6.5\times 10^{-2} & -7.4\times10^{-2} & 0.151 &-0.127 &-0.695 & 0.607
+\end{bmatrix}
+\end{equation*}
 
 
 \begin{table*}
@@ -465,6 +485,39 @@ Prospects for observational measurement: DESI.
 
 %MW mass
 %https://arxiv.org/abs/1407.1078
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_width.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_width.pdf}\\
+\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}\\
+\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}\\
+\includegraphics[width=0.30\textwidth]{scatter_ranked_elvis_mu.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_elvis_mu.pdf}
+\caption{Same layout as in Figure \ref{fig:scatter_width}. 
+This time for the $b/a$ axis ratio. In this case both the MW and M31
+are consistent with the results of a spherical distribution and the
+simulations. 
+\label{fig:scatter_ba_ratio}}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.45\textwidth]{gaussian_model_elvis_M31.pdf}
+\includegraphics[width=0.45\textwidth]{gaussian_model_elvis_MW.pdf}
+\caption{Correlations between the normalized values for the plane
+  width, $c/a$ ratio and $b/a$ ratio. 
+The star corresponds to the LG, black circles with errorbars are the
+results from simulations and the gray cloud is the resul from the
+multivariate gaussian model.
+Upper/lower row summarizes the results for M31/M31.
+This simplified description allows us to quantify how atypical is the
+LG compared to the simulation results. 
+\label{fig:correlations}}
+\end{figure*}
 
 
 \end{document}
