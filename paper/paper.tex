@@ -3,6 +3,8 @@
 %=========================================================================
 \usepackage{amsmath} 
 \usepackage{amssymb} 
+\usepackage{multirow}
+
 \usepackage{graphicx}
 \usepackage{grffile}
 \usepackage[dvips]{epsfig}
@@ -83,8 +85,10 @@ In this paper we quantify the joint spatial distribution of the brightest satell
 around the Milky Way (MW) and M31, the dominant galaxies in the Local
 Group (LG).
 We use the Illustris-1 and ELVIS simulations to quantify how the 
-unusual satellite distribution in the MW  makes the LG an atypical pair in
-the broader cosmological context provided by LCDM simulations. 
+unusual satellite distribution in the MW  makes the LG an atypical pair.
+A crucial aspect in our analysis is that we define the atypicallity as
+the degree at which a satellite distribution deviates from sphericity and
+not as a deviation from simulations.
 We find that only $0.05\%$ to $0.25\%$ of the pairs with isolation
 and dynamical characteristics similar to the LG are expected to have
 satellite distributions with the same degree of atipicality, making
@@ -425,10 +429,27 @@ while the M31 plane width is consistent with the same distribution.
 
 \subsection{Plane alignment}
 
+M31 observations 
 
 
-
-
+\begin{table*}
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|c|c|}
+    \hline
+    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}} & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
+    % \hline
+    % \textbf{Inactive Modes} & \textbf{Description}\\
+    \cline{2-9}
+    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW}& \textbf{M31} & \textbf{MW}\\
+    %\hhline{~--}
+    \hline
+    Plane width (kpc) & $59\pm 3$  & $22\pm 2$  & $65\pm 11$   & $45\pm 8$     & $70\pm 4$ & $67\pm 2$ & $70\pm 2$& $68\pm 4$ \\\hline
+    $c/a$ ratio & $0.67\pm 0.03$ & $0.53\pm 0.03$ & $0.75\pm0.07$ & $0.72\pm 0.07$ & $0.72\pm 0.01$ & $0.72\pm 0.01$ & $0.73\pm 0.01$& $0.69\pm 0.01$ \\ \hline
+    $b/a$ ratio & $0.90\pm 0.03$ & $0.88\pm 0.01$ & $0.90\pm0.04$ & $0.90\pm 0.04$ & $0.89\pm 0.01$ & $0.89\pm 0.01$ & $0.89\pm0.01$& $0.90\pm 0.01$\\ \hline
+  \end{tabular}
+  \caption{Mode Transition Times}
+\end{table*}
 
 \section{Discussion}
 \subsection{Outlier characterization with a Multivariate Gaussian Model}
