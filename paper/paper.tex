@@ -229,8 +229,9 @@ Mpc$^{-3}$, this is a factor $2.4$ lower than the pair number density
 we find in Illustris-1.
 There were a total of 146 pairs that met those criteria, but only $12$
 were chosen for resimulation. 
-Additionally, the selected pairs have a relative tangential velocity
-less than $75$ \kms. 
+Additionally, the selected pairs for resimulation have a relative
+tangential velocity less than $75$ \kms. 
+In this paper we only use the results from the $12$ resimulated pairs.
 
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
@@ -318,7 +319,7 @@ with respect to the central galaxy and then randomizing its angular
 position. 
 We repeat this procedure 1000 times for each satellite distribution
 and proceed to measure the quantities mentioned in the last section:
-$w$, $c/a$, $b/a$ and $mu$.
+$w$, $c/a$, $b/a$ and $\mu$.
 For each quantity we compute an average and standard deviation from
 the 1000 random samples. 
 This allows us to build a normalized version of all quantities of
@@ -602,6 +603,41 @@ this can be reconciled with other studies that show preferential
 infall satellite directions in LCDM simulations.
 
 
+
+\subsection{Multivariate Distributions}
+
+\begin{table*}
+  \centering
+  \begin{tabular}{c|c|c|c|c|c|c|}
+    \hline
+        & M31 & M31 &M31 & MW & MW &MW\\
+        & $w$ & $c/a$ & $b/a$ & $w$ & $c/a$ & $b/a$ \\     \hline
+M31 $w$ & & & & & & \\ 
+M31 $c/a$ & & & & & & \\ 
+M31 $b/a$ & & & & & & \\ 
+MW $w$ & & & & & & \\ 
+MW $c/a$ & & & & & & \\ 
+MW $b/a$ & & & & & & \\ 
+  \end{tabular}
+  \begin{tabular}{c|c|c|c|c|c|c|}
+    \hline
+        & M31 & M31 &M31 & MW & MW &MW\\
+        & $w$ & $c/a$ & $b/a$ & $w$ & $c/a$ & $b/a$ \\     \hline
+M31 $w$ & & & & & & \\ 
+M31 $c/a$ & & & & & & \\ 
+M31 $b/a$ & & & & & & \\ 
+MW $w$ & & & & & & \\ 
+MW $c/a$ & & & & & & \\ 
+MW $b/a$ & & & & & & \\ 
+  \end{tabular}
+
+  \caption{Correlation matrix for the normalized values of $w$, $c/a$
+    and $b/a$ computed from the $20$ pairs in the Illustris-1
+    simulation (left) and the ELVIS project (right).}
+\end{table*}
+
+\section{Discussion}
+
 \begin{table*}
   \centering
   \renewcommand{\arraystretch}{1.2}
@@ -622,6 +658,9 @@ infall satellite directions in LCDM simulations.
 \end{table*}
 
 \section{Discussion}
+
+
+
 \subsection{Outlier characterization with a Multivariate Gaussian Model}
 
 
