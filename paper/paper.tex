@@ -229,6 +229,7 @@ distance fixed. The randomization process is done 1000 times for each
 galaxy. 
 
 
+
 \subsection{Describing Samples with the Inertia Tensor}
 We base all our results on the description provided by the inertia
 tensor defined by the satellites's positions.  
@@ -302,9 +303,19 @@ We do not want to directly compare how the results observations
 deviate from simulations but to compare the deviations from
 asphericity in observations and simulations. 
 
-It 
 
 \subsection{Describing joint satellite distributions}
+
+After building the normalized variables with the simulated data we
+perform  a Kolmogorov-Smirnov test with the null hypothesis of belongig
+to a normal distribution with mean and standard deviation computed
+from the mean and standard deviation from the data itself. 
+We find that the distributions for $w$, $c/a$ and $b/a$ cannot reject
+the null hypothesis. 
+Only the distribution for $\mu$ corresponds to a
+uniform distribution.
+
+We then build a multivariate normal distribution for $$
 
 
 % referencia posiciones satellites
