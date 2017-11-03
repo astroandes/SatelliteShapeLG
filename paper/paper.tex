@@ -382,17 +382,6 @@ $\sigma_p$ as the standard deviation of all satellite distances to the
 plane defined by the vector $\hat{n}$. 
 
 
-It has been shown that LG pair separation vector is aligned along the
-filaments in  which they are typically embeded
-\citep{2015ApJ...799...45F}, the LG pairs found in pancake-like DM
-matter arrangements are aligned with the plane itself. 
-Characterizing the satellite alignments with $\mu$ thus provide
-information about how satellites are distributed with respect to the
-cosmic web. 
-For that reason we also characterize the alignment between the satellite plane and the
-vector connecting the two dominant galaxies by $\mu=|\hat{r}_{AB}\cdot
-\hat{n}|$.
-
 
 To summarize we characterize the satellite distribution by for
 quantities obtained from the inertia tensor: 
@@ -400,7 +389,6 @@ quantities obtained from the inertia tensor:
 \item Plane width, $w$.
 \item $c/a$ axis ratio.
 \item $b/a$ axis ratio.
-\item $\mu$ as a measure of plane alignment.
 \end{itemize}
 
 
@@ -413,7 +401,7 @@ with respect to the central galaxy and then randomizing its angular
 position. 
 We repeat this procedure 1000 times for each satellite distribution
 and proceed to measure the quantities mentioned in the last section:
-$w$, $c/a$, $b/a$ and $\mu$.
+$w$, $c/a$ and $b/a$.
 For each quantity we compute an average and standard deviation from
 the 1000 random samples. 
 This allows us to build a normalized version of all quantities of
@@ -444,8 +432,6 @@ to a normal distribution with mean and standard deviation computed
 from the mean and standard deviation from the data itself. 
 We find that the distributions for $w$, $c/a$ and $b/a$ cannot reject
 the null hypothesis. 
-Only the distribution for $\mu$ corresponds to a
-uniform distribution.
 
 We then build a multivariate normal distribution for the two halos and
 the three variables consistent with a unidimensional normal
@@ -532,26 +518,6 @@ This time for the $b/a$ axis ratio. In this case both the MW and M31
 are consistent with the results of a spherical distribution and the
 simulations. 
 \label{fig:scatter_ba_ratio}}
-\end{figure*}
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.32\textwidth]{scatter_random_ranked_mu.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_mu.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_mu.pdf}
-\caption{Same layout as in Figure \ref{fig:scatter_width}. 
-This time for $\mu$ the absolute value of the dot product between the
-vector connecting the main galaxies and the vector perpendicular to
-the satellite plane.
-In this case both the MW and M31 show a strong alignment.
-Apparently the LG is outside the expectations from
-simulations and atypical compared to the spherical results. 
-However, this is not the case. The $\mu$ distributions in the
-randomization and the simulation are consistent with a uniform
-distribution.
-Under such circumstances $\mu\approx 1$ is as likely as
-any other value.
-\label{fig:scatter_mu}}
 \end{figure*}
 
 
@@ -656,45 +622,6 @@ In all cases of comparison (against randomized distribution,
 comparasion against simulations and degree of deviation from
 sphericity) the results for both the MW and M31 do not seem atypical
 or deviated from the expectations for an spherical dsitribution.
-
-
-\subsection{Plane alignment}
-
-Figure \ref{fig:scatter_mu} summarizes the Illustris results for the
-alignments between the vector normal to the plane and the vector
-connecting the two dominant galaxies.
-The corresponding results for the ELVIS data are shown in Figure
-\ref{fig:scatter_elvis}. 
-
-The first striking impression from the left panel in Figure
-\ref{fig:scatter_mu} is that the observations are cornered in
-a region of strong alignment, $\mu\approx 1$, for both galaxies. 
-In other words, the planes are almost perpendicular to the direction
-connecting the two galaxies. 
-The result for the spherical randomization corresponds to a uniform
-distribution $0\leq \mu\leq 1$ as shown in the same panel.
-
-The middle panel tells a similar story for the results from
-Illustris. That is, there isn't a prefered alignment direction from
-the simulation. This also holds for ELVIS data.
-We quantify this visual impresion by performing a K-S test where the
-null hypothesis corresponds to an uniform distribution. 
-The results from the K-S test do not allow us to discard the null
-hypotesis. 
-
-This information allows us to properly understand the results on the
-right panel in Figure \ref{fig:scatter_mu}.
-That panel shows the results for the normalized values to the mean and
-standard deviation computed from spherically randomized
-ditributions.
-In this case the LG $\mu$ value has the same probability as any other value
-(because it is consistent with an uniform distribution) and the apparent
-large distance from the Illustris data must not be interpreted as an
-the LG having an atypical alignment. 
-
-We defer to the Section \ref{sec:discussion} our discussion on how
-this can be reconciled with other studies that show preferential
-infall satellite directions in LCDM simulations.
 
 
 
