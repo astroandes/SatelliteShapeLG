@@ -380,12 +380,12 @@ From this tensor we compute its eigenvalues,
 $\lambda_1>\lambda_2>\lambda_3$, and corresponding eigenvectors,
 $\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$.
 We define the size of the three ellipsoidal axis as
-$a=\sqrt{\lambda_1}$, $b=\sqrt{\lambda_2}$ and $c=\sqrt{\lambda_3}$.
+$a=\lambda_1$, $b=\lambda_2$ and $c=\lambda_3$.
 We also define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
 planar satellite distribution. 
 We also define the width, $w$, of the planar satellite distribution,
-$\sigma_p$ as the standard deviation of all satellite distances to the
-plane defined by the vector $\hat{n}$. 
+as the standard deviation of all satellite distances to the plane
+defined by the vector $\hat{n}$.  
 
 
 
@@ -460,9 +460,9 @@ data.
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.32\textwidth]{scatter_random_ranked_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_width.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_random_ranked_width.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_ranked_width.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_width.pdf}
 \caption{Plane width characterization in the Local Group and the
   Isolated Pairs. In all panels the horizontal axis corresponds to the
   M31 or the most massive halo in the pair and the vertical axis to
@@ -496,9 +496,9 @@ average is consistent with simulations.
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.32\textwidth]{scatter_random_ranked_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_random_ranked_ca_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_ranked_ca_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $c/a$ axis ratio. 
 The message holds in this case as for the plane width.
@@ -516,9 +516,9 @@ is completeley consistent with the expectation from simulations.
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.32\textwidth]{scatter_random_ranked_ba_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_ba_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_random_ranked_ba_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_ranked_ba_ratio.pdf}
+\includegraphics[width=0.30\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $b/a$ axis ratio. In this case both the MW and M31
 are consistent with the results of a spherical distribution and the
@@ -735,6 +735,7 @@ that allowed such pattern to emerge.
 %MW mass
 %https://arxiv.org/abs/1407.1078
 \newpage
+
 \appendix
 
 \section{Physical Characteristics of the Isolated Pairs samples}
@@ -770,7 +771,7 @@ computed from the ELVIS data.
 
 
 
-
+\section{Covariance Matrices and Mean value vectors}
 Illustris
 \begin{verbatim}
 [[ 0.8344  0.7849  0.4186 -0.1155  0.0340 -0.1614]
