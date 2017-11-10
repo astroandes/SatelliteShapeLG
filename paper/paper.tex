@@ -216,6 +216,13 @@ Finally, we summarize our conclusions in Section .
 \subsection{Observational Data}
 \label{sec:obs}
 
+We use three dimentional positions as reported by. 
+The appendix includes the tables with the values we use in our
+computations.
+For each central galaxy we use the 15 brightest satellites within a
+distance of $300$kpc to the central galaxy.
+The satellites for the MW are: 
+THe satellites for M31 are:
 
 
 
@@ -445,12 +452,24 @@ distribution using the vector of mean values and covariance matrix.
 This means that our final covariance matrix is $6\times 6$ and takes
 into account the correlations internal to a single galaxy and with its
 partner. 
+We compute the preferred covariance matrix and the mean distribution values
+with a jackknife technique. 
+That is, out of the the $n$ pairs we have, we perfom $n$ different
+covariance and mean value measurement using only $n-1$ pairs. 
+The reported covariance and mean values correspond to the average of
+all measurements, the corresponding standard deviation also help us to
+estimate the uncertainty on every reported coefficient.
 
-This compact description allows us to generate samples consistent with
-the simulations used in their construction.
-Finally, we use those generated samples to estimate how commoon are
-the deviations from sphericity that we measure in the observational
-data. 
+This compact description allows us to generate samples of size $N$
+that are consistent by construction with their parent
+simulation. Finally, we use the generated samples to estimate how
+commoon are the deviations from sphericity that we measure in the observational
+data.  We use a single-tail test in this comparison, meaning that we
+always measure the fraction of points with values smaller than the
+treshold value. 
+
+
+
 
 
 
