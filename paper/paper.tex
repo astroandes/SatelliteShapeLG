@@ -91,7 +91,7 @@ This allows us to estimate the atipicallity
 of the satellite distributions in the LG even when the underlying
 simulations do not have enough systems that fully resemble the LG.
 We demonstrate the method using three different simulations:
-Illustris-1,  Illustris-1-DarkMatter and ELVIS. 
+Illustris-1,  Illustris-1-Dark and ELVIS. 
 Detailed results differ greatly among the simulations, suggesting a
 strong influence of resolution, modelled physics and criteria to select
 LG pairs.
@@ -249,14 +249,18 @@ The simulation volume is a cubic box of $75$ \Mpch\ on a side.
 The cosmological parameters correspond to a $\Lambda$CDM cosmology
 consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
 
-We extract halo and galaxy information from the Illustris-1 simulation
-which has the highest resolution in the current release of the
+We extract halo and galaxy information from the Illustris-1 and
+Illustris-1-Dark simulations, the former simulation includes
+hydrodynamics and star formation prescriptions while the latter only
+includes dark matter physics.
+These simulations have the highest resolution in the current release of the
 Illustris Project.
 Illustris-1 has $1820^3$ dark matter particles and $1820^3$ initial gas
-volumen elements. 
+volumen elements, while Illustris-1-Dark has $1820^3$ dark matter particles.
 This corresponds to a dark matter particle mass of
 $6.3\times 10^6$\Msun\ and a minimum mass for the baryonic volume
-element of $8.0\times 10^7$\Msun. 
+element of $8.0\times 10^7$\Msun for Illustris-1 and a dark matter
+particle mass of $7.6\times 10^6$\Msun.
 The corresponding spatial resolution is $1.4$ kpc for the dark matter
 gravitational softening and $0.7$ kpc for the typical size of the
 smallest gas cell size. 
@@ -404,7 +408,7 @@ galaxy.
   \renewcommand{\arraystretch}{1.2}
   \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
     \hline
-    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Illustris-1-DM}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
+    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Illustris-1-Dark}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
     % \hline
     % \textbf{Inactive Modes} & \textbf{Description}\\
     \cline{2-7}
@@ -419,7 +423,7 @@ galaxy.
     quantities describing satellite distributions: plane width, $c/a$
     ratio and $b/a$ ratio. 
     The first column summarize the results from the 24 pairs in
-    Illustris-1-DM, the second column from the 20 pairs in
+    Illustris-1-Dark, the second column from the 20 pairs in
     Illustris-1 and the third column from the 12 pairs in the
     ELVIS project.\label{table:simulations}}
 \end{table*}
