@@ -129,12 +129,12 @@ detected.
 In the case of M31,  observational studies have found a planar satellite
 distribution in a subset of $15$ satellites out of an homogeneous
 sample of $27$ satellites. 
-Using only the $11$ brightest satellites (as a comparison with the MW)
-there does not seem to be any structure.
+However, taking into account the $11$ brightest satellites (as a
+comparison with the MW) there does not seem to be any planar structure.
 
-The question whether this configuration is atypical in the observable
-Universe cannot be proberly addressed given the current limits in
-observations. 
+The question whether this kind of planar configurations are atypical
+in the observable Universe cannot be properly addressed given the
+current limits in observations. 
 So far it has only been possible to contraint that $5\%$ of the
 Milky-Way like galaxies in the Universe have two bright satellite
 galaxies as is the case of the Milky Way and its Large and Small
@@ -374,6 +374,58 @@ galaxy.
 
 
 
+\begin{table*}
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|p{2.5cm}|c|c|c|c|}
+    \hline
+    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}} & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} \\
+    % \hline
+    % \textbf{Inactive Modes} & \textbf{Description}\\
+    \cline{2-5}
+    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} \\
+    %\hhline{~--}
+    \hline
+    Plane width (kpc) & $59\pm 3$  & $22\pm 2$  & $64\pm 12$   & $45\pm 8$    \\\hline
+    $c/a$ ratio & $0.45\pm 0.04$ & $0.28\pm 0.03$ & $0.55\pm0.10$ & $0.53\pm 0.10$ \\ \hline
+    $b/a$ ratio & $0.82\pm 0.06$ & $0.78\pm 0.02$ & $0.82\pm0.07$ & $0.81\pm 0.08$ \\ \hline
+  \end{tabular}
+  \caption{Results from observations. Mean values and standard deviations for the different
+    quantities describing satellite distribution: plane width, $c/a$
+    ratio and $b/a$ ratio. 
+    The first colum refers to the results from
+    observational data, the second column uses the spherically
+    randomized version of the observational data. \label{table:observations}}
+\end{table*}
+
+
+\begin{table*}
+  \centering
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
+    \hline
+    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Illustris-1-DM}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
+    % \hline
+    % \textbf{Inactive Modes} & \textbf{Description}\\
+    \cline{2-7}
+    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW}& \textbf{M31} & \textbf{MW}\\
+    %\hhline{~--}
+    \hline
+    Plane width (kpc) & $62\pm 3$   & $61\pm 3$     & $70\pm 4$ & $67\pm 2$ & $70\pm 2$& $68\pm 4$ \\\hline
+    $c/a$ ratio & $0.50\pm0.01$ & $0.50\pm 0.02$ & $0.52\pm 0.01$ & $0.53\pm 0.01$ & $0.54\pm 0.01$& $0.49\pm 0.02$ \\ \hline
+    $b/a$ ratio & $0.79\pm0.01$ & $0.81\pm 0.02$ & $0.80\pm 0.01$ & $0.80\pm 0.02$ & $0.80\pm0.01$& $0.81\pm 0.01$\\ \hline
+  \end{tabular}
+  \caption{Results from simulations. Mean values and standard deviations for the different
+    quantities describing satellite distributions: plane width, $c/a$
+    ratio and $b/a$ ratio. 
+    The first column summarize the results from the 24 pairs in
+    Illustris-1-DM, the second column from the 20 pairs in
+    Illustris-1 and the third column from the 12 pairs in the
+    ELVIS project.\label{table:simulations}}
+\end{table*}
+
+
+
 \subsection{Describing Samples with the Inertia Tensor}
 We base all our results on the description provided by the inertia
 tensor defined by the satellites's positions.  
@@ -477,58 +529,6 @@ data.  We use a single-tail test in this comparison, meaning that we
 always measure the fraction of points with values smaller than the
 treshold value. 
 
-
-
-
-\begin{table*}
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|p{2.5cm}|c|c|c|c|}
-    \hline
-    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}} & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} \\
-    % \hline
-    % \textbf{Inactive Modes} & \textbf{Description}\\
-    \cline{2-5}
-    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} \\
-    %\hhline{~--}
-    \hline
-    Plane width (kpc) & $59\pm 3$  & $22\pm 2$  & $64\pm 12$   & $45\pm 8$    \\\hline
-    $c/a$ ratio & $0.45\pm 0.04$ & $0.28\pm 0.03$ & $0.55\pm0.10$ & $0.53\pm 0.10$ \\ \hline
-    $b/a$ ratio & $0.82\pm 0.06$ & $0.78\pm 0.02$ & $0.82\pm0.07$ & $0.81\pm 0.08$ \\ \hline
-  \end{tabular}
-  \caption{Mean values and standard deviations for the different
-    quantities describing satellite distribution: plane width, $c/a$
-    ratio and $b/a$ ratio. 
-    The first colum refers to the results from
-    observational data, the second column uses the spherically
-    randomized version of the observational data. \label{table:observations}}
-\end{table*}
-
-
-\begin{table*}
-  \centering
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
-    \hline
-    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Illustris-1-DM}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
-    % \hline
-    % \textbf{Inactive Modes} & \textbf{Description}\\
-    \cline{2-7}
-    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW}& \textbf{M31} & \textbf{MW}\\
-    %\hhline{~--}
-    \hline
-    Plane width (kpc) & $62\pm 3$   & $61\pm 3$     & $70\pm 4$ & $67\pm 2$ & $70\pm 2$& $68\pm 4$ \\\hline
-    $c/a$ ratio & $0.50\pm0.01$ & $0.50\pm 0.02$ & $0.52\pm 0.01$ & $0.53\pm 0.01$ & $0.54\pm 0.01$& $0.49\pm 0.02$ \\ \hline
-    $b/a$ ratio & $0.79\pm0.01$ & $0.81\pm 0.02$ & $0.80\pm 0.01$ & $0.80\pm 0.02$ & $0.80\pm0.01$& $0.81\pm 0.01$\\ \hline
-  \end{tabular}
-  \caption{Mean values and standard deviations for the different
-    quantities describing satellite distributions: plane width, $c/a$
-    ratio and $b/a$ ratio. 
-    The first column summarize the results from the 24 pairs in
-    Illustris-1-DM, the second column from the 20 pairs in
-    Illustris-1 and the third column from the 12 pairs in the
-    ELVIS project.\label{table:simulations}}
-\end{table*}
 
 
 
