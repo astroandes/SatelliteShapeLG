@@ -534,7 +534,9 @@ Based on this result we build a multivariate normal distribution for
 the joint distributions of the normalized $w$, $c/a$ and $b/a$:
 
 \begin{equation}
-p(X; \mu, \Sigma) = \frac{1}{(2\pi)^{3/2}|\Sigma|^{1/2}} \exp\left(-\frac{1}{2}(X-\mu)^{T}\Sigma^{-1}(X-\mu)\right), 
+p(X; \mu, \Sigma) = \frac{1}{(2\pi)^{3/2}|\Sigma|^{1/2}}
+\exp\left(-\frac{1}{2}(X-\mu)^{T}\Sigma^{-1}(X-\mu)\right), 
+\label{eq:multivariate}
 \end{equation}
 % 
 where $X=[w, c/a, b/a]^{T}$ is a vector variable with the normalized
@@ -567,37 +569,29 @@ treshold absolute observed value.
 \includegraphics[width=0.30\textwidth]{scatter_random_ranked_width.pdf}
 \includegraphics[width=0.30\textwidth]{scatter_ranked_illudm_width.pdf}
 \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_width.pdf}
-\caption{Plane width characterization in the Local Group and the
-  Isolated Pairs. In all panels the horizontal axis corresponds to the
-  M31 or the most massive halo in the pair and the vertical axis to
-  the MW or the least massive halo in the pair.
-The panel on the left shows the plane width in physical units
-comparing the results from observations
+\caption{Plane width characterization in observations and
+  simulations (Illustris1-Dark in this case.) In all panels the
+  horizontal/vertical axis corresponds to the  M31/MW or the
+  most/less massive halo in the pair 
+  Left. Plane width in physical units comparing the results from observations
 (stars) against the result of spherically randomizing the satellite
-positions while keeping its radial distance (circles). 
-The panel in the middle compares the average from the observations
-(star) and the average from each one of the Isolated Pairs (circles
-with error bars).
-The panel on the right has the same information as the middle panel,
-only that this time each point has been normalized (median substracted
-and normalized by the standar deviation) to the results of its
-randomization. 
-The main message of this series of plots is that the MW has a
-significantly thiner plane both compared to the result of its own
-satellite spherical randomization (left panel) and the expectation from
-simulations (middle panel). 
+positions (circles). 
+Middle. Average from the observations (star) and the average from each
+pair in the simulation (circles).
+Right. Same as the middle panel only that this time each point has
+been normalized (median substracted and normalized by the standar
+deviation) to the results of its randomization. 
+The main message of these panels that the MW has a significantly
+thiner plane both compared to the result of its own satellite
+spherical randomization (left panel) and the expectation from
+simulations (middle and right panel).  
 This low value is $2\sigma$ away from what is expected in a spherical
 distribution. 
-In the M31 their satellites are in agreement with the expectations
-both from an spherical distribution and the results form the
+In M31 the satellite distribution are in agreement with the
+expectations both from an spherical distribution and the results form the
 simulations. 
-A second conclusion is that the spherically averaged plane width
-MW (seen in the point cloud in the left panel) is smaller than the
-average expectation from simulations, while for M31 the spherical
-average is consistent with simulations. 
 \label{fig:scatter_width}}
 \end{figure*}
-
 \begin{figure*}
 \centering
 \includegraphics[width=0.30\textwidth]{scatter_random_ranked_ca_ratio.pdf}
@@ -706,9 +700,9 @@ than $\approx 98\%$ of the planes computed from the randomized distribution,
 while the M31 plane width is only slightly smaller than the average of
 the distribution.
 
-The middle panel in \ref{fig:scatter} compares the observational resul
-against the measurements of all pairs from the Illustris1-Dark
-simulation.
+The middle panel in Figure \ref{fig:scatter_width} compares the
+observational result (star) against the measurements of all pairs from the Illustris1-Dark
+simulation (circles).
 In this case we have a similar result as before. 
 The observed MW width is smaller than all the results in the
 simulation, there is not a single halo with similar values.
@@ -716,7 +710,14 @@ On the other hand, the results for the M31 are entirely consistend
 with observations. Most of the halos in the simulation show a width
 value similar to M31. 
 
-The right panel.
+The right panel in Figure \ref{fig:scatter_width} shows the result for
+the normalized width.  
+This panel tells the same story as the middle panel. The M31 values
+are typical while the MW is an outlier. 
+The added value of the data in this panel is that it is the normalized
+which is consistent with normal distributions.
+This is the data used to build the mean values vector and covariance
+matrix described in Equation \ref{eq:multivariate}.
 
 \subsection{$c/a$ axis ratio}
 Figure \ref{fig:scatter_ca_ratio} shows the results for the minor to
