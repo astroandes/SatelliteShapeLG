@@ -81,19 +81,16 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 \maketitle
 
 \begin{abstract}
-We quantify the asphericity in the spatial distribution of the
-brightest satellites around the Milky Way (MW) and M31, the dominant
-galaxies in the Local Group (LG).
 We use simulations to build an explicit probability distribution for the
-asphericity around galaxies similar to the LG in the Lambda Cold Dark
-Matter (LCDM) paradigm.
+asphericity in the satellite distribution around galaxies similar to the
+Local Group (LG) in the Lambda Cold Dark Matter (LCDM) paradigm.
 This allows us to estimate the atipicallity
 of the satellite distributions in the LG even when the underlying
 simulations do not have enough systems that fully resemble the LG.
 We demonstrate the method using three different simulations:
 Illustris-1,  Illustris-1-Dark and ELVIS. 
 Detailed results differ greatly among the simulations, suggesting a
-strong influence of resolution, modelled physics and criteria to select
+strong influence of resolution, simulated physics and criteria to select
 LG pairs.
 However, there are three common trends in these simulations. First, at most of
 $1\%$ the pairs are expected to have satellite distributions with the
@@ -105,11 +102,10 @@ The brightest satellites in M31 galaxy turn out to have a rather typical distrib
 in the LCDM context, while the MW is atypical in this respect. 
 These results place the LG close to the level of a 3-$\sigma$ outlier
 in the LCDM paradigm.
-We summarize our results in terms of mean values and covariance
-matrices. 
-This approach facilitates the comparison between asphericity results
-from different numerical setups and choices to select LG pairs in
-simulations.  
+The approach presented here will facilitate the comparison between
+asphericity results from different numerical setups and choices to
+select halo pairs in simulations, hopefully helping to clarify the
+reasons behin the LG atipicallity in LCDM. 
 \end{abstract}
 
 \begin{keywords}Galaxies: halos --- Galaxies: statistics --- Dark
@@ -599,15 +595,13 @@ simulations.
 \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_ca_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $c/a$ axis ratio. 
-The message holds in this case as for the plane width.
-The MW is has a significantly low $c/a$ value compared to the
-expectation from a spherical distribution and simulations. 
+The same message holds in this case; namely, that 
+the MW is has a significantly lowwe $c/a$ value than the
+expectation from the spherical distribution and the simulations. 
 This low value is also $2\sigma$ away from the expactations for an
 spherical distribution.
-M31 is consistent both with an spherical distribution and the results
-from simulations.
-However, in this case the axis ratio in the spherically averaged case
-is completeley consistent with the expectation from simulations.
+On the other hand, M31 is consistent both with an spherical
+distribution and the results from simulations.
 \label{fig:scatter_ca_ratio}}
 \end{figure*}
 
@@ -619,7 +613,7 @@ is completeley consistent with the expectation from simulations.
 \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_ba_ratio.pdf}
 \caption{Same layout as in Figure \ref{fig:scatter_width}. 
 This time for the $b/a$ axis ratio. In this case both the MW and M31
-are consistent with the results of a spherical distribution and the
+are consistent with the results of a spherical distribution and 
 simulations. 
 \label{fig:scatter_ba_ratio}}
 \end{figure*}
@@ -651,21 +645,6 @@ Equivalent results from the ELVIS data are presented in Figure
 \end{figure*}
 
 
-\begin{figure}
-\centering
-\includegraphics[width=0.47\textwidth]{expected_numbers_n_M31.pdf}
-\includegraphics[width=0.47\textwidth]{expected_numbers_n_MW.pdf}
-\caption{Probability distribution for the expected number of M31 and
-  MW halos  showing the same degree of atipicality as the Local Group if drawn
-  from a sample of 10000 isolated pairs. 
-  The distributions correspond to results derived from Illustris-DM, Illustris,
-  and ELVIS data.
-  In the most optimistic case (Illustris-DM), $1\%$ of the pairs have
-  two halos with properties similar to the LG. In the case of
-  Illustris this percentage drops to $0.1\%$ and $0.01\%$ for ELVIS.
-\label{fig:expected_number}}
-\end{figure}
-
 \section{Results}
 \label{sec:results}
 
@@ -687,7 +666,10 @@ spherical randomization.
 
 
 In the following subsections we describe in detail the results on the 
-distributions for $w$, $c/a$ and $b/a$ 
+distributions for $w$, $c/a$ and $b/a$. 
+The plots in the main body of the paper correspond to the
+Illustris1-Dark simulation; the results from the other simulations are
+included in the Appendix.
 
 \subsection{Plane Width}
 
@@ -718,6 +700,23 @@ The added value of the data in this panel is that it is the normalized
 which is consistent with normal distributions.
 This is the data used to build the mean values vector and covariance
 matrix described in Equation \ref{eq:multivariate}.
+
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.47\textwidth]{expected_numbers_n_M31.pdf}
+\includegraphics[width=0.47\textwidth]{expected_numbers_n_MW.pdf}
+\caption{Probability distribution for the expected number of M31 and
+  MW halos  showing the same degree of atipicality as the Local Group if drawn
+  from a sample of 10000 isolated pairs. 
+  The distributions correspond to results derived from Illustris-DM, Illustris,
+  and ELVIS data.
+  In the most optimistic case (Illustris-DM), $1\%$ of the pairs have
+  two halos with properties similar to the LG. In the case of
+  Illustris this percentage drops to $0.1\%$ and $0.01\%$ for ELVIS.
+\label{fig:expected_number}}
+\end{figure*}
 
 \subsection{$c/a$ axis ratio}
 Figure \ref{fig:scatter_ca_ratio} shows the results for the minor to
@@ -776,6 +775,7 @@ This is all the information that is needed to compute the fraction of
 pairs that are expected to share the same asphericity as the LG.
 We start the Discussion section by describing the results of
 performing such a computation.
+
 
 
 
