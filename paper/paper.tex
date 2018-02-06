@@ -804,8 +804,17 @@ the sample mean.
 That is, we perform a double-tailed test using the observational
 values as a threshold. 
 
-Under this conditions 
 
+
+In a three dimensional gaussian distribution, having a $1\sigma$,
+$2\sigma$ and $3\sigma$ interval corresponds to have respectively $19 \%$, $73 \%$ and
+$97 \%$ of the total of points in the distribution.
+% FUNDAMENTALS OF MULTIVARIATE STATISTICS, for Imaging and optics,
+% Bajorski.
+%In [150]: stats.chi2.cdf(l**2,3)
+%Out[150]: array([ 0.19874804,  0.73853587,  0.97070911])
+With this consideration, the $LG$ has the same degree of atipicality
+as an $3\sigma$ outlier.
 
 
 
