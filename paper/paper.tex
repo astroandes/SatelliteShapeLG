@@ -788,11 +788,23 @@ The fits to the multivariate gaussian distributions can be used now to
 compute the expected number of pairs with characteristics similar to
 the LG.
 To do this we generate $10^3$ samples, each sample contains $10^4$
-pairs which are drawn from the multivariate gaussian distributions. 
+pairs, where each pair member is drawn from the corresponding
+multivariate gaussian distributions.  
 
 Figure \ref{fig:expected_number} summarizes the results from this
 experiment. 
-The left panel
+The left panel shows the probability density for the number of M31
+systems in a parent sampe of $10^4$ pairs, the right panel shows the
+results for the MW.
+
+We consider that a sampled system is similar to the M31/MW galaxy if the
+distance of each of its characteristics ($w$, $c/a$, $b/a$) to the
+sample mean is larger than the distance of the observational values to
+the sample mean. 
+That is, we perform a double-tailed test using the observational
+values as a threshold. 
+
+Under this conditions 
 
 
 
