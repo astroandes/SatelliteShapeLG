@@ -784,12 +784,19 @@ correlation is present for the width and the $b/a$ axis ratio.
 
 \subsection{Number of Expected LG Systems}
 
-The fits to the multivariate gaussian distributions can be used now to
+We us the fits to the multivariate gaussian distributions to
 compute the expected number of pairs with characteristics similar to
 the LG.
 To do this we generate $10^3$ samples, each sample contains $10^4$
 pairs, where each pair member is drawn from the corresponding
 multivariate gaussian distributions.  
+
+We consider that a sampled system is similar to the M31/MW galaxy if the
+distance of each of its characteristics ($w$, $c/a$, $b/a$) to the
+sample mean is equal or larger than the distance of the observational
+values to the sample mean.   
+That is, we perform a double-tailed test using the observational
+values as a threshold. 
 
 Figure \ref{fig:expected_number} summarizes the results from this
 experiment. 
@@ -797,12 +804,7 @@ The left panel shows the probability density for the number of M31
 systems in a parent sampe of $10^4$ pairs, the right panel shows the
 results for the MW.
 
-We consider that a sampled system is similar to the M31/MW galaxy if the
-distance of each of its characteristics ($w$, $c/a$, $b/a$) to the
-sample mean is larger than the distance of the observational values to
-the sample mean. 
-That is, we perform a double-tailed test using the observational
-values as a threshold. 
+
 
 In a three dimensional gaussian distribution, having a $1\sigma$,
 $2\sigma$ and $3\sigma$ interval corresponds to have respectively $19 \%$, $73 \%$ and
