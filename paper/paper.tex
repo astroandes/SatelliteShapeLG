@@ -413,25 +413,32 @@ galaxy.
 \begin{table*}
   \centering
   \renewcommand{\arraystretch}{1.2}
-  \begin{tabular}{|p{2.5cm}|c|c|c|c|}
+  \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
     \hline
-    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}} & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} \\
+    \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}}
+    & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} &
+    \multicolumn{2}{c|}{\textbf{Normalized Units}}\\
     % \hline
     % \textbf{Inactive Modes} & \textbf{Description}\\
-    \cline{2-5}
-    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} \\
+    \cline{2-7}
+    & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} & \textbf{M31} & \textbf{MW} \\
     %\hhline{~--}
     \hline
-    Plane width (kpc) & $59\pm 3$  & $22\pm 2$  & $64\pm 12$   & $45\pm 8$    \\\hline
-    $c/a$ ratio & $0.45\pm 0.04$ & $0.28\pm 0.03$ & $0.55\pm0.10$ & $0.53\pm 0.10$ \\ \hline
-    $b/a$ ratio & $0.82\pm 0.06$ & $0.78\pm 0.02$ & $0.82\pm0.07$ & $0.81\pm 0.08$ \\ \hline
+    Plane width (kpc) & $59\pm 3$  & $21\pm 2$  & $65\pm 12$   &
+    $45\pm 8$    & $-0.48\pm 0.24$ & $-2.48\pm 0.26$\\\hline
+    $c/a$ ratio & $0.45\pm 0.04$ & $0.25\pm 0.05$ & $0.55\pm0.10$ &
+    $0.53\pm 0.10$ & $-1.03\pm 0.37$ & $-2.18\pm 0.42$\\ \hline
+    $b/a$ ratio & $0.82\pm 0.06$ & $0.80\pm 0.04$ & $0.82\pm0.07$ &
+    $0.81\pm 0.08$ & $-0.02\pm 0.82$ & $-0.13\pm 0.47$\\ \hline
   \end{tabular}
   \caption{Results from observations. Mean values and standard deviations for the different
     quantities describing satellite distribution: plane width, $c/a$
     ratio and $b/a$ ratio. 
     The first colum refers to the results from
     observational data, the second column uses the spherically
-    randomized version of the observational data. \label{table:observations}}
+    randomized version of the observational data, the third column
+    corresponds to the observational data recentered and normalized
+    by the randomized values. \label{table:observations}}
 \end{table*}
 
 
