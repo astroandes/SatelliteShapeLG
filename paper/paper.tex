@@ -147,9 +147,9 @@ two more recent numerical experiment with high resolution simulations
 contradicting results (low and high chances to find the observational
 result, respectively) but precise figures are not quoted in either of
 these three reports. \citep{2015ApJ...815...19P,2016MNRAS.457.1931S}.
-Meanwhile, \cite{2013MNRAS.429.1502W, 2014ApJ...789L..24P} reported
+Meanwhile, \cite{2013MNRAS.429.1502W} and \cite{2014ApJ...789L..24P} reported
 on new tests using high resolution simulations and cosmological
-volumes arriving at a chance of $6\%$ and $0.77\%$, respectively to
+volumes arriving at a chance of $6\%$ and $0.77\%$, respectively, to
 have a satellite distribution as triaxial as the observations. 
 
 
@@ -158,32 +158,34 @@ distribution in a subset of $15$ satellites out of the
 total poulation of $27$ satellites \citep{2013ApJ...766..120C,
 2013Natur.493...62I}, although its brightest satellites
 do not show any special feature.
-All the studies agree on the point that the satellite distribution of
+All published studies agree on the point that the global satellite distribution of
 the 15 to 27 brightest satellites are consistent with 
 spherically symmetric distribution and easy to reproduce in LCDM
 simulations \citep{2006AJ....131.1405K,
   2007MNRAS.374.1125M, 2013ApJ...766..120C}.    
+Table \ref{table:M31} and Table \ref{table:MW} summarize the story we
+have just told, including the results from this paper using the
+methodolgy we describe in the upcoming sections.
 
 
 \begin{table*}
 \centering
 \begin{tabular}{|p{3.0cm}|p{6cm}| p{4.5cm}| c|}\hline
 Reference & Target Measurement & Parent Sample & Probability ($\%$)\\\hline
-\text{\cite{2006AJ....131.1405K}} & RMS height in M31's 15 brightest
+\text{\cite{2006AJ....131.1405K}} & RMS height in 15 brightest
 satellites & Monte Carlo satellite distributions with a power law
 radial distribution & $87-99$\\
-\text{\cite{2007MNRAS.374.1125M}} & Triaxiality and RMS height in M31's
-16 brightest satellites & Monte Carlo from an spherical power law radial
+\text{\cite{2007MNRAS.374.1125M}} & Triaxiality and RMS height in 16 brightest satellites & Monte Carlo from an spherical power law radial
 distribution & $17$\\
-\text{\cite{2013ApJ...766..120C}}& RMS height in M31's 27 brightest
+\text{\cite{2013ApJ...766..120C}}& RMS height in M31's brightest
 satellites & Monte Carlo randomized satellite distribution & High\\
-This Work & Triaxiality and RMS height in M31's 11-15 brightest
+This Work & Triaxiality and RMS height in 11-15 brightest
 satellites & 24 halos from selected pairs in a cosmological N-body Dark Matter only simulation ($\sim
 10^{6}$\Msun particle mass resolution)& 56 \\
-This Work & Triaxiality and RMS height in M31's 11-15 brightest
+This Work & Triaxiality and RMS height in 11-15 brightest
 satellites & 20 halos from selected pairs in a cosmological N-body hydro simulation ($\sim
 10^{6}$\Msun particle mass resolution)& 27 \\
-This Work & Triaxiality and RMS height in M31's 11-15 brightest
+This Work & Triaxiality and RMS height in 11-15 brightest
 satellites & 12 high resolution DM only N-body simulations ($\sim
 10^{5}$\Msun particle mass resolution) of halo pairs & 37 \\
 \hline
@@ -241,18 +243,25 @@ satellites & 12 high resolution DM only N-body simulations ($\sim
 \end{table*}
 
 
-The aim of our work is to overcome two difficulties in the study of
-atipicallity in satellite distributions.
-First, atypicallity is usually computed from distributions comming from
-different simulated pair samples, making it inconvenient to compare
-results from different studies. 
-Second, halo pairs similar to the LG are scarse in cosmological
-volumes, making it hard to perform direct comparisons against simulated
-systems that fully resemble the LG. 
+Trying to reconcile and understand the seemly conflicting or inconclusive
+results on the MW has its origin on the frequentist fashion generally used to
+compute probabilities.
+Usually, the process starts by building a high level parent sample in the
+simulation and then counting how many elements has a subset
+meeting some criteria. 
+The first inconvenient with this approach is that the probability
+estimate is made against whatever turns out to be typical in each
+simulation. 
+Comparing results across simulations would require first
+characterizing the simulations at the high level parent samples.
+The second inconvenient is that it is hard to find systems that fully resemble
+the LG, this means that the high level parent sample has a small size
+making it hard to find elements that fit some criteria. 
 
-We surmount the first difficulty by setting as a point of reference a
+
+In this paper, we surmount the first difficulty by setting as a point of reference a
 spherical satellite distribution and not LCDM simulations.
-%comentario: esta explicación no me parece muy clara
+
 This spherical distribution is built from the data itself
 (observational or simulated) by randomizing its angular position
 around the central galaxy and keeping its radial distance fixed
