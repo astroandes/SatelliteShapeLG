@@ -119,15 +119,15 @@ The spatial distribution of satellite galaxies around our Milky Way
 formation theories in a explicit cosmological context. 
 
 This started with the suggestion of a Magellanic Plane, a flattened
-structure of satellite galaxies around the MW, first suggested by
-\cite{1976RGOB..182..241K} and \cite{1976MNRAS.174..695L}.  
+structure of satellite galaxies and globular clusters around the MW,
+first suggested by \cite{1976RGOB..182..241K} and \cite{1976MNRAS.174..695L}.  
 \cite{2005A&A...431..517K} then quantified that the
 highly planar distribution of the 11 classical MW satellites has less
 than a $0.5\%$ chance  to happen by chance if the
 parent distribution is spherically symmetric, interpreting this as a
 challenge to the Lambda Cold Dark Matter (LCDM) paradigm.
 The same year it was recognized, using numerical simulations, that
-this comparison was unfair given given that Dark Matter halos in LCDM
+this comparison was unfair given that Dark Matter halos in LCDM
 are expected to be triaxial and not spherical
 Nevertheless, some estimates of the chances to find simulated satellites as
 planar as in the MW 
@@ -244,40 +244,40 @@ satellites & 12 high resolution DM only N-body simulations ($\sim
 \end{table*}
 
 
-Trying to reconcile and understand the seemly conflicting or inconclusive
-results on the MW has its origin on the frequentist fashion generally used to
-compute probabilities.
-Usually, the process starts by building a high level parent sample in the
+Some of the difficulty in trying to reconcile and understand the
+seemly conflicting or inconclusive results on the MW has its origin on
+the frequentist fashion generally used to compute probabilities.
+Usually, this process starts by building a high level parent sample in the
 simulation and then counting how many elements has a subset
-meeting some criteria. 
-The first inconvenient with this approach is that the probability
-estimate is made against whatever turns out to be typical in each
-simulation. 
-Comparing results across simulations would require first
+meeting some criteria. This has two incovenients.
+The first is that the probability estimate is made against whatever
+turns out to be typical in each simulation. 
+A fair comparison across simulations would require first
 characterizing all the simulations at the high level parent samples,
-something that is difficult to do in practice.
+something that is difficult to do in practice. 
 The second inconvenient is that it is hard to find systems that fully resemble
-the LG, this means that the high level parent sample has a small size
-making it hard to find elements that fit some criteria. 
+the LG while having enough resolution to say something about the
+satellites, this means that the high level parent sample has a small
+size, making it hard to derive robust probabilities by counting.
 
 
-In this paper we control the first effect by setting as direct 
+In this paper we control the first effect by setting as a direct 
 point of reference an spherical satellite distribution and not the
 simulations themselves.
 The spherical satellite distribution is built from the data itself
-(observational or simulated) by randomizing its angular position
-around the central galaxy and keeping its radial distance fixed
-\citep{2017AN....338..854P}. 
-We characterize each satellite distribution in terms of the
-scalars describing its deviation from the spherical distribution.
+(observational or simulated) by randomizing the angular position
+of each satellite around the central galaxy and keeping its radial
+distance fixed \citep{2017AN....338..854P}. 
+We characterize the satellites in terms of the scalars describing its
+deviation from the spherical distribution. 
 We then build an explicit analytic
-probability distribution of the deviations from asphericity; this
+probability distribution for the deviations from asphericity; this
 solves the problem of having a common reference point to compare
 simulations. 
 We then use different simulations to estimate the parameters in this
 distribution to later use it as a parent sample to generate any
 desired number of samples that are by construction statistically
-compatible with simulations, overcoming the problem of having a small
+compatible with simulations; thus overcoming the problem of having a small
 number of systems in the parent simulations.
 
 To summarize, we start by using asphericity to characterize in the
@@ -289,6 +289,7 @@ Finally, we use these distributions to generate large number of
 samples and directly estimate the number of systems meeting a desired
 set of criteria.
 
+The rest of the paper is structured as follows. 
 In Section \ref{sec:DataSamples} we list the sources of the observational and
 simulated data to be used throughout the paper.
 In Section \ref{sec:SpatialMeasurements} we describe the methods we use to build halo pairs and 
