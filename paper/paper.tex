@@ -163,21 +163,22 @@ the 15 to 27 brightest satellites are consistent with
 spherically symmetric distribution and easy to reproduce in LCDM
 simulations \citep{2006AJ....131.1405K,
   2007MNRAS.374.1125M, 2013ApJ...766..120C}.    
-Table \ref{table:M31} and Table \ref{table:MW} summarize the story we
-have just told, including the results from this paper using the
+Table \ref{table:M31} and Table \ref{table:MW} summarize some more
+details on the results we have just mentioned.
+Those tables also include the results from this paper using the
 methodolgy we describe in the upcoming sections.
 
 
 \begin{table*}
 \centering
-\begin{tabular}{|p{3.0cm}|p{6cm}| p{4.5cm}| c|}\hline
-Reference & Target Measurement & Parent Sample & Probability ($\%$)\\\hline
+\begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
+Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
 \text{\cite{2006AJ....131.1405K}} & RMS height in 15 brightest
 satellites & Monte Carlo satellite distributions with a power law
 radial distribution & $87-99$\\
 \text{\cite{2007MNRAS.374.1125M}} & Triaxiality and RMS height in 16 brightest satellites & Monte Carlo from an spherical power law radial
 distribution & $17$\\
-\text{\cite{2013ApJ...766..120C}}& RMS height in M31's brightest
+\text{\cite{2013ApJ...766..120C}}& RMS height in the 27 brightest
 satellites & Monte Carlo randomized satellite distribution & High\\
 This Work & Triaxiality and RMS height in 11-15 brightest
 satellites & 24 halos from selected pairs in a cosmological N-body Dark Matter only simulation ($\sim
@@ -199,7 +200,7 @@ satellites & 12 high resolution DM only N-body simulations ($\sim
 \begin{table*}
 \centering
 \begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
-Reference & Target Measurement & Parent Sample & Probability ($\%$)\\\hline
+Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
 \text{\cite{2005A&A...431..517K}} & RMS height in 11 classical
 satellites & Monte Carlo from an spherical power law
 radial distribution. & $<0.5$ \\
@@ -259,28 +260,33 @@ the LG, this means that the high level parent sample has a small size
 making it hard to find elements that fit some criteria. 
 
 
-In this paper, we surmount the first difficulty by setting as a point of reference a
-spherical satellite distribution and not LCDM simulations.
-
-This spherical distribution is built from the data itself
+In this paper we surmount the first difficulty by setting as direct 
+point of reference an spherical satellite distribution and not the
+simulations themselves.
+The spherical distribution is built from the data itself
 (observational or simulated) by randomizing its angular position
 around the central galaxy and keeping its radial distance fixed
 \citep{2017AN....338..854P}. 
-We characterize each satellite distribution with its inertia
-tensor and summarize the results with the scalars describing the width
-of the distribution and its axis ratios.
-
-We handle the second difficuly by building an explicit analytic
-probability distribution that is compatible with the simulated data.
-We then use the simulations to estimate the parameters in this
+We then characterize each satellite distribution in terms of the
+scalars describing its deviation from the spherical distribution.
+We handle the second difficulty by building an explicit analytic
+probability distribution of the deviations from asphericity; this
+solves the problem of having a common reference point to compare
+simulations. 
+We then use different simulations to estimate the parameters in this
 distribution to later use it as a parent sample to generate any
 desired number of samples that are by construction statistically
-compatible with simulations.
+compatible with simulations, overcoming the problem of having a small
+number of systems in the parent simulations.
 
-To summarize, simulations help us first to construct an explicit probability
-distribution for deviations from sphericity for a given LCDM simulated
-sample and then, using this distribution, we compute the odds of finding a satellite
-distribution that deviates from sphericity as much as the LG does.   
+To summarize, we start by using asphericity to characterize in the
+same way simulations and observations. 
+Then, we build an explicit probability distribution for the asphericity and
+use simulations to estimate the parameters in this
+distribution. 
+Finally, we use these distributions to generate large number of
+samples and directly estimate the number of systems meeting a desired
+set of criteria.
 
 In Section \ref{sec:DataSamples} we list the sources of the observational and
 simulated data to be used throughout the paper.
