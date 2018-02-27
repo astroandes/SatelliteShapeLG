@@ -481,14 +481,6 @@ In simulations we rank the subhalos by their maximum circular
 velocity, in observations we rank the satellites by its $M_V$
 magnitude.  
 
-We also use two kinds of satellite distributions. 
-The first keeps the positions for the satellites fixed as provided in
-the observations/simulations; the second randomizes the angular positions of
-the satellites around the central galaxy while keeping its radial
-distance fixed. The randomization process is done 1000 times for each
-galaxy. 
-
-
 
 \begin{table*}
   \centering
@@ -550,11 +542,12 @@ galaxy.
 
 
 \subsection{Describing Samples with the Inertia Tensor}
-We base describe the satellites with the inertia
+
+We describe the satellites with the inertia
 tensor defined by the satellites' positions.  
 
 \begin{equation}
-{\bf{\bar{I}}} = \sum_{k=1}^{N_s}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
+{\bf{\bar{I}}} = \sum_{k=1}^{N_p}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
   (\bf{r}_i-\bf{r}_0)\cdot (\bf{r}_i - \bf{r}_0)^{T}],
 \label{eq:intensor}
 \end{equation}
@@ -575,11 +568,11 @@ We define the size of the three ellipsoidal axis as
 $a=\lambda_1$, $b=\lambda_2$ and $c=\lambda_3$.
 We also define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
 planar satellite distribution. 
-We also define the Root Mean Squared (RMS) width $w$, of the planar
-satellite distribution, as the standard deviation of the satellite
-distances to the plane defined by the vector $\hat{n}$.   
+We also define the Root Mean Squared (RMS) plane width $w$ as the
+standard deviation of the satellite distances to the plane defined by
+the vector $\hat{n}$.    
 
-To summarize we characterize the satellite distribution by for
+To summarize we characterize the satellite distribution with the following
 quantities obtained from the inertia tensor: 
 \begin{itemize}
 \item RMS plane width, $w$.
@@ -588,7 +581,7 @@ quantities obtained from the inertia tensor:
 \end{itemize}
 
 
-\subsection{Comparing Satellite Samples}
+\subsection{Characterizing Asphericity}
 
 We compare each satellite distribution against its own spherically
 randomized distribution.
@@ -603,32 +596,20 @@ the 1000 random samples.
 This allows us to build a normalized version of all quantities of
 interest by substracting the mean and dividing between the standard
 deviation of the randomized samples.
-
-This allows us to make a first comparison. 
-The observed/simulated
-distribution against its randomized version. 
-The second intermediate comparison we make is of the observations against
-the simulations.
-The final comparison is between the normalized quantities, both
-observed and simulated.
-
-The comparison between the normalized quantities is the one that
-carries the important information about the deviations from
-spheriticy. 
-We do not want to directly compare how the observations
-deviate from simulations but to compare the deviations from
-asphericity in observations and simulations. 
+These normalized quantities are used to build the explicit probability
+distributions for the scalars describing aesphericity.
 
 
-\subsection{Describing joint satellite distributions}
+\subsection{Building an explicit asphericity probability distribution}
 
 After building the normalized variables with the simulated data we
 perform a Kolmogorov-Smirnov test with the null hypothesis of belonging
 to a normal distribution with mean and standard deviation computed
-from the mean and standard deviation from the data itself. 
-We find that the distributions for the normalized $w$, $c/a$ and $b/a$
-are consistent with gaussian ditributions.
-
+from the mean and standard deviation estimated from the data.
+Although the physical quantities of interests are bound, unlike the
+random variables from a normal distribution, we find that the
+distributions for the normalized $w$, $c/a$ and $b/a$ are indeed
+consistent with gaussian ditributions. 
 
 Based on this result we build a multivariate normal distribution for
 the joint distributions of the normalized $w$, $c/a$ and $b/a$:
@@ -643,10 +624,11 @@ where $X=[w, c/a, b/a]^{T}$ is a vector variable with the normalized
 quantities, $\mu$ is the vector mean and the $\Sigma$ is the
 covariance matrix.  
 
+
 We compute the preferred covariance matrix and the mean distribution values
 with a jackknife technique. 
-That is, out of the the $n$ pairs we have, we perfom $n$ different
-covariance and mean value measurements using only $n-1$ pairs. 
+That is, out of the the $n$ pairs in each simulation, we perfom $n$
+different covariance and mean value measurements using only $n-1$ pairs. 
 The reported covariance and mean values correspond to the average of
 all measurements, the corresponding standard deviation also helps us to
 estimate the uncertainty on every reported coefficient.
