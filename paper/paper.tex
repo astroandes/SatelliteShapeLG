@@ -652,7 +652,7 @@ treshold absolute observed value.
 \includegraphics[width=0.30\textwidth]{scatter_ranked_illudm_width.pdf}
 \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_width.pdf}
 \caption{Plane width characterization in observations and
-  simulations (Illustris1-Dark in this case). In all panels the
+  simulations (Illustris-1-Dark in this case). In all panels the
   horizontal/vertical axis corresponds to the  M31/MW or the
   most/less massive halo in the pair 
   Left. Plane width in physical units comparing the results from observations
@@ -713,7 +713,7 @@ the simulations.
 \includegraphics[width=0.45\textwidth]{gaussian_model_illustrisdm_MW.pdf}
 \caption{Results from multivariate gaussian model fitted to the
   normalized values for the plane width $w$, $c/a$ ratio and $b/a$
-  ratio from the Illustris1-Dark results.  
+  ratio from the Illustris-1-Dark results.  
   Left/right panel correspond to M31/MW respectively.  
   The cross indicates the observed values.
   The contour levels in the 2D histograms correspond to the $1\sigma$,
@@ -781,12 +781,12 @@ value similar to M31.
 
 The right panel in Figure \ref{fig:scatter_width} shows the result for
 the normalized width.  
-This panel tells the same story as the middle panel. The M31 values
-are typical while the MW is an outlier. 
+This panel tells the same story as the middle panel. 
+The M31 values are typical while the MW is an outlier. 
 The added value of the data in this panel is that it is the normalized
 which is consistent with normal distributions.
 This is the data used to build the mean values vector and covariance
-matrix described in Equation \ref{} 
+matrix described in Equation \ref{eq:multivariate}. 
 
 
 
@@ -796,12 +796,13 @@ matrix described in Equation \ref{}
 \includegraphics[width=0.47\textwidth]{expected_numbers_n_MW.pdf}
 \caption{Probability distribution for the expected number of M31 and
   MW halos showing the same degree of atipicality as the Local Group if drawn
-  from a sample of 10000 isolated pairs. 
-  The distributions correspond to results derived from Illustris-DM, Illustris,
+  from a sample of $10^4$ isolated pairs. 
+  The distributions correspond to results derived from Illustris-1-Dark, Illustris,
   and ELVIS data.
-  In the most optimistic case (Illustris-DM), $1\%$ of the pairs have
-  two halos with properties similar to the LG. In the case of
-  Illustris this percentage drops to $0.1\%$ and $0.01\%$ for ELVIS.
+  In the most optimistic case (Illustris-1-Dark), $1\%$ of the pairs have
+  two halos with properties similar to the LG. 
+  In the case of Illustris-1 this percentage drops to $0.1\%$ and
+  $0.01\%$ for ELVIS. 
 \label{fig:expected_number}}
 \end{figure*}
 
@@ -835,7 +836,7 @@ $1$ standard deviation away.
 \subsection{$b/a$ axis ratio}
 
 Figure \ref{fig:scatter_ba_ratio} shows the results for the minor to
-major axis ratio with the same layout as Figure \ref{fig_scatter_ca_ratio}
+major axis ratio with the same layout as Figure \ref{fig:scatter_ca_ratio}
 In all cases of comparison (against randomized distribution
 and simulations) the results for both the MW and M31 are typical. 
 
@@ -845,24 +846,24 @@ and simulations) the results for both the MW and M31 are typical.
 Figure \ref{fig:correlations_illustrisdm} illustrates the results from
  computing the covariance matrix and mean vector in
  Eq.\ref{eq:multivariate} from the normalized quantities obtained from
- the Illlustris1-Dark simulation.
-The distributions in this Figure are computed from $10^6$ with the multivariate
-gaussian. 
-Similar plots for Illustris1 and ELVIS are in the Appendix.
+ the Illustris-1-Dark simulation.
+The distributions in this Figure are computed from $10^6$ points
+generated with the multivariate gaussian. 
+Similar plots for Illustris-1 and ELVIS are in the Appendix \ref{appendix:plots}.
 The values for all the covariance matrices and mean vectors
-foricorresponding to all the simulations are listed in the Appendix.
+foricorresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
 
 This result nicely summarizes the results we had in the previous
-sections. The left triangular plot shows how M31 falls into the middle of all 2D
-distributions and is always close to the peak and within the $1-\sigma$
+sections. The left hand triangular plot shows how M31 falls into the middle of all 2D
+distributions and is always close to the peak and within the $1\sigma$
 range. 
-The right plot clearly places the MW observations outside the
+The right hand plot clearly places the MW observations outside the
 $3\sigma$ range in the joint distributions that involve the width
 $w$. 
 
 In both cases the strongest positive correlation is present for the
-width and the $c/a$ axis ratio. A weaker but still positive
-correlation is present for the width and the $b/a$ axis ratio.
+width and the $c/a$ axis ratio. A weaker  correlation is present for
+the width and the $b/a$ axis ratio. 
 
 
 
@@ -904,17 +905,17 @@ as a $3\sigma$ outlier.
 %Out[150]: array([ 0.19874804,  0.73853587,  0.97070911])
 
 Among the three simulations, the results infered from ELVIS data show
-the lowest fraction of M31 and MW systems; for Illustris1-Dark we have
-the highest fraction of M31/MW systems. The results from Illustris1
+the lowest fraction of M31 and MW systems; for Illustris-1-Dark we have
+the highest fraction of M31/MW systems. The results from Illustris-1
 are in between these two, but closer to ELVIS.
 
 The most probable reason for these trends is the different median mass
 for the MW/M31 halos in the pairs from these simulations. 
 For instance for the MW halo the median maximum circular velocity is
 $\sim 160$ \kms, $\sim 150$ \kms and $\sim 120$ \kms in the ELVIS,
-Illustris1 and Illustris1-Dark simulations, respectively.
+Illustris-1 and Illustris-1-Dark simulations, respectively.
 For the M31 halo this median velocity is $\sim 200$\kms both for the
-ELVIS and Illustris1 simulations, while for the Illustris1-Dark it is
+ELVIS and Illustris1 simulations, while for the Illustris-1-Dark it is
 $\sim 160$ \kms. 
 
 
@@ -1189,7 +1190,7 @@ computed from the ELVIS data.
 \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
 \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
 \caption{Same layout as Figure \ref{fig:scatter_elvis}, this time
-  computed from the Illustris1 data.
+  computed from the Illustris-1 data.
 \label{fig:scatter_illustris}}
 \end{figure*}
 
@@ -1200,7 +1201,7 @@ computed from the ELVIS data.
 \includegraphics[width=0.48\textwidth]{gaussian_model_illustris_MW.pdf}
 \caption{
 Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
-computed from the Illustris1 data.
+computed from the Illustris-1 data.
 \label{fig:correlations_illustris}}
 \end{figure*}
 
