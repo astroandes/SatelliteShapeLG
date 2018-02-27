@@ -737,10 +737,10 @@ Table \ref{table:observations} and Table \ref{table:simulations}
 summarize the mean values and uncertainties for the plane $w$, $c/a$
 ratio and $b/a$ ratio in the observations and simulations, respectively. 
 The uncertainty in the observations is computed from the results with
-different number of satellites, while in the simulations it
-corresponds to the standard deviation over different halos. 
+different number of satellites; in the simulations it  corresponds to
+the standard deviation over different halos.  
 
-The observed widths are always smaller than its randomized version.
+The observed widths $w$ are always smaller than its randomized version.
 For M31 there is barely a ratio of $0.92$ between observed and
 randomized, while for the MW this factor goes down to less than half
 $0.48$. 
@@ -748,13 +748,14 @@ The observed $c/a$ ratio follows the same extreme trend for
 the MW compared to a M31 distribution closer to spherical, 
 The $b/a$ ratio is statisically the same between observations and the
 spherical randomization. 
-
+This confirms the extreme planar distribution for the MW and the more
+spherical distribution for the M31.
 
 In the following subsections we describe in detail the results on the 
 distributions for $w$, $c/a$ and $b/a$. 
 The plots in the main body of the paper correspond to the
-Illustris1-Dark simulation; the results from the other simulations are
-included in the Appendix.
+Illustris-1-Dark simulation; the results from the other simulations
+are included in the Appendix \ref{appendix:plots}.
 
 \subsection{Plane Width}
 
@@ -1008,26 +1009,18 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
 
-%% Alignments between galaxies, satellite systems and haloes
-%% https://arxiv.org/pdf/1605.01728.pdf
-
-%M31 mass
-%% https://arxiv.org/abs/1410.0017
-
-%MW mass
-%https://arxiv.org/abs/1407.1078
-
-
 \appendix
 
+
 \section{Physical Characteristics of the Isolated Pairs samples}
+\label{appendix:physical}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.34\textwidth]{int_distro_LG_v_rad.pdf}
-\includegraphics[width=0.34\textwidth]{int_distro_LG_d.pdf}
-\includegraphics[width=0.34\textwidth]{int_distro_M31_vmax.pdf}
-\includegraphics[width=0.34\textwidth]{int_distro_MW_vmax.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_LG_v_rad.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_LG_d.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_M31_vmax.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_MW_vmax.pdf}
 \caption{Physical characteristics of the LG pairs selected in the
   simulations. All lots show the integrated distributions. The
   physical properties are the radial comoving velocity between the MW
@@ -1036,64 +1029,10 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \label{fig:physical}}
 \end{figure}
 
-\section{Results from ELVIS and Illustris1}
-\begin{figure*}
-\centering
-\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}
-\caption{ELVIs results for the quantities presented for the Illustris1-Dark
-  simulation in Figures  \ref{fig:scatter_width},
-  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
-Upper row corresponds to the raw values from observations and
-simulated pairs, while the second row normalizes the same values to
-the mean and standard deviation on its spherically randomized
-counterparts. 
-\label{fig:scatter_elvis}}
-\end{figure*}
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.48\textwidth]{gaussian_model_elvis_M31.pdf}
-\includegraphics[width=0.48\textwidth]{gaussian_model_elvis_MW.pdf}
-\caption{
-Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
-computed from the ELVIS data.
-\label{fig:correlations_elvis}}
-\end{figure*}
 
 
-\begin{figure*}
-\centering
-\includegraphics[width=0.32\textwidth]{scatter_ranked_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_ranked_ba_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_width.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
-\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
-\caption{Same layout as Figure \ref{fig:scatter_elvis}, this time
-  computed from the Illustris1 data.
-\label{fig:scatter_illustris}}
-\end{figure*}
-
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.48\textwidth]{gaussian_model_illustris_M31.pdf}
-\includegraphics[width=0.48\textwidth]{gaussian_model_illustris_MW.pdf}
-\caption{
-Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
-computed from the Illustris1 data.
-\label{fig:correlations_illustris}}
-\end{figure*}
-
-
-\newpage
-\newpage
 \section{Covariance Matrices and Mean value vectors}
+\label{appendix:covariance}
 \subsection{Illustris-1}
 
 \subsubsection{M31}
@@ -1208,6 +1147,63 @@ computed from the Illustris1 data.
 -0.32\pm 0.04 & -0.74\pm 0.07 &-0.08\pm 0.05\\
 \end{bmatrix}
 \]
+
+
+\section{Results from ELVIS and Illustris1}
+\label{appendix:plots}
+\begin{figure*}
+\centering
+\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_width.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_width.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}
+\caption{ELVIs results for the quantities presented for the Illustris1-Dark
+  simulation in Figures  \ref{fig:scatter_width},
+  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
+Upper row corresponds to the raw values from observations and
+simulated pairs, while the second row normalizes the same values to
+the mean and standard deviation on its spherically randomized
+counterparts. 
+\label{fig:scatter_elvis}}
+\end{figure*}
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.48\textwidth]{gaussian_model_elvis_M31.pdf}
+\includegraphics[width=0.48\textwidth]{gaussian_model_elvis_MW.pdf}
+\caption{
+Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
+computed from the ELVIS data.
+\label{fig:correlations_elvis}}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.32\textwidth]{scatter_ranked_width.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_ranked_ca_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_ranked_ba_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_width.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
+\includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
+\caption{Same layout as Figure \ref{fig:scatter_elvis}, this time
+  computed from the Illustris1 data.
+\label{fig:scatter_illustris}}
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.48\textwidth]{gaussian_model_illustris_M31.pdf}
+\includegraphics[width=0.48\textwidth]{gaussian_model_illustris_MW.pdf}
+\caption{
+Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
+computed from the Illustris1 data.
+\label{fig:correlations_illustris}}
+\end{figure*}
+
 
 
 \end{document}
