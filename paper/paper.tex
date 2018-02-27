@@ -303,13 +303,12 @@ conclude in Section \ref{sec:conclusions}.
 \subsection{Observational Data}
 \label{sec:obs}
 
-The base for our analysis is the catalog compiled in
-\citep{2014yCat..74351928P} which reports information on all 
+The base for our analysis is the catalog compiled by
+\cite{2014yCat..74351928P} which reports information on all 
 galaxies within 3 Mpc around the Sun to that date. 
 Detailed description of the compiled catalog can be found in
-\citep{2013MNRAS.435.1928P}, here we summarize the relevant features
+\cite{2013MNRAS.435.1928P}, here we summarize the relevant features
 for the current study.
-
 The information in the catalogue is based on the catalogue compiled by
 \cite{2012AJ....144....4M}.
 The distance estimates are based on resolved stellar populations. 
@@ -386,10 +385,11 @@ We then select the pairs where in both halos there are at least 15
 detected subhalos, thus discarding pairs with halos with the lowest
 mass.
 We end up with a total of 20 pairs in Illustris-1.
-In Illustris-1-DM we use the center of mass position of the 27 pairs
+
+In Illustris-1-Dark we use the center of mass position of the 27 pairs
 in Illustris-1 to find the matching halo pairs.
 After discarding the pairs with less than 15 detected subhalos in one
-of the halos we end up with a total of 24 pairs. 
+of the halos we end up with a total of 24 pairs in Illustris-1-Dark. 
 This corresponds to a pair number density of $\sim 2 \times10^{-5}$
 pairs Mpc$^{-3}$ 
 Appendix A shows the physical  properties (stellar masses, maximum
@@ -397,18 +397,19 @@ circular velocities, radial velocities and separation) of those
 pairs.
 
 Although Illustris-1 has stellar particles, we do not use their
-properties to select the satelite population because the smallest
-galaxies are barely resolved in stellar mass at magnitudes of
-$M_V=-9$, close to the limit of the 11 ``classical'' MW satellites.
-We use instead the dark matter information as the smallest sub-halos
-we care about are sampled with at least $40$ particles.  
-%comentario: este último criterio no me parece que esté claramente
-%descrito
-
-Both in Illustris-1 and Illustris-1-DM we chose the satellite samples
+properties to select the satelite population.
+The smallest galaxies are barely resolved in stellar mass at
+magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
+satellites, we use instead the dark matter information. 
+Both in Illustris-1 and Illustris-1-Dark we chose the satellite samples
 by ranking the subhalos in decreasing order of its current maximum
 circular velocity and select the first $N_p$ halos in the list.  
+Under these conditions the smallest sub-halos are sampled with at least $40$ particles.  
 The results presented here correspond to $11\leq N_p\leq 15$. 
+
+
+
+
 
 \subsection{Data from the ELVIS project}
 \label{sim:ELVIS}
@@ -446,13 +447,13 @@ $2\times
 
 This corresponds to a pair number density of $\sim 8 \times10^{-6}$ pairs
 Mpc$^{-3}$, this is a factor $\sim 2.5$ lower than the pair number density
-we find in the Illustris data.
+we find in the Illustris-1 data.
 There were a total of 146 pairs that met those criteria, but only $12$
 were chosen for resimulation. 
 Additionally, the selected pairs for resimulation have a relative
 tangential velocity less than $75 $\kms. 
 The dark matter particle resolution in these resimulations is
-$1.9\times 10^5$, a thousand times larger than Illustris-1.
+$1.9\times 10^5$, a thousand times better than Illustris-1.
 In this paper we only use the results from these $12$ resimulated pairs.
 
 Appendix A compares the physical properties (stellar masses, maximum
@@ -466,23 +467,19 @@ pairs against the results from the Illustris-1 simulations.
 \subsection{Building Satellite Samples}
 
 We compare the joint satellite distributions in the MW and M31 at fixed
-satellite number, $N_s$.
+satellite number, $N_p$.
 This means that the magnitude cut corresponding to the faintest
 satellite included in the sample is different in each case.
-We make this choice for two reasons. 
-First, to be sure that there is a non-zero number of satellites in the
-simulations to make the computations.  
-Second, to rule out the influence of satellite numbers in the
-statistics. 
+We make this choice to to rule out the influence of satellite numbers
+in the statistics. 
 
 We compute the satellite statistics for 11 up to 15 satellites.
-The lower limit corresponds to the number of classical Milky Way
-satellites.
-The upper limit corresponds to the maximum number of satellites that
-can be resolved in both halos for most of the isolated pairs in Illustris-1.
-In simulations we rank the subhalos by their maximum
-circular velocity, in observations we rank the satellites by its $M_V$
-magnitude. 
+The lower limit corresponds to the number of classical MW satellites,
+while the upper limit corresponds to the minimum number of M31
+satellites included in the analysis.
+In simulations we rank the subhalos by their maximum circular
+velocity, in observations we rank the satellites by its $M_V$
+magnitude.  
 
 We also use two kinds of satellite distributions. 
 The first keeps the positions for the satellites fixed as provided in
