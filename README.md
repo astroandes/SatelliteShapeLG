@@ -1,5 +1,6 @@
-# AlineacionesSatelitesLG
-Clasificando la distribucion de satelites en el grupo local.
+# We are not the 99 percent: quantifying asphericity in the distribution of Local Group satellites
+
+Jaime E. Forero-Romero (Uniandes) & Veronica Arias (Uniandes)
 
 ## Abstract
 We use numerical simulations to build an explicit probability distribution for the asphericity in the satellite distribution around
@@ -18,3 +19,5 @@ We suggest that understanding the reasons for this atipicality will require quan
 function of halo mass and large scale environment.
 The approach presented here can facilitate that kind study and other comparisons between different numerical setups and choices to study
 satellites around LG pairs in simulations.  
+
+*Submitted for publication at the MNRAS*
