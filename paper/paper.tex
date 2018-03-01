@@ -88,7 +88,8 @@ simulations do not have enough systems that fully resemble the LG.
 We demonstrate the method using three different simulations:
 Illustris-1,  Illustris-1-Dark and ELVIS. 
 Detailed results differ among the simulations suggesting a strong
-influence of the typical Dark Matter (DM) halo mass in the LG samples.
+influence of the typical Dark Matter (DM) halo mass in the LG samples
+and simulated baryonic effects.
 However, there are three common trends.
 First, at most of $2\%$ the pairs are expected to have satellite
 distributions with the same asphericity as the LG; second,
@@ -103,7 +104,7 @@ outlier in the LCDM paradigm.
 We suggest that understanding the reasons for this atipicality
 will require quantifying the asphericity probability distribution as a
 function of halo mass and large scale environment.
-The approach presented here can facilitate that kind study and other
+The approach presented here can facilitate that kind of study and other
 comparisons between different numerical setups and choices to study
 satellites around LG pairs in simulations.  
 \end{abstract}
@@ -122,7 +123,7 @@ structure of satellite galaxies and globular clusters around the MW,
 by \cite{1976RGOB..182..241K} and \cite{1976MNRAS.174..695L}.  
 Fourty years later \cite{2005A&A...431..517K} quantified that the
 highly planar distribution of the 11 classical MW satellites has less
-than a $0.5\%$ chance  to happen by chance if the
+than a $0.5\%$ chance to happen by chance if the
 parent distribution is spherically symmetric, interpreting this as a
 challenge to the Lambda Cold Dark Matter (LCDM) paradigm.
 The same year it was recognized, using numerical simulations, that
@@ -157,9 +158,10 @@ total poulation of $27$ satellites \citep{2013ApJ...766..120C,
 2013Natur.493...62I}, although considering the satellites ranked by
 luminosity does not show any special feature.
 All published studies agree on the point that the spatial distribution of
-the 15 to 27 brightest satellites are consistent with  spherically
+the 15 to 27 brightest satellites are consistent with spherically
 symmetric distribution and easy to reproduce in LCDM simulations
-\citep{2006AJ....131.1405K,2007MNRAS.374.1125M, 2013ApJ...766..120C}.    
+\citep{2006AJ....131.1405K,2007MNRAS.374.1125M, 2013ApJ...766..120C}.
+%comentario: no estoy segura de que el paper de Conn esté bien citado acá. el dice "It is clear that while the satellites of M31 when taken as a whole are no more planar than one can expect from a random distribution, a subset consisting of roughly half the sample is remarkably planar". Y en esta citación "15 to 27 brightest satellites" me parece que puede sonar contradictorio con lo que dice Conn.  
 Table \ref{table:M31} and Table \ref{table:MW} summarize some more
 details on the results we have just mentioned \footnote{
 Those tables also include the results from this paper using the
@@ -170,20 +172,20 @@ methodolgy we describe in the upcoming sections.}.
 \centering
 \begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
 Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
-\text{\cite{2006AJ....131.1405K}} & RMS height in 15 brightest
+\text{\cite{2006AJ....131.1405K}} & RMS width in 15 brightest
 satellites & Monte Carlo satellite distributions with a power law
 radial distribution & $87-99$\\
-\text{\cite{2007MNRAS.374.1125M}} & Triaxiality and RMS height in 16 brightest satellites & Monte Carlo from an spherical power law radial
+\text{\cite{2007MNRAS.374.1125M}} & $c/a$ ratio and RMS width in 16 brightest satellites & Monte Carlo from a spherical power law radial
 distribution & $17$\\
-\text{\cite{2013ApJ...766..120C}}& RMS height in the 27 brightest
+\text{\cite{2013ApJ...766..120C}}& RMS width in the 27 brightest
 satellites & Monte Carlo randomized satellite distribution & High\\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 24 halos from selected pairs in a cosmological N-body Dark Matter only simulation ($\sim
 10^{6}$\Msun particle mass resolution)& 56 \\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 20 halos from selected pairs in a cosmological N-body hydro simulation ($\sim
 10^{6}$\Msun particle mass resolution)& 27 \\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 12 high resolution DM only N-body simulations ($\sim
 10^{5}$\Msun particle mass resolution) of halo pairs & 37 \\
 \hline
@@ -198,24 +200,24 @@ satellites & 12 high resolution DM only N-body simulations ($\sim
 \centering
 \begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
 Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
-\text{\cite{2005A&A...431..517K}} & RMS height in 11 classical
-satellites & Monte Carlo from an spherical power law
+\text{\cite{2005A&A...431..517K}} & RMS width in 11 classical
+satellites & Monte Carlo from a spherical power law
 radial distribution. & $<0.5$ \\
-\text{\cite{2005MNRAS.363..146L}} & Triaxiality of 11 classical
+\text{\cite{2005MNRAS.363..146L}} & $c/a$ ratio of 11 classical
 satellites & 6 high resolution DM only N-body simulations ($\sim10^5$
 \Msun\ particle mass resolution). & High\\ 
-\text{\cite{2005ApJ...629..219Z}} & Triaxiality and disk height in 
+\text{\cite{2005ApJ...629..219Z}} & $c/a$ ratio and disk height in 
 11 classical satellites & 3 high resolution DM only N-body
 simulations. ($\sim10^6$ \Msun\ particle mass resolution) & 2 \\
-\text{\cite{2007MNRAS.374.1125M}} & Triaxiality and RMS height in 11-13 brightest satellites & Monte Carlo from a halo triaxiality distribution from LCDM
+\text{\cite{2007MNRAS.374.1125M}} & $c/a$ ratio and RMS width in 11-13 brightest satellites & Monte Carlo from a halo triaxiality distribution from LCDM
 simulations & $<0.5$\\
-\text{\cite{2009MNRAS.399..550L}}& Triaxiality in 11 classical satellites & 436 halos from a
+\text{\cite{2009MNRAS.399..550L}}& $c/a$ ratio in 11 classical satellites & 436 halos from a
 cosmological N-body simulation ($1.3\times 10^{8}$\Msun\ particle mass)
 &  High \\
 \text{\cite{2013MNRAS.429..725S}}& $c/a$ ratio in 12 brightest
 satellites & 6 High resolution DM only N-body simulations ($\sim
 10^3$\Msun particle mass resolution) of individual halos & Low \\
-\text{\cite{2013MNRAS.429.1502W}}& $c/a$ ratio or RMS height in 11 brightest
+\text{\cite{2013MNRAS.429.1502W}}& $c/a$ ratio or RMS width in 11 brightest
 satellites & 1686 halos from a cosmological DM only N-body simulation
 ($\sim 10^6$\Msun particle mass resolution) & 6 or 13 \\
 \text{\cite{2014ApJ...789L..24P}}& $c/a$ and $b/a$ ratio in 11
@@ -225,13 +227,13 @@ isolated halos & 0.77\\
 \text{\cite{2016MNRAS.457.1931S}}& $c/a$ ratio in 11 classical satellites & 12
 high resolution Hydro simulation of halo pairs ($\sim 10^{4}$\Msun particle
 mass resolution) & High\\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 24 halos from selected pairs in a cosmological N-body
 Dark Matter only simulation ($\sim 10^{6}$\Msun particle mass resolution)& 3\\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 20 halos from selected pairs in acosmological N-body
 hydro simulation ($\sim 10^{6}$\Msun particle mass resolution)& 0.6 \\
-This Work & Triaxiality and RMS height in 11-15 brightest
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 12 high resolution DM only N-body simulations ($\sim
 10^{5}$\Msun particle mass resolution) of halo pairs & 0.2 \\
 \hline
@@ -262,7 +264,7 @@ In this paper we present and demostrate a method to overcome these two
 limitations.
 
 We control the first effect by setting as a direct point of reference
-an spherical satellite distribution and not the simulations themselves.
+a spherical satellite distribution and not the simulations themselves.
 The spherical satellite distribution is built from the data itself
 (observational or simulated) by randomizing the angular position
 of each satellite around the central galaxy and keeping its radial
@@ -292,7 +294,7 @@ In Section \ref{sec:DataSamples} we list the sources of the observational and
 simulated data to be used throughout the paper.
 In Section \ref{sec:SpatialMeasurements} we describe the methods we
 use to build halo pairs and  
-characterize its satellite distributions.
+characterize their satellite distributions.
 In Section \ref{sec:results} we present our results to finally
 conclude in Section \ref{sec:conclusions}. 
 
@@ -315,12 +317,12 @@ The distance estimates are based on resolved stellar populations.
 We use three dimensional positions in a cartesian coordinate system
 as computed by \cite{2013MNRAS.435.1928P}.
 In this coordinate system the $z$-axis points towards the Galactic north pole, the
-$x$-axis points in the direction from the Sun to the Galactic centre,
+$x$-axis points in the direction from the Sun to the Galactic center,
 and the $y$-axis points in the direction of the Galactic rotation.
 
 
 For both the M31 and MW we only use the 11 to 15 brightest satellites (using
-$M_V$ magnitudes) within a distance of $300$kpc to its central galaxy.
+$M_V$ magnitudes) within a distance of $300$kpc from its central galaxy.
 The satellites included for the MW analysis are: 
 LMC, SMC, Canis Major, Sagittarius dSph, Fornax, Leo I, Sculptor,
 Leo II, Sextans I, Carina, Ursa Minor, Draco, Canes Venatici (I),
@@ -342,7 +344,7 @@ code AREPO \citep{2010MNRAS.401..791S}, followed the coupled evolution of dark
 matter and gas and includes parametrizations to account for the effects of
 gas cooling, photoionization, star formation, stellar feedback, black
 hole and super massive black hole feedback. 
-The simulation volume is a cubic box of $75$ \Mpch\ on a side.
+The simulation volume is a cubic box with a $75$ \Mpch\ side.
 The cosmological parameters correspond to a $\Lambda$CDM cosmology
 consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
 
@@ -362,7 +364,7 @@ In both simulations the dark matter gravitational softening is $1.4$
 kpc.
 
 We buid a sample of pairs that resemble the conditions in the LG.
-To construct this sample we select from Illustris-1 all galaxies with a stellar
+To construct this sample we select from Illustris-1 all the galaxies with a stellar
 mass in the range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11}
 \Msun$.
 Then we select the pairs with the following conditions.
@@ -391,7 +393,7 @@ in Illustris-1 to find the matching halo pairs.
 After discarding the pairs with less than 15 detected subhalos in one
 of the halos we end up with a total of 24 pairs in Illustris-1-Dark. 
 This corresponds to a pair number density of $\sim 2 \times10^{-5}$
-pairs Mpc$^{-3}$ 
+pairs Mpc$^{-3}$. 
 Appendix A shows the physical  properties (stellar masses, maximum
 circular velocities, radial velocities and separation) of those
 pairs.
@@ -409,8 +411,6 @@ The results presented here correspond to $11\leq N_p\leq 15$.
 
 
 
-
-
 \subsection{Data from the ELVIS project}
 \label{sim:ELVIS}
 
@@ -424,7 +424,6 @@ ELVIS data comes from resimulations of dark matter halo pairs selected
 in dark matter only cosmological simulations. 
 The parent cosmological boxes have a cosmology consistent with the
 Wilkinson Microwave Anisotropy Probe 7 results.
-
 
 The ELVIS project used the results from $50$ simulation boxes of side
 lenght $70.4$ Mpc to select pairs with kinematic characteristics
@@ -476,7 +475,7 @@ in the statistics.
 We compute the satellite statistics for 11 up to 15 satellites.
 The lower limit corresponds to the number of classical MW satellites,
 while the upper limit corresponds to the minimum number of M31
-satellites included in the analysis.
+satellites usually included M31 studies.
 In simulations we rank the subhalos by their maximum circular
 velocity, in observations we rank the satellites by its $M_V$
 magnitude.  
@@ -506,7 +505,7 @@ magnitude.
   \caption{Results from observations. Mean values and standard deviations for the different
     quantities describing the satellite distributions: plane width, $c/a$
     ratio and $b/a$ ratio. 
-    The first colum refers to the results from
+    The first column refers to the results from
     observational data, the second column uses the spherically
     randomized version of the observational data, the third column
     corresponds to the observational data recentered and normalized
@@ -533,7 +532,7 @@ magnitude.
   \caption{Results from simulations. Mean values and standard deviations for the different
     quantities describing the satellite distributions: plane width, $c/a$
     ratio and $b/a$ ratio. 
-    The first column summarize the results from the 24 pairs in
+    The first column summarizes the results from the 24 pairs in
     Illustris-1-Dark, the second column from the 20 pairs in
     Illustris-1 and the third column from the 12 pairs in the
     ELVIS project.\label{table:simulations}}
@@ -597,7 +596,7 @@ This allows us to build a normalized version of all quantities of
 interest by substracting the mean and dividing between the standard
 deviation of the randomized samples.
 These normalized quantities are used to build the explicit probability
-distributions for the scalars describing aesphericity.
+distributions for the scalars describing asphericity.
 
 
 \subsection{Building an explicit asphericity probability distribution}
@@ -606,7 +605,7 @@ After building the normalized variables with the simulated data we
 perform a Kolmogorov-Smirnov test with the null hypothesis of belonging
 to a normal distribution with mean and standard deviation computed
 from the mean and standard deviation estimated from the data.
-Although the physical quantities of interests are bound, unlike the
+Although the physical quantities of interest are bound, unlike the
 random variables from a normal distribution, we find that the
 distributions for the normalized $w$, $c/a$ and $b/a$ are indeed
 consistent with gaussian ditributions. 
@@ -670,7 +669,7 @@ simulations (middle and right panel).
 This low value is $2\sigma$ away from what is expected in a spherical
 distribution. 
 In M31 the satellite distribution is in agreement with the
-expectations both from an spherical distribution and the results form the
+expectations both from a spherical distribution and the results from the
 simulations. 
 \label{fig:scatter_width}}
 \end{figure*}
@@ -737,7 +736,7 @@ Table \ref{table:observations} and Table \ref{table:simulations}
 summarize the mean values and uncertainties for the plane $w$, $c/a$
 ratio and $b/a$ ratio in the observations and simulations, respectively. 
 The uncertainty in the observations is computed from the results with
-different number of satellites; in the simulations it  corresponds to
+different number of satellites; in the simulations it corresponds to
 the standard deviation over different halos.  
 
 The observed widths $w$ are always smaller than its randomized version.
@@ -851,7 +850,7 @@ The distributions in this Figure are computed from $10^6$ points
 generated with the multivariate gaussian. 
 Similar plots for Illustris-1 and ELVIS are in the Appendix \ref{appendix:plots}.
 The values for all the covariance matrices and mean vectors
-foricorresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
+corresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
 
 This result nicely summarizes the results we had in the previous
 sections. The left hand triangular plot shows how M31 falls into the middle of all 2D
@@ -862,7 +861,7 @@ $3\sigma$ range in the joint distributions that involve the width
 $w$. 
 
 In both cases the strongest positive correlation is present for the
-width and the $c/a$ axis ratio. A weaker  correlation is present for
+width and the $c/a$ axis ratio. A weaker correlation is present for
 the width and the $b/a$ axis ratio. 
 
 
@@ -877,7 +876,7 @@ pairs, where each pair member is drawn from the corresponding
 multivariate gaussian distribution.  
 
 We consider that a sampled system is similar to the M31/MW galaxy if the
-distance of each of its characteristics ($w$, $c/a$, $b/a$) to the
+distance of each of its normalized characteristics ($w$, $c/a$, $b/a$) to the
 sample mean is equal or larger than the distance of the observational
 values to the sample mean.   
 That is, we perform a double-tailed test using the observational
@@ -895,7 +894,7 @@ are expected to have as extreme aspherical distributions as the MW.
 Considering the joint distribution of M31 and MW we find that at most
 $2\%$ of the pairs are expected to be similar to the LG.
 In a three dimensional gaussian distribution, having a $1\sigma$,
-$2\sigma$ and $3\sigma$ interval corresponds to have respectively $19 \%$, $73 \%$ and
+$2\sigma$ and $3\sigma$ interval corresponds to having respectively $19 \%$, $73 \%$ and
 $97 \%$ of the total of points in the distribution.
 With this result in mind the $LG$ has the same degree of atipicality
 as a $3\sigma$ outlier. 
@@ -918,6 +917,20 @@ For the M31 halo this median velocity is $\sim 200$\kms both for the
 ELVIS and Illustris1 simulations, while for the Illustris-1-Dark it is
 $\sim 160$ \kms. 
 
+Another element that influences this trend is the simulated physics.
+This is evident in the comparison between Illustris-1 and Illustris-1-Dark.
+These two simulations share the same characteristics except for the
+inclusion of baryonic physics in Illustris-1.
+We find that extreme MW systems are easier to find in the DM only
+simulation. 
+The results listed in Appendix \ref{appendix:covariance} show that
+halos are closer to spherical once baryonic effects are included. 
+For instance the mean value for the normalized width goes closer to
+zero, from $-0.45\pm 0.04$  to $-0.17\pm0.04$, and the same is true
+for the $c/a$ ratio that changes from $-0.61\pm0.04$ in the DM only
+simulation to $-0.40\pm 0.04$ in Illustris-1.  
+We postpone a detailed quantification of this effect for a future
+study. 
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -946,21 +959,20 @@ Finally, we compared the observational results against the
 distributions derived from the simulations
 
 We found that in the best case (Illustris1-Dark) the degree of
-asphericity in the observed LG is only expected in $3\pm2$  pairs out
+asphericity in the observed LG is only expected in $3\pm2$ pairs out
 of a sample of $10^4$ isolated pairs. 
 This places the LG as a $3\sigma$ outlier.   
 The weight to explain this atypical result is not distributed equally
 between the MW and M31. 
 While M31 presents a fully typical asphericity in the expectations
 from LCDM, the MW shows aspherical deviations in plane width and the
-major-to-minor axis ratio highly atypical in the  framework of LCDM,
+major-to-minor axis ratio highly atypical in the framework of LCDM,
 confirming the original hint by \cite{2005A&A...431..517K} and more
 recent results by \cite{2015ApJ...815...19P}. 
-We estimated that with the M31 between $37\%$ and $58\%$ of the pairs
-pairs show aspherical characteristics larger than M31, while
+We estimated that with the M31 between $37\%$ and $58\%$ of the pairs show aspherical characteristics larger than M31, while
 this fraction drops to less than $1\%$ for the MW. 
 These fractions are robust to changes in the numerical simulations, 
-the criteria used to define the pairs and the methods used to
+the criteria used to define the pairs and to the methods used to
 estimate the parameters of the multivariate normal distribution. 
 
 
@@ -971,34 +983,39 @@ This approach is particularly useful in the case of atypical
 observables as its the case of interest, as it allows for an atypicallity
 quantification without needing to build explicit samples of objects
 that are already scarce and difficult to find in simulations.
+
 An extension of this framework to outliers in higher order deviations
 (i.e. coherent \emph{velocity} structures) should also be possible, 
 provided that an explicit probability distribution for the scalars of
 interest can be built.  
+The approach presented here is also useful to gauge the influence of 
+influence of different physical elements incluedes the simulation. 
+For instance, in our case the data hints towards rounder satellite
+distributions in simulations that include baryonic effects.   
+
 
 The highly aspherical satellite distribution in the MW is another piece of
 information that points at an atypical configuration in LCDM.
 We also have the number of satellites as bright as the Mageallanic
-Clouds, only expected in $5\%$ of galaxies \citep{2011ApJ...743..117B}
-and the atypical kinematics of M31 with a very low tangential velocity,
-only expected in less than $1\%$ of the pairs with similar
-environmental characteristics \citep{ForeroRomero2013}. 
-In other words, if we were in a typical LG pair in LCDM, the MW should
-have zero satellites like the Magellanic Clouds, it's satellite
-distribution should be similar to M31's and M31 should have a larger
-tangential velocity.
+Clouds, only expected in $5\%$ of galaxies
+\citep{2011ApJ...743..117B} and 
+the satellite velocities around the MW with a radial/tangential
+anisotropy only expected in $3\%$ of systems in LCDM
+\citep{2017MNRAS.468L..41C}. 
+One could also add the atypical kinematics of M31 with a very low
+tangential velocity, which is only expected in less than $1\%$ of the pairs
+with similar environmental characteristics \citep{ForeroRomero2013}.  
 
-The LG atypicality should be seen as an opportunity to constrain in
-high detail the environment that allowed such a pattern to emerge. 
-Although broad correlations between LG assembly, pair kinematics, halo shapes and
-satellite distributions are expected in LCDM
+This atypicality should be seen as an opportunity to constrain in
+great detail the environment that allowed such a pattern to emerge. 
+Although broad correlations between LG assembly, pair kinematics, halo
+shapes and satellite distributions are expected in LCDM
 \citep{2011MNRAS.417.1434F,2014MNRAS.443.1090F,2015ApJ...799...45F,2015MNRAS.452.1052L},
 we claim that detailed studies of the satellite asphericity as a function
 of halo mass and cosmic web environment are still missing to
-understand what fearures in the initial conditions of our LG
+understand what features in the initial conditions of our LG
 are responsible for the extreme features observed in its satellite
 distribution.
-
 
 \section*{Acknowledgements} 
 We acknowledge financial support from: Universidad de Los Andes
