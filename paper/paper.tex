@@ -81,7 +81,7 @@ $^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
 We use simulations to build an explicit probability distribution for
 the asphericity in the satellite distribution around galaxies similar
 to the Local Group (LG) in the Lambda Cold Dark Matter (LCDM) paradigm. 
-We use this distribution to to estimate the  atipicallity
+We use this distribution to estimate the  atypicality
 of the satellite distributions in the LG even when the underlying
 simulations do not have enough systems fully resembling the LG.
 We demonstrate the method using three different simulations:
@@ -90,7 +90,7 @@ Detailed results differ among the simulations suggesting a strong
 influence of the typical DM halo mass in the LG samples and simulated
 baryonic effects. 
 However, there are three common trends.
-First, at most of $2\%$ the pairs are expected to have satellite
+First, at most $2\%$ of the pairs are expected to have satellite
 distributions with the same asphericity as the LG; second,
 between $27\%$ to $56\%$ of the pairs have a halo with a satellite
 distribution as aspherical as in M31; and third, at most $3\%$ of the
@@ -113,7 +113,7 @@ satellites around LG pairs in simulations.
 
 The spatial distribution of satellite galaxies around our Milky Way
 (MW) and the M31 galaxy is becoming a stringent test for structure
-formation theories in a explicit cosmological context. 
+formation theories in an explicit cosmological context. 
 This started with the suggested existence of a Magellanic Plane, a flattened
 structure of satellite galaxies and globular clusters around the MW,
 by \cite{1976RGOB..182..241K} and \cite{1976MNRAS.174..695L}.  
@@ -131,14 +131,11 @@ were as low as $2\%$ \citep{2005ApJ...629..219Z} while others expected
 planar satellite configurations in every DM halo
 \citep{2005MNRAS.363..146L}.
 
-
-
-
 Later, \cite{2007MNRAS.374.1125M} used simulations to confirm the low
 chances ($<0.5\%$) found in \cite{2005A&A...431..517K}.
 This result was challenged by \cite{2009MNRAS.399..550L} who continued
 to report high chances to find a planar configuration;
-two more recent numerical experiment with high resolution simulations
+two more recent numerical experiments with high resolution simulations
 (\cite{2013MNRAS.429..725S} and \cite{2016MNRAS.457.1931S}) reported
 contradicting results (low and high chances to find the observational
 result, respectively) but precise figures were not quoted in these three reports. 
@@ -155,7 +152,7 @@ total poulation of $27$ satellites \citep{2013ApJ...766..120C,
 luminosity does not show any special feature.
 All published studies agree on the point that the spatial distribution of
 the 15 to 27 brightest satellites are consistent with spherically
-symmetric distribution and easy to reproduce in LCDM simulations
+symmetric distributions and easy to reproduce in LCDM simulations
 \citep{2006AJ....131.1405K,2007MNRAS.374.1125M, 2013ApJ...766..120C}.
 %comentario: no estoy segura de que el paper de Conn esté bien citado acá. el dice "It is clear that while the satellites of M31 when taken as a whole are no more planar than one can expect from a random distribution, a subset consisting of roughly half the sample is remarkably planar". Y en esta citación "15 to 27 brightest satellites" me parece que puede sonar contradictorio con lo que dice Conn.  
 Table \ref{table:M31} and Table \ref{table:MW} summarize some more
@@ -240,12 +237,12 @@ satellites & 12 high resolution DM only N-body simulations ($\sim
 
 
 Some of the difficulty in trying to reconcile and understand the
-seemly conflicting or inconclusive results on the MW has its origin on
+seemingly conflicting or inconclusive results on the MW has its origin on
 the frequentist fashion generally used to compute probabilities.
 Usually, this process starts by building a high level parent sample in the
 simulation and then counting how many elements has the subset
 meeting some criteria. 
-This has two incovenients.
+This has two inconveniences.
 The first is that the probability estimate is made against whatever
 turns out to be typical in each simulation. 
 A fair comparison across simulations would require first
@@ -354,7 +351,7 @@ Illustris-1 has $1820^3$ dark matter particles and $1820^3$ initial gas
 volumen elements, while Illustris-1-Dark has $1820^3$ dark matter particles.
 This corresponds to a dark matter particle mass of
 $6.3\times 10^6$\Msun\ and a minimum mass for the baryonic volume
-element of $8.0\times 10^7$\Msun for Illustris-1 and a dark matter
+element of $1.2\times 10^6$\Msun for Illustris-1 and a dark matter
 particle mass of $7.6\times 10^6$\Msun for Illustris-1-Dark.
 In both simulations the dark matter gravitational softening is $1.4$
 kpc.
@@ -465,13 +462,13 @@ We compare the joint satellite distributions in the MW and M31 at fixed
 satellite number, $N_p$.
 This means that the magnitude cut corresponding to the faintest
 satellite included in the sample is different in each case.
-We make this choice to to rule out the influence of satellite numbers
+We make this choice to rule out the influence of satellite numbers
 in the statistics. 
 
 We compute the satellite statistics for 11 up to 15 satellites.
 The lower limit corresponds to the number of classical MW satellites,
 while the upper limit corresponds to the minimum number of M31
-satellites usually included M31 studies.
+satellites usually included in M31 studies.
 In simulations we rank the subhalos by their maximum circular
 velocity, in observations we rank the satellites by its $M_V$
 magnitude.  
@@ -542,7 +539,7 @@ We describe the satellites with the inertia
 tensor defined by the satellites' positions.  
 
 \begin{equation}
-{\bf{\bar{I}}} = \sum_{k=1}^{N_p}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
+{\bf{\bar{I}}} = \sum_{i=1}^{N_p}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
   (\bf{r}_i-\bf{r}_0)\cdot (\bf{r}_i - \bf{r}_0)^{T}],
 \label{eq:intensor}
 \end{equation}
@@ -589,7 +586,7 @@ $w$, $c/a$ and $b/a$.
 For each quantity we compute the average and standard deviation from
 the 1000 random samples. 
 This allows us to build a normalized version of all quantities of
-interest by substracting the mean and dividing between the standard
+interest by substracting the mean and dividing by the standard
 deviation of the randomized samples.
 These normalized quantities are used to build the explicit probability
 distributions for the scalars describing asphericity.
@@ -622,7 +619,7 @@ covariance matrix.
 
 We compute the preferred covariance matrix and the mean distribution values
 with a jackknife technique. 
-That is, out of the the $n$ pairs in each simulation, we perfom $n$
+That is, out of the $n$ pairs in each simulation, we perfom $n$
 different covariance and mean value measurements using only $n-1$ pairs. 
 The reported covariance and mean values correspond to the average of
 all measurements, the corresponding standard deviation also helps us to
@@ -649,7 +646,7 @@ treshold absolute observed value.
 \caption{Plane width characterization in observations and
   simulations (Illustris-1-Dark in this case). In all panels the
   horizontal/vertical axis corresponds to the  M31/MW or the
-  most/less massive halo in the pair 
+  most/less massive halo in the pair. 
   Left. Plane width in physical units comparing the results from observations
 (stars) against the result of spherically randomizing the satellite
 positions (circles). 
@@ -716,7 +713,7 @@ $2\sigma$ and $3\sigma$ contours in two dimensions.
   The dashed vertical lines in the histograms along the diagonal
   correspond to the $1\sigma$ boundaries in one dimension.
   The results for the gaussian model are built from $10^6$ point
-  realizations in the three-dimensional space spaned by the variables of
+  realizations in the three-dimensional space spanned by the variables of
   interest for each halo. 
   This plot clearly shows how the M31 results are well within the
   expectations from simulations while the MW has an unusual low value for
@@ -778,10 +775,15 @@ The right panel in Figure \ref{fig:scatter_width} shows the result for
 the normalized width.  
 This panel tells the same story as the middle panel. 
 The M31 values are typical while the MW is an outlier. 
-The added value of the data in this panel is that it is the normalized
-which is consistent with normal distributions.
-This is the data used to build the mean values vector and covariance
+
+The added value of using the normalized data is that this data is 
+consistent with normal distributions.
+Additionally, this is the data used to build the mean values vector and covariance
 matrix described in Equation \ref{eq:multivariate}. 
+%The added value of the data in this panel is that it is the normalized
+%which is consistent with normal distributions.
+%This is the data used to build the mean values vector and covariance
+%matrix described in Equation \ref{eq:multivariate}. 
 
 
 
@@ -822,7 +824,7 @@ The MW is atypical and M31 is within the variance from the simulation data.
 This time, however, there are two MW-like halos out of the total
 of 24 that show an $c/a$ as small as that of the MW.
 The right panel shows the normalized results. 
-The MW shows a low $c/a$ ratio close to between two and three
+The MW shows a low $c/a$ ratio between two and three
 standard deviations away from the mean value of the spherical
 distribution; this contrasts with the results for M31 which are close to
 $1$ standard deviation away. 
@@ -848,7 +850,7 @@ Similar plots for Illustris-1 and ELVIS are in the Appendix \ref{appendix:plots}
 The values for all the covariance matrices and mean vectors
 corresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
 
-This result nicely summarizes the results we had in the previous
+This nicely summarizes the results we had in the previous
 sections. The left hand triangular plot shows how M31 falls into the middle of all 2D
 distributions and is always close to the peak and within the $1\sigma$
 range. 
@@ -880,10 +882,10 @@ values as a threshold.
 
 Figure \ref{fig:expected_number} summarizes the results from this
 experiment. The left panel shows the probability density for the number of M31
-systems in a parent sampe of $10^4$ pairs, the right panel shows the
+systems in a parent sample of $10^4$ pairs, the right panel shows the
 results for the MW.
 For M31, between $27\%$ and $56\%$ of the pairs have a satellite
-distribution as aspherical as the observed in M31. This fraction drops
+distribution as aspherical as the one observed in M31. This fraction drops
 dramatically for the MW where only $0.02\%$ to $3\%$ of the satellites
 are expected to have as extreme aspherical distributions as the MW.
 
@@ -948,7 +950,7 @@ standard deviation computed from the randomized data.
 We found that these normalized quantities are well described by
 a multivariate gaussian distribution in spite of the original
 quantities being bound.
-We estimated the mean and covariance of this distributions using
+We estimated the mean and covariance of {\color{red}these} distributions using
 the results of LG pairs coming from three different numerical
 simulations (Illustris-1, Illustris-1-Dark and ELVIS). 
 Finally, we compared the observational results against the
@@ -973,11 +975,11 @@ estimate the parameters of the multivariate normal distribution.
 
 
 The focus of our approach was building an explicit probability
-distributions for the observables of interest, instead of trying to
+distribution for the observables of interest, instead of trying to
 find simulated objects that fulfill different observational criteria. 
 This approach is particularly useful in the case of atypical
-observables as its the case of interest, as it allows for an atypicallity
-quantification without needing to build explicit samples of objects
+observables, as it allows for an atypicallity
+quantification without the need to build explicit samples of objects
 that are already scarce and difficult to find in simulations.
 
 An extension of this framework to outliers in higher order deviations
@@ -985,7 +987,7 @@ An extension of this framework to outliers in higher order deviations
 provided that an explicit probability distribution for the scalars of
 interest can be built.  
 The approach presented here is also useful to gauge the influence of 
-influence of different physical elements incluedes the simulation. 
+influence of different physical elements includes the simulation. 
 For instance, in our case the data hints towards rounder satellite
 distributions in simulations that include baryonic effects.   
 
@@ -1036,7 +1038,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \includegraphics[width=0.30\textwidth]{int_distro_M31_vmax.pdf}
 \includegraphics[width=0.30\textwidth]{int_distro_MW_vmax.pdf}
 \caption{Physical characteristics of the LG pairs selected in the
-  simulations. All lots show the integrated distributions. The
+  simulations. All plots show the integrated distributions. The
   physical properties are the radial comoving velocity between the MW
   and M31, the radial separation between the MW and M31 and the
   maximum circular velocity for the M31 and MW dark matter halo.
