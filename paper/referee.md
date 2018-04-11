@@ -11,7 +11,7 @@ Major comments:
 * section 2.2, page 4 and section 2.3, page 4, end of first column:
 The authors say Appendix A shows physical properties like e.g. stellar masses of the halo pairs. I can't find any stellar mass plots or listings. Furthermore, ELVIS is a DMO simulation suite so the only simulation with stellar masses is Illustris. Please, add the stellar mass information for solely Illustris or be consistent throughout the paper and remove the reference to stellar masses.
 
-- [Jaime]
+    > We have removed the reference to stellar masses plots.
 
 * section 3.1:
 The authors select 11 up to 15 satellites. While for MW 11 satellites corresponds to the "classical MW satellites" nowadays we know many more satellites (>30). The number of 15 corresponds to "the minimum number of M31 satellites usually included in M31 studies". While this might be true for the nuber of plane members of studies of the plane of satellites around M31 by e.g. Ibata+2013 these authors indeed used ALL the satellites found in the Pandas footprint. However, there are many more staellites known around M31 and the 15 in the plane are not necessarily the most massive/luminous ones. Thus, it would be far more informative to calculate the asphericity of MW and M31 satellites for the classical/conventional number of satellites (11 or 15) and the whole (known) satellite population to see if asphericity is the result of low number statistics or if there is indeed a depepndence on satellite mass. E.g. are the most massive satellites preferentially distributed in a planar fashion?
