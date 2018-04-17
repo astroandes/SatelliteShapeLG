@@ -110,20 +110,23 @@ for n_sat in range(11,16):
     print()
     
 for n_sat in range(11,16):
-    print("Illustris - NSAT = {}".format(n_sat))
-    
+    print("IllustrisDark / Illustris / Elvis - NSAT = {}".format(n_sat))
     in_path = "../data/illustris1_mstar_selected_summary/"
     M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
     in_path = "../data/illustris1dark_mstar_selected_summary/"
     M31_illudark_stats, MW_illudark_stats = load_experiment(input_path=in_path, n_sat=n_sat)
     in_path = "../data/elvis_mstar_selected_summary/"
     M31_elvis_stats, MW_elvis_stats = load_experiment(input_path=in_path, n_sat=n_sat)
-    
-    print("M31(phys) - MW(phys) | M31(rand) | MW (rand) | M31(norm) | MW (norm)|")
+
+    print("M31(phys) - MW(phys)|")
     for field in fields:
-        print("{} & {:.2f} {:.2f} & {:.2f} {:.2f} ".format(
+        print("{} & ${:.2f}\pm {:.2f}$ & ${:.2f} \pm {:.2f}$  & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$\\\\\\hline".format(
             names[field],
+            np.mean(M31_illudark_stats[field]), np.std(M31_illudark_stats[field]),
+            np.mean(MW_illudark_stats[field]), np.std(MW_illudark_stats[field]), 
             np.mean(M31_illu_stats[field]), np.std(M31_illu_stats[field]),
-            np.mean(MW_illu_stats[field]), np.mean(MW_illu_stats[field])))
+            np.mean(MW_illu_stats[field]), np.std(MW_illu_stats[field]), 
+            np.mean(M31_elvis_stats[field]), np.std(M31_elvis_stats[field]),
+            np.mean(MW_elvis_stats[field]), np.std(MW_elvis_stats[field])))
     print()
              
