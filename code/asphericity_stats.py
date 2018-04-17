@@ -20,7 +20,7 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
         i = int(f.split("_")[-3])
         if i not in group_id:
             group_id.append(i)
-    #print(group_id, len(group_id))
+    print(group_id, len(group_id))
 
     n_groups = len(group_id)
     
@@ -45,10 +45,9 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
             M31_all[field+'_random_sigma'] = np.ones(n_groups)
             MW_all[field+'_random_sigma'] = np.ones(n_groups)
 
+    MW_summary = {}
+    M31_summary = {}
     for g in range(n_groups):
-        MW_summary = {}
-        M31_summary = {}
-    
         filename_MW = os.path.join(input_path,"MW_group_{}_nsat_{}.dat".format(group_id[g],n_sat))
         filename_M31 = os.path.join(input_path,"M31_group_{}_nsat_{}.dat".format(group_id[g],n_sat))
 
@@ -63,13 +62,13 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
         b_random = np.empty((0))
         
         for g in range(n_groups):
-            data = M31_summary[i]
-            a = np.append(a, data[field][0])
-            a_random = np.append(a_random, data[field][1:101])
+            data = M31_summary[g]
+            a = data[field][0]
+            a_random = data[field][1:101]
         
-            data = MW_summary[i]
-            b = np.append(b, data[field][0])
-            b_random = np.append(b_random, data[field][1:101])
+            data = MW_summary[g]
+            b = data[field][0]
+            b_random = data[field][1:101]
                 #print('a_random {} iter: {} {}'.format(field, i, a_random))
            
             if full_data:
@@ -77,6 +76,7 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
                 MW_all[field] = np.append(MW_all[field], b)
                 M31_all[field+'_random'] = np.append(M31_all[field+'_random'], a_random)
                 MW_all[field+'_random'] = np.append(MW_all[field+'_random'], b_random)
+        
             else:
                 M31_all[field][g] = np.average(a)
                 MW_all[field][g] = np.average(b)
@@ -93,18 +93,37 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
 fields = ['width','ca_ratio', 'ba_ratio']
 names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
 
-for n_sat in range(11, 16):
+for n_sat in range(11,16):
     print("OBSERVATIONS - NSAT = {}".format(n_sat))
     in_path = "../data/obs_summary/"
     M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
 
-    print("M31 values\nField & Physical & Random & Normalized")
+    print("M31(phys) - MW(phys) | M31(rand) | MW (rand) | M31(norm) | MW (norm)|")
     for field in fields:
-        print("{} & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$\\\\\\hline".format(
+        print("{} & ${:.2f}$ & ${:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}$ & ${:.2f}$\\\\\\hline".format(
             names[field], 
             M31_obs_stats[field][0], MW_obs_stats[field][0],
-              M31_obs_stats[field+'_random'][0], MW_obs_stats[field+'_random'][0],
+              M31_obs_stats[field+'_random'][0], M31_obs_stats[field+'_random_sigma'][0],
+                MW_obs_stats[field+'_random'][0],MW_obs_stats[field+'_random_sigma'][0],
               (M31_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/M31_obs_stats[field+'_random_sigma'][0],
             (MW_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
     print()
     
+for n_sat in range(11,16):
+    print("Illustris - NSAT = {}".format(n_sat))
+    
+    in_path = "../data/illustris1_mstar_selected_summary/"
+    M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+    in_path = "../data/illustris1dark_mstar_selected_summary/"
+    M31_illudark_stats, MW_illudark_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+    in_path = "../data/elvis_mstar_selected_summary/"
+    M31_elvis_stats, MW_elvis_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+    
+    print("M31(phys) - MW(phys) | M31(rand) | MW (rand) | M31(norm) | MW (norm)|")
+    for field in fields:
+        print("{} & {:.2f} {:.2f} & {:.2f} {:.2f} ".format(
+            names[field],
+            np.mean(M31_illu_stats[field]), np.std(M31_illu_stats[field]),
+            np.mean(MW_illu_stats[field]), np.mean(MW_illu_stats[field])))
+    print()
+             
