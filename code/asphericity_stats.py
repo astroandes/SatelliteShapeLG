@@ -90,20 +90,21 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
     return M31_all, MW_all
 
 
+fields = ['width','ca_ratio', 'ba_ratio']
+names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
+
 for n_sat in range(11, 16):
     print("OBSERVATIONS - NSAT = {}".format(n_sat))
     in_path = "../data/obs_summary/"
     M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
 
-    fields = ['width','ba_ratio', 'ca_ratio']
     print("M31 values\nField & Physical & Random & Normalized")
     for field in fields:
-        print(field, M31_obs_stats[field], M31_obs_stats[field+'_random'], 
-          (M31_obs_stats[field]-M31_obs_stats[field+'_random'])/M31_obs_stats[field+'_random_sigma'])
+        print("{} & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$ & ${:.2f}$\\\\\\hline".format(
+            names[field], 
+            M31_obs_stats[field][0], MW_obs_stats[field][0],
+              M31_obs_stats[field+'_random'][0], MW_obs_stats[field+'_random'][0],
+              (M31_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/M31_obs_stats[field+'_random_sigma'][0],
+            (MW_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
     print()
-    print("MW values\nField & Physical & Random & Normalized")
-    for field in fields:
-        print(field, MW_obs_stats[field], MW_obs_stats[field+'_random'], 
-          (MW_obs_stats[field]-M31_obs_stats[field+'_random'])/MW_obs_stats[field+'_random_sigma'])
-    print()
-    print()
+    
