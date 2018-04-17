@@ -1,3 +1,23 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.cm as cm
+from scipy.optimize import curve_fit
+import matplotlib as mpl
+import struct
+import glob
+import os 
+import struct
+from sklearn import linear_model
+import scipy.linalg
+from scipy import stats
+from scipy import integrate
+from scipy.stats import powerlaw
+hubble = 0.73
+vmax_MW = 220.0
+vmax_M31 = 270.0
+m_star_M31 = 10.3
+m_star_MW = 6.08
+
 def load_summary(filename):
     dtype=[('minr', 'f8'),
            ('maxr', 'f8'), 
@@ -9,6 +29,43 @@ def load_summary(filename):
            ('mu', 'f8')]
     summary = np.loadtxt(filename, dtype=dtype)    
     return summary
+
+def load_snapshot(snap_name, boxsize=75000.0, elvis=False):
+    if elvis:
+        dtype=[('haloid','i8'),
+            ('x', 'f8'),('y', 'f8'), ('z', 'f8'),
+            ('vx', 'f8'),('vy', 'f8'),('vz', 'f8'),
+            ('vmax', 'f8'),('vmaxpeak', 'f8'),
+            ('virmass', 'f8'),('virmasspeak', 'f8'),  
+            ('virradius', 'f8'),('peakradius', 'f8'),
+            ('aexppeak', 'f8'),
+            ('mstar', 'f8'),('mstarbehrooze', 'f8'),
+            ('npart', 'i8'),
+           ('parentid','i8'),('upid', 'i8')]
+    else:
+        dtype=[('subid','i8'),
+           ('parentid','i8'),
+           ('x', 'f8'),
+           ('y', 'f8'), 
+           ('z', 'f8'),
+           ('vx', 'f8'),
+           ('vy', 'f8'),
+           ('vz', 'f8'),
+           ('vmax', 'f8'),
+           ('bmag', 'f8'),
+           ('vmag', 'f8'),
+           ('mstar', 'f8')]
+    snap_data = np.loadtxt(snap_name, dtype=dtype) 
+    print('reading {}'.format(snap_name))
+    if not elvis:
+        # this takes into account periodic boudary conditions from Illustris
+        for col in list(['x','y','z']):
+            if((snap_data[col].max() - snap_data[col].min()) > 0.5 * boxsize):
+                snap_data[col] = (snap_data[col] - 0.5 * boxsize) % boxsize
+    if elvis: #change units
+        for col in list(['x','y','z']):
+            snap_data[col] = snap_data[col] * 1000/hubble
+    return snap_data
 
 def load_obs(obs_name):
     dtype=[('name','|S20'),
@@ -75,9 +132,90 @@ def gen_random_sphere(n_points):
     theta = np.arccos(costheta)
     x = r * np.sin(theta) * np.cos(phi)
     y = r * np.sin(theta) * np.sin(phi)
-    z = r * np.cos(th
+    z = r * np.cos(theta)
+    return x, y, z
+
+def spherical_randomize(x_in, y_in, z_in):
+    """
+    Randomizes a set of points around the coordinates origin.
+    """
+    n_points = len(x_in)
+    r = np.sqrt(x_in**2 + y_in**2 + z_in**2)
+    phi = np.random.random(n_points) * 2.0 * np.pi
+    costheta = 2.0*(np.random.random(n_points) -0.5)
+    theta = np.arccos(costheta)
+    x = r * np.sin(theta) * np.cos(phi)
+    y = r * np.sin(theta) * np.sin(phi)
+    z = r * np.cos(theta)
+    return x, y, z
+
+def inertiaTensor(x_in,y_in,z_in, randomize=False):
+    # first recenter the data
+    x = x_in - np.mean(x_in)
+    y = y_in - np.mean(y_in)
+    z = z_in - np.mean(z_in)
+    if randomize:
+        x, y, z = spherical_randomize(x_in - np.mean(x_in), 
+                                      y_in - np.mean(y_in), 
+                                      z_in - np.mean(z_in))
     
-def compile_randomized(group_id=0, iter_id=0, n_sat=11, n_random=1000, 
+    I=[]
+    for index in range(9):
+        I.append(0)
+   
+    I[0] = np.sum(y*y+z*z) 
+    I[1] = np.sum(-y*x)    
+    I[2] = np.sum(-x*z)    
+    I[3] = np.sum(-y*x)    
+    I[4] = np.sum(x*x+z*z) 
+    I[5] = np.sum(-y*z)    
+    I[6] = np.sum(-z*x)    
+    I[7] = np.sum(-z*y)    
+    I[8] = np.sum(x*x+y*y) 
+    tensor = np.array([(I[0:3]), (I[3:6]), (I[6:9])])
+    vals, vects = np.linalg.eig(tensor)  # they come out unsorted, so the command below is needed
+    eig_ord = np.argsort(vals)  # a thing to note is that here COLUMN i corrensponds to eigenvalue i.
+    ord_vals = vals[eig_ord]
+    ord_vects = vects[:, eig_ord].T
+    
+    plane_vector = ord_vects[2]
+    distance_to_plane = x * plane_vector[0]
+    distance_to_plane += y * plane_vector[1]
+    distance_to_plane += z * plane_vector[2]
+
+    #use ord_vects[2] to define the plane width
+    return ord_vals, plane_vector, distance_to_plane.mean(), distance_to_plane.std()
+
+def write_inertia_plane(output_stream, satellite_data, center_data, unit_vector=[0,0,1], randomize=False):
+    # inertia tensor
+    x_pos = satellite_data['x'] 
+    y_pos = satellite_data['y'] 
+    z_pos = satellite_data['z'] 
+
+    values, vec_a, center, width = inertiaTensor(x_pos, y_pos, z_pos, randomize=randomize)
+    
+    output_stream.write("{:.2e}  {:.2e}  {:.2e}\t".format(values[0]/values[2], 
+                                                          values[1]/values[2], 
+                                                          values[2]))
+    mu_I = 0
+    for i in range(3):
+        mu_I += vec_a[i]* unit_vector[i]
+        
+    output_stream.write("{:.4f} {:.4f} {:.4f}\t".format(center, width, np.abs(mu_I)))
+    return
+    
+
+def write_center_info(output_stream, center_A, center_B):
+    #distance between halos in kpc/h and vector connecting the two halos
+    r_AB = np.ones(3)
+    r_AB[0] = center_A['x'] - center_B['x']
+    r_AB[1] = center_A['y'] - center_B['y']
+    r_AB[2] = center_A['z'] - center_B['z']
+    d_AB =  np.sqrt(np.sum(r_AB**2))
+    r_AB = r_AB/d_AB
+    return r_AB
+
+def compile_stats(group_id=0, n_sat=11, n_random=1000, 
                          elvis = False,
                          obs_data=False,
                          reverse=False,
@@ -111,7 +249,7 @@ def compile_randomized(group_id=0, iter_id=0, n_sat=11, n_random=1000,
     N_B = len(satellite_data_B)
    
 
-    if((N_A < n_sat_min) | (N_B <n_sat_min)):
+    if((N_A < n_sat) | (N_B <n_sat)):
         print('Failed Check Groupid, N bright:!', group_id, N_A, N_B)
         return
     
@@ -128,9 +266,9 @@ def compile_randomized(group_id=0, iter_id=0, n_sat=11, n_random=1000,
     #print('M31', N_A, satellite_data_A['name'])
     
     output_A = open(os.path.join(output_path, 
-                                 "M31_group_{}_nsat_{}_iter_{}.dat".format(group_id, n_sat_max, iter_id)), "w")
+                                 "M31_group_{}_nsat_{}.dat".format(group_id, n_sat)), "w")
     output_B = open(os.path.join(output_path, 
-                                 "MW_group_{}_nsat_{}_iter_{}.dat".format(group_id, n_sat_max, iter_id)), "w")
+                                 "MW_group_{}_nsat_{}.dat".format(group_id, n_sat)), "w")
     #print(satellite_data_B)
     #minimum and maximum radius for the satellites
     output_A.write("{:2f} {:2f}\t".format(min_r_M31, max_r_M31))
@@ -156,3 +294,46 @@ def compile_randomized(group_id=0, iter_id=0, n_sat=11, n_random=1000,
 
     output_A.close()
     output_B.close()
+                   
+
+obs = False
+illustris1 = False
+illustris1dark = False
+elvis = False
+
+if (obs):        
+    print('Compiling stats for the observations')
+    output_path = "../data/obs_summary/"
+    for j in range(11,16):
+        print('\t Nsat = {}'.format(j))
+        compile_stats(group_id=0, n_sat = j, n_random=1000, 
+                        output_path=output_path, sort_column='vmag', randomize=False, reverse=False, obs_data=True)
+    
+if illustris1:
+    print('Compiling stats for illustris1')
+    input_path = "../data/illustris1_mstar_selected/"
+    output_path = "../data/illustris1_mstar_selected_summary/"
+    for j in range(11,16):
+        print('\t Nsat = {}'.format(j))
+        for i in range(27):
+            compile_stats(group_id=i, n_sat=j, n_random=1000, data_path=input_path,
+                            output_path=output_path, sort_column='vmax', reverse=True, randomize=False)
+
+if illustris1dark:
+    print('Compiling stats for illustris1dark')
+    input_path = "../data/illustris1dark_mstar_selected/"
+    output_path = "../data/illustris1dark_mstar_selected_summary/"
+    for j in range(11,16):
+        print('\t Nsat = {}'.format(j))
+        for i in range(27):
+            compile_stats(group_id=i, n_sat=j, n_random=1000, data_path=input_path,
+                            output_path=output_path, sort_column='vmax', reverse=True, randomize=False)
+if elvis:
+    print('Compiling stats for ELVIS')
+    input_path = "../data/elvis_mstar_selected/"
+    output_path = "../data/elvis_mstar_selected_summary/"
+    for j in range(11,16):
+        print('\t Nsat = {}'.format(j))
+        for i in range(12):
+            compile_stats(group_id=i, n_sat=j, n_random=1000, data_path=input_path,
+                            output_path=output_path, sort_column='vmax', reverse=True, randomize=False, elvis=True)
