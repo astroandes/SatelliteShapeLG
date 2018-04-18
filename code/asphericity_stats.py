@@ -1,6 +1,9 @@
 import numpy as np
 import glob
 import os
+import matplotlib.pyplot as plt
+import corner
+
 def load_summary(filename):
     dtype=[('minr', 'f8'),
            ('maxr', 'f8'), 
@@ -89,44 +92,199 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
                 
     return M31_all, MW_all
 
+def points_in_experiment(experiment):
+    keys = list(experiment.keys())
+    n_points = len(experiment[keys[0]])
+    return n_points
 
-fields = ['width','ca_ratio', 'ba_ratio']
-names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
+def copy_experiment(experiment, id_to_remove=None):
+    copy = {}
+    n_points = points_in_experiment(experiment)
+    for k in experiment.keys():
+        if id_to_remove is None:
+            copy[k] = experiment[k].copy()
+        else:
+            ii = np.arange(n_points)
+            copy[k] = experiment[k][ii!=id_to_remove]
+    return copy
 
-for n_sat in range(11,16):
-    print("OBSERVATIONS - NSAT = {}".format(n_sat))
+def get_data_obs(obs_data):
+    fields = {0:'width', 1:'ca_ratio', 2:'ba_ratio'}
+    n_fields = len(fields)
+    data_obs = np.zeros((n_fields, len(obs_data['width'])))
+
+    for i in range(n_fields):
+        field = fields[i]
+        x_obs = (obs_data[field] - obs_data[field+'_random'])/obs_data[field+'_random_sigma']
+        data_obs[i,:] = x_obs[:]
+    
+    return {'data_obs': data_obs, 'fields':fields}
+
+
+def covariance_and_mean(experiment):
+    fields = {0:'width', 1:'ca_ratio', 2:'ba_ratio'}
+    n_fields = len(fields)
+    n_points = points_in_experiment(experiment)
+    data_sim = np.zeros((n_fields, n_points))
+    for i in range(n_fields):
+        field = fields[i]
+        x_sim = (experiment[field] - experiment[field+'_random'])/experiment[field+'_random_sigma']
+        data_sim[i,:] = x_sim[:]
+    
+    data_cov = np.cov(data_sim)
+    data_mean = np.mean(data_sim, axis=1)
+
+    return {'covariance':data_cov, 'mean':data_mean, 'fields':fields}
+
+
+def jacknife_covariance(experiment):
+    cov_and_mean = {}
+    n_points = points_in_experiment(experiment)
+    for i in range(n_points):
+        tmp = copy_experiment(experiment, id_to_remove=i)
+        cov_and_mean[i] = covariance_and_mean(tmp)
+        
+    covariance_avg = cov_and_mean[0]['covariance'] - cov_and_mean[0]['covariance']
+    for i in range(n_points):
+        covariance_avg += cov_and_mean[i]['covariance']
+    covariance_avg = covariance_avg/n_points
+
+    covariance_std = cov_and_mean[0]['covariance'] - cov_and_mean[0]['covariance']
+    for i in range(n_points):
+        covariance_std += (cov_and_mean[i]['covariance']-covariance_avg)**2
+    covariance_std = np.sqrt(covariance_std/n_points)
+    
+    mean_avg = cov_and_mean[0]['mean'] - cov_and_mean[0]['mean']
+    for i in range(n_points):
+        mean_avg += cov_and_mean[i]['mean']
+    mean_avg = mean_avg/n_points
+
+    mean_std = cov_and_mean[0]['mean'] - cov_and_mean[0]['mean']
+    for i in range(n_points):
+        mean_std += (cov_and_mean[i]['mean'] - mean_avg)**2
+    mean_std = np.sqrt(mean_std/20)
+    
+    
+    return {'covariance': covariance_avg, 'covariance_error': covariance_std, 'mean': mean_avg, 'mean_error': mean_std}
+
+
+def print_obs_shape():
+    fields = ['width','ca_ratio', 'ba_ratio']
+    names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
+
+    for n_sat in range(11,16):
+        print("OBSERVATIONS - NSAT = {}".format(n_sat))
+        in_path = "../data/obs_summary/"
+        M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+
+        print("M31(phys) - MW(phys) | M31(rand) | MW (rand) | M31(norm) | MW (norm)|")
+        for field in fields:
+            print("{} & ${:.2f}$ & ${:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}$ & ${:.2f}$\\\\\\hline".format(
+                names[field], 
+                M31_obs_stats[field][0], MW_obs_stats[field][0],
+                M31_obs_stats[field+'_random'][0], M31_obs_stats[field+'_random_sigma'][0],
+                MW_obs_stats[field+'_random'][0],MW_obs_stats[field+'_random_sigma'][0],
+                (M31_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/M31_obs_stats[field+'_random_sigma'][0],
+                (MW_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
+        print()
+
+
+def print_sim_shape():
+    for n_sat in range(11,16):
+        print("IllustrisDark / Illustris / Elvis - NSAT = {}".format(n_sat))
+        in_path = "../data/illustris1_mstar_selected_summary/"
+        M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+        in_path = "../data/illustris1dark_mstar_selected_summary/"
+        M31_illudark_stats, MW_illudark_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+        in_path = "../data/elvis_mstar_selected_summary/"
+        M31_elvis_stats, MW_elvis_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+
+        print("M31(phys) - MW(phys)|")
+        for field in fields:
+            print("{} & ${:.2f}\pm {:.2f}$ & ${:.2f} \pm {:.2f}$  & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$\\\\\\hline".format(
+                names[field],
+                np.mean(M31_illudark_stats[field]), np.std(M31_illudark_stats[field]),
+                np.mean(MW_illudark_stats[field]), np.std(MW_illudark_stats[field]), 
+                np.mean(M31_illu_stats[field]), np.std(M31_illu_stats[field]),
+                np.mean(MW_illu_stats[field]), np.std(MW_illu_stats[field]), 
+                np.mean(M31_elvis_stats[field]), np.std(M31_elvis_stats[field]),
+                np.mean(MW_elvis_stats[field]), np.std(MW_elvis_stats[field])))
+        print()
+             
+            
+def plot_covariance(simulation, n_sat):
+    print('simulation {}'.format(simulation))
+    in_path = "../data/{}_mstar_selected_summary/".format(simulation)
+    M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+
     in_path = "../data/obs_summary/"
     M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
-
-    print("M31(phys) - MW(phys) | M31(rand) | MW (rand) | M31(norm) | MW (norm)|")
-    for field in fields:
-        print("{} & ${:.2f}$ & ${:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}\pm{:.2f}$ & ${:.2f}$ & ${:.2f}$\\\\\\hline".format(
-            names[field], 
-            M31_obs_stats[field][0], MW_obs_stats[field][0],
-              M31_obs_stats[field+'_random'][0], M31_obs_stats[field+'_random_sigma'][0],
-                MW_obs_stats[field+'_random'][0],MW_obs_stats[field+'_random_sigma'][0],
-              (M31_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/M31_obs_stats[field+'_random_sigma'][0],
-            (MW_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
-    print()
+    M31_obs = get_data_obs(M31_obs_stats)
+    MW_obs = get_data_obs(MW_obs_stats)
     
-for n_sat in range(11,16):
-    print("IllustrisDark / Illustris / Elvis - NSAT = {}".format(n_sat))
-    in_path = "../data/illustris1_mstar_selected_summary/"
-    M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
-    in_path = "../data/illustris1dark_mstar_selected_summary/"
-    M31_illudark_stats, MW_illudark_stats = load_experiment(input_path=in_path, n_sat=n_sat)
-    in_path = "../data/elvis_mstar_selected_summary/"
-    M31_elvis_stats, MW_elvis_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+    cov_illustris_M31 = jacknife_covariance(M31_illu_stats)
+    cov_illustris_MW = jacknife_covariance(MW_illu_stats)
+        
+    data_random_illustris_M31 = np.random.multivariate_normal(
+            cov_illustris_M31['mean'], cov_illustris_M31['covariance'], size=100000)
+    data_random_illustris_MW = np.random.multivariate_normal(
+            cov_illustris_MW['mean'], cov_illustris_MW['covariance'], size=100000)
 
-    print("M31(phys) - MW(phys)|")
-    for field in fields:
-        print("{} & ${:.2f}\pm {:.2f}$ & ${:.2f} \pm {:.2f}$  & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$ & ${:.2f}\pm {:.2f}$\\\\\\hline".format(
-            names[field],
-            np.mean(M31_illudark_stats[field]), np.std(M31_illudark_stats[field]),
-            np.mean(MW_illudark_stats[field]), np.std(MW_illudark_stats[field]), 
-            np.mean(M31_illu_stats[field]), np.std(M31_illu_stats[field]),
-            np.mean(MW_illu_stats[field]), np.std(MW_illu_stats[field]), 
-            np.mean(M31_elvis_stats[field]), np.std(M31_elvis_stats[field]),
-            np.mean(MW_elvis_stats[field]), np.std(MW_elvis_stats[field])))
-    print()
-             
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_illustris_M31, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=M31_obs['data_obs'])
+        
+        
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    for i in range(ndim):
+        ax = axes[i, i]
+        ax.set_xlim(-5,5)
+            
+    for yi in range(ndim):
+        for xi in range(yi):
+            ax = axes[yi, xi]
+            ax.set_xlim(-5,5)
+            ax.set_ylim(-5,5)
+
+    filename = "../paper/gaussian_model_{}_M31_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_illustris_MW, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=MW_obs['data_obs'])
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    for i in range(ndim):
+        ax = axes[i, i]
+        ax.set_xlim(-5,5)
+            
+    for yi in range(ndim):
+        for xi in range(yi):
+            ax = axes[yi, xi]
+            ax.set_xlim(-5,5)
+            ax.set_ylim(-5,5)
+    filename = "../paper/gaussian_model_{}_MW_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.close('all')
+
+
+for n_sat in range(11,16):
+    plot_covariance('illustris1', n_sat)
+    plot_covariance('illustris1dark', n_sat)
+    plot_covariance('elvis', n_sat)
