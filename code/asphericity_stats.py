@@ -185,7 +185,7 @@ def print_obs_shape():
                 M31_obs_stats[field+'_random'][0], M31_obs_stats[field+'_random_sigma'][0],
                 MW_obs_stats[field+'_random'][0],MW_obs_stats[field+'_random_sigma'][0],
                 (M31_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/M31_obs_stats[field+'_random_sigma'][0],
-                (MW_obs_stats[field][0]-M31_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
+                (MW_obs_stats[field][0]-MW_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
         print()
 
 
@@ -211,6 +211,9 @@ def print_sim_shape():
                 np.mean(MW_elvis_stats[field]), np.std(MW_elvis_stats[field])))
         print()
              
+
+
+
             
 def plot_covariance(simulation, n_sat):
     print('simulation {}'.format(simulation))
@@ -284,7 +287,25 @@ def plot_covariance(simulation, n_sat):
     plt.close('all')
 
 
-for n_sat in range(11,16):
-    plot_covariance('illustris1', n_sat)
-    plot_covariance('illustris1dark', n_sat)
-    plot_covariance('elvis', n_sat)
+def plot_asphericity_obs(field):
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    for n_sat in range(11,16):
+        in_path = "../data/obs_summary/"
+        M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+        M31_obs = get_data_obs(M31_obs_stats)
+        MW_obs = get_data_obs(MW_obs_stats)
+        print(n_sat, M31_obs['fields'][field], MW_obs['fields'][field],M31_obs['data_obs'][field], MW_obs['data_obs'][field])
+        plt.scatter(n_sat, M31_obs['data_obs'][field], marker='*', s=300, color='black', alpha=0.9, label='M31')
+        plt.scatter(n_sat, MW_obs['data_obs'][field], marker='o', s=300, color='black', alpha=0.9, label='M31')
+        
+    filename = "../paper/normalized_{}_n_dependence.pdf".format(M31_obs['fields'][field])
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+plot_asphericity_obs(0)
+plot_asphericity_obs(1)
+plot_asphericity_obs(2)
+
