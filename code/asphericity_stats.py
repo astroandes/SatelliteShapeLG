@@ -354,12 +354,94 @@ def get_numbers(simulation, n_sat):
     n_out_list_sim = number_LG(cov_sim_M31['covariance'], cov_sim_M31['mean'],
              cov_sim_MW['covariance'], cov_sim_MW['mean'],
              M31_obs['data_obs'], MW_obs['data_obs'], n_sample=10000)
-    print(np.mean(n_out_list_sim['n_M31']), np.std(n_out_list_sim['n_M31']))
-    print(np.mean(n_out_list_sim['n_MW']), np.std(n_out_list_sim['n_MW']))
-    print(np.mean(n_out_list_sim['n_LG']), np.std(n_out_list_sim['n_LG']))
+    return {'mean_n_M31':np.mean(n_out_list_sim['n_M31']), 'std_n_M31':np.std(n_out_list_sim['n_M31']),
+           'mean_n_MW':np.mean(n_out_list_sim['n_MW']), 'std_n_MW':np.std(n_out_list_sim['n_MW']),
+           'mean_n_LG':np.mean(n_out_list_sim['n_LG']), 'std_n_LG':np.std(n_out_list_sim['n_LG'])}
     print()
     
-for i in range(11,16):
-    get_numbers('illustris1dark', i)
-    get_numbers('illustris1', i)
-    get_numbers('elvis', i)
+def print_numbers():
+    LG_out = open('../data/numbers/LG_numbers.txt', 'w')
+    M31_out = open('../data/numbers/M31_numbers.txt', 'w')
+    MW_out = open('../data/numbers/MW_numbers.txt', 'w')
+
+    for i in range(11,16):
+        a = get_numbers('illustris1dark', i)
+        b = get_numbers('illustris1', i)
+        c = get_numbers('elvis', i)
+        LG_out.write("{} {} {} {} {} {} {}\n".format(i, 
+                                                  a['mean_n_LG'], a['std_n_LG'],
+                                                  b['mean_n_LG'], b['std_n_LG'],
+                                                  c['mean_n_LG'], c['std_n_LG']))
+        M31_out.write("{} {} {} {} {} {} {}\n".format(i, 
+                                                  a['mean_n_M31'], a['std_n_M31'],
+                                                  b['mean_n_M31'], b['std_n_M31'],
+                                                  c['mean_n_M31'], c['std_n_M31']))
+        MW_out.write("{} {} {} {} {} {} {}\n".format(i, 
+                                                  a['mean_n_MW'], a['std_n_MW'],
+                                                  b['mean_n_MW'], b['std_n_MW'],
+                                                  c['mean_n_MW'], c['std_n_MW']))
+    
+    MW_out.close()
+    M31_out.close()
+    LG_out.close()
+    
+def plot_numbers():
+    LG_data = np.loadtxt('../data/numbers/LG_numbers.txt')
+    M31_data = np.loadtxt('../data/numbers/M31_numbers.txt')
+    MW_data = np.loadtxt('../data/numbers/MW_numbers.txt')
+    plt.figure(figsize=(7,7))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+
+    plt.errorbar(LG_data[:,0], LG_data[:,1], yerr=LG_data[:,2],
+                fmt='*', markersize=20, color='black', alpha=0.5, label='Illustris1Dark')
+    plt.errorbar(LG_data[:,0], LG_data[:,3], yerr=LG_data[:,4],
+                fmt='o', markersize=20, color='black', alpha=0.5, label='Illustris1')
+    plt.errorbar(LG_data[:,0], LG_data[:,5], yerr=LG_data[:,6],
+                fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
+    plt.legend()
+    plt.xlabel("$N_s$")
+    plt.ylabel("$N_{LG}$")
+    plt.grid()
+    filename = "../paper/LG_numbers.pdf"
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.figure(figsize=(7,7))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+
+    plt.errorbar(MW_data[:,0], MW_data[:,1], yerr=MW_data[:,2],
+                fmt='*', markersize=20, color='black', alpha=0.5, label='Illustris1Dark')
+    plt.errorbar(MW_data[:,0], MW_data[:,3], yerr=MW_data[:,4],
+                fmt='o', markersize=20, color='black', alpha=0.5, label='Illustris1')
+    plt.errorbar(MW_data[:,0], MW_data[:,5], yerr=MW_data[:,6],
+                fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
+    plt.xlabel("$N_s$")
+    plt.ylabel("$N_{MW}$")
+    plt.grid()
+    filename = "../paper/MW_numbers.pdf"
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.figure(figsize=(7,7))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+
+    plt.errorbar(M31_data[:,0], M31_data[:,1], yerr=M31_data[:,2],
+                fmt='*', markersize=20, color='black', alpha=0.5, label='Illustris1Dark')
+    plt.errorbar(M31_data[:,0], M31_data[:,3], yerr=M31_data[:,4],
+                fmt='o', markersize=20, color='black', alpha=0.5, label='Illustris1')
+    plt.errorbar(M31_data[:,0], M31_data[:,5], yerr=M31_data[:,6],
+                fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
+    plt.xlabel("$N_s$")
+    plt.ylabel("$N_{M31}$")
+    plt.grid()
+    filename = "../paper/M31_numbers.pdf"
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+plot_numbers()
