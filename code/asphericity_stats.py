@@ -314,7 +314,52 @@ def plot_asphericity_obs(field):
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
     
-plot_asphericity_obs(0)
-plot_asphericity_obs(1)
-plot_asphericity_obs(2)
+def number_LG(sim_cov_M31, sim_mean_M31, sim_cov_MW, sim_mean_MW, obs_M31, obs_MW, n_sample=20):
+    n_try = 1000
+    n_out = np.ones(n_try)
+    n_MW = np.ones(n_try)
+    n_M31 = np.ones(n_try)
 
+    for i in range(n_try):
+        sim_M31 = np.random.multivariate_normal(sim_mean_M31, sim_cov_M31, size=n_sample)
+        sim_MW = np.random.multivariate_normal(sim_mean_MW, sim_cov_MW, size=n_sample)
+        
+        like_M31_from_M31 = sim_M31[:,0]<1E6
+        like_MW_from_MW = sim_MW[:,0]<1E6
+        for j in range(3):
+            like_M31_from_M31 &= (np.abs(sim_M31[:,j]-sim_mean_M31[j]) > np.abs(obs_M31[j]-sim_mean_M31[j]))
+            like_MW_from_MW &= (np.abs(sim_MW[:,j]-sim_mean_MW[j]) > np.abs(obs_MW[j]-sim_mean_MW[j]))
+        #print(sim_M31[like_M31_from_M31,:])
+        
+        n_out[i] = np.count_nonzero(like_M31_from_M31 & like_MW_from_MW)
+        n_MW[i] = np.count_nonzero(like_MW_from_MW)
+        n_M31[i] = np.count_nonzero(like_M31_from_M31)
+        #print(n_M31[i])
+    return {'n_LG': n_out, 'n_MW':n_MW, 'n_M31':n_M31}
+
+
+def get_numbers(simulation, n_sat):
+    print('simulation {}'.format(simulation))
+    in_path = "../data/{}_mstar_selected_summary/".format(simulation)
+    M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+
+    in_path = "../data/obs_summary/"
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+    M31_obs = get_data_obs(M31_obs_stats)
+    MW_obs = get_data_obs(MW_obs_stats)
+    
+    cov_sim_M31 = jacknife_covariance(M31_sim_stats)
+    cov_sim_MW = jacknife_covariance(MW_sim_stats)
+            
+    n_out_list_sim = number_LG(cov_sim_M31['covariance'], cov_sim_M31['mean'],
+             cov_sim_MW['covariance'], cov_sim_MW['mean'],
+             M31_obs['data_obs'], MW_obs['data_obs'], n_sample=10000)
+    print(np.mean(n_out_list_sim['n_M31']), np.std(n_out_list_sim['n_M31']))
+    print(np.mean(n_out_list_sim['n_MW']), np.std(n_out_list_sim['n_MW']))
+    print(np.mean(n_out_list_sim['n_LG']), np.std(n_out_list_sim['n_LG']))
+    print()
+    
+for i in range(11,16):
+    get_numbers('illustris1dark', i)
+    get_numbers('illustris1', i)
+    get_numbers('elvis', i)
