@@ -98,4 +98,6 @@ def plot_randoms_and_sims(simulation, n_sat):
     plt.close('all')
 
 
-plot_randoms_and_sims('illustris1', 11)
+#plot_randoms_and_sims('illustris1', 11)
+
+

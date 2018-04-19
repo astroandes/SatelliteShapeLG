@@ -67,11 +67,11 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
         for g in range(n_groups):
             data = M31_summary[g]
             a = data[field][0]
-            a_random = data[field][1:101]
+            a_random = data[field][1:]
         
             data = MW_summary[g]
             b = data[field][0]
-            b_random = data[field][1:101]
+            b_random = data[field][1:]
                 #print('a_random {} iter: {} {}'.format(field, i, a_random))
            
             if full_data:
@@ -108,14 +108,17 @@ def copy_experiment(experiment, id_to_remove=None):
             copy[k] = experiment[k][ii!=id_to_remove]
     return copy
 
-def get_data_obs(obs_data):
+def get_data_obs(obs_data, normed=True):
     fields = {0:'width', 1:'ca_ratio', 2:'ba_ratio'}
     n_fields = len(fields)
     data_obs = np.zeros((n_fields, len(obs_data['width'])))
 
     for i in range(n_fields):
         field = fields[i]
-        x_obs = (obs_data[field] - obs_data[field+'_random'])/obs_data[field+'_random_sigma']
+        if normed:
+            x_obs = (obs_data[field] - obs_data[field+'_random'])/obs_data[field+'_random_sigma']
+        else:
+            x_obs = obs_data[field]
         data_obs[i,:] = x_obs[:]
     
     return {'data_obs': data_obs, 'fields':fields}
@@ -168,7 +171,7 @@ def jacknife_covariance(experiment):
     return {'covariance': covariance_avg, 'covariance_error': covariance_std, 'mean': mean_avg, 'mean_error': mean_std}
 
 
-def print_obs_shape():
+def print_table_obs_shape():
     fields = ['width','ca_ratio', 'ba_ratio']
     names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
 
@@ -188,8 +191,9 @@ def print_obs_shape():
                 (MW_obs_stats[field][0]-MW_obs_stats[field+'_random'][0])/MW_obs_stats[field+'_random_sigma'][0]))
         print()
 
-
-def print_sim_shape():
+def print_table_sim_shape():
+    fields = ['width','ca_ratio', 'ba_ratio']
+    names = {'width':'Plane width (kpc)', 'ca_ratio':'$c/a$ ratio', 'ba_ratio':'$b/a$ ratio'}
     for n_sat in range(11,16):
         print("IllustrisDark / Illustris / Elvis - NSAT = {}".format(n_sat))
         in_path = "../data/illustris1_mstar_selected_summary/"
@@ -211,9 +215,6 @@ def print_sim_shape():
                 np.mean(MW_elvis_stats[field]), np.std(MW_elvis_stats[field])))
         print()
              
-
-
-
             
 def plot_covariance(simulation, n_sat):
     print('simulation {}'.format(simulation))
@@ -237,7 +238,7 @@ def plot_covariance(simulation, n_sat):
     plt.figure(figsize=(8,5))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
-    figure = corner.corner(data_random_illustris_M31, 
+    figure = corner.corner( data_random_illustris_M31, 
                       quantiles=[0.16, 0.5, 0.84],
                       labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
@@ -389,6 +390,9 @@ def plot_numbers():
     LG_data = np.loadtxt('../data/numbers/LG_numbers.txt')
     M31_data = np.loadtxt('../data/numbers/M31_numbers.txt')
     MW_data = np.loadtxt('../data/numbers/MW_numbers.txt')
+    LG_data = LG_data/1E2
+    M31_data = M31_data/1E2
+    MW_data = MW_data/1E2
     plt.figure(figsize=(7,7))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
@@ -401,7 +405,7 @@ def plot_numbers():
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.legend()
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{LG}$")
+    plt.ylabel("$N_{LG} (\%)$")
     plt.grid()
     filename = "../paper/LG_numbers.pdf"
     print('saving figure to {}'.format(filename))
@@ -419,7 +423,7 @@ def plot_numbers():
     plt.errorbar(MW_data[:,0], MW_data[:,5], yerr=MW_data[:,6],
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{MW}$")
+    plt.ylabel("$N_{MW} (\%)$")
     plt.grid()
     filename = "../paper/MW_numbers.pdf"
     print('saving figure to {}'.format(filename))
@@ -437,11 +441,78 @@ def plot_numbers():
     plt.errorbar(M31_data[:,0], M31_data[:,5], yerr=M31_data[:,6],
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{M31}$")
+    plt.ylabel("$N_{M31} (\%)$")
     plt.grid()
     filename = "../paper/M31_numbers.pdf"
     print('saving figure to {}'.format(filename))
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
     
-plot_numbers()
+
+def plot_shape_obs_randoms(n_sat):
+    in_path = "../data/obs_summary/"
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+    M31_obs = get_data_obs(M31_obs_stats, normed=False)
+    MW_obs =  get_data_obs(MW_obs_stats, normed=False)
+
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=True)    
+    data_random_obs_M31 = np.array([M31_obs_stats['width_random'],
+                                    M31_obs_stats['ca_ratio_random'], 
+                                    M31_obs_stats['ba_ratio_random']]).T
+    data_random_obs_MW = np.array([MW_obs_stats['width_random'],
+                                    MW_obs_stats['ca_ratio_random'], 
+                                    MW_obs_stats['ba_ratio_random']]).T
+    
+    print(np.shape(data_random_obs_MW))
+    print(MW_obs)
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_M31, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=M31_obs['data_obs'])
+        
+        
+    min_w = 10; max_w = 90; min_ac = 0.0; max_ac = 1.0 ; min_ab = 0.6; max_ab = 1.0
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab)
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+
+
+    filename = "../paper/input_{}_M31_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_MW, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=MW_obs['data_obs'])
+    
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab)
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+
+    filename = "../paper/input_{}_MW_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.close('all')

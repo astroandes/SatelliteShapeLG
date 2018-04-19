@@ -45,9 +45,34 @@ if elvis:
 import asphericity_stats as asp
 
 ObsTable = False
-SimTable = True
+SimTable = False
+CovPlots = False
+ObsAsphPlots = False
+PrintModelNumbers = False
+PlotModelNumbers = False
+PlotShapeRandomObs = True
+
 if ObsTable:
     asp.print_table_obs_shape()
     
 if SimTable:
     asp.print_table_sim_shape()
+    
+if CovPlots:
+    asp.plot_covariance('illustris1dark', 11)
+    asp.plot_covariance('illustris1', 11)
+    asp.plot_covariance('elvis', 11)
+    
+if ObsAsphPlots:
+    asp.plot_asphericity_obs(0)
+    asp.plot_asphericity_obs(1)
+    asp.plot_asphericity_obs(2)
+    
+if PrintModelNumbers:
+    asp.print_numbers()
+
+if PlotModelNumbers:
+    asp.plot_numbers()
+
+if PlotShapeRandomObs:
+    asp.plot_shape_obs_randoms(11)
