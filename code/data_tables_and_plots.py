@@ -76,3 +76,4 @@ if PlotModelNumbers:
 
 if PlotShapeRandomObs:
     asp.plot_shape_obs_randoms(11)
+    asp.plot_shape_obs_randoms(12)

@@ -487,7 +487,7 @@ def plot_shape_obs_randoms(n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
 
 
-    filename = "../paper/input_{}_M31_n_{}.pdf".format(simulation, n_sat)
+    filename = "../paper/input_obs_M31_n_{}.pdf".format(n_sat)
     print('saving figure to {}'.format(filename))
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
@@ -510,7 +510,7 @@ def plot_shape_obs_randoms(n_sat):
     ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
 
-    filename = "../paper/input_{}_MW_n_{}.pdf".format(simulation, n_sat)
+    filename = "../paper/input_obs_MW_n_{}.pdf".format(n_sat)
     print('saving figure to {}'.format(filename))
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
