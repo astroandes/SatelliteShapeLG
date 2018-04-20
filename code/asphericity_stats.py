@@ -221,17 +221,19 @@ def print_table_sim_shape():
              
             
 def plot_covariance(simulation, n_sat):
+    simulation_name = {'illustris1':'Illustris1', 'illustris1dark':'Illustris1Dark', 'elvis':'ELVIS'}
     print('simulation {}'.format(simulation))
     in_path = "../data/{}_mstar_selected_summary/".format(simulation)
-    M31_illu_stats, MW_illu_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+    M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat)
 
+    
     in_path = "../data/obs_summary/"
     M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
     M31_obs = get_data_obs(M31_obs_stats)
     MW_obs = get_data_obs(MW_obs_stats)
     
-    cov_illustris_M31 = jacknife_covariance(M31_illu_stats)
-    cov_illustris_MW = jacknife_covariance(MW_illu_stats)
+    cov_illustris_M31 = jacknife_covariance(M31_sim_stats)
+    cov_illustris_MW = jacknife_covariance(MW_sim_stats)
         
     data_random_illustris_M31 = np.random.multivariate_normal(
             cov_illustris_M31['mean'], cov_illustris_M31['covariance'], size=100000)
@@ -249,17 +251,21 @@ def plot_covariance(simulation, n_sat):
                       truths=M31_obs['data_obs'])
         
         
+    min_w = -4; max_w = 4; min_ac = -4; max_ac = 4 ; min_ab = -4; max_ab = 4
     ndim = 3
     axes = np.array(figure.axes).reshape(ndim,ndim)
-    for i in range(ndim):
-        ax = axes[i, i]
-        ax.set_xlim(-5,5)
-            
-    for yi in range(ndim):
-        for xi in range(yi):
-            ax = axes[yi, xi]
-            ax.set_xlim(-5,5)
-            ax.set_ylim(-5,5)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(M31_sim_stats['ca_ratio_normed'], M31_sim_stats['ba_ratio_normed'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ca_ratio_normed'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ba_ratio_normed'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
 
     filename = "../paper/gaussian_model_{}_M31_n_{}.pdf".format(simulation, n_sat)
     print('saving figure to {}'.format(filename))
@@ -274,16 +280,21 @@ def plot_covariance(simulation, n_sat):
                       labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=MW_obs['data_obs'])
+    min_w = -4; max_w = 4; min_ac = -4; max_ac = 4 ; min_ab = -4; max_ab = 4
+    ndim = 3
     axes = np.array(figure.axes).reshape(ndim,ndim)
-    for i in range(ndim):
-        ax = axes[i, i]
-        ax.set_xlim(-5,5)
-            
-    for yi in range(ndim):
-        for xi in range(yi):
-            ax = axes[yi, xi]
-            ax.set_xlim(-5,5)
-            ax.set_ylim(-5,5)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(MW_sim_stats['ca_ratio_normed'], MW_sim_stats['ba_ratio_normed'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ca_ratio_normed'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ba_ratio_normed'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     filename = "../paper/gaussian_model_{}_MW_n_{}.pdf".format(simulation, n_sat)
     print('saving figure to {}'.format(filename))
     plt.savefig(filename, bbox_inches='tight')

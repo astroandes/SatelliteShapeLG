@@ -46,10 +46,10 @@ import asphericity_stats as asp
 
 ObsTable = False
 SimTable = False
-CovPlots = False
+CovPlots = True
 ObsAsphPlots = False
 PrintModelNumbers = False
-PlotModelNumbers = True
+PlotModelNumbers = False
 PlotShapeRandomObs = False
 PlotShapeObsSim = False
 PlotShapeObsSimNormed = False
