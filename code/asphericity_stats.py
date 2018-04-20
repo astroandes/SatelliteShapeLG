@@ -47,6 +47,8 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
             MW_all[field+'_random'] = np.ones(n_groups)
             M31_all[field+'_random_sigma'] = np.ones(n_groups)
             MW_all[field+'_random_sigma'] = np.ones(n_groups)
+            M31_all[field+'_normed'] = np.ones(n_groups)
+            MW_all[field+'_normed'] = np.ones(n_groups)
 
     MW_summary = {}
     M31_summary = {}
@@ -89,6 +91,8 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
                 MW_all[field+'_random'][g] = np.average(b_random)
                 M31_all[field+'_random_sigma'][g] = np.std(a_random)
                 MW_all[field+'_random_sigma'][g] = np.std(b_random)
+                M31_all[field+'_normed'][g] = (M31_all[field][g] - M31_all[field+'_random'][g])/M31_all[field+'_random_sigma'][g]
+                MW_all[field+'_normed'][g] = (MW_all[field][g] - MW_all[field+'_random'][g])/MW_all[field+'_random_sigma'][g]
                 
     return M31_all, MW_all
 
@@ -511,6 +515,181 @@ def plot_shape_obs_randoms(n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
 
     filename = "../paper/input_obs_MW_n_{}.pdf".format(n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.close('all')
+
+    
+def plot_shape_obs_sims(simulation, n_sat):
+    print('simulation {}'.format(simulation))
+    simulation_name = {'illustris1':'Illustris1', 'illustris1dark':'Illustris1Dark', 'elvis':'ELVIS'}
+    in_path = "../data/{}_mstar_selected_summary/".format(simulation)
+    M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=True)
+    
+    in_path = "../data/obs_summary/"
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+    M31_obs = get_data_obs(M31_obs_stats, normed=False)
+    MW_obs =  get_data_obs(MW_obs_stats, normed=False)
+
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=True)    
+    data_random_obs_M31 = np.array([M31_obs_stats['width_random'],
+                                    M31_obs_stats['ca_ratio_random'], 
+                                    M31_obs_stats['ba_ratio_random']]).T
+    data_random_obs_MW = np.array([MW_obs_stats['width_random'],
+                                    MW_obs_stats['ca_ratio_random'], 
+                                    MW_obs_stats['ba_ratio_random']]).T
+    
+    print(np.shape(data_random_obs_MW))
+    print(MW_obs)
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_M31, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=M31_obs['data_obs'])
+        
+        
+    min_w = 10; max_w = 90; min_ac = 0.0; max_ac = 1.0 ; min_ab = 0.6; max_ab = 1.0
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(M31_sim_stats['ca_ratio'], M31_sim_stats['ba_ratio'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(M31_sim_stats['width'], M31_sim_stats['ca_ratio'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(M31_sim_stats['width'], M31_sim_stats['ba_ratio'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
+    
+    filename = "../paper/input_{}_obs_M31_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_MW, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=MW_obs['data_obs'])
+    
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(MW_sim_stats['ca_ratio'], MW_sim_stats['ba_ratio'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(MW_sim_stats['width'], MW_sim_stats['ca_ratio'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(MW_sim_stats['width'], MW_sim_stats['ba_ratio'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
+    
+
+    filename = "../paper/input_{}_obs_MW_n_{}.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+    
+    plt.close('all')
+    
+def plot_shape_obs_sims_normed(simulation, n_sat):
+    print('simulation {}'.format(simulation))
+    simulation_name = {'illustris1':'Illustris1', 'illustris1dark':'Illustris1Dark', 'elvis':'ELVIS'}
+    in_path = "../data/{}_mstar_selected_summary/".format(simulation)
+    M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+    
+    in_path = "../data/obs_summary/"
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=False)
+    M31_obs = get_data_obs(M31_obs_stats, normed=True)
+    MW_obs =  get_data_obs(MW_obs_stats, normed=True)
+
+    M31_obs_stats, MW_obs_stats = load_experiment(input_path=in_path, n_sat=n_sat, full_data=True)    
+    data_random_obs_M31 = np.array([
+        (M31_obs_stats['width_random'] - np.mean(M31_obs_stats['width_random']))/np.std(M31_obs_stats['width_random']),
+        (M31_obs_stats['ca_ratio_random'] - np.mean(M31_obs_stats['ca_ratio_random']))/np.std(M31_obs_stats['ca_ratio_random']),
+        (M31_obs_stats['ba_ratio_random'] - np.mean(M31_obs_stats['ba_ratio_random']))/np.std(M31_obs_stats['ba_ratio_random'])]).T
+                                
+    data_random_obs_MW = np.array([
+        (MW_obs_stats['width_random'] - np.mean(MW_obs_stats['width_random']))/np.std(MW_obs_stats['width_random']),
+        (MW_obs_stats['ca_ratio_random'] - np.mean(MW_obs_stats['ca_ratio_random']))/np.std(MW_obs_stats['ca_ratio_random']),
+        (MW_obs_stats['ba_ratio_random'] - np.mean(MW_obs_stats['ba_ratio_random']))/np.std(MW_obs_stats['ba_ratio_random'])]).T
+
+    
+    print(np.shape(data_random_obs_MW))
+    print(MW_obs)
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_M31, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=M31_obs['data_obs'])
+        
+        
+    min_w = -5; max_w = 5; min_ac = -5; max_ac = 5 ; min_ab = -5; max_ab = 5
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(M31_sim_stats['ca_ratio_normed'], M31_sim_stats['ba_ratio_normed'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ca_ratio_normed'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ba_ratio_normed'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
+    
+    filename = "../paper/input_{}_obs_M31_n_{}_normed.pdf".format(simulation, n_sat)
+    print('saving figure to {}'.format(filename))
+    plt.savefig(filename, bbox_inches='tight')
+    plt.clf()
+        
+    plt.figure(figsize=(8,5))
+    plt.rc('text', usetex=True,)
+    plt.rc('font', family='serif', size=25)
+    figure = corner.corner(data_random_obs_MW, 
+                      quantiles=[0.16, 0.5, 0.84],
+                      labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
+                      show_titles=True, title_kwargs={"fontsize": 12}, 
+                      truths=MW_obs['data_obs'])
+    
+    ndim = 3
+    axes = np.array(figure.axes).reshape(ndim,ndim)
+    ax = axes[1,1];ax.set_xlim(min_ac, max_ac)
+    ax = axes[2,1];ax.set_xlim(min_ac, max_ac);ax.set_ylim(min_ab, max_ab);
+    ax.scatter(MW_sim_stats['ca_ratio_normed'], MW_sim_stats['ba_ratio_normed'])
+    ax = axes[2,2];ax.set_xlim(min_ab, max_ab)
+    ax = axes[0,0];ax.set_xlim(min_w, max_w)
+    ax = axes[1,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ac, max_ac)
+    ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ca_ratio_normed'])
+    ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
+    ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ba_ratio_normed'])
+    children = ax.get_children()
+    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+              loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
+    
+
+    filename = "../paper/input_{}_obs_MW_n_{}_normed.pdf".format(simulation, n_sat)
     print('saving figure to {}'.format(filename))
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()

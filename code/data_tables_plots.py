@@ -50,7 +50,9 @@ CovPlots = False
 ObsAsphPlots = False
 PrintModelNumbers = False
 PlotModelNumbers = False
-PlotShapeRandomObs = True
+PlotShapeRandomObs = False
+PlotShapeObsSim = False
+PlotShapeObsSimNormed = True
 
 if ObsTable:
     asp.print_table_obs_shape()
@@ -77,3 +79,11 @@ if PlotModelNumbers:
 if PlotShapeRandomObs:
     asp.plot_shape_obs_randoms(11)
     asp.plot_shape_obs_randoms(12)
+    
+if PlotShapeObsSim:
+    asp.plot_shape_obs_sims('illustris1dark', 11)
+    asp.plot_shape_obs_sims('illustris1', 11)
+    asp.plot_shape_obs_sims('elvis', 11)
+
+if PlotShapeObsSimNormed:
+    asp.plot_shape_obs_sims_normed('illustris1dark', 11)
