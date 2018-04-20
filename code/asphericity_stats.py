@@ -394,9 +394,9 @@ def plot_numbers():
     LG_data = np.loadtxt('../data/numbers/LG_numbers.txt')
     M31_data = np.loadtxt('../data/numbers/M31_numbers.txt')
     MW_data = np.loadtxt('../data/numbers/MW_numbers.txt')
-    LG_data = LG_data/1E2
-    M31_data = M31_data/1E2
-    MW_data = MW_data/1E2
+    LG_data[:,1:] = LG_data[:,1:]/1E2
+    M31_data[:,1:] = M31_data[:,1:]/1E2
+    MW_data[:,1:] = MW_data[:,1:]/1E2
     plt.figure(figsize=(7,7))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
@@ -409,7 +409,7 @@ def plot_numbers():
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.legend()
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{LG} (\%)$")
+    plt.ylabel("Local Group Systems $(\%)$")
     plt.grid()
     filename = "../paper/LG_numbers.pdf"
     print('saving figure to {}'.format(filename))
@@ -427,7 +427,7 @@ def plot_numbers():
     plt.errorbar(MW_data[:,0], MW_data[:,5], yerr=MW_data[:,6],
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{MW} (\%)$")
+    plt.ylabel("MW Galaxies $(\%)$")
     plt.grid()
     filename = "../paper/MW_numbers.pdf"
     print('saving figure to {}'.format(filename))
@@ -445,7 +445,7 @@ def plot_numbers():
     plt.errorbar(M31_data[:,0], M31_data[:,5], yerr=M31_data[:,6],
                 fmt='>', markersize=20, color='black', alpha=0.5, label='ELVIS')
     plt.xlabel("$N_s$")
-    plt.ylabel("$N_{M31} (\%)$")
+    plt.ylabel("M31 Galaxies $(\%)$")
     plt.grid()
     filename = "../paper/M31_numbers.pdf"
     print('saving figure to {}'.format(filename))
@@ -643,7 +643,7 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
                       truths=M31_obs['data_obs'])
         
         
-    min_w = -5; max_w = 5; min_ac = -5; max_ac = 5 ; min_ab = -5; max_ab = 5
+    min_w = -4; max_w = 4; min_ac = -4; max_ac = 4 ; min_ab = -4; max_ab = 4
     ndim = 3
     axes = np.array(figure.axes).reshape(ndim,ndim)
     ax = axes[1,1];ax.set_xlim(min_ac, max_ac)

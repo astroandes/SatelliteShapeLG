@@ -49,10 +49,10 @@ SimTable = False
 CovPlots = False
 ObsAsphPlots = False
 PrintModelNumbers = False
-PlotModelNumbers = False
+PlotModelNumbers = True
 PlotShapeRandomObs = False
 PlotShapeObsSim = False
-PlotShapeObsSimNormed = True
+PlotShapeObsSimNormed = False
 
 if ObsTable:
     asp.print_table_obs_shape()
