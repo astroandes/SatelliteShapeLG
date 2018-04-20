@@ -46,7 +46,7 @@ import asphericity_stats as asp
 
 ObsTable = False
 SimTable = False
-CovPlots = True
+CovPlots = False
 ObsAsphPlots = False
 PrintModelNumbers = False
 PlotModelNumbers = False
@@ -61,9 +61,10 @@ if SimTable:
     asp.print_table_sim_shape()
     
 if CovPlots:
-    asp.plot_covariance('illustris1dark', 11)
-    asp.plot_covariance('illustris1', 11)
-    asp.plot_covariance('elvis', 11)
+    for nsat in range(11,16):
+        asp.plot_covariance('illustris1dark', nsat)
+        asp.plot_covariance('illustris1', nsat)
+        asp.plot_covariance('elvis', nsat)
     
 if ObsAsphPlots:
     asp.plot_asphericity_obs(0)
@@ -77,15 +78,17 @@ if PlotModelNumbers:
     asp.plot_numbers()
 
 if PlotShapeRandomObs:
-    asp.plot_shape_obs_randoms(11)
-    asp.plot_shape_obs_randoms(12)
+    for nsat in range(11,16):
+        asp.plot_shape_obs_randoms(nsat)
     
 if PlotShapeObsSim:
-    asp.plot_shape_obs_sims('illustris1dark', 11)
-    asp.plot_shape_obs_sims('illustris1', 11)
-    asp.plot_shape_obs_sims('elvis', 11)
+    for nsat in range(11,16):
+        asp.plot_shape_obs_sims('illustris1dark', nsat)
+        asp.plot_shape_obs_sims('illustris1', nsat)
+        asp.plot_shape_obs_sims('elvis', nsat)
 
 if PlotShapeObsSimNormed:
-    asp.plot_shape_obs_sims_normed('illustris1dark', 11)
-    asp.plot_shape_obs_sims_normed('illustris1', 11)
-    asp.plot_shape_obs_sims_normed('elvis', 11)
+    for nsat in range(11,16):
+        asp.plot_shape_obs_sims_normed('illustris1dark', nsat)
+        asp.plot_shape_obs_sims_normed('illustris1', nsat)
+        asp.plot_shape_obs_sims_normed('elvis', nsat)
