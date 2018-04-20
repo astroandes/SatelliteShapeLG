@@ -87,3 +87,5 @@ if PlotShapeObsSim:
 
 if PlotShapeObsSimNormed:
     asp.plot_shape_obs_sims_normed('illustris1dark', 11)
+    asp.plot_shape_obs_sims_normed('illustris1', 11)
+    asp.plot_shape_obs_sims_normed('elvis', 11)
