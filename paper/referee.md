@@ -50,13 +50,53 @@ We do not make the calculation for the whole population because the
 resolution of the Illustris1 simulation does not allow us to make such
 an estimate. This point is also clarified in the paper.
 
-* section 3.3:
-The authors randomize the position of satellites while keeping their radial distribution fixed to compare satellite distribution against their own randomized distribution. Different halo pairs have different masses. How do the authors account for the fact, that a more massive halo has on average a 'wider' satellite distribution with on average larger radii for the satellites? Would the results change if a rescaling, like e.g. rescaling/normalizing all satellite radii by R200 of the host would be done? Could this take out the halo mass dependence?
+>* section 3.3:
+>The authors randomize the position of satellites while keeping their
+>radial distribution fixed to compare satellite distribution against
+>their own randomized distribution. Different halo pairs have
+>different masses. How do the authors account for the fact, that a
+>more massive halo has on average a 'wider' satellite distribution
+>with on average larger radii for the satellites? Would the results
+>change if a rescaling, like e.g. rescaling/normalizing all satellite
+>radii by R200 of the host would be done? Could this take out the halo
+>mass dependence? 
 
-- [Veronica]
+Rescaling/normalizing all satellite radii ny R200 produces the same
+results after normalizing by the randomized distribution.  
+Scaling positions by R200 keeps the asphericity of a halo unchanged.
+The main motivation to renormalize each satellite distribution by its
+own randomized distribution is precisely to factor out the effect of
+the physical size. 
+To explain this point again in a different way, the normalized results
+are sensitive only to the degree of asphericity and not to the
+physical units.
+This is more evident now in Figure 1 and Figure 2. 
+Figure 1 shows the aesphericity in physical quantities, there is
+visible a big difference between the MW and M31 results. 
+Figure 2 shows the same in normalized quantities, there the
+differences are more subtle to spot due to the rescaling. 
 
-* section 4.4 and 5, end of third paragraph:
-The authors say the results of the multivariate gaussian fitting are robust agianst changes in the simulation. However, as Figure 5 clearly shows there are large differences in the number of LG-like systems in the simulations (e.g. M31: 2700 Illustris, 5688 Illustris dark and 3700 ELVIS). Furthermore comparing the corner plots (Fig. 4, C2, C4) for the different simulations one can clearly identify major differences among the simulation setups. Correlations in the plane parameters are much weaker in the HYDRO case and for the b/a vs. c/a case correlations even change from slightly correlated to anti-correlated. This can be discussed in detail at the end of section 4.4 and 4.5 where already an attempt of discussion was made which can clearly be expanded.
+> * section 4.4 and 5, end of third paragraph:
+> The authors say the results of the multivariate gaussian fitting are
+> robust agianst changes in the simulation. However, as Figure 5 clearly
+> shows there are large differences in the number of LG-like systems in
+> the simulations (e.g. M31: 2700 Illustris, 5688 Illustris dark and
+> 3700 ELVIS). Furthermore comparing the corner plots (Fig. 4, C2, C4)
+> for the different simulations one can clearly identify major
+> differences among the simulation setups. Correlations in the plane
+> parameters are much weaker in the HYDRO case and for the b/a vs. c/a
+> case correlations even change from slightly correlated to
+> anti-correlated. This can be discussed in detail at the end of section
+> 4.4 and 4.5 where already an attempt of discussion was made which can
+> clearly be expanded.
+
+What we mean is that the results of different simulations are always
+consistent with gaussians. The results for the covariance matrix and
+mean vector differ widely among simulations, as the referee points
+out. We have clarified this point in the paper and expanded the
+discussion in Sections 4.4 and 4.5.
+
+
 Also the DMO simulations Illustris-dark and ELVIS show vastly different correlations (e.g. b/a vs. w or b/a vs c/a). Elaborating on these differences and working out/understanding where they are coming from is needed. In the case of Illustris-dark vs. Illustris-hydro cosmological parameters, simulation code setup, etc. are the same so its solely hydro effects which might vastly alter the correlations and their strength. However, the differences between Illustris-dark and ELVIS must be of different nature. Undertsanding and quantifying these effects is needed to interpret results obtained from DMO simulations in order to compare them with observations. An attempt is made in section 4.5 where median halo masses are compared. This could be expanded a bit.
 In the case of Illustris vs. ELVIS the reason might lie in resolution (simulation code, difference of WMAP 9 vs WMAP 7) or selection effects introduced in the selection of ELVIS haloes. Here it would be greatly appreciable if the vastly different correlations for e.g. b/a vs. w could be discussed and investigated.
 
