@@ -24,9 +24,31 @@ Major comments:
     > We have removed the reference to stellar masses.
 
 * section 3.1:
-The authors select 11 up to 15 satellites. While for MW 11 satellites corresponds to the "classical MW satellites" nowadays we know many more satellites (>30). The number of 15 corresponds to "the minimum number of M31 satellites usually included in M31 studies". While this might be true for the nuber of plane members of studies of the plane of satellites around M31 by e.g. Ibata+2013 these authors indeed used ALL the satellites found in the Pandas footprint. However, there are many more staellites known around M31 and the 15 in the plane are not necessarily the most massive/luminous ones. Thus, it would be far more informative to calculate the asphericity of MW and M31 satellites for the classical/conventional number of satellites (11 or 15) and the whole (known) satellite population to see if asphericity is the result of low number statistics or if there is indeed a depepndence on satellite mass. E.g. are the most massive satellites preferentially distributed in a planar fashion?
+> The authors select 11 up to 15 satellites. While for MW 11 satellites
+> corresponds to the "classical MW satellites" nowadays we know many
+> more satellites (>30). The number of 15 corresponds to "the minimum
+> number of M31 satellites usually included in M31 studies". While this
+> might be true for the nuber of plane members of studies of the plane
+> of satellites around M31 by e.g. Ibata+2013 these authors indeed used
+> ALL the satellites found in the Pandas footprint. However, there are
+> many more staellites known around M31 and the 15 in the plane are not
+> necessarily the most massive/luminous ones. Thus, it would be far more
+> informative to calculate the asphericity of MW and M31 satellites for
+> the classical/conventional number of satellites (11 or 15) and the
+> whole (known) satellite population to see if asphericity is the result
+> of low number statistics or if there is indeed a depepndence on
+> satellite mass. E.g. are the most massive satellites preferentially
+> distributed in a planar fashion? 
 
-- [Veronica]
+We calculate now the asphericity at a fixed number of satellites. 
+The results we examine in detail correspond to N=11, but we also quote
+the results for N=12, 13, 14 and 15 to examine a possible dependence
+on satellite number. 
+For the MW w e do not find any obvious trend. However, for the M31
+there seems to be a trend for N>=12.  The new Figure 4 summarizes these results.
+We do not make the calculation for the whole population because the
+resolution of the Illustris1 simulation does not allow us to make such
+an estimate. This point is also clarified in the paper.
 
 * section 3.3:
 The authors randomize the position of satellites while keeping their radial distribution fixed to compare satellite distribution against their own randomized distribution. Different halo pairs have different masses. How do the authors account for the fact, that a more massive halo has on average a 'wider' satellite distribution with on average larger radii for the satellites? Would the results change if a rescaling, like e.g. rescaling/normalizing all satellite radii by R200 of the host would be done? Could this take out the halo mass dependence?
