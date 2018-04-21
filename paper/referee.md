@@ -216,21 +216,30 @@ two and mention that in the paper.
 
 Axis limits are now the same for all plots.
 
-* section 5, last two paragraphs:
-If true, this result is very nice and fits the other hints that MW might be special. But then the question is, do any of the particularities stated here correlate with asphericity? How do these findings influence the probability of finding aspherical satellite distributions?
+> * section 5, last two paragraphs:
+>If true, this result is very nice and fits the other hints that MW
+>might be special. But then the question is, do any of the
+>particularities stated here correlate with asphericity? How do these
+>findings influence the probability of finding aspherical satellite
+>distributions? 
 
-[Jaime] Se necesita una muestra amplia para saber. Es lo que sugerimos al final.
+To address this question using simulations one would need a large
+sample of galaxies to estimate these correlations. We have added an estimate in
+the conclusions about the volume required from a cosmological
+simulation to study these correlations. 
 
-* section 4.5, last paragraph:
-values for plane width and c/a ratios do not match the values in the corner plots. Please be consistent!!!
+> * section 4.5, last paragraph:
+> values for plane width and c/a ratios do not match the values in the
+> corner plots. Please be consistent!!! 
 
-[Veronica]
+We have fixed this inconsistency. 
 
-* Figure A.1:
-The quality of the plots would highly be improved if the authors would add lines for the observed/estimated values and their uncertainties for the MW and M31.
+>* Figure A.1:
+> The quality of the plots would highly be improved if the authors
+> would add lin> es for the observed/estimated values and their
+> uncertainties for the MW and M31. 
 
-[Jaime]
-
+We have included now these uncertainties. 
 
 
 Minor comments:
