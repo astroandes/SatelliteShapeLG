@@ -96,11 +96,38 @@ out. We have clarified this point in the paper and expanded the
 discussion in Sections 4.4 and 4.5.
 
 
-Also the DMO simulations Illustris-dark and ELVIS show vastly different correlations (e.g. b/a vs. w or b/a vs c/a). Elaborating on these differences and working out/understanding where they are coming from is needed. In the case of Illustris-dark vs. Illustris-hydro cosmological parameters, simulation code setup, etc. are the same so its solely hydro effects which might vastly alter the correlations and their strength. However, the differences between Illustris-dark and ELVIS must be of different nature. Undertsanding and quantifying these effects is needed to interpret results obtained from DMO simulations in order to compare them with observations. An attempt is made in section 4.5 where median halo masses are compared. This could be expanded a bit.
-In the case of Illustris vs. ELVIS the reason might lie in resolution (simulation code, difference of WMAP 9 vs WMAP 7) or selection effects introduced in the selection of ELVIS haloes. Here it would be greatly appreciable if the vastly different correlations for e.g. b/a vs. w could be discussed and investigated.
+> Also the DMO simulations Illustris-dark and ELVIS show vastly
+>  different correlations (e.g. b/a vs. w or b/a vs c/a). Elaborating
+>  on these differences and working out/understanding where they are
+>  coming from is needed. In the case of Illustris-dark
+>  vs. Illustris-hydro cosmological parameters, simulation code setup,
+>  etc. are the same so its solely hydro effects which might vastly
+>  alter the correlations and their strength. However, the differences
+>  between Illustris-dark and ELVIS must be of different
+>  nature. Undertsanding and quantifying these effects is needed to
+>  interpret results obtained from DMO simulations in order to compare
+>  them with observations. An attempt is made in section 4.5 where
+>  median halo masses are compared. This could be expanded a bit.
+> In the case of Illustris vs. ELVIS the reason might lie in
+>  resolution (simulation code, difference of WMAP 9 vs WMAP 7) or
+>  selection effects introduced in the selection of ELVIS haloes. Here
+>  it would be greatly appreciable if the vastly different
+>  correlations for e.g. b/a vs. w could be discussed and
+>  investigated. 
 
-- [Jaime]
-
+We agree thatthe results from ELVIS are puzzling given the vast
+difference with respect to the Illustris simulations. 
+We consider such a study far beyond the scope of this paper. This
+would require, at least, 1) having larger halo samples of halos in the
+same resolution as Illustris1 to explore asphericity as a function of halo
+mass. Right now we only have ~5 halos in the same mass range as
+ELVIS. 2) Similar simulations as Illustris1 in volume with higher
+resolution to explore the effect of numerical resolution. These two
+points could be addresed in detaile with the new IllustrisTNG
+simulations, unfortunately the data is still not yet public. 
+We discuss these issues in the paper. However, we highlight that our
+main objective is presenting a new tool and presenting its power to spot
+differences as the one we have just discussed between ELVIS and Illustris1.
 
 * section 4.5, line 59:
 Here and in the abstract it says at most 2% of the pairs have asphericity comparable to the LG. This doesn't match the values stated in Figure caption 5 which says that only 1% of the LG analogues have properties similar to what is observed. Please clarify how the probability is derived and make sure the paper is coherent and not contradicting itself.
