@@ -11,8 +11,7 @@ Our reply to each comment follows immediatly after.
 With best regards, 
 Jaime and Veronica
 
-Major comments:
-
+> Major comments:
 > section 2.2, page 4 and section 2.3, page 4, end of first column:
 > The authors say Appendix A shows physical properties like e.g. stellar
 > masses of the halo pairs. I can't find any stellar mass plots or
@@ -21,9 +20,9 @@ Major comments:
 > mass information for solely Illustris or be consistent throughout the
 > paper and remove the reference to stellar masses. 
 
-    > We have removed the reference to stellar masses.
+We have removed the reference to stellar masses.
 
-* section 3.1:
+> * section 3.1:
 > The authors select 11 up to 15 satellites. While for MW 11 satellites
 > corresponds to the "classical MW satellites" nowadays we know many
 > more satellites (>30). The number of 15 corresponds to "the minimum
