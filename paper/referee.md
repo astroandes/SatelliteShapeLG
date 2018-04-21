@@ -129,10 +129,17 @@ We discuss these issues in the paper. However, we highlight that our
 main objective is presenting a new tool and presenting its power to spot
 differences as the one we have just discussed between ELVIS and Illustris1.
 
-* section 4.5, line 59:
-Here and in the abstract it says at most 2% of the pairs have asphericity comparable to the LG. This doesn't match the values stated in Figure caption 5 which says that only 1% of the LG analogues have properties similar to what is observed. Please clarify how the probability is derived and make sure the paper is coherent and not contradicting itself.
+> * section 4.5, line 59:
+> Here and in the abstract it says at most 2% of the pairs have
+> asphericity comparable to the LG. This doesn't match the values stated
+> in Figure caption 5 which says that only 1% of the LG analogues have
+> properties similar to what is observed. Please clarify how the
+> probability is derived and make sure the paper is coherent and not
+> contradicting itself. 
 
-- [Jaime]
+We clarify now these probabilities as a function of satellite number.
+We have checheked that we don't have errors in the number quoted in
+the different sections.
 
 Moderate comments:
 
