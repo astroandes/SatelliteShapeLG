@@ -143,29 +143,78 @@ the different sections.
 
 Moderate comments:
 
-* section 3.1:
-The authors select satellites in the simulation ranked by maximum circular velocity while in observations the satellites are selected by luminosity. Could they please elaborate a bit on why this selection results in a fair comparison or at least state some references. Which assumptions go into this?
+>* section 3.1:
+> The authors select satellites in the simulation ranked by maximum
+> circular velocity while in observations the satellites are selected by
+> luminosity. Could they please elaborate a bit on why this selection
+> results in a fair comparison or at least state some references. Which
+> assumptions go into this? 
 
-- [Jaime]
 
-* section 4, second paragraph, disussion Table 3,4:
-".. confirms ... more spherical distribution for the M31." How does this go togehter with the claim that there is a plane of satellites around M31? How exactly are the 15 satellites for the M31 case choosen? The ones in the plane or the 15 most massive/luminous? If the 15 most massive/luminous are chosen, this explains why M31 is not planar. The satellites in the plane of M31 are not the most massive ones. This shows how important it is to clearly state the selection procedure of satellites and that a general characterization of asphericity (including all known satellites) is more informative.
+This selection criteria only applies to the case of Illustris1Dark. 
+For the ELVIS simulation we use their published stellar mass estimate 
+for each substructure. We make this clarification in the paper.
+Using Illustris1 data we find that the brightest satellites (for
+N=15) match the same satellites selected by vmax only in half of the
+cases. 
+We now state clearly in the paper that this selection is an approximation
+and could be another reason behind the difference between the results
+from Illustris1 and Illustris1Dark. 
 
-- [Jaime]. Grafica para todos desde N=15 hasta 30.
 
-* Figure 1, 2, 3:
-(a) What exactly do the 5 stars show? Satellite numbers from 11 to 15? If so, please state that clearly. It is not obvious.
 
-[Jaime]. Aclarar en el caption el significado.
 
-(b) While it is a nice idea to show MW and M31 on x and y axis, it is not at all clear why this is informative. It implies a correlation/dependence between, e.g. the plane width of MW and M31. Furthermore, as the ELVIS paper (Garirison-Kimmel+2014) states, there are no differences in satellite abundances and kinematics between paired and isolated haloes. Naively, from this one would expect that the width of planes in paired haloes should be independend. So, could the authors please spend some words on explaining the choice of visualization? I understand that this is a compact way of showing the results but a bit more discussion helps the reader to understand the authors's point.
+> * section 4, second paragraph, disussion Table 3,4:
+> ".. confirms ... more spherical distribution for the M31." How does
+> this go togehter with the claim that there is a plane of satellites
+> around M31? How exactly are the 15 satellites for the M31 case
+> choosen? The ones in the plane or the 15 most massive/luminous? If the
+> 15 most massive/luminous are chosen, this explains why M31 is not
+> planar. The satellites in the plane of M31 are not the most massive
+> ones. This shows how important it is to clearly state the selection
+> procedure of satellites and that a general characterization of
+> asphericity (including all known satellites) is more informative. 
 
-[Jaime] Visualizacion para ahorra espacio.
+We stress now in the paper that we do not find planes of satellites
+and our results for M31 should not be compared against sophisticated
+satellite selectins. 
+but only characterize asphericity in distributions ranked by
+luminosity (in the case of observations and Illustris1) or estimated stellar
+mass/vmax (in the case of ELVIS/Illustris1dark).
 
-* Figure 4 and Figure C2, C4:
-Axis limits are different for all corner plots. This makes a direct comparison difficult. I would advice to make the axis limits the same for all plots (or otherwise remind the reader to pay attention to this).
 
-[Jaime]
+> * Figure 1, 2, 3:
+> (a) What exactly do the 5 stars show? Satellite numbers from 11 to
+> 15? If so, > please state that clearly. It is not obvious.
+
+In the older version of the paper each star showed the results for 11,
+12, 13, 14 or 15 satellites. We now present the results at fixed
+N_satellite throughout the paper.
+
+> (b) While it is a nice idea to show MW and M31 on x and y axis, it
+  is not at all clear why this is informative. It implies a
+  correlation/dependence between, e.g. the plane width of MW and
+  M31. Furthermore, as the ELVIS paper (Garirison-Kimmel+2014) states,
+  there are no differences in satellite abundances and kinematics
+  between paired and isolated haloes. Naively, from this one would
+  expect that the width of planes in paired haloes should be
+  independend. So, could the authors please spend some words on
+  explaining the choice of visualization? I understand that this is a
+  compact way of showing the results but a bit more discussion helps
+  the reader to understand the authors's point. 
+
+To avoid confusion we have changed the visualtion and show separately
+the results for the MW and M31. 
+Indeed, we have checked that there isn't any correlation between the
+two and mention that in the paper.
+
+> * Figure 4 and Figure C2, C4:
+> Axis limits are different for all corner plots. This makes a direct
+> comparison difficult. I would advice to make the axis limits the
+> same for all plots (or otherwise remind the reader to pay attention
+> to this). 
+
+Axis limits are now the same for all plots.
 
 * section 5, last two paragraphs:
 If true, this result is very nice and fits the other hints that MW might be special. But then the question is, do any of the particularities stated here correlate with asphericity? How do these findings influence the probability of finding aspherical satellite distributions?
