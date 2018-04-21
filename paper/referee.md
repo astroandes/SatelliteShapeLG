@@ -1,17 +1,27 @@
-Reviewer's Comments:
+We thank the referee for a detailed and thorough reading of our paper.
+We have corrected all the major deficiencies in the presentation of
+the methods results.
+We have also included an explicit estimate of the main results as a
+function of satetellite number. 
+All the major conclusions quoted in the first version of the paper remain
+unchanged. 
+In the following we quote the referee with the symbol ">". 
+Our reply to each comment follows immediatly after.
 
-Referee report
-
-The article „We are not the 99 per cent: quantifying asphericity in the distribution of Local Group satellites“ by J. Forero-Romero and V. Arias
-studies the satellite population of a large scale cosmological simulation (Illustris, the dark matter only version and its hydro counterpart) and a suite of zoom-in cosmological simulations (ELVIS) of Local Group analogues. The aim of the paper is to build a probability distribution for the asphericity of satellite galaxies around Local Group (LG) like systems based on cosmological simulations. The result is used to quantify the atypicality of the LG in the framework of the Lambda Cold Dark Matter (LCDM) cosmology. The results presented here suggest that the LG lies within the 3 sigma tail of the LCDM distribution in terms of satellite asphericity. However, a strong influence of dark matter halo mass and baryonic effects is found. The results of this paper are interesting and timely. Nevertheless, the article suffers from inconsistencies, a large number of spelling errors (even in the abstract) and sometimes an unclear presentation of results. The large number of spelling errors and inconsistencies of e.g. quoted values in the text and in the figures clearly shows that the authors did not spend much time on proof reading the manuscript which left a negative impression on me. I advice for future submissions to proof read the manuscript carefully before submitting in order to leave a more positive impression appropriate for the interesting results reported. Therefore I recommend major revision of this article before I can consider it for publication in MNRAS.
-
+With best regards, 
+Jaime and Veronica
 
 Major comments:
 
-* section 2.2, page 4 and section 2.3, page 4, end of first column:
-The authors say Appendix A shows physical properties like e.g. stellar masses of the halo pairs. I can't find any stellar mass plots or listings. Furthermore, ELVIS is a DMO simulation suite so the only simulation with stellar masses is Illustris. Please, add the stellar mass information for solely Illustris or be consistent throughout the paper and remove the reference to stellar masses.
+> section 2.2, page 4 and section 2.3, page 4, end of first column:
+> The authors say Appendix A shows physical properties like e.g. stellar
+> masses of the halo pairs. I can't find any stellar mass plots or
+> listings. Furthermore, ELVIS is a DMO simulation suite so the only
+> simulation with stellar masses is Illustris. Please, add the stellar
+> mass information for solely Illustris or be consistent throughout the
+> paper and remove the reference to stellar masses. 
 
-    > We have removed the reference to stellar masses plots.
+    > We have removed the reference to stellar masses.
 
 * section 3.1:
 The authors select 11 up to 15 satellites. While for MW 11 satellites corresponds to the "classical MW satellites" nowadays we know many more satellites (>30). The number of 15 corresponds to "the minimum number of M31 satellites usually included in M31 studies". While this might be true for the nuber of plane members of studies of the plane of satellites around M31 by e.g. Ibata+2013 these authors indeed used ALL the satellites found in the Pandas footprint. However, there are many more staellites known around M31 and the 15 in the plane are not necessarily the most massive/luminous ones. Thus, it would be far more informative to calculate the asphericity of MW and M31 satellites for the classical/conventional number of satellites (11 or 15) and the whole (known) satellite population to see if asphericity is the result of low number statistics or if there is indeed a depepndence on satellite mass. E.g. are the most massive satellites preferentially distributed in a planar fashion?
