@@ -639,33 +639,33 @@ treshold absolute observed value.
 \centering
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11.pdf}
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11.pdf}
-\caption{Plane width characterization in observations and
-  simulations (Illustris-1-Dark in this case). In all panels the
-  horizontal/vertical axis corresponds to the  M31/MW or the
-  most/less massive halo in the pair. 
-  Left. Plane width in physical units comparing the results from observations
-(stars) against the result of spherically randomizing the satellite
-positions (circles). 
-Middle. Average from the observations (star) and the average from each
-pair in the simulation (circles).}
+\caption{Scalars describing satellite shape around the LG galaxies for
+  a fixed number of satellites $N_s$=11:
+  plane width $w$ in physical units, $c/a$ ratio and $b/a$ ratio.
+  Left: M31, rigth: MW. The square at the center are observations; the
+2D histograms are the contour levels after randomizing $10^4$ the
+satellite positions while keeping the radial distribution fixed; the
+blue circles are the results from Illustris-1-Dark. For the M31 these
+three results (observations, randomized observations and simulations)
+seem to be in broad agreement, while for the MW the three results
+clearly differ. The corresponding plots for Illustris-1 and ELVIS can
+be found in Figures \ref{fig:all_plots_illustris1} and
+\ref{fig:all_plots_elvis},
+respectively. \label{fig:physical_illustris1dark}}    
 \end{figure*}
 
 \begin{figure*}
 \centering
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11_normed.pdf}
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11_normed.pdf}
-\caption{Right. Same as the middle panel except that this time each point has
-been normalized (median substracted and normalized by the standard
-deviation) to the results of its randomization. 
-The main message of these panels is that the MW has a significantly
-thinner plane both compared to the result of its own satellite
-spherical randomization (left panel) and the expectation from
-simulations (middle and right panel).  
-This low value is $2\sigma$ away from what is expected in a spherical
-distribution. 
-In M31 the satellite distribution is in agreement with the
-expectations both from a spherical distribution and the results from the
-simulations. }
+\caption{Same layout as Figure \ref{fig:physical}. 
+  Each scalar
+  quantity is recentered and normalized by the mean value and standard
+  deviation from the $10^4$ randomizations. 
+  The distribution from the randomization now has by definition a mean
+of zero and standard deviation of one. 
+The results for the width and $c/a$ ratio of MW satellites are more
+than two standard deviations away from the mean. } 
 \end{figure*}
 
 
@@ -1022,7 +1022,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
   physical properties are the radial comoving velocity between the MW
   and M31, the radial separation between the MW and M31 and the
   maximum circular velocity for the M31 and MW dark matter halo.
-\label{fig:physical}}
+\label{fig:phyical}}
 \end{figure}
 
 
@@ -1155,14 +1155,14 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \includegraphics[width=0.40\textwidth]{input_illustris1_obs_MW_n_11_normed.pdf}
 \includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_M31_n_11.pdf}
 \includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_MW_n_11.pdf}
-\caption{ELVIs results for the quantities presented for the Illustris1-Dark
+\caption{Illustris-1 results for the quantities presented for the Illustris1-Dark
   simulation in Figures  \ref{fig:scatter_width},
   \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
 Upper row corresponds to the raw values from observations and
 simulated pairs, while the second row normalizes the same values to
 the mean and standard deviation on its spherically randomized
 counterparts. 
-\label{fig:scatter_elvis}}
+\label{fig:all_plots_illustris1}}
 \end{figure*}
 
 
@@ -1181,7 +1181,7 @@ Upper row corresponds to the raw values from observations and
 simulated pairs, while the second row normalizes the same values to
 the mean and standard deviation on its spherically randomized
 counterparts. 
-\label{fig:scatter_elvis}}
+\label{fig:all_plots_elvis}}
 \end{figure*}
 
 
