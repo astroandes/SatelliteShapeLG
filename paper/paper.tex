@@ -328,14 +328,26 @@ XXXII, Andromeda XXXI, Andromeda I, Andromeda VI, Andromeda XXIII, LGS 3,
 
 
 
-\subsection{Data from the Illustris project}
+\subsection{Simulated Data}
+ 
+We use data from three different simulations Illustris-1,
+Illustris-1-Dark and ELVIS. 
+In what follows we describe the relevant detailed of those
+simulations, how the halo pairs resembling the LG are selected and how
+the satellite samples for each halo is built.
+Figure \ref{fig:physical_pairs} summarizes the physical properties (maximum
+circular velocities, radial velocities and separation) of the halo
+pairs to be used.
+
+\subsubsection{Illustris-1 and Illustris-1-Dark}
 \label{sec:illustris}
 
 We use publicly available data from the Illustris Project 
 \citep{2014MNRAS.444.1518V}. 
-This suite of cosmological simulations, performed using the quasi-Lagrangian
-code AREPO \citep{2010MNRAS.401..791S}, followed the coupled evolution of dark 
-matter and gas and includes parametrizations to account for the effects of
+This suite of cosmological simulations were performed using the quasi-Lagrangian
+code AREPO \citep{2010MNRAS.401..791S}.
+They followed the coupled evolution of dark  matter and gas and
+includes parametrizations to account for the effects of 
 gas cooling, photoionization, star formation, stellar feedback, black
 hole and super massive black hole feedback. 
 The simulation volume is a cubic box with a $75$ \Mpch\ side.
@@ -343,17 +355,17 @@ The cosmological parameters correspond to a $\Lambda$CDM cosmology
 consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
 
 We extract halo and galaxy information from the Illustris-1 and
-Illustris-1-Dark simulations, the former simulation includes
-hydrodynamics and star formation prescriptions while the latter only
-includes dark matter physics.
+Illustris-1-Dark simulations. 
+The former includes hydrodynamics and star formation prescriptions while the latter only
+includes dark matter physics. 
 These simulations have the highest resolution in the current release of the
 Illustris Project.
 Illustris-1 has $1820^3$ dark matter particles and $1820^3$ initial gas
 volumen elements, while Illustris-1-Dark has $1820^3$ dark matter particles.
 This corresponds to a dark matter particle mass of
 $6.3\times 10^6$\Msun\ and a minimum mass for the baryonic volume
-element of $1.2\times 10^6$\Msun for Illustris-1 and a dark matter
-particle mass of $7.6\times 10^6$\Msun for Illustris-1-Dark.
+element of $1.2\times 10^6$\Msun\ for Illustris-1 and a dark matter
+particle mass of $7.6\times 10^6$\Msun\ for Illustris-1-Dark.
 In both simulations the dark matter gravitational softening is $1.4$
 kpc.
 
@@ -397,9 +409,20 @@ magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
 satellites, we use instead the dark matter information. 
 Both in Illustris-1 and Illustris-1-Dark we chose the satellite samples
 by ranking the subhalos in decreasing order of its current maximum
-circular velocity and select the first $N_p$ halos in the list.  
-Under these conditions the smallest sub-halos are sampled with at least $40$ particles.  
+circular velocity and select the first $N_s$ halos in the list.  
 The results presented here correspond to $11\leq N_p\leq 15$. 
+
+These selection criteria are convenient because it allows us to direct
+our attention at baryonic physics as the driver behing the differences
+in the results between the two simulations. 
+Under these conditions the smallest sub-halos are sampled with at
+least $40$ particles. This approximation works well for the $~10$ most
+massive subhalos in MW type galaxies. 
+To a good approximation these are the systems with the highest
+circular velocity at infall \citep{2011MNRAS.415L..40B}, which is the
+physical quantity expected to best correlate with luminosity
+\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}.   
+
 
 
 
@@ -446,10 +469,9 @@ tangential velocity less than $75 $\kms.
 The dark matter particle resolution in these resimulations is
 $1.9\times 10^5$, a thousand times better than Illustris-1.
 In this paper we only use the results from these $12$ resimulated pairs.
+To be consistent with the satellite selection in Illustris-1 we also
+select satellites by ranking them by maximum circular velocity,
 
-Appendix A compares the physical properties (maximum circular
-velocities, radial velocities and separation) in those pairs against
-the results from the Illustris-1 simulations.  
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
 \label{sec:SpatialMeasurements}
@@ -514,7 +536,7 @@ $b/a$ ratio & $0.96$ & $0.87$ & $0.81\pm0.08$ & $0.80\pm0.09$ & $1.69$ & $0.80$\
   The plane width and $c/a$ ratio for the MW is
   consistently consistently found beyond two standard
   deviations; M31 shows the opposite trend and is always found
-  \emph{within} two standard deviations \label{fig:normalized_n}.} 
+  \emph{within} two standard deviations. \label{fig:normalized_n}} 
 \end{figure*}
 
 
@@ -1037,7 +1059,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
   physical properties are the radial comoving velocity between the MW
   and M31, the radial separation between the MW and M31 and the
   maximum circular velocity for the M31 and MW dark matter halo.
-\label{fig:phyical}}
+\label{fig:physical_pairs}}
 \end{figure}
 
 
