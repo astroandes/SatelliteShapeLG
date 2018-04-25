@@ -369,15 +369,14 @@ particle mass of $7.6\times 10^6$\Msun\ for Illustris-1-Dark.
 In both simulations the dark matter gravitational softening is $1.4$
 kpc.
 
-We buid a sample of pairs that resemble the conditions in the LG.
-To construct this sample we select from Illustris-1 all the galaxies with a stellar
-mass in the range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11}
-\Msun$.
+We buid a sample of pairs that resemble the conditions in the LG as follows.
+First, we select from Illustris-1 all the galaxies with a stellar mass
+in the range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
 Then we select the pairs with the following conditions.
 
 \begin{itemize}
 \item For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
-the closest to halo $B$, the two are considered as a pair. 
+the closest to $B$, the two are considered as a pair. 
 \item With $d_{AB}$ the distance between the two galaxies and
   $M_{\star,min}$ the lowest stellar mass in the two galaxies, we
   discard pairs that have any other galaxy $C$ with stellar mass
@@ -389,39 +388,42 @@ the closest to halo $B$, the two are considered as a pair.
 \end{itemize}
 
 We find 27 pairs with these conditions. 
-We then select the pairs where in both halos there are at least 15
-detected subhalos, thus discarding pairs with halos with the lowest
-mass.
-We end up with a total of 20 pairs in Illustris-1.
-
 In Illustris-1-Dark we use the center of mass position of the 27 pairs
 in Illustris-1 to find the matching halo pairs.
 After discarding the pairs with less than 15 detected subhalos in one
 of the halos we end up with a total of 24 pairs in Illustris-1-Dark. 
 This corresponds to a pair number density of $\sim 2 \times10^{-5}$
 pairs Mpc$^{-3}$. 
-Appendix A shows the maximum, circular velocities, radial velocities and separation of those pairs.
+Figure \ref{fig:physical_pairs} summarizes the physical properties (maximum
+circular velocities, radial velocities and separation) of the halo
+pairs to be used.
 
 Although Illustris-1 has stellar particles, we do not use their
-properties to select the satelite population.
+properties to select the satelite population for the results reported
+here. 
 The smallest galaxies are barely resolved in stellar mass at
 magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
 satellites, we use instead the dark matter information. 
-Both in Illustris-1 and Illustris-1-Dark we chose the satellite samples
-by ranking the subhalos in decreasing order of its current maximum
-circular velocity and select the first $N_s$ halos in the list.  
-The results presented here correspond to $11\leq N_p\leq 15$. 
+However, we tested using $M_V$ in Illustris-1 as a selection criteria
+and the results we report here are not strongly influenced by that
+choice. 
 
-These selection criteria are convenient because it allows us to direct
-our attention at baryonic physics as the driver behing the differences
-in the results between the two simulations. 
+We decide to use both in Illustris-1 and Illustris-1-Dark the same
+satellite selection rules.
+Namely, selecting the satellites by ranking the subhalos in decreasing
+order of its current maximum circular velocity and select the first
+$N_s$ halos in the list. 
+These selection criteria are also convenient.
+They allow us to direct our attention at baryonic physics as the driver
+behind the differences in the results between the two simulations. 
 Under these conditions the smallest sub-halos are sampled with at
-least $40$ particles. This approximation works well for the $~10$ most
-massive subhalos in MW type galaxies. 
-To a good approximation these are the systems with the highest
-circular velocity at infall \citep{2011MNRAS.415L..40B}, which is the
-physical quantity expected to best correlate with luminosity
-\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}.   
+least $40$ particles. This approximation works well for the $\approx 10$ most
+massive subhalos in MW type galaxies; to a good approximation these
+are the systems with the highest circular velocity at infall
+\citep{2011MNRAS.415L..40B}, which is the physical quantity expected
+to best correlate with luminosity
+\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}. 
+
 
 
 
@@ -459,18 +461,19 @@ $2\times
   the pairs' center of mass.
 \end{itemize} 
 
-This corresponds to a pair number density of $\sim 8 \times10^{-6}$ pairs
-Mpc$^{-3}$, this is a factor $\sim 2.5$ lower than the pair number density
-we find in the Illustris-1 data.
+This corresponds to a number density of $\sim 8 \times10^{-6}$
+pairs/Mpc$^{3}$, which is a factor $\sim 2.5$ lower than the pair
+number density we find in the Illustris-1 data.
 There were a total of 146 pairs that met those criteria, but only $12$
 were chosen for resimulation. 
 Additionally, the selected pairs for resimulation have a relative
 tangential velocity less than $75 $\kms. 
 The dark matter particle resolution in these resimulations is
-$1.9\times 10^5$, a thousand times better than Illustris-1.
+$1.9\times 10^5$, an order of magnitude times better than Illustris-1.
 In this paper we only use the results from these $12$ resimulated pairs.
-To be consistent with the satellite selection in Illustris-1 we also
-select satellites by ranking them by maximum circular velocity,
+To be consistent with the satellite selection in Illustris-1 and
+Illustris-1-Dark we also select satellites by ranking them by their
+maximum circular velocity.
 
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
@@ -561,7 +564,7 @@ $b/a$ ratio & $0.80\pm 0.10$ & $0.80 \pm 0.08$  & $0.82\pm 0.09$ & $0.82\pm 0.07
     quantities describing the satellite distributions: plane width, $c/a$
     ratio and $b/a$ ratio. 
     The first column summarizes the results from the 27 pairs in
-    Illustris-1-Dark, the second column from the 23 pairs in
+    Illustris-1-Dark, the second column from the 24 pairs in
     Illustris-1 and the third column from the 12 pairs in the
     ELVIS project.\label{table:simulations}}
 \end{table*}

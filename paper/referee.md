@@ -150,18 +150,7 @@ Moderate comments:
 > results in a fair comparison or at least state some references. Which
 > assumptions go into this? 
 
-
-This selection criteria only applies to the case of Illustris1Dark. 
-For the ELVIS simulation we use their published stellar mass estimate 
-for each substructure. We make this clarification in the paper.
-Using Illustris1 data we find that the brightest satellites (for
-N=15) match the same satellites selected by vmax only in half of the
-cases. 
-We now state clearly in the paper that this selection is an approximation
-and could be another reason behind the difference between the results
-from Illustris1 and Illustris1Dark. 
-
-
+We have expanded and added some references.
 
 
 > * section 4, second paragraph, disussion Table 3,4:
