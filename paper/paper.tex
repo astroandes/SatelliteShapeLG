@@ -534,11 +534,12 @@ $b/a$ ratio & $0.96$ & $0.87$ & $0.81\pm0.08$ & $0.80\pm0.09$ & $1.69$ & $0.80$\
 \includegraphics[width=0.30\textwidth]{normalized_ca_ratio_n_dependence.pdf}
 \includegraphics[width=0.30\textwidth]{normalized_ba_ratio_n_dependence.pdf}
 \caption{Normalized asphericity scalars from observations as a function
-  of satellite number, $N_s$. Left: plane width; center: $c/a$ ratio;
+  of satellite number. Left: plane width; center: $c/a$ ratio;
   right: $b/a$ ratio. 
   The plane width and $c/a$ ratio for the MW is
-  consistently consistently found beyond two standard
-  deviations; M31 shows the opposite trend and is always found
+  consistently found beyond two standard
+  deviations.
+  M31 shows the opposite trend and is always found
   \emph{within} two standard deviations. \label{fig:normalized_n}} 
 \end{figure*}
 
@@ -701,7 +702,8 @@ respectively. \label{fig:physical_illustris1dark}}
 \centering
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11_normed.pdf}
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11_normed.pdf}
-\caption{Same layout as Figure \ref{fig:physical_illustris1dark}. 
+\caption{
+Same layout as Figure \ref{fig:physical_illustris1dark}. 
   Each scalar
   quantity is recentered and normalized by the mean value and standard
   deviation from the $10^4$ randomizations. 
@@ -722,22 +724,13 @@ respectively. \label{fig:normalized_illustris1dark}}
 \centering
 \includegraphics[width=0.45\textwidth]{gaussian_model_illustris1dark_M31_n_11.pdf}
 \includegraphics[width=0.45\textwidth]{gaussian_model_illustris1dark_MW_n_11.pdf}
-\caption{Results from multivariate gaussian model fitted to the
-  normalized values for the plane width $w$, $c/a$ ratio and $b/a$
-  ratio from the Illustris-1-Dark results.  
-  Left/right panel correspond to M31/MW respectively.  
-  The cross indicates the observed values.
-  The contour levels in the 2D histograms correspond to the $1\sigma$,
-$2\sigma$ and $3\sigma$ contours in two dimensions.
-  The dashed vertical lines in the histograms along the diagonal
-  correspond to the $1\sigma$ boundaries in one dimension.
-  The results for the gaussian model are built from $10^6$ point
-  realizations in the three-dimensional space spanned by the variables of
-  interest for each halo. 
-  This plot clearly shows how the M31 results are well within the
-  expectations from simulations while the MW has an unusual low value for
-  the plane width and the $c/a$ axis ratio.
-\label{fig:correlations_illustrisdm}}
+\caption{
+Same layout as Figure \ref{fig:normalized_illustris1dark}. 
+This time the distribution comes from the multivariate gaussian model 
+with its parameters estimated from the Illustris-1-Dark results.
+The corresponding plots for Illustris-1 and ELVIS are
+in Figures \ref{fig:all_plots_illustris1} and \ref{fig:all_plots_elvis},
+respectively. \label{fig:gaussian_illustris1dark}}     
 \end{figure*}
 
 
@@ -811,15 +804,15 @@ matrix described in Equation \ref{eq:multivariate}.
 \includegraphics[width=0.32\textwidth]{LG_numbers.pdf}
 \includegraphics[width=0.32\textwidth]{M31_numbers.pdf}
 \includegraphics[width=0.32\textwidth]{MW_numbers.pdf}
-\caption{Probability distribution for the expected number of M31 and
-  MW halos showing the same degree of atypicality as the Local Group if drawn
-  from a sample of $10^4$ isolated pairs. 
-  The distributions correspond to results derived from Illustris-1-Dark, Illustris,
-  and ELVIS data.
-  In the most optimistic case (Illustris-1-Dark), $1\%$ of the pairs have
-  two halos with properties similar to the LG. 
-  In the case of Illustris-1 this percentage drops to $0.1\%$ and
-  $0.01\%$ for ELVIS. 
+\caption{
+Percentage of systems that have asphericity scalars as extreme as the
+LG (left), M31 (middle) and MW (right).  
+This percentage is computed as a function of satellite number for all
+the three simulations (Illustris-1-Dark, Illustris-1 and ELVIS).
+The common trend is that at most of $2\%$ of LG-like pairs are expected to
+be as extreme as observations, with most of the weight of this
+atypicallity falls onto the MW; at most $4\%$ of similar systems have
+such an aspherical satellite distribution. 
 \label{fig:expected_number}}
 \end{figure*}
 
@@ -970,7 +963,7 @@ standard deviation computed from the randomized data.
 We found that these normalized quantities are well described by
 a multivariate gaussian distribution in spite of the original
 quantities being bound.
-We estimated the mean and covariance of {\color{red}these} distributions using
+We estimated the mean and covariance of these distributions using
 the results of LG pairs coming from three different numerical
 simulations (Illustris-1, Illustris-1-Dark and ELVIS). 
 Finally, we compared the observational results against the
