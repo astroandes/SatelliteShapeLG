@@ -53,6 +53,7 @@ PlotModelNumbers = False
 PlotShapeRandomObs = False
 PlotShapeObsSim = False
 PlotShapeObsSimNormed = False
+PrintCovarianceTables = True
 
 if ObsTable:
     asp.print_table_obs_shape()
@@ -92,3 +93,9 @@ if PlotShapeObsSimNormed:
         asp.plot_shape_obs_sims_normed('illustris1dark', nsat)
         asp.plot_shape_obs_sims_normed('illustris1', nsat)
         asp.plot_shape_obs_sims_normed('elvis', nsat)
+        
+if PrintCovarianceTables:
+    for nsat in range(11,12):
+        asp.print_covariance('illustris1dark', nsat)
+        asp.print_covariance('illustris1', nsat)
+        asp.print_covariance('elvis', nsat)

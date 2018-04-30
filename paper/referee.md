@@ -1,6 +1,6 @@
 We thank the referee for a detailed and thorough reading of our paper.
 We have corrected all the major deficiencies in the presentation of
-the methods results.
+the methods and the results.
 We have also included an explicit estimate of the main results as a
 function of satellite number. 
 All the major conclusions quoted in the first version of the paper remain
@@ -43,11 +43,18 @@ We calculate now the asphericity at a fixed number of satellites.
 The results we examine in detail correspond to N=11, but we also quote
 the results for N=12, 13, 14 and 15 to examine a possible dependence
 on satellite number. 
-For the MW w e do not find any obvious trend. However, for the M31
-there seems to be a trend for N>=12.  The new Figure 4 summarizes these results.
 We do not make the calculation for the whole population because the
 resolution of the Illustris1 simulation does not allow us to make such
 an estimate. This point is also clarified in the paper.
+
+For the MW we do not find any obvious trend. However, for the M31
+there seems to be a trend for N>=12.  The new Figure 4 summarizes these results.
+
+We also emphasize in the different subsections that our study does not
+address the questions about M31 planes. It only addresses the
+distribution of a given set of satellites with trivial selection
+criteria. 
+
 
 >* section 3.3:
 >The authors randomize the position of satellites while keeping their
@@ -60,19 +67,20 @@ an estimate. This point is also clarified in the paper.
 >radii by R200 of the host would be done? Could this take out the halo
 >mass dependence? 
 
-Rescaling/normalizing all satellite radii ny R200 produces the same
+Rescaling/normalizing all satellite radii by R200 produces the same
 results after normalizing by the randomized distribution.  
 Scaling positions by R200 keeps the asphericity of a halo unchanged.
 The main motivation to renormalize each satellite distribution by its
 own randomized distribution is precisely to factor out the effect of
 the physical size. 
-To explain this point again in a different way, the normalized results
+
+To put it in a different way, the normalized results
 are sensitive only to the degree of asphericity and not to the
 physical units.
-This is more evident now in Figure 1 and Figure 2. 
-Figure 1 shows the aesphericity in physical quantities, there is
+This is more evident now in Figure 2 and Figure 3. 
+Figure 3 shows the aesphericity in physical quantities, there is
 visible a big difference between the MW and M31 results. 
-Figure 2 shows the same in normalized quantities, there the
+Figure 3 shows the same in normalized quantities, there the
 differences are more subtle to spot due to the rescaling. 
 
 > * section 4.4 and 5, end of third paragraph:
@@ -90,10 +98,11 @@ differences are more subtle to spot due to the rescaling.
 > clearly be expanded.
 
 What we mean is that the results of different simulations are always
-consistent with gaussians. The results for the covariance matrix and
-mean vector differ widely among simulations, as the referee points
-out. We have clarified this point in the paper and expanded the
-discussion in Sections 4.4 and 4.5.
+consistent with gaussians, not that the parameters are similar.
+ The results for the covariance matrix and mean vector differ widely
+ among simulations, as the referee points out. We have clarified this
+ point in the paper and expanded the discussion in Sections 4.4 and
+ 4.5. 
 
 
 > Also the DMO simulations Illustris-dark and ELVIS show vastly
@@ -117,13 +126,15 @@ discussion in Sections 4.4 and 4.5.
 
 We agree that the results from ELVIS are puzzling given the vast
 difference with respect to the Illustris simulations. 
-We consider such a study far beyond the scope of this paper. This
-would require, at least, 1) having larger halo samples of halos in the
+We consider such a study far beyond the scope of this paper. 
+
+This would require, at least, 1) having larger halo samples of halos in the
 same resolution as Illustris1 to explore asphericity as a function of halo
 mass. Right now we only have ~5 halos in the same mass range as
 ELVIS. 2) Similar simulations as Illustris1 in volume with higher
-resolution to explore the effect of numerical resolution. These two
-points could be addresed in detaile with the new IllustrisTNG
+resolution to explore the effect of numerical resolution. 
+
+These two points could be addresed in detaile with the new IllustrisTNG
 simulations, unfortunately the data is still not yet public. 
 We discuss these issues in the paper. However, we highlight that our
 main objective is presenting a new tool and presenting its power to spot
@@ -138,7 +149,7 @@ differences as the one we have just discussed between ELVIS and Illustris1.
 > contradicting itself. 
 
 We clarify now these probabilities as a function of satellite number.
-We have checheked that we don't have errors in the number quoted in
+We have checheked that we don't have errorrs in the number quoted in
 the different sections.
 
 Moderate comments:
@@ -306,33 +317,37 @@ haloes get more spherical when baryonic effects are included, this was already f
 
 Spelling errors:
 
-* abstract, second sentence: to to
-* abstract, second sentence: atipicallity --> atypicality
-* abstract, sentence 6: at most of 2% the --> at most 2% of the
-* section 1, first sentence: a explicit --> an explicit
-* section 1, more recent numerical experiment --> more recent numerical experiments
-* section 1, second page: spherically symmetric distribution --> spherically symmetric distributions
-* section 1, second page: seemly --> seemingly
-* section 1, second page: incovenients --> inconveniences
-* section 3.1, first pragraph, last sentence: to to
-* section 3.1, second last sentence: included M31... --> included in M31...
-* section 3.2, equation 1: usage of k and i as indices, be consistent
-* section 3.3, dividing between --> dividing by
-* section 3.4, third paragraph: out of the the --> out of the
-* Figure caption 1: full stop missing after "pair".
-* Figure caption 4: spaned --> spanned
-* section 4.4, second paragraph: this result summarizes the result... doubled the word result
-* section 4.5, line 52: sampe --> sample
-* section 4.5, line 54: as aspherical as the observed in M31 --> as aspherical as the observed one in M31
-* section 5, page 9, line 35: distributions --> distribution
-* section 5, page 9, line 39: needing --> the need
-* section 5, page 9, line 45/46: of influence     doubled
-* section 5, page 9, line 46: incluedes --> includes
-* Figure caption A1: all lots --> all plots
+> * abstract, second sentence: to to
+> * abstract, second sentence: atipicallity --> atypicality
+> * abstract, sentence 6: at most of 2% the --> at most 2% of the
+> * section 1, first sentence: a explicit --> an explicit
+> * section 1, more recent numerical experiment --> more recent numerical experiments
+> * section 1, second page: spherically symmetric distribution --> spherically symmetric distributions
+> * section 1, second page: seemly --> seemingly
+> * section 1, second page: incovenients --> inconveniences
+> * section 3.1, first pragraph, last sentence: to to
+> * section 3.1, second last sentence: included M31... --> included in M31...
+> * section 3.2, equation 1: usage of k and i as indices, be consistent
+> * section 3.3, dividing between --> dividing by
+> * section 3.4, third paragraph: out of the the --> out of the
+> * Figure caption 1: full stop missing after "pair".
+> * Figure caption 4: spaned --> spanned
+> * section 4.4, second paragraph: this result summarizes the result... doubled the word result
+> * section 4.5, line 52: sampe --> sample
+> * section 4.5, line 54: as aspherical as the observed in M31 --> as aspherical as the observed one in M31
+> * section 5, page 9, line 35: distributions --> distribution
+> * section 5, page 9, line 39: needing --> the need
+> * section 5, page 9, line 45/46: of influence     doubled
+> * section 5, page 9, line 46: incluedes --> includes
+> * Figure caption A1: all lots --> all plots
 
 The spelling erros were corrected in the text.
 
-Further references the authors might want to look at: *Gillet+2015, *Buck+2015, Buck+2016, Lipnicky+2017, Ahmed+2017, Fernando+2017
-the ones marked with * are particularly interesting for table 2.
+> Further references the authors might want to look at: *Gillet+2015,
+> *Buck+2015, Buck+2016, Lipnicky+2017, Ahmed+2017, Fernando+2017  
+> the ones marked with * are particularly interesting for table 2.  
 
-[Jaime]
+All these reference focus on finding/charachterizing planes similar to
+the one found in M31, which is a different direction from the work we
+are presenting. 
+

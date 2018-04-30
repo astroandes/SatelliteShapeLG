@@ -706,3 +706,55 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
     plt.clf()
     
     plt.close('all')
+
+    
+def print_covariance(simulation, n_sat):
+    def print_ab(a, b, c, d, e, f):
+        print("{:.2f} \\pm {:.2f} & {:.2f} \\pm {:.2f} & {:.2f} \\pm {:.2f}\\\\".format(a,b,c,d,e,f))
+            
+    print('simulation {}'.format(simulation))
+    in_path = "../data/{}_mstar_selected_summary/".format(simulation)
+    M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat)
+
+    cov_sim_M31 = jacknife_covariance(M31_sim_stats)
+    cov_sim_MW = jacknife_covariance(MW_sim_stats)
+
+    print('\\subsubsection{M31}')
+    print('\\[')
+    print('\\Sigma=')
+    print('\\begin{bmatrix}')
+    for i in range(3):
+            print_ab(cov_sim_M31['covariance'][i][0], cov_sim_M31['covariance_error'][i][0], 
+                     cov_sim_M31['covariance'][i][1], cov_sim_M31['covariance_error'][i][1],
+                     cov_sim_M31['covariance'][i][2], cov_sim_M31['covariance_error'][i][2])
+    print('\\end{bmatrix}')
+    print('\\]')
+
+    print('\\[')
+    print('\\mu=')
+    print('\\begin{bmatrix}')
+    print_ab(cov_sim_M31['mean'][0], cov_sim_M31['mean_error'][0], 
+            cov_sim_M31['mean'][1], cov_sim_M31['mean_error'][1],
+            cov_sim_M31['mean'][2], cov_sim_M31['mean_error'][2])
+    print('\\end{bmatrix}')
+    print('\\]')
+    
+    print('\\subsubsection{MW}')
+    print('\\[')
+    print('\\Sigma=')
+    print('\\begin{bmatrix}')
+    for i in range(3):
+            print_ab(cov_sim_MW['covariance'][i][0], cov_sim_MW['covariance_error'][i][0], 
+                     cov_sim_MW['covariance'][i][1], cov_sim_MW['covariance_error'][i][1],
+                     cov_sim_MW['covariance'][i][2], cov_sim_MW['covariance_error'][i][2])
+    print('\\end{bmatrix}')
+    print('\\]')
+
+    print('\\[')
+    print('\\mu=')
+    print('\\begin{bmatrix}')
+    print_ab(cov_sim_MW['mean'][0], cov_sim_MW['mean_error'][0], 
+            cov_sim_MW['mean'][1], cov_sim_MW['mean_error'][1],
+            cov_sim_MW['mean'][2], cov_sim_MW['mean_error'][2])
+    print('\\end{bmatrix}')
+    print('\\]')
