@@ -348,6 +348,7 @@ The spelling erros were corrected in the text.
 > the ones marked with * are particularly interesting for table 2.  
 
 All these reference focus on finding/charachterizing planes similar to
-the one found in M31, which is a different direction from the work we
-are presenting. 
+the one found in M31 (except Lipnicky), which is a different direction
+from the work we are presenting and don't belong to Table 2. However,
+we have included them in the introduction.  
 
