@@ -953,7 +953,7 @@ study.
 
 In this paper we developed and demostrated a method to quantify the
 asphericity of the satellite distribution around the MW and M31.  
-In the interest of keeping the method straightforward and robust we
+In the interest of keeping the demonstration straightforward and robust we
 focus on the asphericity estimates for a fixed number of the brightest
 satellites around each galaxy. 
 
@@ -967,17 +967,16 @@ Finally, we renormalize the initial results to the mean value and
 standard deviation computed from the randomized data.  
 
 We found that these normalized quantities are well described by
-a multivariate gaussian distribution in spite of the original
-quantities being bound.
+a multivariate gaussian distribution 
 We estimated the mean and covariance of these distributions using
 the results of LG pairs coming from three different numerical
 simulations (Illustris-1, Illustris-1-Dark and ELVIS). 
 Finally, we compared the observational results against the
 distributions derived from the simulations
 
-We found that in the best case (Illustris1-Dark) the degree of
-asphericity in the observed LG is only expected in $3\pm2$ pairs out
-of a sample of $10^4$ isolated pairs. 
+We found that in the best case (Illustris-1-Dark) the degree of
+asphericity in the observed LG is only expected in $2\%$ of the
+pairs. 
 This places the LG as a $3\sigma$ outlier.   
 The weight to explain this atypical result is not distributed equally
 between the MW and M31. 
@@ -986,20 +985,22 @@ from LCDM, the MW shows aspherical deviations in plane width and the
 major-to-minor axis ratio highly atypical in the framework of LCDM,
 confirming the original hint by \cite{2005A&A...431..517K} and more
 recent results by \cite{2015ApJ...815...19P}. 
-We estimated that with the M31 between $37\%$ and $58\%$ of the pairs show aspherical characteristics larger than M31, while
-this fraction drops to less than $1\%$ for the MW. 
-These fractions are robust to changes in the numerical simulations, 
-the criteria used to define the pairs and to the methods used to
-estimate the parameters of the multivariate normal distribution. 
+We estimated that with the M31 between $5\%$ and $80\%$ of the pairs
+show aspherical characteristics larger than M31, while this fraction
+drops to less than $4\%$ for the MW.  
+These fractions are robust to changes in the numerical simulations,
+the criteria used to define the pairs, the way to select the
+satellites and to the methods used to estimate the parameters of the
+multivariate normal distribution.
 
 
 The focus of our approach was building an explicit probability
 distribution for the observables of interest, instead of trying to
 find simulated objects that fulfill different observational criteria. 
 This approach is particularly useful in the case of atypical
-observables, as it allows for an atypicallity
-quantification without the need to build explicit samples of objects
-that are already scarce and difficult to find in simulations.
+observables, as it allows for an atypicallity quantification without
+building explicit samples of objects that are already scarce and
+difficult to find in simulations.  
 
 An extension of this framework to outliers in higher order deviations
 (i.e. coherent \emph{velocity} structures) should also be possible, 
@@ -1008,12 +1009,12 @@ interest can be built.
 The approach presented here is also useful to gauge the influence of 
 influence of different physical elements includes the simulation. 
 For instance, in our case the data hints towards rounder satellite
-distributions in simulations that include baryonic effects.   
+distributions in simulations that include baryonic effects.  
 
 
 The highly aspherical satellite distribution in the MW is another piece of
 information that points at an atypical configuration in LCDM.
-We also have the number of satellites as bright as the Mageallanic
+We also have the number of satellites as bright as the Magellanic
 Clouds, only expected in $5\%$ of galaxies
 \citep{2011ApJ...743..117B} and 
 the satellite velocities around the MW with a radial/tangential
@@ -1022,17 +1023,31 @@ anisotropy only expected in $3\%$ of systems in LCDM
 One could also add the atypical kinematics of M31 with a very low
 tangential velocity, which is only expected in less than $1\%$ of the pairs
 with similar environmental characteristics \citep{ForeroRomero2013}.  
+Quantifying whether these four characteristics are correlated one would
+need a simulation with 
+
+Assuming that these properties are independent one would need at
+least $10^6$ pairs in order to find a single pair that meets all four
+characteristics (aspherical satellite distribution, bright Magellanic
+Clouds, satellite velocity anisotropy and atypical pair kinematics).
+Using the number density for pairs in Illustris-1 ($2\times 10^{-5}$
+pairs/Mpc$^{3}$) this would imply a cubic simulation volume of $5$ Gpc on a
+side, something unfeasible under current technology.
+However, studying two characteristics at a time to find possible
+correlations, and at least one pair resembling observations, reduces
+the box size to $500$ Mpc, something that is close to current
+simulations such as Illustris-TNG \citep{2018MNRAS.473.4077P}. 
 
 This atypicality should be seen as an opportunity to constrain in
 great detail the environment that allowed such a pattern to emerge. 
 Although broad correlations between LG assembly, pair kinematics, halo
 shapes and satellite distributions are expected in LCDM
 \citep{2011MNRAS.417.1434F,2014MNRAS.443.1090F,2015ApJ...799...45F,2015MNRAS.452.1052L},
-we claim that detailed studies of the satellite asphericity as a function
-of halo mass and cosmic web environment are still missing to
-understand what features in the initial conditions of our LG
-are responsible for the extreme features observed in its satellite
-distribution.
+we claim that detailed studies of the satellite asphericity as a
+function of halo mass and cosmic web environment are still missing to
+understand what features in the initial conditions of our LG are
+responsible for the extreme features observed in its satellite
+distribution. 
 
 \section*{Acknowledgements} 
 We acknowledge financial support from: Universidad de Los Andes
