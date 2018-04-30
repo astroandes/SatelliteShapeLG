@@ -2,11 +2,11 @@ We thank the referee for a detailed and thorough reading of our paper.
 We have corrected all the major deficiencies in the presentation of
 the methods results.
 We have also included an explicit estimate of the main results as a
-function of satetellite number. 
+function of satellite number. 
 All the major conclusions quoted in the first version of the paper remain
 unchanged. 
 In the following we quote the referee with the symbol ">". 
-Our reply to each comment follows immediatly after.
+Our reply to each comment follows immediately after.
 
 With best regards, 
 Jaime and Veronica
@@ -27,15 +27,15 @@ We have removed the reference to stellar masses.
 > corresponds to the "classical MW satellites" nowadays we know many
 > more satellites (>30). The number of 15 corresponds to "the minimum
 > number of M31 satellites usually included in M31 studies". While this
-> might be true for the nuber of plane members of studies of the plane
+> might be true for the number of plane members of studies of the plane
 > of satellites around M31 by e.g. Ibata+2013 these authors indeed used
 > ALL the satellites found in the Pandas footprint. However, there are
-> many more staellites known around M31 and the 15 in the plane are not
+> many more satellites known around M31 and the 15 in the plane are not
 > necessarily the most massive/luminous ones. Thus, it would be far more
 > informative to calculate the asphericity of MW and M31 satellites for
 > the classical/conventional number of satellites (11 or 15) and the
 > whole (known) satellite population to see if asphericity is the result
-> of low number statistics or if there is indeed a depepndence on
+> of low number statistics or if there is indeed a dependence on
 > satellite mass. E.g. are the most massive satellites preferentially
 > distributed in a planar fashion? 
 
@@ -115,7 +115,7 @@ discussion in Sections 4.4 and 4.5.
 >  correlations for e.g. b/a vs. w could be discussed and
 >  investigated. 
 
-We agree thatthe results from ELVIS are puzzling given the vast
+We agree that the results from ELVIS are puzzling given the vast
 difference with respect to the Illustris simulations. 
 We consider such a study far beyond the scope of this paper. This
 would require, at least, 1) having larger halo samples of halos in the
@@ -153,11 +153,11 @@ Moderate comments:
 We have expanded and added some references.
 
 
-> * section 4, second paragraph, disussion Table 3,4:
+> * section 4, second paragraph, discussion Table 3,4:
 > ".. confirms ... more spherical distribution for the M31." How does
-> this go togehter with the claim that there is a plane of satellites
+> this go together with the claim that there is a plane of satellites
 > around M31? How exactly are the 15 satellites for the M31 case
-> choosen? The ones in the plane or the 15 most massive/luminous? If the
+> chosen? The ones in the plane or the 15 most massive/luminous? If the
 > 15 most massive/luminous are chosen, this explains why M31 is not
 > planar. The satellites in the plane of M31 are not the most massive
 > ones. This shows how important it is to clearly state the selection
@@ -166,7 +166,7 @@ We have expanded and added some references.
 
 We stress now in the paper that we do not find planes of satellites
 and our results for M31 should not be compared against sophisticated
-satellite selectins. 
+satellite selections. 
 but only characterize asphericity in distributions ranked by
 luminosity (in the case of observations and Illustris1) or estimated stellar
 mass/vmax (in the case of ELVIS/Illustris1dark).
@@ -183,16 +183,16 @@ N_satellite throughout the paper.
 > (b) While it is a nice idea to show MW and M31 on x and y axis, it
   is not at all clear why this is informative. It implies a
   correlation/dependence between, e.g. the plane width of MW and
-  M31. Furthermore, as the ELVIS paper (Garirison-Kimmel+2014) states,
+  M31. Furthermore, as the ELVIS paper (Garison-Kimmel+2014) states,
   there are no differences in satellite abundances and kinematics
   between paired and isolated haloes. Naively, from this one would
   expect that the width of planes in paired haloes should be
-  independend. So, could the authors please spend some words on
+  independent. So, could the authors please spend some words on
   explaining the choice of visualization? I understand that this is a
   compact way of showing the results but a bit more discussion helps
   the reader to understand the authors's point. 
 
-To avoid confusion we have changed the visualtion and show separately
+To avoid confusion we have changed the visualization and show separately
 the results for the MW and M31. 
 Indeed, we have checked that there isn't any correlation between the
 two and mention that in the paper.
@@ -241,7 +241,7 @@ The authors say "not enough systems fully resembling the LG". Could you in the m
 * introduction, third paragraph:
 observational studies have found... There is another study by Collins+2015 finding no difference between satellites in plane and off plane for M31 satellites.
 
-[Veronica]
+We included the Collins et al. 2015 study on the observational properties of M31 satellites and mentioned the very interesting implications of their results.  
 
 * section 1, line 36:
 What exactly do the authors mean by "explicit probability distribution"? Can this term be elaborated in the main text?
@@ -256,7 +256,7 @@ Why are only the brightest 11 to 15 satellites used? And what does 11 to 15 mean
 * section 2.2, second paragraph:
 baryonic mass resolution of Illustris is 1.2e6 Msun not! 8.0e7!!!
 
-[Veronica]
+We corrected this error in the text.
 
 * section 2.2, selection of LG counterparts:
 The authors discard haloes with a number of satellites smaller than 15, which are the lowest mass haloes. Do the authors have any intuition how this might affect the results of the study? The authors say already in the abstract, there is a dependence on halo mass but is there any trends already seen which might hint at the effect of discarding lower mass LG analogues?
@@ -277,7 +277,7 @@ It would be good if normalized results for the simulation (e.g. from the corner 
 * section 4.1, last two sentences:
 missing word, general confusing, what do you want to say with these two sentences?
 
-[Veronica]
+We corrected this in the text.
 
 * section 4.1:
 Can the fact that MW (as the lower mass halo of the two in the pair) has a thinner plane be explained by a halo mass dependence? (see also point above of rescaling by R200)
@@ -287,7 +287,7 @@ Can the fact that MW (as the lower mass halo of the two in the pair) has a thinn
 * section 4.2, last sentence:
 close to between two and three... Is it close to or between? Please rewrite.
 
-[Veronica]
+It was "between" and is already corrected in the text.
 
 * section 4.5, first paragraph:
 When drawing samples from the multivariate gaussians you assume halo pairs can be drawn independently? Is this assumption valid? Do you find any dependence of the results on the companion, its mass, distance, relative velocity, etc.? E.g. does a more massive M31 result in a thinner plane? Please discuss a bit more the procedure and assumptions.
@@ -330,7 +330,7 @@ Spelling errors:
 * section 5, page 9, line 46: incluedes --> includes
 * Figure caption A1: all lots --> all plots
 
-[Veronica]
+The spelling erros were corrected in the text.
 
 Further references the authors might want to look at: *Gillet+2015, *Buck+2015, Buck+2016, Lipnicky+2017, Ahmed+2017, Fernando+2017
 the ones marked with * are particularly interesting for table 2.
