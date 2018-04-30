@@ -317,33 +317,38 @@ haloes get more spherical when baryonic effects are included, this was already f
 
 Spelling errors:
 
-* abstract, second sentence: to to
-* abstract, second sentence: atipicallity --> atypicality
-* abstract, sentence 6: at most of 2% the --> at most 2% of the
-* section 1, first sentence: a explicit --> an explicit
-* section 1, more recent numerical experiment --> more recent numerical experiments
-* section 1, second page: spherically symmetric distribution --> spherically symmetric distributions
-* section 1, second page: seemly --> seemingly
-* section 1, second page: incovenients --> inconveniences
-* section 3.1, first pragraph, last sentence: to to
-* section 3.1, second last sentence: included M31... --> included in M31...
-* section 3.2, equation 1: usage of k and i as indices, be consistent
-* section 3.3, dividing between --> dividing by
-* section 3.4, third paragraph: out of the the --> out of the
-* Figure caption 1: full stop missing after "pair".
-* Figure caption 4: spaned --> spanned
-* section 4.4, second paragraph: this result summarizes the result... doubled the word result
-* section 4.5, line 52: sampe --> sample
-* section 4.5, line 54: as aspherical as the observed in M31 --> as aspherical as the observed one in M31
-* section 5, page 9, line 35: distributions --> distribution
-* section 5, page 9, line 39: needing --> the need
-* section 5, page 9, line 45/46: of influence     doubled
-* section 5, page 9, line 46: incluedes --> includes
-* Figure caption A1: all lots --> all plots
+> * abstract, second sentence: to to
+> * abstract, second sentence: atipicallity --> atypicality
+> * abstract, sentence 6: at most of 2% the --> at most 2% of the
+> * section 1, first sentence: a explicit --> an explicit
+> * section 1, more recent numerical experiment --> more recent numerical experiments
+> * section 1, second page: spherically symmetric distribution --> spherically symmetric distributions
+> * section 1, second page: seemly --> seemingly
+> * section 1, second page: incovenients --> inconveniences
+> * section 3.1, first pragraph, last sentence: to to
+> * section 3.1, second last sentence: included M31... --> included in M31...
+> * section 3.2, equation 1: usage of k and i as indices, be consistent
+> * section 3.3, dividing between --> dividing by
+> * section 3.4, third paragraph: out of the the --> out of the
+> * Figure caption 1: full stop missing after "pair".
+> * Figure caption 4: spaned --> spanned
+> * section 4.4, second paragraph: this result summarizes the result... doubled the word result
+> * section 4.5, line 52: sampe --> sample
+> * section 4.5, line 54: as aspherical as the observed in M31 --> as aspherical as the observed one in M31
+> * section 5, page 9, line 35: distributions --> distribution
+> * section 5, page 9, line 39: needing --> the need
+> * section 5, page 9, line 45/46: of influence     doubled
+> * section 5, page 9, line 46: incluedes --> includes
+> * Figure caption A1: all lots --> all plots
 
-[Veronica]
+Done 
 
-Further references the authors might want to look at: *Gillet+2015, *Buck+2015, Buck+2016, Lipnicky+2017, Ahmed+2017, Fernando+2017
-the ones marked with * are particularly interesting for table 2.
+> Further references the authors might want to look at: *Gillet+2015,
+> *Buck+2015, Buck+2016, Lipnicky+2017, Ahmed+2017, Fernando+2017  
+> the ones marked with * are particularly interesting for table 2.  
 
-[Jaime]
+All these reference focus on finding/charachterizing planes similar to
+the one found in M31, which is a different direction from the work we
+are presenting. 
+
+
