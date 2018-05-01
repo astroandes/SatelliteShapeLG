@@ -159,9 +159,9 @@ This so-called satellite plane is deemed to be difficult to produce in
 LCDM simulations and is thought to be transient structure
 \citep{2015MNRAS.452.3838C,2015ApJ...809...49B,2015ApJ...800...34G,2016MNRAS.460.4348B,2017MNRAS.466.3119A,2017MNRAS.465..641F}.  
 However, in this paper we do not address these \emph{plane finding}
-algorithms and focus instead on the characterization of the satellite
-distribution ranked either by decreasing luminosity, maximum circular
-velocity or stellar mass.  
+algorithms and focus instead on the characterization of the global
+satellite distribution ranked either by decreasing luminosity, maximum
+circular velocity or stellar mass. 
 Table \ref{table:M31} and Table \ref{table:MW} summarize some more
 details on the results we have just mentioned \footnote{
 Those tables also include the results from this paper using the
@@ -235,7 +235,7 @@ satellites & 27 halos from selected pairs in a cosmological N-body
 Dark Matter only simulation ($\sim 10^{6}$\Msun particle mass
 resolution)& $<4$\\
 This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
-satellites & 24 halos from selected pairs in ac osmological N-body
+satellites & 24 halos from selected pairs in a cosmological N-body
 hydro simulation ($\sim 10^{6}$\Msun particle mass resolution)& $<1.5$ \\
 This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
 satellites & 12 high resolution DM only N-body simulations ($\sim
@@ -261,9 +261,10 @@ characterizing all the simulations at the high level parent samples,
 something that is difficult to do in practice. 
 The second inconvenient is that the systems that fully resemble
 the LG (i.e. its stellar mass content, morphology or kinematics) have
-a low cosmological number density, this means that for the current
-cosmological volumes in simulations the high level parent sample has a
-small size, making it hard to derive robust probabilities by counting.   
+a low cosmological number density \citep{ForeroRomero2013}, this means
+that for the current cosmological volumes in simulations the high
+level parent sample has a small size, making it hard to derive robust
+probabilities by counting.    
 In this paper we present and demonstrate a method to overcome these two
 limitations.
 
@@ -340,7 +341,7 @@ XXXII, Andromeda XXXI, Andromeda I, Andromeda VI, Andromeda XXIII, LGS 3,
 
 \subsection{Simulated Data}
  
-We use data from three different simulations Illustris-1,
+We use data from three different simulations: Illustris-1,
 Illustris-1-Dark and ELVIS. 
 In what follows we describe the relevant detailed of those
 simulations, how the halo pairs resembling the LG are selected and how
@@ -414,26 +415,23 @@ here.
 The smallest galaxies are barely resolved in stellar mass at
 magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
 satellites, we use instead the dark matter information. 
-However, we tested using $M_V$ in Illustris-1 as a selection criteria
-and the results we report here are not strongly influenced by that
-choice. 
 
-We decide to use both in Illustris-1 and Illustris-1-Dark the same
-satellite selection rules.
+
+We decide to use the same satellite selection rules both in
+Illustris-1 and Illustris-1-Dark. 
 Namely, selecting the satellites by ranking the subhalos in decreasing
 order of its current maximum circular velocity and select the first
 $N_s$ halos in the list. 
-These selection criteria are also convenient.
-They allow us to direct our attention at baryonic physics as the driver
-behind the differences in the results between the two simulations. 
+These selection criteria also  allow us to direct our attention at
+baryonic physics as the driver behind the differences in the results
+between the two simulations.  
 Under these conditions the smallest sub-halos are sampled with at
-least $40$ particles. This approximation works well for the $\approx 10$ most
-massive subhalos in MW type galaxies; to a good approximation these
+least $40$ particles. 
+To a good approximation these
 are the systems with the highest circular velocity at infall
 \citep{2011MNRAS.415L..40B}, which is the physical quantity expected
 to best correlate with luminosity
 \citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}. 
-
 
 
 
@@ -451,7 +449,6 @@ ELVIS data comes from resimulations of dark matter halo pairs selected
 in dark matter only cosmological simulations. 
 The parent cosmological boxes have a cosmology consistent with the
 Wilkinson Microwave Anisotropy Probe 7 results.
-
 The ELVIS project used the results from $50$ simulation boxes of side
 length $70.4$ Mpc to select pairs with kinematic characteristics
 similar to the LG. 
@@ -482,8 +479,9 @@ The dark matter particle resolution in these resimulations is
 $1.9\times 10^5$, an order of magnitude times better than Illustris-1.
 In this paper we only use the results from these $12$ resimulated pairs.
 To be consistent with the satellite selection in Illustris-1 and
-Illustris-1-Dark we also select satellites by ranking them by their
+Illustris-1-Dark we select satellites by ranking them by their
 maximum circular velocity.
+
 
 
 \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
@@ -493,19 +491,39 @@ maximum circular velocity.
 \subsection{Building Satellite Samples}
 
 We compare the joint satellite distributions in the MW and M31 at fixed
-satellite number, $N_p$.
-This means that the magnitude cut corresponding to the faintest
-satellite included in the sample is different in each case.
-We make this choice to rule out the influence of satellite numbers
-in the statistics. 
+satellite number, $N_s$.
+This means that the maximum circular velocity cut corresponding to the
+smallest satellite included in the sample is different in each case.
+We make this choice to explicitly model the influence of satellite numbers
+on the statistics. 
 
-We compute the satellite statistics for 11 up to 15 satellites.
+We compute the satellite statistics for $11\leq N_s\leq 15$.
 The lower limit corresponds to the number of classical MW satellites,
 while the upper limit corresponds to the minimum number of M31
 satellites usually included in M31 studies.
 In simulations we rank the subhalos by their maximum circular
 velocity, in observations we rank the satellites by its $M_V$
 magnitude.  
+
+We also tested using $M_V$ and stellar mass in Illustris-1, and the
+stellar mass in ELVIS (provided through abundance matching) as a
+selection criterion. Our main conclusions remain unchanged by that
+choice. 
+
+\begin{figure*}
+\centering
+\includegraphics[width=0.30\textwidth]{normalized_width_n_dependence.pdf}
+\includegraphics[width=0.30\textwidth]{normalized_ca_ratio_n_dependence.pdf}
+\includegraphics[width=0.30\textwidth]{normalized_ba_ratio_n_dependence.pdf}
+\caption{Normalized asphericity scalars from observations as a function
+  of satellite number. Left: plane width; center: $c/a$ ratio;
+  right: $b/a$ ratio. 
+  The plane width and $c/a$ ratio for the MW is
+  consistently found beyond two standard
+  deviations.
+  M31 shows the opposite trend and is always found
+  \emph{within} two standard deviations. \label{fig:normalized_n}} 
+\end{figure*}
 
 
 \begin{table*}
@@ -537,21 +555,6 @@ $b/a$ ratio & $0.96$ & $0.87$ & $0.81\pm0.08$ & $0.80\pm0.09$ & $1.69$ & $0.80$\
     15$\label{table:observations}.}  
 \end{table*}
 
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.30\textwidth]{normalized_width_n_dependence.pdf}
-\includegraphics[width=0.30\textwidth]{normalized_ca_ratio_n_dependence.pdf}
-\includegraphics[width=0.30\textwidth]{normalized_ba_ratio_n_dependence.pdf}
-\caption{Normalized asphericity scalars from observations as a function
-  of satellite number. Left: plane width; center: $c/a$ ratio;
-  right: $b/a$ ratio. 
-  The plane width and $c/a$ ratio for the MW is
-  consistently found beyond two standard
-  deviations.
-  M31 shows the opposite trend and is always found
-  \emph{within} two standard deviations. \label{fig:normalized_n}} 
-\end{figure*}
 
 
 
@@ -630,16 +633,14 @@ randomized distribution.
 We keep fixed the radial position of every satellite
 with respect to the central galaxy and then randomize its angular
 position. 
-We repeat this procedure 1000 times for each satellite distribution
+We repeat this procedure $10^4$ times for each satellite distribution
 and proceed to measure the quantities mentioned in the previous section:
 $w$, $c/a$ and $b/a$.
-For each quantity we compute the average and standard deviation from
-the 1000 random samples. 
 This allows us to build a normalized version of all quantities of
 interest by subtracting the mean and dividing by the standard
-deviation of the randomized samples.
-These normalized quantities are used to build the explicit probability
-distributions for the scalars describing asphericity.
+deviation of the values from randomized samples.
+We use the normalized quantities to build the explicit probability
+distributions for the scalars describing asphericity. 
 
 
 \subsection{Building an explicit asphericity probability distribution}
@@ -681,9 +682,9 @@ that are consistent by construction with their parent simulation.
 Finally, we use the generated samples to estimate how
 common are the deviations from sphericity that we measure in the
 observational data.  
-We use a double-tailed test in this comparison, meaning that we
+We use a double-tailed test around the mean in this comparison, meaning that we
 always measure the fraction of points with absolute values larger than the
-threshold absolute observed value. 
+absolute observed value with the mean substracted. 
 
 
 % referencia posiciones satellites
@@ -748,29 +749,23 @@ respectively. \label{fig:gaussian_illustris1dark}}
 \section{Results}
 \label{sec:results}
 
-Table \ref{table:observations} and Table \ref{table:simulations}
-summarize the mean values and uncertainties for the plane $w$, $c/a$
-ratio and $b/a$ ratio in the observations and simulations, respectively. 
-The uncertainty in the observations is computed from the results with
-different number of satellites; in the simulations it corresponds to
-the standard deviation over different halos.  
-
-The observed widths $w$ are always smaller than its randomized version.
-For M31 there is barely a ratio of $0.92$ between observed and
-randomized, while for the MW this factor goes down to less than half
-$0.48$. 
-The observed $c/a$ ratio follows the same extreme trend for
-the MW compared to a M31 distribution closer to spherical, 
-The $b/a$ ratio is statistically the same between observations and the
-spherical randomization. 
+Figure \ref{fig:normalized_n} shows, as a function of the number of
+satellites, the normalized plane width $w$, $c/a$ ratio and
+$b/a$ ratio from observations. 
+The most oustanding feature of this plot is that for $w$ and $c/a$
+ratio the MW is always two standard deviations away from the mean,
+while M31 is always within 2 standard deviations.
+The results for the $b/a$ ratio are always 2 standard deviations both
+for the MW and M31. 
 This confirms the extreme planar distribution for the MW and the more
 spherical distribution for the M31.
 
 In the following subsections we describe in detail the results on the 
-distributions for $w$, $c/a$ and $b/a$. 
+distributions for $w$, $c/a$ and $b/a$ and its comparison against
+observations. 
 The plots in the main body of the paper correspond to the
-Illustris-1-Dark simulation; the results from the other simulations
-are included in the Appendix \ref{appendix:plots}.
+Illustris-1-Dark simulation and $N_s=11$; the results from the other
+two simulations are included in the Appendix \ref{appendix:plots}.
 
 \subsection{Plane Width}
 
