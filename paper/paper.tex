@@ -702,24 +702,58 @@ for the MW and M31.
 This confirms the extreme planar distribution for the MW and the more
 spherical distribution for the M31.
 
-In the following subsections we describe in detail the results on the 
-distributions for $w$, $c/a$ and $b/a$ and its comparison against
-observations. 
-The plots in the main body of the paper correspond to the
-Illustris-1-Dark simulation and $N_s=11$; the results from the other
-two simulations are included in the Appendix \ref{appendix:plots}.
+In the following subsections we describe in detail the results from
+Illustris-1-Dark for $w$, $c/a$ and $b/a$ for a fixed number of
+satellites $N_s=11$.
+The results from the other two simulations are included in the
+Appendix \ref{appendix:plots}. 
+The full covariance matrices are in the Appendix
+\ref{appendix:matrices}. 
 
-\subsection{Plane Width}
 
+\subsection{Physical Units}
+%subsection{Plane Width}
+
+
+
+Figure \ref{fig:physical_illustris1dark} summarizes the results in
+physical units.
+It compares three different groups: observations, simulations and the
+observations randomized.
+The left panel shows the results for M31 and the panel on the left for
+the MW.
+
+The most interesting outcome is that the MW plane width is smaller
+than $\approx 98\%$ of the planes computed from the randomized distribution;
+its  $c/a$ ratio is also significantly lower than the measured values for
+the randomized distributions.   
+On the other hand the results for $M31$ for the same quantities are
+within $1-\sigma$ of the randomized results.
+
+The comparison against observations also provides an extreme picture
+for the MW. 
+In this case the mean witdh from simulation is almost twice as the
+mean width from the randomization. 
+A possible criticism to this result is that the typical halo mass in
+the simulation is larger than the it is for the MW. 
+For this reason we renormalize all quantities ($w$, $c/a$ and $b/a$)
+to the mean value and standard deviation provided by its spherical
+randomization. 
+In this way the physical scale of the halo becomes a second order
+effect and only the deviations from asphericity are protagonist.
+
+
+\subsection{Normalized Units}
+
+Figure \ref{normalized_illustris1dark} summarizes  the results of
+renormalizing to the randomized results.
+The layout is the same as Figure \ref{physical_illustris1dark}.
 Figure \ref{fig:scatter_width} summarizes the results for the width
 measurements.
 The left panel compares the results for the MW and M31
 observations (stars) against its spherically randomized satellites
 (circles). 
-The most interesting outcome is that the MW plane width is smaller
-than $\approx 98\%$ of the planes computed from the randomized distribution,
-while the M31 plane width is only slightly smaller than the average of
-the distribution.
+
 
 The middle panel in Figure \ref{fig:scatter_width} compares the
 observational result (star) against the measurements of all pairs from the Illustris1-Dark
@@ -772,10 +806,7 @@ The layout is the same as in Figure \ref{fig:scatter_width}.
 The results for the $c/a$ ratio follow the same trends as for the
 width $w$.
 
-The left panel in Figure \ref{fig:scatter_ca_ratio} shows how the MW
-$c/a$ ratio is significantly lower than the measured values for
-spherical distributions, and it is smaller than $\approx 98\%$ of the
-randomized distributions.   
+
 On the other hand the ratio for M31 is lower than the mean of the
 spherical values but still well within its variance.
 The middle panel in the same Figure shows the LG compared against the
@@ -799,7 +830,7 @@ In all cases of comparison (against randomized distribution
 and simulations) the results for both the MW and M31 are typical. 
 
 
-\subsection{Fit to a Multivariate Gaussian Distributions}
+\subsection{Multivariate Gaussian model}
 
 Figure \ref{fig:correlations_illustrisdm} illustrates the results from
  computing the covariance matrix and mean vector in
