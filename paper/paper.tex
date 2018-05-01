@@ -409,30 +409,6 @@ Figure \ref{fig:physical_pairs} summarizes the physical properties (maximum
 circular velocities, radial velocities and separation) of the halo
 pairs to be used.
 
-Although Illustris-1 has stellar particles, we do not use their
-properties to select the satellite population for the results reported
-here. 
-The smallest galaxies are barely resolved in stellar mass at
-magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
-satellites, we use instead the dark matter information. 
-
-
-We decide to use the same satellite selection rules both in
-Illustris-1 and Illustris-1-Dark. 
-Namely, selecting the satellites by ranking the subhalos in decreasing
-order of its current maximum circular velocity and select the first
-$N_s$ halos in the list. 
-These selection criteria also  allow us to direct our attention at
-baryonic physics as the driver behind the differences in the results
-between the two simulations.  
-Under these conditions the smallest sub-halos are sampled with at
-least $40$ particles. 
-To a good approximation these
-are the systems with the highest circular velocity at infall
-\citep{2011MNRAS.415L..40B}, which is the physical quantity expected
-to best correlate with luminosity
-\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}. 
-
 
 
 
@@ -478,9 +454,7 @@ tangential velocity less than $75 $\kms.
 The dark matter particle resolution in these resimulations is
 $1.9\times 10^5$, an order of magnitude times better than Illustris-1.
 In this paper we only use the results from these $12$ resimulated pairs.
-To be consistent with the satellite selection in Illustris-1 and
-Illustris-1-Dark we select satellites by ranking them by their
-maximum circular velocity.
+
 
 
 
@@ -492,23 +466,47 @@ maximum circular velocity.
 
 We compare the joint satellite distributions in the MW and M31 at fixed
 satellite number, $N_s$.
-This means that the maximum circular velocity cut corresponding to the
-smallest satellite included in the sample is different in each case.
 We make this choice to explicitly model the influence of satellite numbers
 on the statistics. 
 
+Although Illustris-1 has stellar particles, we do not use their
+properties to select the satellite population for the results reported
+here. 
+The smallest galaxies are barely resolved in stellar mass at
+magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
+satellites, we use instead the dark matter information. 
+
+We decide instead to use the same satellite selection rules in
+Illustris-1, Illustris-1-Dark and ELVIS.
+Namely, selecting the satellites by ranking the subhalos in decreasing
+order of its current maximum circular velocity and select the first
+$N_s$ halos in the list. 
+
+These selection criteria also  allow us to perform a fair comparison
+across simulations. 
+In the case of Illustris-1 versus Illustris-1-Dark, it let us direct
+our attention at baryonic physics as the driver behind the differences
+in the results between these two simulations.  
+To a good approximation these satellites are the systems with the
+highest circular velocity at infall \citep{2011MNRAS.415L..40B}, which
+is the physical quantity expected to best correlate with luminosity
+\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}.  
+With this choice the maximum circular velocity cut corresponding to the
+smallest satellite included in the sample is different for each case;
+in terms of resolution the subhalos are resolved with at least
+$\approx 40 (400)$ particles for the Illustris (ELVIS) simulation.
+
 We compute the satellite statistics for $11\leq N_s\leq 15$.
 The lower limit corresponds to the number of classical MW satellites,
-while the upper limit corresponds to the minimum number of M31
+while the upper limit corresponds to the minimum number of
 satellites usually included in M31 studies.
-In simulations we rank the subhalos by their maximum circular
-velocity, in observations we rank the satellites by its $M_V$
-magnitude.  
 
+In observations we rank the satellites by its $M_V$
+magnitude.  
 We also tested using $M_V$ and stellar mass in Illustris-1, and the
 stellar mass in ELVIS (provided through abundance matching) as a
-selection criterion. Our main conclusions remain unchanged by that
-choice. 
+selection criterion. 
+Our main conclusions remain unchanged by those choices. 
 
 \begin{figure*}
 \centering
@@ -792,9 +790,12 @@ The weakest correlation, positive or negative depending on the
 simulation, is present for the $c/a$ ratio and $b/a$ ratio.
 
 The mean values also hold valuable information. 
-For the three quantities the mean in negative, a confirmation of the
-well known fact that the satellite distribution from LCDM simulations
-is not consistent with an spherical distribution.
+For the three quantities the mean is negative, a quantification trend
+that the satellite distribution from LCDM simulations tend to be aspherical.
+This trend has a very few exceptions. 
+Nmely the ELVIS results for M31 with $N_s=11,12$ and the Illustris-1
+results for the $MW$ with $N_s=11$, which are consistent with an
+spherical distribution. 
 We also computed the correlation between the M31 and MW results,
 finding that it is very weak and can be safely discarded. 
 
@@ -856,9 +857,12 @@ as a $3\sigma$ outlier.
 %Out[150]: array([ 0.19874804,  0.73853587,  0.97070911])
 
 For M31, between $5\%$ and $80\%$ of the pairs have a satellite
-distribution as aspherical as the one observed in M31. This fraction drops
+distribution as aspherical as the one observed in M31.
+This fraction drops
 dramatically for the MW where only $0.02\%$ to $4\%$ of the satellites
 are expected to have as extreme aspherical distributions as the MW.
+A consistent finding is that the M31 fraction is always larger than
+the MW fraction at fixed $N_s$ and simulation.
 
 Among the three simulations, the results inferred from ELVIS data show
 the lowest fraction of M31 and MW systems; for Illustris-1-Dark we have
@@ -881,7 +885,7 @@ These two simulations share the same characteristics except for the
 inclusion of baryonic physics in Illustris-1.
 We find that extreme MW systems are easier to find in the DM only
 simulation. 
-The results listed in Appendix \ref{appendix:covariance} show that
+The results listed in Appendix \ref{appendix:matrices} show that
 halos are closer to spherical once baryonic effects are included. 
 For instance for $N_p=11$ the mean value for the normalized width goes
 closer to zero, from $-0.43\pm 0.04$  to $-0.03\pm0.06$, and the same
@@ -946,7 +950,7 @@ simulations (Illustris-1, Illustris-1-Dark and ELVIS).
 Finally, we compared the observational results against the
 distributions derived from the simulations
 
-We found that in the best case (Illustris-1-Dark) the degree of
+We quantified that in the best case (Illustris-1-Dark) the degree of
 asphericity in the observed LG is only expected in $2\%$ of the
 pairs. 
 This places the LG as a $3\sigma$ outlier.   
@@ -996,11 +1000,10 @@ responsible for the extreme features observed in its satellite
 distribution. 
 
 \section*{Acknowledgements} 
-We acknowledge financial support from: Universidad de Los Andes
-(Colombia); COLCIENCIAS (c\'odigo 120471250459, contrato FP44842-287-
-2016); the European Union's Horizon 2020 Research and Innovation
+JEFR acknowledges support from COLCIENCIAS Contract No. 287-2016,
+Project 1204-712-50459 and the European Union's Horizon 2020 Research and Innovation
 Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
-(LACEGAL).  
+(LACEGAL).   
   
 \bibliographystyle{mnras}
 \bibliography{Dwarfs}
@@ -1028,10 +1031,9 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 
 
 \section{Covariance Matrices and Mean value vectors}
-\label{appendix:covariance}
-\subsection{Illustris-1-Dark}
+\label{appendix:matrices}
 
-\subsubsection{M31}
+\subsection{Illustris-1-Dark, M31, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1040,16 +1042,13 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 0.97 \pm 0.07 & -0.01 \pm 0.05 & 1.42 \pm 0.08\\
 \end{bmatrix}
 \]
-
 \[
 \mu=
 \begin{bmatrix}
 -0.43 \pm 0.06 & -0.56 \pm 0.06 & -0.17 \pm 0.05\\
 \end{bmatrix}
 \]
-
-\subsubsection{MW}
-
+\subsection{Illustris-1-Dark, MW, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1058,7 +1057,6 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 0.36 \pm 0.03 & -0.27 \pm 0.03 & 0.94 \pm 0.04\\
 \end{bmatrix}
 \]
-
 \[
 \mu=
 \begin{bmatrix}
@@ -1066,9 +1064,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \end{bmatrix}
 \]
 
-
-\subsection{Illustris-1}
-\subsubsection{M31}
+\subsection{Illustris-1, M31, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1083,7 +1079,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 0.03 \pm 0.06 & -0.24 \pm 0.06 & -0.01 \pm 0.05\\
 \end{bmatrix}
 \]
-\subsubsection{MW}
+\subsection{Illustris-1, MW, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1099,9 +1095,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \end{bmatrix}
 \]
 
-\subsection{ELVIS}
-
-\subsubsection{M31}
+\subsection{ELVIS, M31, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1116,7 +1110,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 0.07 \pm 0.09 & -0.06 \pm 0.08 & -0.08 \pm 0.06\\
 \end{bmatrix}
 \]
-\subsubsection{MW}
+\subsection{ELVIS, MW, $N_s=11$}
 \[
 \Sigma=
 \begin{bmatrix}
@@ -1132,20 +1126,396 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \end{bmatrix}
 \]
 
+\subsection{Illustris-1-Dark, M31, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+2.34 \pm 0.11 & 1.72 \pm 0.11 & 1.10 \pm 0.06\\
+1.72 \pm 0.11 & 1.72 \pm 0.11 & 0.35 \pm 0.05\\
+1.10 \pm 0.06 & 0.35 \pm 0.05 & 1.21 \pm 0.07\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.58 \pm 0.07 & -0.49 \pm 0.06 & -0.41 \pm 0.05\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1-Dark, MW, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.25 \pm 0.06 & 0.97 \pm 0.06 & 0.62 \pm 0.04\\
+0.97 \pm 0.06 & 1.19 \pm 0.06 & -0.11 \pm 0.05\\
+0.62 \pm 0.04 & -0.11 \pm 0.05 & 1.19 \pm 0.04\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.38 \pm 0.05 & -0.55 \pm 0.05 & -0.28 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1, M31, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.01 \pm 0.06 & 0.74 \pm 0.04 & 0.59 \pm 0.06\\
+0.74 \pm 0.04 & 1.03 \pm 0.05 & -0.16 \pm 0.04\\
+0.59 \pm 0.06 & -0.16 \pm 0.04 & 1.12 \pm 0.06\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.09 \pm 0.05 & -0.23 \pm 0.05 & -0.33 \pm 0.05\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1, MW, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.00 \pm 0.05 & 0.69 \pm 0.05 & 0.64 \pm 0.05\\
+0.69 \pm 0.05 & 0.87 \pm 0.06 & -0.06 \pm 0.04\\
+0.64 \pm 0.05 & -0.06 \pm 0.04 & 1.06 \pm 0.06\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.16 \pm 0.05 & -0.46 \pm 0.04 & -0.12 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{ELVIS, M31, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.97 \pm 0.28 & 1.64 \pm 0.21 & 0.57 \pm 0.11\\
+1.64 \pm 0.21 & 1.69 \pm 0.17 & 0.11 \pm 0.07\\
+0.57 \pm 0.11 & 0.11 \pm 0.07 & 0.70 \pm 0.12\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.06 \pm 0.09 & -0.18 \pm 0.09 & -0.13 \pm 0.06\\
+\end{bmatrix}
+\]
+\subsection{ELVIS, MW, $N_s=12$}
+\[
+\Sigma=
+\begin{bmatrix}
+0.58 \pm 0.05 & 0.47 \pm 0.10 & 0.23 \pm 0.09\\
+0.47 \pm 0.10 & 1.04 \pm 0.16 & -0.68 \pm 0.09\\
+0.23 \pm 0.09 & -0.68 \pm 0.09 & 1.23 \pm 0.11\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.42 \pm 0.05 & -0.78 \pm 0.07 & -0.16 \pm 0.07\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1-Dark, M31, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.79 \pm 0.09 & 1.19 \pm 0.08 & 0.90 \pm 0.06\\
+1.19 \pm 0.08 & 1.12 \pm 0.07 & 0.17 \pm 0.03\\
+0.90 \pm 0.06 & 0.17 \pm 0.03 & 1.12 \pm 0.07\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.61 \pm 0.06 & -0.67 \pm 0.05 & -0.37 \pm 0.05\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1-Dark, MW, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.30 \pm 0.07 & 1.09 \pm 0.06 & 0.52 \pm 0.05\\
+1.09 \pm 0.06 & 1.42 \pm 0.08 & -0.18 \pm 0.06\\
+0.52 \pm 0.05 & -0.18 \pm 0.06 & 1.09 \pm 0.04\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.38 \pm 0.05 & -0.54 \pm 0.05 & -0.30 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1, M31, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.36 \pm 0.09 & 0.89 \pm 0.05 & 0.97 \pm 0.06\\
+0.89 \pm 0.05 & 0.92 \pm 0.05 & 0.22 \pm 0.05\\
+0.97 \pm 0.06 & 0.22 \pm 0.05 & 1.28 \pm 0.06\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.07 \pm 0.06 & -0.17 \pm 0.05 & -0.30 \pm 0.06\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1, MW, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+0.95 \pm 0.08 & 0.90 \pm 0.09 & 0.33 \pm 0.05\\
+0.90 \pm 0.09 & 1.29 \pm 0.10 & -0.24 \pm 0.05\\
+0.33 \pm 0.05 & -0.24 \pm 0.05 & 0.89 \pm 0.08\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.13 \pm 0.05 & -0.47 \pm 0.06 & -0.09 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{ELVIS, M31, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.99 \pm 0.22 & 1.49 \pm 0.19 & 0.98 \pm 0.11\\
+1.49 \pm 0.19 & 1.45 \pm 0.15 & 0.38 \pm 0.10\\
+0.98 \pm 0.11 & 0.38 \pm 0.10 & 1.06 \pm 0.17\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.18 \pm 0.10 & -0.37 \pm 0.08 & -0.07 \pm 0.07\\
+\end{bmatrix}
+\]
+\subsection{ELVIS, MW, $N_s=13$}
+\[
+\Sigma=
+\begin{bmatrix}
+0.43 \pm 0.05 & 0.54 \pm 0.09 & -0.12 \pm 0.07\\
+0.54 \pm 0.09 & 1.20 \pm 0.17 & -0.85 \pm 0.12\\
+-0.12 \pm 0.07 & -0.85 \pm 0.12 & 0.94 \pm 0.10\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.44 \pm 0.04 & -0.73 \pm 0.07 & -0.30 \pm 0.07\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1-Dark, M31, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.60 \pm 0.11 & 1.34 \pm 0.09 & 0.68 \pm 0.05\\
+1.34 \pm 0.09 & 1.32 \pm 0.08 & 0.28 \pm 0.04\\
+0.68 \pm 0.05 & 0.28 \pm 0.04 & 0.85 \pm 0.05\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.33 \pm 0.06 & -0.53 \pm 0.05 & -0.15 \pm 0.04\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1-Dark, MW, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.27 \pm 0.06 & 1.12 \pm 0.06 & 0.40 \pm 0.04\\
+1.12 \pm 0.06 & 1.55 \pm 0.08 & -0.32 \pm 0.05\\
+0.40 \pm 0.04 & -0.32 \pm 0.05 & 1.02 \pm 0.04\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.52 \pm 0.05 & -0.64 \pm 0.06 & -0.40 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1, M31, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.11 \pm 0.05 & 0.88 \pm 0.05 & 0.83 \pm 0.05\\
+0.88 \pm 0.05 & 1.14 \pm 0.06 & 0.08 \pm 0.05\\
+0.83 \pm 0.05 & 0.08 \pm 0.05 & 1.39 \pm 0.07\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.06 \pm 0.05 & -0.24 \pm 0.05 & -0.23 \pm 0.06\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1, MW, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+0.99 \pm 0.07 & 0.88 \pm 0.08 & 0.38 \pm 0.06\\
+0.88 \pm 0.08 & 1.24 \pm 0.10 & -0.26 \pm 0.07\\
+0.38 \pm 0.06 & -0.26 \pm 0.07 & 0.97 \pm 0.09\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.39 \pm 0.05 & -0.62 \pm 0.06 & -0.28 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{ELVIS, M31, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+2.04 \pm 0.24 & 1.21 \pm 0.14 & 1.27 \pm 0.17\\
+1.21 \pm 0.14 & 0.97 \pm 0.09 & 0.45 \pm 0.09\\
+1.27 \pm 0.17 & 0.45 \pm 0.09 & 1.31 \pm 0.19\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.37 \pm 0.10 & -0.38 \pm 0.07 & -0.40 \pm 0.08\\
+\end{bmatrix}
+\]
+\subsection{ELVIS, MW, $N_s=14$}
+\[
+\Sigma=
+\begin{bmatrix}
+0.82 \pm 0.08 & 1.06 \pm 0.14 & -0.11 \pm 0.06\\
+1.06 \pm 0.14 & 1.75 \pm 0.20 & -0.62 \pm 0.09\\
+-0.11 \pm 0.06 & -0.62 \pm 0.09 & 0.64 \pm 0.07\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.38 \pm 0.06 & -0.74 \pm 0.09 & -0.13 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1-Dark, M31, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.65 \pm 0.10 & 1.35 \pm 0.09 & 0.81 \pm 0.06\\
+1.35 \pm 0.09 & 1.34 \pm 0.09 & 0.36 \pm 0.05\\
+0.81 \pm 0.06 & 0.36 \pm 0.05 & 0.97 \pm 0.05\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.31 \pm 0.06 & -0.51 \pm 0.05 & -0.16 \pm 0.05\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1-Dark, MW, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.52 \pm 0.07 & 1.25 \pm 0.06 & 0.64 \pm 0.05\\
+1.25 \pm 0.06 & 1.58 \pm 0.08 & -0.15 \pm 0.06\\
+0.64 \pm 0.05 & -0.15 \pm 0.06 & 1.18 \pm 0.05\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.50 \pm 0.06 & -0.63 \pm 0.06 & -0.33 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{Illustris-1, M31, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.18 \pm 0.04 & 0.91 \pm 0.05 & 0.84 \pm 0.05\\
+0.91 \pm 0.05 & 1.11 \pm 0.07 & 0.15 \pm 0.04\\
+0.84 \pm 0.05 & 0.15 \pm 0.04 & 1.23 \pm 0.06\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.25 \pm 0.06 & -0.41 \pm 0.05 & -0.32 \pm 0.06\\
+\end{bmatrix}
+\]
+\subsection{Illustris-1, MW, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.06 \pm 0.07 & 0.88 \pm 0.07 & 0.44 \pm 0.06\\
+0.88 \pm 0.07 & 1.11 \pm 0.08 & -0.11 \pm 0.05\\
+0.44 \pm 0.06 & -0.11 \pm 0.05 & 0.84 \pm 0.08\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.45 \pm 0.05 & -0.67 \pm 0.05 & -0.32 \pm 0.05\\
+\end{bmatrix}
+\]
+
+\subsection{ELVIS, M31, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.51 \pm 0.13 & 1.16 \pm 0.11 & 0.74 \pm 0.11\\
+1.16 \pm 0.11 & 1.06 \pm 0.11 & 0.32 \pm 0.06\\
+0.74 \pm 0.11 & 0.32 \pm 0.06 & 0.75 \pm 0.10\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.41 \pm 0.08 & -0.47 \pm 0.07 & -0.48 \pm 0.06\\
+\end{bmatrix}
+\]
+\subsection{ELVIS, MW, $N_s=15$}
+\[
+\Sigma=
+\begin{bmatrix}
+1.13 \pm 0.15 & 1.42 \pm 0.20 & -0.06 \pm 0.08\\
+1.42 \pm 0.20 & 2.16 \pm 0.25 & -0.58 \pm 0.09\\
+-0.06 \pm 0.08 & -0.58 \pm 0.09 & 0.74 \pm 0.09\\
+\end{bmatrix}
+\]
+\[
+\mu=
+\begin{bmatrix}
+-0.47 \pm 0.07 & -0.72 \pm 0.10 & -0.26 \pm 0.06\\
+\end{bmatrix}
+\]
+
+
+
 
 \section{Results from ELVIS and Illustris1}
 \label{appendix:plots}
+
 \begin{figure*}
 \centering
-\includegraphics[width=0.40\textwidth]{input_illustris1_obs_M31_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{input_illustris1_obs_MW_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{input_illustris1_obs_M31_n_11_normed.pdf}
-\includegraphics[width=0.40\textwidth]{input_illustris1_obs_MW_n_11_normed.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_M31_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_M31_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_MW_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_MW_n_11.pdf}
 \caption{Illustris-1 results for the quantities presented for the Illustris1-Dark
-  simulation in Figures  \ref{fig:scatter_width},
-  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
+  simulation in Figures  
+\ref{fig:physical_illustris1dark}, \ref{fig:normalized_illustris1dark}
+and \ref{fig:gaussian_illustris1dark}.
 Upper row corresponds to the raw values from observations and
 simulated pairs, while the second row normalizes the same values to
 the mean and standard deviation on its spherically randomized
@@ -1156,12 +1526,12 @@ counterparts.
 
 \begin{figure*}
 \centering
-\includegraphics[width=0.40\textwidth]{input_elvis_obs_M31_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{input_elvis_obs_MW_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{input_elvis_obs_M31_n_11_normed.pdf}
-\includegraphics[width=0.40\textwidth]{input_elvis_obs_MW_n_11_normed.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_elvis_M31_n_11.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_elvis_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_M31_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_MW_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_elvis_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_elvis_MW_n_11.pdf}
 \caption{ELVIs results for the quantities presented for the Illustris1-Dark
   simulation in Figures  \ref{fig:scatter_width},
   \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
@@ -1171,26 +1541,6 @@ the mean and standard deviation on its spherically randomized
 counterparts. 
 \label{fig:all_plots_elvis}}
 \end{figure*}
-
-
-\begin{figure*}
-\centering
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1dark_M31_n_12.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1dark_MW_n_12.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_M31_n_12.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_illustris1_MW_n_12.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_elvis_M31_n_12.pdf}
-\includegraphics[width=0.40\textwidth]{gaussian_model_elvis_MW_n_12.pdf}
-\caption{ELVIs results for the quantities presented for the Illustris1-Dark
-  simulation in Figures  \ref{fig:scatter_width},
-  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
-Upper row corresponds to the raw values from observations and
-simulated pairs, while the second row normalizes the same values to
-the mean and standard deviation on its spherically randomized
-counterparts. 
-\label{fig:scatter_elvis}}
-\end{figure*}
-
 
 
 
