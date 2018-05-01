@@ -23,7 +23,7 @@ def load_experiment(input_path="../data/mstar_selected_summary/vmax_sorted/", n_
         i = int(f.split("_")[-3])
         if i not in group_id:
             group_id.append(i)
-    print(group_id, len(group_id))
+    #print(group_id, len(group_id))
 
     n_groups = len(group_id)
     
@@ -711,15 +711,15 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
 def print_covariance(simulation, n_sat):
     def print_ab(a, b, c, d, e, f):
         print("{:.2f} \\pm {:.2f} & {:.2f} \\pm {:.2f} & {:.2f} \\pm {:.2f}\\\\".format(a,b,c,d,e,f))
-            
-    print('simulation {}'.format(simulation))
+    simulation_name = {'illustris1':'Illustris-1', 'illustris1dark':'Illustris-1-Dark', 'elvis':'ELVIS'}
+    print()
     in_path = "../data/{}_mstar_selected_summary/".format(simulation)
     M31_sim_stats, MW_sim_stats = load_experiment(input_path=in_path, n_sat=n_sat)
 
     cov_sim_M31 = jacknife_covariance(M31_sim_stats)
     cov_sim_MW = jacknife_covariance(MW_sim_stats)
-
-    print('\\subsubsection{M31}')
+    
+    print('\\subsection{'+'{}'.format(simulation_name[simulation])+', M31, ' + '$N_s={}$'.format(n_sat) + '}')
     print('\\[')
     print('\\Sigma=')
     print('\\begin{bmatrix}')
@@ -739,7 +739,7 @@ def print_covariance(simulation, n_sat):
     print('\\end{bmatrix}')
     print('\\]')
     
-    print('\\subsubsection{MW}')
+    print('\\subsection{'+'{}'.format(simulation_name[simulation])+', MW, ' + '$N_s={}$'.format(n_sat) + '}')
     print('\\[')
     print('\\Sigma=')
     print('\\begin{bmatrix}')

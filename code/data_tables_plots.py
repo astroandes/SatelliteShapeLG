@@ -95,7 +95,7 @@ if PlotShapeObsSimNormed:
         asp.plot_shape_obs_sims_normed('elvis', nsat)
         
 if PrintCovarianceTables:
-    for nsat in range(11,12):
+    for nsat in range(11,16):
         asp.print_covariance('illustris1dark', nsat)
         asp.print_covariance('illustris1', nsat)
         asp.print_covariance('elvis', nsat)
