@@ -728,7 +728,7 @@ than $\approx 98\%$ of the planes computed from the randomized distribution;
 its  $c/a$ ratio is also significantly lower than the measured values for
 the randomized distributions.   
 On the other hand the results for $M31$ for the same quantities are
-within $1-\sigma$ of the randomized results.
+within $1\sigma$ of the randomized results.
 
 The comparison against observations also provides an extreme picture
 for the MW. 
@@ -745,39 +745,68 @@ effect and only the deviations from asphericity are protagonist.
 
 \subsection{Normalized Units}
 
-Figure \ref{normalized_illustris1dark} summarizes  the results of
+Figure \ref{fig:normalized_illustris1dark} summarizes  the results of
 renormalizing to the randomized results.
-The layout is the same as Figure \ref{physical_illustris1dark}.
-Figure \ref{fig:scatter_width} summarizes the results for the width
-measurements.
-The left panel compares the results for the MW and M31
-observations (stars) against its spherically randomized satellites
-(circles). 
+The layout is the same as Figure \ref{fig:physical_illustris1dark}.
+By construction, the relative position of the observations and the
+randomized results keeps constant; The MW continues to be atypical
+with respect to its own randomized distribution.
 
 
-The middle panel in Figure \ref{fig:scatter_width} compares the
-observational result (star) against the measurements of all pairs from the Illustris1-Dark
-simulation (circles).
-In this case we have a similar result as before. 
-The observed MW width is smaller than all the results in the
-simulation, there is not a single halo with similar values.
-On the other hand, the results for the M31 are entirely consistent
-with observations. Most of the halos in the simulation show a width
-value similar to M31. 
+The most notorious difference comes from the changes in the
+simulations. 
+The previous large difference betwen the width distribution from
+MW observations and simulations is reduced. 
+The reason is that normalized quantities are not dependent on the
+physical scale anymore; only the deviations from asphericity are
+important.
 
-The right panel in Figure \ref{fig:scatter_width} shows the result for
-the normalized width.  
-This panel tells the same story as the middle panel. 
-The M31 values are typical while the MW is an outlier. 
+The distributions for the normalized quantities from simulations are
+well described by gaussians. 
+The parameters of the gaussian model (covariance matrix and mean)
+are different depending on the simulation and number of particles, but
+all of them are well described by the multivariate gaussian.
 
-The added value of using the normalized data is that this data is 
-consistent with normal distributions.
-Additionally, this is the data used to build the mean values vector and covariance
-matrix described in Equation \ref{eq:multivariate}. 
-%The added value of the data in this panel is that it is the normalized
-%which is consistent with normal distributions.
-%This is the data used to build the mean values vector and covariance
-%matrix described in Equation \ref{eq:multivariate}. 
+\subsection{Multivariate Gaussian model}
+
+Figure \ref{fig:gaussian_illustris1dark} summarized the results from
+ computing the covariance matrix and mean vector in
+ Eq.\ref{eq:multivariate} from the normalized quantities obtained from
+ the Illustris-1-Dark simulation.
+The distributions in this Figure are computed from $10^6$ points
+generated with the multivariate gaussian. 
+
+This nicely summarizes the results we had in the previous
+sections. 
+The left hand triangular plot shows how M31 falls within the $2\sigma$
+contours in the 2D scatter plots;
+while the right hand plot clearly places the MW observations at the
+border of the $3\sigma$ range in the joint distributions that involve
+the width $w$.  
+
+In both cases the strongest positive correlation is present for the
+width and the $c/a$ axis ratio. 
+A weaker correlation is present for the width and the $b/a$ axis
+ratio.  
+The weakest correlation, positive or negative depending on the
+simulation, is present for the $c/a$ ratio and $b/a$ ratio.
+
+The mean values also hold valuable information. 
+For the three quantities the mean in negative, a confirmation of the
+well known fact that the satellite distribution from LCDM simulations
+is not consistent with an spherical distribution.
+We also computed the correlation between the M31 and MW results,
+finding that it is very weak and can be safely discarded. 
+
+The explicity formulation for this probability distribution allows us
+to generate large samples with asphericity properties consistent with
+the parent simulation. 
+From this samples we can explicitly compute the fraction of systems
+that, for instance, show the extreme MW values.
+
+
+\subsection{Number of Expected LG Systems}
+
 
 
 
@@ -798,88 +827,21 @@ such an aspherical satellite distribution.
 \label{fig:expected_number}}
 \end{figure*}
 
-\subsection{$c/a$ axis ratio}
 
-Figure \ref{fig:scatter_ca_ratio} shows the results for the minor to
-major axis ratio. 
-The layout is the same as in Figure \ref{fig:scatter_width}.
-The results for the $c/a$ ratio follow the same trends as for the
-width $w$.
-
-
-On the other hand the ratio for M31 is lower than the mean of the
-spherical values but still well within its variance.
-The middle panel in the same Figure shows the LG compared against the
-results in the simulations. 
-In this case we find a similar trend as before. 
-The MW is atypical and M31 is within the variance from the simulation data.
-This time, however, there are two MW-like halos out of the total
-of 24 that show an $c/a$ as small as that of the MW.
-The right panel shows the normalized results. 
-The MW shows a low $c/a$ ratio between two and three
-standard deviations away from the mean value of the spherical
-distribution; this contrasts with the results for M31 which are close to
-$1$ standard deviation away. 
-
-
-\subsection{$b/a$ axis ratio}
-
-Figure \ref{fig:scatter_ba_ratio} shows the results for the minor to
-major axis ratio with the same layout as Figure \ref{fig:scatter_ca_ratio}
-In all cases of comparison (against randomized distribution
-and simulations) the results for both the MW and M31 are typical. 
-
-
-\subsection{Multivariate Gaussian model}
-
-Figure \ref{fig:correlations_illustrisdm} illustrates the results from
- computing the covariance matrix and mean vector in
- Eq.\ref{eq:multivariate} from the normalized quantities obtained from
- the Illustris-1-Dark simulation.
-The distributions in this Figure are computed from $10^6$ points
-generated with the multivariate gaussian. 
-Similar plots for Illustris-1 and ELVIS are in the Appendix \ref{appendix:plots}.
-The values for all the covariance matrices and mean vectors
-corresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
-
-This nicely summarizes the results we had in the previous
-sections. The left hand triangular plot shows how M31 falls into the middle of all 2D
-distributions and is always close to the peak and within the $1\sigma$
-range. 
-The right hand plot clearly places the MW observations outside the
-$3\sigma$ range in the joint distributions that involve the width
-$w$. 
-
-In both cases the strongest positive correlation is present for the
-width and the $c/a$ axis ratio. A weaker correlation is present for
-the width and the $b/a$ axis ratio. 
-
-
-
-\subsection{Number of Expected LG Systems}
-
-We use the fits to the multivariate gaussian distributions to
-compute the expected number of pairs with characteristics similar to
-those of the LG.
-To do this we generate $10^3$ samples, each sample containing $10^4$
-pairs, where each pair member is drawn from the corresponding
-multivariate gaussian distribution.  
+Using the multivariate gaussian model we generate $10^3$ samples, each
+sample containing $10^4$ pairs, where each pair member is drawn from
+the corresponding multivariate gaussian distribution. 
 
 We consider that a sampled system is similar to the M31/MW galaxy if the
-distance of each of its normalized characteristics ($w$, $c/a$, $b/a$) to the
-sample mean is equal or larger than the distance of the observational
+absolute distance of each of its normalized characteristics ($w$, $c/a$, $b/a$) to the
+sample mean is equal or larger than the absolute distance of the observational
 values to the sample mean.   
-That is, we perform a double-tailed test using the observational
-values as a threshold. 
+That is, we perform a double-tailed test around the mean using the
+observational values as a threshold.  
 
 Figure \ref{fig:expected_number} summarizes the results from this
-experiment. The left panel shows the probability density for the number of M31
-systems in a parent sample of $10^4$ pairs, the right panel shows the
-results for the MW.
-For M31, between $27\%$ and $56\%$ of the pairs have a satellite
-distribution as aspherical as the one observed in M31. This fraction drops
-dramatically for the MW where only $0.02\%$ to $3\%$ of the satellites
-are expected to have as extreme aspherical distributions as the MW.
+experiment as a function of satellite number for all three simulations:
+Illustris-1-Dark, Illustris-1 and ELVIS.
 
 Considering the joint distribution of M31 and MW we find that at most
 $2\%$ of the pairs are expected to be similar to the LG.
@@ -893,12 +855,18 @@ as a $3\sigma$ outlier.
 %In [150]: stats.chi2.cdf(l**2,3)
 %Out[150]: array([ 0.19874804,  0.73853587,  0.97070911])
 
+For M31, between $5\%$ and $80\%$ of the pairs have a satellite
+distribution as aspherical as the one observed in M31. This fraction drops
+dramatically for the MW where only $0.02\%$ to $4\%$ of the satellites
+are expected to have as extreme aspherical distributions as the MW.
+
 Among the three simulations, the results inferred from ELVIS data show
 the lowest fraction of M31 and MW systems; for Illustris-1-Dark we have
-the highest fraction of M31/MW systems. The results from Illustris-1
-are in between these two, but closer to ELVIS.
+the highest fraction of M31/MW systems. 
+The results from Illustris-1 are in between these two simulations, but
+closer to ELVIS. 
 
-The most probable reason for these trends is the different median mass
+A probable reason for these trends is the different median mass
 for the MW/M31 halos in the pairs from these simulations. 
 For instance for the MW halo the median maximum circular velocity is
 $\sim 160$ \kms, $\sim 150$ \kms and $\sim 120$ \kms in the ELVIS,
@@ -924,6 +892,34 @@ whole halo \cite{2013MNRAS.429.3316B}.
 Our results suggest that it also hold for the satellite distribution.
 We postpone a detailed quantification of this effect for a future
 study.  
+
+
+\subsection{How to understand an atypical MW}
+
+The highly aspherical satellite distribution in the MW is another piece of
+information that points at an atypical configuration in LCDM.
+We also have the number of satellites as bright as the Magellanic
+Clouds, only expected in $5\%$ of galaxies
+\citep{2011ApJ...743..117B} and 
+the satellite velocities around the MW with a radial/tangential
+anisotropy only expected in $3\%$ of systems in LCDM
+\citep{2017MNRAS.468L..41C}. 
+One could also add the atypical kinematics of M31 with a very low
+tangential velocity, which is only expected in less than $1\%$ of the pairs
+with similar environmental characteristics \citep{ForeroRomero2013}.  
+
+Assuming that these properties are independent one would need at
+least $10^6$ pairs in order to find a single pair that meets all four
+characteristics (aspherical satellite distribution, bright Magellanic
+Clouds, satellite velocity anisotropy and atypical pair kinematics).
+Using the number density for pairs in Illustris-1 ($2\times 10^{-5}$
+pairs/Mpc$^{3}$) this would imply a cubic simulation volume of $5$ Gpc on a
+side, something unfeasible under current technology.
+However, studying two characteristics at a time to find possible
+correlations, and at least one pair resembling observations, reduces
+the box size to $500$ Mpc, something that is close to current
+simulations such as Illustris-TNG \citep{2018MNRAS.473.4077P}. 
+
 
 \section{Conclusions}\label{sec:conclusions}
 
@@ -978,6 +974,7 @@ observables, as it allows for an atypicality quantification without
 building explicit samples of objects that are already scarce and
 difficult to find in simulations.  
 
+
 An extension of this framework to outliers in higher order deviations
 (i.e. coherent \emph{velocity} structures) should also be possible, 
 provided that an explicit probability distribution for the scalars of
@@ -986,33 +983,6 @@ The approach presented here is also useful to gauge the influence of
 influence of different physical elements includes the simulation. 
 For instance, in our case the data hints towards rounder satellite
 distributions in simulations that include baryonic effects.  
-
-
-The highly aspherical satellite distribution in the MW is another piece of
-information that points at an atypical configuration in LCDM.
-We also have the number of satellites as bright as the Magellanic
-Clouds, only expected in $5\%$ of galaxies
-\citep{2011ApJ...743..117B} and 
-the satellite velocities around the MW with a radial/tangential
-anisotropy only expected in $3\%$ of systems in LCDM
-\citep{2017MNRAS.468L..41C}. 
-One could also add the atypical kinematics of M31 with a very low
-tangential velocity, which is only expected in less than $1\%$ of the pairs
-with similar environmental characteristics \citep{ForeroRomero2013}.  
-Quantifying whether these four characteristics are correlated one would
-need a simulation with 
-
-Assuming that these properties are independent one would need at
-least $10^6$ pairs in order to find a single pair that meets all four
-characteristics (aspherical satellite distribution, bright Magellanic
-Clouds, satellite velocity anisotropy and atypical pair kinematics).
-Using the number density for pairs in Illustris-1 ($2\times 10^{-5}$
-pairs/Mpc$^{3}$) this would imply a cubic simulation volume of $5$ Gpc on a
-side, something unfeasible under current technology.
-However, studying two characteristics at a time to find possible
-correlations, and at least one pair resembling observations, reduces
-the box size to $500$ Mpc, something that is close to current
-simulations such as Illustris-TNG \citep{2018MNRAS.473.4077P}. 
 
 This atypicality should be seen as an opportunity to constrain in
 great detail the environment that allowed such a pattern to emerge. 
