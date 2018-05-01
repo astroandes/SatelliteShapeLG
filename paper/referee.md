@@ -344,8 +344,12 @@ It was "between" and is already corrected in the text.
 >assumptions. 
 
 We checked explicitly that the correlation between the halos can be
-discarded. We mention that in the text. 
-
+discarded, i.e. we ran everything using a six dimensional gaussian
+distribution instead of two 3d gaussian distribution.
+We don't find any clear trend of the asphericity with the mass or
+companion distance.
+This is probably due to the small number of pairs we have.
+We mention that in the text. 
 
 * section 4.5, second last paragraph:
 > median halo masses are stated for the simulated analogues. Can the
