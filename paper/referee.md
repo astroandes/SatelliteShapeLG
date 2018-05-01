@@ -7,6 +7,7 @@ All the major conclusions quoted in the first version of the paper remain
 unchanged. 
 In the following we quote the referee with the symbol ">". 
 Our reply to each comment follows immediately after.
+We attach the file paper_diff.pdf highlighting the changes.
 
 With best regards, 
 Jaime and Veronica
@@ -45,13 +46,13 @@ the results for N=12, 13, 14 and 15 to examine a possible dependence
 on satellite number. 
 We do not make the calculation for the whole population because the
 resolution of the Illustris1 simulation does not allow us to make such
-an estimate. This point is also clarified in the paper.
+an estimate. 
 
 For the MW we do not find any obvious trend. However, for the M31
 there seems to be a trend for N>=12.  The new Figure 4 summarizes these results.
 
-We also emphasize in the different subsections that our study does not
-address the questions about M31 planes. It only addresses the
+We also emphasize in the introduction that our study does not
+address questions about M31 planes. It only addresses the
 distribution of a given set of satellites with trivial selection
 criteria. 
 
@@ -100,9 +101,8 @@ differences are more subtle to spot due to the rescaling.
 What we mean is that the results of different simulations are always
 consistent with gaussians, not that the parameters are similar.
  The results for the covariance matrix and mean vector differ widely
- among simulations, as the referee points out. We have clarified this
- point in the paper and expanded the discussion in Sections 4.4 and
- 4.5. 
+ among simulations, as the referee points out. We have changed the 
+discussion section accodingly.
 
 
 > Also the DMO simulations Illustris-dark and ELVIS show vastly
@@ -136,9 +136,8 @@ resolution to explore the effect of numerical resolution.
 
 These two points could be addresed in detaile with the new IllustrisTNG
 simulations, unfortunately the data is still not yet public. 
-We discuss these issues in the paper. However, we highlight that our
-main objective is presenting a new tool and presenting its power to spot
-differences as the one we have just discussed between ELVIS and Illustris1.
+We highlight that our main objective is presenting a new tool and demonstrating 
+its power to spot differences as the one we have just discussed between ELVIS and Illustris1. 
 
 > * section 4.5, line 59:
 > Here and in the abstract it says at most 2% of the pairs have
@@ -175,12 +174,11 @@ We have expanded and added some references.
 > procedure of satellites and that a general characterization of
 > asphericity (including all known satellites) is more informative. 
 
-We stress now in the paper that we do not find planes of satellites
+We stress now in the introduction that we do not find planes of satellites
 and our results for M31 should not be compared against sophisticated
-satellite selections. 
-but only characterize asphericity in distributions ranked by
-luminosity (in the case of observations and Illustris1) or estimated stellar
-mass/vmax (in the case of ELVIS/Illustris1dark).
+satellite selections, but only characterize asphericity in distributions ranked by
+vmax, luminosity or mstar.
+
 
 
 > * Figure 1, 2, 3:
@@ -225,7 +223,7 @@ Axis limits are now the same for all plots.
 
 To address this question using simulations one would need a large
 sample of galaxies to estimate these correlations. We have added an estimate in
-the conclusions about the volume required from a cosmological
+the discussion about the volume required from a cosmological
 simulation to study these correlations. 
 
 > * section 4.5, last paragraph:
@@ -245,75 +243,126 @@ We have included now these uncertainties.
 Minor comments:
 
 * Abstract:
-The authors say "not enough systems fully resembling the LG". Could you in the main text explain what you exactly mean by this? Number of satellites? Radial distribution of satellites? Galaxy pairs? Any clue why this is the case?
+> The authors say "not enough systems fully resembling the LG". Could
+> you in the main text explain what you exactly mean by this? Number of
+>satellites? Radial distribution of satellites? Galaxy pairs? Any clue
+>why this is the case?  
 
-[Jaime] Kinematics and separation.
+Clarified.
+
+
+
 
 * introduction, third paragraph:
-observational studies have found... There is another study by Collins+2015 finding no difference between satellites in plane and off plane for M31 satellites.
+> observational studies have found... There is another study by
+> Collins+2015 finding no difference between satellites in plane and off
+> plane for M31 satellites. 
 
-We included the Collins et al. 2015 study on the observational properties of M31 satellites and mentioned the very interesting implications of their results.  
+We have included this reference. in our discussion about that plane.
 
 * section 1, line 36:
-What exactly do the authors mean by "explicit probability distribution"? Can this term be elaborated in the main text?
+> What exactly do the authors mean by "explicit probability
+> distribution"? Can this term be elaborated>  in the main text?
 
-[Jaime]
+We have changed "explicit" by "analytical". 
+
+
 
 * section 2, second paragraph:
-Why are only the brightest 11 to 15 satellites used? And what does 11 to 15 mean? 11 satellites for MW and 15 for M31 or is the whole range from 11 to 15 been used for both galaxies (in observations and simulations)?
+> Why are only the brightest 11 to 15 satellites used? And what does
+> 11 to 15 mean? 11 satellites for MW and 15 for M31 or is the whole
+> range from 11 to 15 been used for both galaxies (in observations and
+> simulations)? 
 
-[Jaime]
+We clarify in that section that is due both to historical reasons (the
+11 classical satellites, the 15 satellites that are at minimum
+considered for M31) and resolution of the simulations we use.
 
 * section 2.2, second paragraph:
-baryonic mass resolution of Illustris is 1.2e6 Msun not! 8.0e7!!!
+> baryonic mass resolution of Illustris is 1.2e6 Msun not! 8.0e7!!!
 
 We corrected this error in the text.
 
 * section 2.2, selection of LG counterparts:
-The authors discard haloes with a number of satellites smaller than 15, which are the lowest mass haloes. Do the authors have any intuition how this might affect the results of the study? The authors say already in the abstract, there is a dependence on halo mass but is there any trends already seen which might hint at the effect of discarding lower mass LG analogues?
+>The authors discard haloes with a number of satellites smaller than
+>15, which are the lowest mass haloes. Do the authors have any
+>intuition how this might affect the results of the study? The authors
+>say already in the abstract, there is a dependence on halo mass but is
+>there any trends already seen which might hint at the effect of
+>discarding lower mass LG analogues? 
 
-[Jaime] Hacer la prueba solamente con 11 satelites vs. 15 satelites.
+In the current form of the test we do not discard those halos. We
+include all halos with the same number of satellites as we
+require. The main results do not change.
 
 * Table 3:
-How exactly are the normalized values calculated. If I follow the description in the text I get the following result for e.g. M31:
-(59-65)/12=-0.5 not -0.48 as the table says. Is the error on the normalized value just the standard error propagation or how is this calculated?
+> How exactly are the normalized values calculated. If I follow the
+> description in the text I get the following result for e.g. M31: 
+> (59-65)/12=-0.5 not -0.48 as the table says. Is the error on the
+> normalized value just the standard error propagation or how is this
+> calculated? 
 
-[Jaime]
+THe error on the normalized value is the error on the physical
+quantity normalized by the standard deviation in the randomized
+sample.
+
 
 * Table 4:
-It would be good if normalized results for the simulation (e.g. from the corner plots Fig.4, C2, C4) appear as well in the table.
+> It would be good if normalized results for the simulation (e.g. from
+> the corner plots Fig.4, C2, C4) appear as well in the table. 
 
-[Jaime]
+Now we only include plots for all quantities (physical, normalized,
+gaussian model)
 
 * section 4.1, last two sentences:
-missing word, general confusing, what do you want to say with these two sentences?
+> missing word, general confusing, what do you want to say with these two sentences?
 
 We corrected this in the text.
 
 * section 4.1:
-Can the fact that MW (as the lower mass halo of the two in the pair) has a thinner plane be explained by a halo mass dependence? (see also point above of rescaling by R200)
+> Can the fact that MW (as the lower mass halo of the two in the pair)
+> has a thinner plane be explained by a halo mass dependence? (see also
+> point above of rescaling by R200) 
 
-[Jaime] Hacer grafica en funcion de la masa y ver si hay correlacion.
+The problem is not only a thinner plane, but also a small c/a ratio,
+i.e. the problem is the extreme asphericity. This is present in the
+normalized quantities which do not depend on the physical units (see
+our response of a rescaling by R200) and already take into account the
+different sizes of the different halos.
 
 * section 4.2, last sentence:
-close to between two and three... Is it close to or between? Please rewrite.
+> close to between two and three... Is it close to or between? Please rewrite.
 
 It was "between" and is already corrected in the text.
 
 * section 4.5, first paragraph:
-When drawing samples from the multivariate gaussians you assume halo pairs can be drawn independently? Is this assumption valid? Do you find any dependence of the results on the companion, its mass, distance, relative velocity, etc.? E.g. does a more massive M31 result in a thinner plane? Please discuss a bit more the procedure and assumptions.
+> When drawing samples from the multivariate gaussians you assume halo
+> pairs can be drawn independently? Is this assumption valid? Do you
+>find any dependence of the results on the companion, its mass,
+>distance, relative velocity, etc.? E.g. does a more massive M31 result
+>in a thinner plane? Please discuss a bit more the procedure and
+>assumptions. 
 
-[Jaime]
+We checked explicitly that the correlation between the halos can be
+discarded. We mention that in the text. 
+
 
 * section 4.5, second last paragraph:
-median halo masses are stated for the simulated analogues. Can the authors compare to observed/estimated values for MW and M31. It looks like the MW and M31 analogues are on the very lower end of estimated values for the LG (~220 km/s for MW and ~260 km/s for M31 e.g. Sofue+2016).
+> median halo masses are stated for the simulated analogues. Can the
+> authors compare to observed/estimated values for MW and M31. It looks
+> like the MW and M31 analogues are on the very lower end of estimat
+> ed values for the LG (~220 km/s for MW and ~260 km/s for M31
+>  e.g. Sofue+2016). 
 
-[Jaime]
+We have included that comparison the figures of Appendix A.
+Such a difference can be expected for 
 
 * section 4.5, last paragraph:
-haloes get more spherical when baryonic effects are included, this was already found before (e.g. Bryan+2012).
+> haloes get more spherical when baryonic effects are included, this was already found before (e.g. Bryan+2012).
 
-[Jaime]
+It was found in the shape sampled by all the particles in the halo but
+not in the satellite distribution. We have included that reference in
+the paper. 
 
 Spelling errors:
 
@@ -348,7 +397,7 @@ The spelling erros were corrected in the text.
 > the ones marked with * are particularly interesting for table 2.  
 
 All these reference focus on finding/charachterizing planes similar to
-the one found in M31 (except Lipnicky), which is a different direction
-from the work we are presenting and don't belong to Table 2. However,
-we have included them in the introduction.  
+the one found in M31 which is a different direction from the work we
+are presenting and don't belong to Table 2. However, we have included
+them in the introduction.   
 

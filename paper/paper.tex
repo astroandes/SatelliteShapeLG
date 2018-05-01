@@ -83,7 +83,8 @@ the asphericity in the satellite distribution around Local Group (LG)
 type galaxies in the Lambda Cold Dark Matter (LCDM) paradigm. 
 We use this distribution to estimate the  atypicality
 of the satellite distributions in the LG even when the underlying
-simulations do not have enough systems fully resembling the LG.
+simulations do not have enough systems fully resembling the LG in
+terms of its typical masses, separation and kinematics.
 We demonstrate the method using three different simulations
 (Illustris-1,  Illustris-1-Dark and ELVIS) and a number of satellites
 ranging from 11 to 15.
@@ -287,8 +288,8 @@ systems in the parent simulations.
 
 To summarize, we use asphericity to characterize on equal footing
 simulations and observations.  
-Then, we build an explicit probability distribution for the asphericity and
-use simulations to estimate its free parameters.
+Then, we build an analytical probability distribution  for the
+asphericity and use simulations to estimate its free parameters.  
 Finally, we use these distributions to generate large numbers of
 samples and directly estimate the number of systems meeting a desired
 set of criteria.
@@ -401,7 +402,7 @@ the closest to $B$, the two are considered as a pair.
 We find 27 pairs with these conditions. 
 In Illustris-1-Dark we use the center of mass position of the 27 pairs
 in Illustris-1 to find the matching halo pairs.
-After discarding the pairs with less than 15 detected subhalos in one
+After discarding the pairs with less than 11 detected subhalos in one
 of the halos we end up with a total of 24 pairs in Illustris-1-Dark. 
 This corresponds to a pair number density of $\sim 2 \times10^{-5}$
 pairs Mpc$^{-3}$. 
@@ -500,6 +501,9 @@ We compute the satellite statistics for $11\leq N_s\leq 15$.
 The lower limit corresponds to the number of classical MW satellites,
 while the upper limit corresponds to the minimum number of
 satellites usually included in M31 studies.
+This boundary in the satellite number is also present due to the
+limits in the resolution of Illustris.
+
 
 In observations we rank the satellites by its $M_V$
 magnitude.  
@@ -911,8 +915,12 @@ anisotropy only expected in $3\%$ of systems in LCDM
 One could also add the atypical kinematics of M31 with a very low
 tangential velocity, which is only expected in less than $1\%$ of the pairs
 with similar environmental characteristics \citep{ForeroRomero2013}.  
+With the small numbers that we have in the simulations we used we
+cannot study properly those correlations. 
+We cannot even find a clear trend linking asphericity to halo mass or
+another pair property.
 
-Assuming that these properties are independent one would need at
+Assuming that these atypical properties are independent one would need at
 least $10^6$ pairs in order to find a single pair that meets all four
 characteristics (aspherical satellite distribution, bright Magellanic
 Clouds, satellite velocity anisotropy and atypical pair kinematics).
