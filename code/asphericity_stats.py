@@ -239,13 +239,14 @@ def plot_covariance(simulation, n_sat):
             cov_illustris_M31['mean'], cov_illustris_M31['covariance'], size=100000)
     data_random_illustris_MW = np.random.multivariate_normal(
             cov_illustris_MW['mean'], cov_illustris_MW['covariance'], size=100000)
-
+    s = np.array([1.0,2.0,3.0])
+    levels = 1-np.exp(-(s**2)/2.0)
         
     plt.figure(figsize=(8,5))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
     figure = corner.corner( data_random_illustris_M31, 
-                      quantiles=[0.16, 0.5, 0.84],
+                      quantiles=[0.16, 0.5, 0.84],levels=levels,
                       labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=M31_obs['data_obs'])
@@ -264,7 +265,7 @@ def plot_covariance(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ba_ratio_normed'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
 
     filename = "../paper/gaussian_model_{}_M31_n_{}.pdf".format(simulation, n_sat)
@@ -276,7 +277,7 @@ def plot_covariance(simulation, n_sat):
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
     figure = corner.corner(data_random_illustris_MW, 
-                      quantiles=[0.16, 0.5, 0.84],
+                      quantiles=[0.16, 0.5, 0.84],levels=levels,
                       labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=MW_obs['data_obs'])
@@ -293,7 +294,7 @@ def plot_covariance(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ba_ratio_normed'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Gaussian Model'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     filename = "../paper/gaussian_model_{}_MW_n_{}.pdf".format(simulation, n_sat)
     print('saving figure to {}'.format(filename))
@@ -554,13 +555,17 @@ def plot_shape_obs_sims(simulation, n_sat):
     
     print(np.shape(data_random_obs_MW))
     print(MW_obs)
+    s = np.array([1.0,2.0,3.0])
+    levels = 1-np.exp(-(s**2)/2.0)
         
     plt.figure(figsize=(8,5))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
+    plt.title("Physical Quantities")
     figure = corner.corner(data_random_obs_M31, 
+                     levels = levels,
                       quantiles=[0.16, 0.5, 0.84],
-                      labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
+                      labels=[r"$w$ (kpc) M31", r"$c/a$ M31", r"$b/a$ M31"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=M31_obs['data_obs'])
         
@@ -578,20 +583,23 @@ def plot_shape_obs_sims(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(M31_sim_stats['width'], M31_sim_stats['ba_ratio'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     
     filename = "../paper/input_{}_obs_M31_n_{}.pdf".format(simulation, n_sat)
     print('saving figure to {}'.format(filename))
+    
     plt.savefig(filename, bbox_inches='tight')
     plt.clf()
         
     plt.figure(figsize=(8,5))
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
+
     figure = corner.corner(data_random_obs_MW, 
                       quantiles=[0.16, 0.5, 0.84],
-                      labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
+                      levels = levels,
+                      labels=[r"$w$ (kpc) MW", r"$c/a$ MW", r"$b/a$ MW"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=MW_obs['data_obs'])
     
@@ -607,7 +615,7 @@ def plot_shape_obs_sims(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(MW_sim_stats['width'], MW_sim_stats['ba_ratio'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     
 
@@ -640,7 +648,8 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
         (MW_obs_stats['ca_ratio_random'] - np.mean(MW_obs_stats['ca_ratio_random']))/np.std(MW_obs_stats['ca_ratio_random']),
         (MW_obs_stats['ba_ratio_random'] - np.mean(MW_obs_stats['ba_ratio_random']))/np.std(MW_obs_stats['ba_ratio_random'])]).T
 
-    
+    s = np.array([1.0,2.0,3.0])
+    levels = 1-np.exp(-(s**2)/2.0)
     print(np.shape(data_random_obs_MW))
     print(MW_obs)
         
@@ -648,7 +657,7 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
     figure = corner.corner(data_random_obs_M31, 
-                      quantiles=[0.16, 0.5, 0.84],
+                      quantiles=[0.16, 0.5, 0.84],levels=levels,
                       labels=[r"$w$ M31", r"$c/a$ M31", r"$b/a$ M31"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=M31_obs['data_obs'])
@@ -667,7 +676,7 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(M31_sim_stats['width_normed'], M31_sim_stats['ba_ratio_normed'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     
     filename = "../paper/input_{}_obs_M31_n_{}_normed.pdf".format(simulation, n_sat)
@@ -679,7 +688,7 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
     plt.rc('text', usetex=True,)
     plt.rc('font', family='serif', size=25)
     figure = corner.corner(data_random_obs_MW, 
-                      quantiles=[0.16, 0.5, 0.84],
+                      quantiles=[0.16, 0.5, 0.84],levels=levels,
                       labels=[r"$w$ MW", r"$c/a$ MW", r"$b/a$ MW"],
                       show_titles=True, title_kwargs={"fontsize": 12}, 
                       truths=MW_obs['data_obs'])
@@ -696,7 +705,7 @@ def plot_shape_obs_sims_normed(simulation, n_sat):
     ax = axes[2,0];ax.set_xlim(min_w, max_w);ax.set_ylim(min_ab, max_ab)
     ax.scatter(MW_sim_stats['width_normed'], MW_sim_stats['ba_ratio_normed'])
     children = ax.get_children()
-    ax.legend([children[6], children[8], children[5]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
+    ax.legend([children[5], children[7], children[4]], [simulation_name[simulation], 'Observations', 'Randomized Obs.'], 
               loc='upper right', bbox_to_anchor=(3.0, 3.0), fontsize=20, markerscale=2)
     
 
