@@ -1,0 +1,2232 @@
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL paper_old.tex   Sat Apr 28 17:00:01 2018
+%DIF ADD paper.tex       Tue May  1 15:37:31 2018
+
+%=========================================================================
+\usepackage{amsmath} 
+\usepackage{amssymb} 
+\usepackage{multirow}
+
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage[dvips]{epsfig}
+\usepackage{epsfig}  
+\usepackage{color}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{bm}
+%Non reposionated tables
+
+%=========================================================================
+%		INTERNAL MACROS
+%=========================================================================
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+
+% To highlight comments 
+\definecolor{red}{rgb}{1,0.0,0.0}
+\newcommand{\red}{\color{red}}
+\definecolor{darkgreen}{rgb}{0.0,0.5,0.0}
+\newcommand{\SRK}[1]{\textcolor{darkgreen}{\bf SRK: \textit{#1}}}
+\newcommand{\SRKED}[1]{\textcolor{darkgreen}{\bf #1}}
+\newcommand{\before}[1]{\textcolor{red}{ #1}}
+\newcommand{\after}[1]{\textcolor{darkgreen}{ #1}}
+\newcommand{\hs}{{\hspace{1mm}}}  
+\newcommand{\tol}{Tololo 1214-277}
+\newcommand{\rank}{\texttt{Ranked}}
+\newcommand{\boot}{\texttt{Bootstrapped}}
+\newcommand{\rand}{\texttt{Random}}
+\newcommand{\HI}{{\text{H\MakeUppercase{\romannumeral 1}}} }
+\newcommand{\HII}{{\text{H\MakeUppercase{\romannumeral 2}}} }
+\newcommand{\lya}{\ifmmode{{\rm Ly}\alpha}\else Ly$\alpha$\ \fi}
+\newcommand{\cm}{\ifmmode{{\rm cm}}\else cm\fi}
+\newcommand{\ccm}{\,\mathrm{cm}^{-3}}
+\newcommand{\ergps}{\,{\rm erg}\,{\rm s}\ifmmode{}^{-1}\else ${}^{-1}$\fi}
+\newcommand{\Mpch}{\,{\rm Mpc}\,\ifmmode h^{-1}\else $h^{-1}$\fi}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\vek}[1]{\bm{#1}}
+\newcommand{\hb}{H$\beta$}
+\newcommand{\ha}{H$\alpha$}
+\newcommand{\oiii}{[OIII]}
+\newcommand{\oii}{[OII]}
+\newcommand{\nii}{[NII]}
+\newcommand{\esca}{erg cm$^{-2}$ s$^{-1}$ \AA$^{-1}$}
+\newcommand{\esc}{erg cm$^{-2}$ s$^{-1}$}
+\newcommand{\es}{erg s$^{-1}$}
+\newcommand{\esa}{erg s$^{-1}$}
+\newcommand{\kms}{\ifmmode\mathrm{km\ s}^{-1}\else km s$^{-1}$\fi}
+\newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm{M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$}\fi}}
+\newcommand{\Msun}{{\ifmmode{{\rm{M_{\odot}}}}\else{${\rm{M_{\odot}}}$}\fi}}
+
+\newcommand{\jefr}[1]{\textcolor{darkgreen}{\bf JEFR: \textit{#1}}}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+
+%=========================================================================
+%		FRONT MATTER
+%=========================================================================
+\title[LG satellites distribution asphericity]{We are not the 99 percent: quantifying
+  asphericity in the distribution of Local Group satellites}
+\author[J.E. Forero-Romero \& V. Arias]
+{Jaime E. Forero-Romero $^{1}$ \thanks{je.forero@uniandes.edu.co},
+Ver\'onica Arias$^1$\\
+%%
+$^1$ Departamento de F\'isica, Universidad de los Andes, Cra. 1
+  No. 18A-10 Edificio Ip, CP 111711, Bogot\'a, Colombia \\
+}
+
+\maketitle
+
+\begin{abstract}
+We use simulations to build an \DIFdelbegin \DIFdel{explicit }\DIFdelend \DIFaddbegin \DIFadd{analytic }\DIFaddend probability distribution for
+the asphericity in the satellite distribution around \DIFdelbegin \DIFdel{galaxies similar
+to the }\DIFdelend Local Group (LG)
+\DIFaddbegin \DIFadd{type galaxies }\DIFaddend in the Lambda Cold Dark Matter (LCDM) paradigm. 
+We use this distribution to \DIFdelbegin \DIFdel{to estimate the  atipicallity
+}\DIFdelend \DIFaddbegin \DIFadd{estimate the  atypicality
+}\DIFaddend of the satellite distributions in the LG even when the underlying
+simulations do not have enough systems fully resembling the LG \DIFaddbegin \DIFadd{in
+terms of its typical masses, separation and kinematics}\DIFaddend .
+We demonstrate the method using three different simulations
+\DIFdelbegin \DIFdel{:
+}\DIFdelend \DIFaddbegin \DIFadd{(}\DIFaddend Illustris-1,  Illustris-1-Dark and ELVIS\DIFdelbegin \DIFdel{. 
+}\DIFdelend \DIFaddbegin \DIFadd{) and a number of satellites
+ranging from 11 to 15.
+}\DIFaddend Detailed results differ \DIFaddbegin \DIFadd{greatly }\DIFaddend among the simulations suggesting a
+strong influence of the typical DM halo mass\DIFdelbegin \DIFdel{in the LG samples and }\DIFdelend \DIFaddbegin \DIFadd{, the number of satellites
+and the }\DIFaddend simulated baryonic effects.   
+However, there are three common trends.
+First, at most \DIFdelbegin \DIFdel{of }\DIFdelend $2\%$ \DIFaddbegin \DIFadd{of }\DIFaddend the pairs are expected to have satellite
+distributions with the same asphericity as the LG; second,
+\DIFdelbegin \DIFdel{between $27\%$ to $56\%$ }\DIFdelend \DIFaddbegin \DIFadd{at most $80\%$ }\DIFaddend of the pairs have a halo with a satellite
+distribution as aspherical as in M31; and third, at most \DIFdelbegin \DIFdel{$3\%$ }\DIFdelend \DIFaddbegin \DIFadd{$4\%$ }\DIFaddend of the
+pairs have a \DIFaddbegin \DIFadd{halo with }\DIFaddend satellite distribution as planar as in the MW. 
+These quantitative results place the LG at the level of a $3\sigma$
+outlier in the LCDM paradigm. 
+We suggest that understanding the reasons for this atypicality
+\DIFdelbegin \DIFdel{will require }\DIFdelend \DIFaddbegin \DIFadd{requires }\DIFaddend quantifying the asphericity probability distribution as a
+function of halo mass and large scale environment.
+The approach presented here can facilitate that kind of study and other
+comparisons between different numerical setups and choices to study
+satellites around LG pairs in simulations.  
+\end{abstract}
+
+\begin{keywords}Cosmology: Dark Matter --- Galaxies:Local Group ---
+  Methods: numerical  
+\end{keywords}
+
+\section{Introduction}
+
+The spatial distribution of satellite galaxies around our Milky Way
+(MW) and the M31 galaxy is becoming a stringent test for structure
+formation theories in \DIFdelbegin \DIFdel{a }\DIFdelend \DIFaddbegin \DIFadd{an }\DIFaddend explicit cosmological context. 
+This started with the suggested existence of a Magellanic Plane, a flattened
+structure of satellite galaxies and globular clusters around the MW,
+by \cite{1976RGOB..182..241K} and \cite{1976MNRAS.174..695L}.  
+\DIFdelbegin \DIFdel{Fourty }\DIFdelend \DIFaddbegin \DIFadd{Forty }\DIFaddend years later \cite{2005A&A...431..517K} quantified that the
+highly planar distribution of the 11 classical MW satellites has less
+than a $0.5\%$ chance to happen by chance if the
+parent distribution is spherically symmetric, interpreting this as a
+challenge to the Lambda Cold Dark Matter (LCDM) paradigm.
+The same year it was recognized, using numerical simulations, that
+this comparison was unfair given that Dark Matter halos in LCDM
+are expected to be triaxial and not spherical.
+Nevertheless, some estimates of the chances to find simulated satellites as
+planar as in the MW 
+were as low as $2\%$ \citep{2005ApJ...629..219Z} while others expected
+planar satellite configurations in every DM halo
+\citep{2005MNRAS.363..146L}.
+
+Later, \cite{2007MNRAS.374.1125M} used simulations to confirm the low
+chances ($<0.5\%$) found in \cite{2005A&A...431..517K}.
+This result was challenged by \cite{2009MNRAS.399..550L} who continued
+to report high chances to find a planar configuration;
+two more recent numerical \DIFdelbegin \DIFdel{experiment }\DIFdelend \DIFaddbegin \DIFadd{experiments }\DIFaddend with high resolution simulations
+(\cite{2013MNRAS.429..725S} and \cite{2016MNRAS.457.1931S}) reported
+contradicting results (low and high chances to find the observational
+result, respectively) but precise figures were not quoted in these three reports. 
+Meanwhile, \cite{2013MNRAS.429.1502W} and \cite{2014ApJ...789L..24P} published
+the results of new tests using high resolution simulations and cosmological
+volumes arriving at a chance of $6\%$ and $0.77\%$, respectively, to
+have a satellite distribution as triaxial as the observations. 
+
+
+
+In the case of M31, \DIFdelbegin \DIFdel{observational studies have found a planar satellite
+distribution in a special subset of $15$ satellites out of the 
+total poulation of $27$ satellites \mbox{%DIFAUXCMD
+\citep{2013ApJ...766..120C,
+2013Natur.493...62I}}%DIFAUXCMD
+, although considering the satellites ranked by
+luminosity does not show any special feature.
+All published studies }\DIFdelend \DIFaddbegin \DIFadd{all studies }\DIFaddend agree on the point that the spatial
+distribution of the \DIFdelbegin \DIFdel{15 to 27 }\DIFdelend \DIFaddbegin \DIFadd{$15$ to $27$ }\DIFaddend brightest satellites  are consistent with
+spherically symmetric \DIFdelbegin \DIFdel{distribution }\DIFdelend \DIFaddbegin \DIFadd{distributions }\DIFaddend and easy to reproduce in LCDM simulations
+\citep{2006AJ....131.1405K,2007MNRAS.374.1125M, 2013ApJ...766..120C}.
+%DIF < comentario: no estoy segura de que el paper de Conn esté bien citado acá. el dice "It is clear that while the satellites of M31 when taken as a whole are no more planar than one can expect from a random distribution, a subset consisting of roughly half the sample is remarkably planar". Y en esta citación "15 to 27 brightest satellites" me parece que puede sonar contradictorio con lo que dice Conn.  
+\DIFaddbegin \DIFadd{In a very different observational statement, there is a subset of $15$
+satellites out of the total population of $27$ satellites that show a
+highly planar distribution
+\mbox{%DIFAUXCMD
+\citep{2013ApJ...766..120C,2013Natur.493...62I,2015ApJ...799L..13C}}%DIFAUXCMD
+.
+This so-called satellite plane is deemed to be difficult to produce in
+LCDM simulations and is thought to be transient structure
+\mbox{%DIFAUXCMD
+\citep{2015MNRAS.452.3838C,2015ApJ...809...49B,2015ApJ...800...34G,2016MNRAS.460.4348B,2017MNRAS.466.3119A,2017MNRAS.465..641F}}%DIFAUXCMD
+.  
+However, in this paper we do not address these }\emph{\DIFadd{plane finding}}
+\DIFadd{algorithms and focus instead on the characterization of the global
+satellite distribution ranked either by decreasing luminosity, maximum
+circular velocity or stellar mass. 
+}\DIFaddend Table \ref{table:M31} and Table \ref{table:MW} summarize some more
+details on the results we have just mentioned \footnote{
+Those tables also include the results from this paper using the
+\DIFdelbegin \DIFdel{methodolgy }\DIFdelend \DIFaddbegin \DIFadd{methodology }\DIFaddend we describe in the upcoming sections.}.
+
+
+
+
+
+\begin{table*}
+\centering
+\begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
+Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
+\text{\cite{2006AJ....131.1405K}} & RMS width in 15 brightest
+satellites & Monte Carlo satellite distributions with a power law
+radial distribution & $87-99$\\
+\text{\cite{2007MNRAS.374.1125M}} & $c/a$ ratio and RMS width in 16 brightest satellites & Monte Carlo from a spherical power law radial
+distribution & $17$\\
+\text{\cite{2013ApJ...766..120C}}& RMS width in the 27 brightest
+satellites & Monte Carlo randomized satellite distribution & High\\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & \DIFdelbeginFL \DIFdelFL{24 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{27 }\DIFaddendFL halos from selected pairs in a cosmological N-body Dark Matter only simulation ($\sim
+10^{6}$\Msun particle mass resolution)& \DIFdelbeginFL \DIFdelFL{56 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<80$ }\DIFaddendFL \\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{24 }\DIFaddendFL halos from selected pairs in a cosmological N-body hydro simulation ($\sim
+10^{6}$\Msun particle mass resolution)& \DIFdelbeginFL \DIFdelFL{27 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<71$ }\DIFaddendFL \\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & 12 high resolution DM only N-body simulations ($\sim
+10^{5}$\Msun particle mass resolution) of halo pairs & \DIFdelbeginFL \DIFdelFL{37 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<57$ }\DIFaddendFL \\
+\hline
+\end{tabular}
+\caption{Probability to find  the triaxiality and/or root mean squared
+  (RMS) \DIFdelbeginFL \DIFdelFL{height }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{width }\DIFaddendFL of M31 satellites in LCDM simulations. 
+\label{table:M31}}
+\end{table*}
+
+
+\begin{table*}
+\centering
+\begin{tabular}{|p{4.0cm}|p{4.5cm}| p{5.5cm}| c|}\hline
+Reference & Target Measurement & Parent Simulation & Probability ($\%$)\\\hline
+\text{\cite{2005A&A...431..517K}} & RMS width in 11 classical
+satellites & Monte Carlo from a spherical power law
+radial distribution. & $<0.5$ \\
+\text{\cite{2005MNRAS.363..146L}} & $c/a$ ratio of 11 classical
+satellites & 6 high resolution DM only N-body simulations ($\sim10^5$
+\Msun\ particle mass resolution). & High\\ 
+\text{\cite{2005ApJ...629..219Z}} & $c/a$ ratio and disk \DIFdelbeginFL \DIFdelFL{height }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{width }\DIFaddendFL in 
+11 classical satellites & 3 high resolution DM only N-body
+simulations. ($\sim10^6$ \Msun\ particle mass resolution) & 2 \\
+\text{\cite{2007MNRAS.374.1125M}} & $c/a$ ratio and RMS width in 11-13 brightest satellites & Monte Carlo from a halo triaxiality distribution from LCDM
+simulations & $<0.5$\\
+\text{\cite{2009MNRAS.399..550L}}& $c/a$ ratio in 11 classical satellites & 436 halos from a
+cosmological N-body simulation ($1.3\times 10^{8}$\Msun\ particle mass)
+&  High \\
+\text{\cite{2013MNRAS.429..725S}}& $c/a$ ratio in 12 brightest
+satellites & 6 High resolution DM only N-body simulations ($\sim
+10^3$\Msun particle mass resolution) of individual halos & Low \\
+\text{\cite{2013MNRAS.429.1502W}}& $c/a$ ratio or RMS width in 11 brightest
+satellites & 1686 halos from a cosmological DM only N-body simulation
+($\sim 10^6$\Msun particle mass resolution) & 6 or 13 \\
+\text{\cite{2014ApJ...789L..24P}}& $c/a$ and $b/a$ ratio in 11
+classical satellites & 48 high \DIFdelbeginFL \DIFdelFL{resoltion }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{resolution }\DIFaddendFL DM only N-body simulations
+($\sim 10^{5}$\Msun particle mass resolution) of both halo pairs and
+isolated halos & 0.77\\
+\text{\cite{2016MNRAS.457.1931S}}& $c/a$ ratio in 11 classical satellites & 12
+high resolution Hydro simulation of halo pairs ($\sim 10^{4}$\Msun particle
+mass resolution) & High\\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & \DIFdelbeginFL \DIFdelFL{24 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{27 }\DIFaddendFL halos from selected pairs in a cosmological N-body
+Dark Matter only simulation ($\sim 10^{6}$\Msun particle mass
+resolution)& \DIFdelbeginFL \DIFdelFL{3}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<4$}\DIFaddendFL \\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & \DIFdelbeginFL \DIFdelFL{20 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{24 }\DIFaddendFL halos from selected pairs in \DIFdelbeginFL \DIFdelFL{acosmological }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{a cosmological }\DIFaddendFL N-body
+hydro simulation ($\sim 10^{6}$\Msun particle mass resolution)& \DIFdelbeginFL \DIFdelFL{0.6 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<1.5$ }\DIFaddendFL \\
+This Work & $c/a$ ratio, $b/a$ ratio and RMS width in 11-15 brightest
+satellites & 12 high resolution DM only N-body simulations ($\sim
+10^{5}$\Msun particle mass resolution) of halo pairs & \DIFdelbeginFL \DIFdelFL{0.2 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$<1.6$}\DIFaddendFL \\
+\hline
+\end{tabular}
+\caption{Same as Table \ref{table:M31} for the MW satellites.
+\label{table:MW}}
+\end{table*}
+
+
+Some of the difficulty in trying to reconcile and understand the
+\DIFdelbegin \DIFdel{seemly }\DIFdelend \DIFaddbegin \DIFadd{seemingly }\DIFaddend conflicting or inconclusive results on the MW has its origin on
+the frequentist fashion generally used to compute probabilities.
+Usually, this process starts by building a high level parent sample in the
+simulation and then counting how many elements has the subset
+meeting some criteria. 
+This has two \DIFdelbegin \DIFdel{incovenients}\DIFdelend \DIFaddbegin \DIFadd{inconveniences}\DIFaddend .
+The first is that the probability estimate is made against whatever
+turns out to be typical in each simulation. 
+A fair comparison across simulations would require first
+characterizing all the simulations at the high level parent samples,
+something that is difficult to do in practice. 
+The second inconvenient is that the systems that fully resemble
+the LG (i.e. its stellar mass content, morphology or kinematics) have
+a low cosmological number density \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{ForeroRomero2013}}%DIFAUXCMD
+}\DIFaddend , this means
+that for the current cosmological volumes in simulations the high
+level parent sample has a small size, making it hard to derive robust
+probabilities by counting.    
+In this paper we present and \DIFdelbegin \DIFdel{demostrate }\DIFdelend \DIFaddbegin \DIFadd{demonstrate }\DIFaddend a method to overcome these two
+limitations.
+
+We control the first effect by setting as a direct point of reference
+a spherical satellite distribution and not the simulations themselves.
+The spherical satellite distribution is built from the data itself
+(observational or simulated) by randomizing the angular position
+of each satellite around the central galaxy and keeping its radial
+distance fixed \citep{2017AN....338..854P}. 
+We characterize the satellites in terms of the scalars describing its
+deviation from the spherical distribution. 
+We then build an \DIFdelbegin \DIFdel{explicit }\DIFdelend analytic probability distribution for the
+asphericity; this solves the problem of having a common reference
+point to compare simulations.  
+We use a simulation to estimate the parameters in this distribution to
+later use it as a parent sample to generate any desired number of
+samples that are by construction statistically compatible with the
+simulation; thus overcoming the problem of having a small number of
+systems in the parent simulations. 
+
+To summarize, we use asphericity to characterize on equal footing
+simulations and observations.  
+Then, we build an \DIFdelbegin \DIFdel{explicit }\DIFdelend \DIFaddbegin \DIFadd{analytical }\DIFaddend probability distribution  for the
+asphericity and use simulations to estimate its free parameters.  
+Finally, we use these distributions to generate large numbers of
+samples and directly estimate the number of systems meeting a desired
+set of criteria.
+
+The rest of the paper describes in detail our implementation and
+results. It is structured as follows. 
+In Section \ref{sec:DataSamples} we list the sources of the observational and
+simulated data to be used throughout the paper.
+In Section \ref{sec:SpatialMeasurements} we describe the methods we
+use to build halo pairs and  
+characterize their satellite distributions.
+In Section \ref{sec:results} we present our results to finally
+conclude in Section \ref{sec:conclusions}. 
+
+
+
+\section{Data samples}\label{sec:DataSamples}
+
+\subsection{Observational Data}
+\label{sec:obs}
+
+The base for our analysis is the catalog compiled by
+\cite{2014yCat..74351928P} which reports information on all 
+galaxies within 3 Mpc around the Sun to that date. 
+Detailed description of the compiled catalog can be found in
+\cite{2013MNRAS.435.1928P}, here we summarize the relevant features
+for the current study.
+The information in the catalogue is based on the catalogue compiled by
+\cite{2012AJ....144....4M}.
+The distance estimates are based on resolved stellar populations. 
+We use three dimensional positions in a cartesian coordinate system
+as computed by \cite{2013MNRAS.435.1928P}.
+In this coordinate system the $z$-axis points towards the Galactic north pole, the
+$x$-axis points in the direction from the Sun to the Galactic center,
+and the $y$-axis points in the direction of the Galactic rotation.
+
+
+For both the M31 and MW we only use the 11 to 15 brightest satellites (using
+$M_V$ magnitudes) within a distance of $300$kpc from its central galaxy.
+The satellites included for the MW analysis are: 
+LMC, SMC, Canis Major, Sagittarius dSph, Fornax, Leo I, Sculptor,
+Leo II, Sextans I, Carina, Ursa Minor, Draco, Canes Venatici (I),
+Hercules and Bootes II.
+The satellites included for the M31 analysis are: Triangulum, NGC205,
+M32, IC10, NGC185, NGC147, Andromeda VII, Andromeda II, Andromeda
+XXXII, Andromeda XXXI, Andromeda I, Andromeda VI, Andromeda XXIII, LGS 3, 
+ and Andromeda III.
+
+
+
+\subsection{\DIFaddbegin \DIFadd{Simulated }\DIFaddend Data\DIFdelbegin \DIFdel{from the Illustris project}\DIFdelend }
+ \DIFaddbegin 
+
+\DIFadd{We use data from three different simulations: Illustris-1,
+Illustris-1-Dark and ELVIS. 
+In what follows we describe the relevant detailed of those
+simulations, how the halo pairs resembling the LG are selected and how
+the satellite samples for each halo is built.
+Figure \ref{fig:physical_pairs} summarizes the physical properties (maximum
+circular velocities, radial velocities and separation) of the halo
+pairs to be used.
+}
+
+\subsubsection{\DIFadd{Illustris-1 and Illustris-1-Dark}}
+\DIFaddend \label{sec:illustris}
+
+We use publicly available data from the Illustris Project 
+\citep{2014MNRAS.444.1518V}. 
+This suite of cosmological simulations \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{were }\DIFaddend performed using the quasi-Lagrangian
+code AREPO \citep{2010MNRAS.401..791S}\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{.
+They }\DIFaddend followed the coupled evolution of dark  matter and gas and
+includes parametrizations to account for the effects of 
+gas cooling, photoionization, star formation, stellar feedback, black
+hole and super massive black hole feedback. 
+The simulation volume is a cubic box with a $75$ \Mpch\ side.
+The cosmological parameters correspond to a $\Lambda$CDM cosmology
+consistent with WMAP-9 measurements \citep{2013ApJS..208...19H}. 
+
+We extract halo and galaxy information from the Illustris-1 and
+Illustris-1-Dark simulations\DIFdelbegin \DIFdel{, the former simulation }\DIFdelend \DIFaddbegin \DIFadd{. 
+The former }\DIFaddend includes hydrodynamics and star formation prescriptions while the latter only
+includes dark matter physics. 
+These simulations have the highest resolution in the current release of the
+Illustris Project.
+Illustris-1 has $1820^3$ dark matter particles and $1820^3$ initial gas
+\DIFdelbegin \DIFdel{volumen }\DIFdelend \DIFaddbegin \DIFadd{volume }\DIFaddend elements, while Illustris-1-Dark has $1820^3$ dark matter particles.
+This corresponds to a dark matter particle mass of
+$6.3\times 10^6$\Msun\ and a minimum mass for the baryonic volume
+element of \DIFdelbegin \DIFdel{$8.0\times 10^7$}\DIFdelend \DIFaddbegin \DIFadd{$1.2\times 10^6$}\DIFaddend \Msun\DIFaddbegin \DIFadd{\ }\DIFaddend for Illustris-1 and a dark matter
+particle mass of $7.6\times 10^6$\Msun\DIFaddbegin \DIFadd{\ }\DIFaddend for Illustris-1-Dark.
+In both simulations the dark matter gravitational softening is $1.4$
+kpc.
+
+We \DIFdelbegin \DIFdel{buid }\DIFdelend \DIFaddbegin \DIFadd{build }\DIFaddend a sample of pairs that resemble the conditions in the LG \DIFdelbegin \DIFdel{.
+To construct this sample }\DIFdelend \DIFaddbegin \DIFadd{as follows.
+First, }\DIFaddend we select from Illustris-1 all the galaxies with a stellar mass
+in the range $1\times10^{10}\Msun <M_{\star}<1.5 \times 10^{11} \Msun$.
+Then we select the pairs with the following conditions.
+
+\begin{itemize}
+\item For each galaxy $A$ we find its closest galaxy $B$, if galaxy $A$ is also
+the closest to \DIFdelbegin \DIFdel{halo }\DIFdelend $B$, the two are considered as a pair. 
+\item With $d_{AB}$ the distance between the two galaxies and
+  $M_{\star,min}$ the lowest stellar mass in the two galaxies, we
+  discard pairs that have any other galaxy $C$ with stellar mass
+  $M_{\star}>M_{\star, min}$ closer than $3\times d_{AB}$ from any of
+  the pair's members. 
+\item The distance $d_{AB}$ is greater than $700$ kpc.
+\item The relative radial velocity between the two galaxies, including
+  the Hubble flow, is $-120\ \kms <v_{AB,r}<0\ \kms$. 
+\end{itemize}
+
+We find 27 pairs with these conditions. 
+\DIFdelbegin \DIFdel{We then select the pairs where in both halos there are at least 15
+detected subhalos, thus discarding pairs with halos with the lowest
+mass.
+We end up with a total of 20 pairs in Illustris-1.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend In Illustris-1-Dark we use the center of mass position of the 27 pairs
+in Illustris-1 to find the matching halo pairs.
+After discarding the pairs with less than \DIFdelbegin \DIFdel{15 }\DIFdelend \DIFaddbegin \DIFadd{11 }\DIFaddend detected subhalos in one
+of the halos we end up with a total of 24 pairs in Illustris-1-Dark. 
+This corresponds to a pair number density of $\sim 2 \times10^{-5}$
+pairs Mpc$^{-3}$. 
+\DIFdelbegin \DIFdel{Appendix A shows }\DIFdelend \DIFaddbegin \DIFadd{Figure \ref{fig:physical_pairs} summarizes }\DIFaddend the physical properties (\DIFdelbegin \DIFdel{stellar masses, }\DIFdelend maximum
+circular velocities, radial velocities and separation) of \DIFdelbegin \DIFdel{those
+pairs .
+}\DIFdelend \DIFaddbegin \DIFadd{the halo
+pairs to be used.
+}\DIFaddend 
+
+
+
+
+\DIFdelbegin \DIFdel{Although Illustris-1 has stellar particles, we do not use their
+properties to select the satelite population.
+The smallest galaxies are barely resolved in stellar mass at
+magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
+satellites, we use instead the dark matter information. 
+Both in Illustris-1 and Illustris-1-Dark we chose the satellite samples
+by ranking the subhalos in decreasing order of its current maximum
+circular velocity and select the first $N_p$ halos in the list.  
+Under these conditions the smallest sub-halos are sampled with at least $40$ particles.  
+The results presented here correspond to $11\leq N_p\leq 15$. 
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \subsection{Data from the ELVIS project}
+\label{sim:ELVIS}
+
+We use data from the public release of the Exploring the Local
+Universe In Simulations (ELVIS) project.
+For a detailed description of that project and its data we refer the
+reader to \cite{2014MNRAS.438.2578G}. 
+Here we summarize the elements relevant to our discussion.
+
+ELVIS data comes from resimulations of dark matter halo pairs selected
+in dark matter only cosmological simulations. 
+The parent cosmological boxes have a cosmology consistent with the
+Wilkinson Microwave Anisotropy Probe 7 results.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend The ELVIS project used the results from $50$ simulation boxes of side
+\DIFdelbegin \DIFdel{lenght }\DIFdelend \DIFaddbegin \DIFadd{length }\DIFaddend $70.4$ Mpc to select pairs with kinematic characteristics
+similar to the LG. 
+These selection criteria included the following
+\begin{itemize}
+\item The virial mass of each host must be in the range 
+$1\times
+  10^{12} M_{\odot}< M_{vir}<3\times 10^{12}M_{\odot}$ 
+\item The total pair mass must be in the range
+$2\times
+  10^{12} M_{\odot}< M_{vir}<5\times 10^{12}M_{\odot}$ 
+\item The center of mass separation is in the range $0.6\leq d\leq1$
+  Mpc.
+\item The relative radial velocity is negative.
+\item No halos more massive than the least massive halo within $2.8$
+  Mpc and no halos with $M_{vir}>7\times 10^{13}$ within $7$ Mpc of
+  the pairs' center of mass.
+\end{itemize} 
+
+This corresponds to a \DIFdelbegin \DIFdel{pair }\DIFdelend number density of $\sim 8 \times10^{-6}$
+pairs\DIFdelbegin \DIFdel{Mpc$^{-3}$, this }\DIFdelend \DIFaddbegin \DIFadd{/Mpc$^{3}$, which }\DIFaddend is a factor $\sim 2.5$ lower than the pair
+number density we find in the Illustris-1 data.
+There were a total of 146 pairs that met those criteria, but only $12$
+were chosen for resimulation. 
+Additionally, the selected pairs for resimulation have a relative
+tangential velocity less than $75 $\kms. 
+The dark matter particle resolution in these resimulations is
+$1.9\times 10^5$, \DIFdelbegin \DIFdel{a thousand }\DIFdelend \DIFaddbegin \DIFadd{an order of magnitude }\DIFaddend times better than Illustris-1.
+In this paper we only use the results from these $12$ resimulated pairs.
+
+
+
+
+\DIFdelbegin \DIFdel{Appendix A compares the physical properties (stellar masses, maximum
+circular velocities, radial velocities and separation) in those
+pairs against the results from the Illustris-1 simulations.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \section{Building, Characterizing and Comparing Satellites Spatial Distributions}
+\label{sec:SpatialMeasurements}
+
+
+\subsection{Building Satellite Samples}
+
+We compare the joint satellite distributions in the MW and M31 at fixed
+satellite number, \DIFdelbegin \DIFdel{$N_p$.
+This means that the magnitude cut corresponding to }\DIFdelend \DIFaddbegin \DIFadd{$N_s$.
+We make this choice to explicitly model the influence of satellite numbers
+on the statistics. 
+}
+
+\DIFadd{Although Illustris-1 has stellar particles, we do not use their
+properties to select the satellite population for the results reported
+here. 
+The smallest galaxies are barely resolved in stellar mass at
+magnitudes of $M_V=-9$, close to the limit of the 11 ``classical'' MW
+satellites, we use instead the dark matter information. 
+}
+
+\DIFadd{We decide instead to use the same satellite selection rules in
+Illustris-1, Illustris-1-Dark and ELVIS.
+Namely, selecting the satellites by ranking the subhalos in decreasing
+order of its current maximum circular velocity and select the first
+$N_s$ halos in the list. 
+}
+
+\DIFadd{These selection criteria also  allow us to perform a fair comparison
+across simulations. 
+In the case of Illustris-1 versus Illustris-1-Dark, it let us direct
+our attention at baryonic physics as the driver behind the differences
+in the results between these two simulations.  
+To a good approximation these satellites are the systems with the
+highest circular velocity at infall \mbox{%DIFAUXCMD
+\citep{2011MNRAS.415L..40B}}%DIFAUXCMD
+, which
+is the physical quantity expected to best correlate with luminosity
+\mbox{%DIFAUXCMD
+\citep{2004ApJ...609...35K,2006ApJ...647..201C,2010MNRAS.404.1111G}}%DIFAUXCMD
+.  
+With this choice the maximum circular velocity cut corresponding to }\DIFaddend the
+\DIFdelbegin \DIFdel{faintest
+satellite included in the sample is different in
+each case }\DIFdelend \DIFaddbegin \DIFadd{smallest satellite included in the sample is different for each case;
+in terms of resolution the subhalos are resolved with at least
+$\approx 40 (400)$ particles for the Illustris (ELVIS) simulation}\DIFaddend .
+\DIFdelbegin \DIFdel{We make this choice to to rule out the
+influence of satellite numbers
+in the statistics. 
+}\DIFdelend 
+
+We compute the satellite statistics for \DIFdelbegin \DIFdel{11 up to 15 satellites}\DIFdelend \DIFaddbegin \DIFadd{$11\leq N_s\leq 15$}\DIFaddend .
+The lower limit corresponds to the number of classical MW satellites,
+while the upper limit corresponds to the minimum number of
+\DIFdelbegin \DIFdel{M31
+}\DIFdelend satellites usually included \DIFaddbegin \DIFadd{in }\DIFaddend M31 studies.
+\DIFdelbegin \DIFdel{In simulations we rank the subhalos by their maximum circular
+velocity, in }\DIFdelend \DIFaddbegin \DIFadd{This boundary in the satellite number is also present due to the
+limits in the resolution of Illustris.
+}
+
+
+\DIFadd{In }\DIFaddend observations we rank the satellites by its $M_V$
+magnitude.  
+\DIFaddbegin \DIFadd{We also tested using $M_V$ and stellar mass in Illustris-1, and the
+stellar mass in ELVIS (provided through abundance matching) as a
+selection criterion. 
+Our main conclusions remain unchanged by those choices. 
+}\DIFaddend 
+
+\DIFdelbegin %DIFDELCMD < \begin{table*}
+%DIFDELCMD <   %%%
+\DIFdelendFL \DIFaddbeginFL \begin{figure*}
+\DIFaddendFL \centering
+\DIFdelbeginFL %DIFDELCMD < \renewcommand{\arraystretch}{1.2}
+%DIFDELCMD <   \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
+%DIFDELCMD <     \hline
+%DIFDELCMD <     \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Observations}}
+%DIFDELCMD <     & \multicolumn{2}{c|}{\textbf{Randomized Obs.}} &
+%DIFDELCMD <     \multicolumn{2}{c|}{\textbf{Normalized Units}}\\
+%DIFDELCMD <     %%%
+%DIF <  \hline
+    %DIF <  \textbf{Inactive Modes} & \textbf{Description}\\
+    %DIFDELCMD < \cline{2-7}
+%DIFDELCMD <     & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}} %DIFAUXCMD
+%DIFDELCMD < \\
+%DIFDELCMD <     %%%
+%DIF < \hhline{~--}
+    %DIFDELCMD < \hline
+%DIFDELCMD <     %%%
+\DIFdelFL{Plane width (kpc) }%DIFDELCMD < & %%%
+\DIFdelFL{$59\pm 3$  }%DIFDELCMD < & %%%
+\DIFdelFL{$21\pm 2$  }%DIFDELCMD < & %%%
+\DIFdelFL{$65\pm 12$   }%DIFDELCMD < &
+%DIFDELCMD <     %%%
+\DIFdelFL{$45\pm 8$    }%DIFDELCMD < & %%%
+\DIFdelFL{$-0.48\pm 0.24$ }%DIFDELCMD < & %%%
+\DIFdelFL{$-2.48\pm 0.26$}%DIFDELCMD < \\\hline
+%DIFDELCMD <     %%%
+\DIFdelFL{$c/a$ ratio }%DIFDELCMD < & %%%
+\DIFdelFL{$0.45\pm 0.04$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.25\pm 0.05$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.55\pm0.10$ }%DIFDELCMD < &
+%DIFDELCMD <     %%%
+\DIFdelFL{$0.53\pm 0.10$ }%DIFDELCMD < & %%%
+\DIFdelFL{$-1.03\pm 0.37$ }%DIFDELCMD < & %%%
+\DIFdelFL{$-2.18\pm 0.42$}%DIFDELCMD < \\ \hline
+%DIFDELCMD <     %%%
+\DIFdelFL{$b/a$ ratio }%DIFDELCMD < & %%%
+\DIFdelFL{$0.82\pm 0.06$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.80\pm 0.04$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.82\pm0.07$ }%DIFDELCMD < &
+%DIFDELCMD <     %%%
+\DIFdelFL{$0.81\pm 0.08$ }%DIFDELCMD < & %%%
+\DIFdelFL{$-0.02\pm 0.82$ }%DIFDELCMD < & %%%
+\DIFdelFL{$-0.13\pm 0.47$}%DIFDELCMD < \\ \hline
+%DIFDELCMD <   \end{tabular}
+%DIFDELCMD <   %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Results from observations. Mean values and standard deviations for the different
+    quantities describing the satellite distributions: plane width, $c/a$
+    ratio and $b/a$ ratio. 
+    The first column refers to the results from
+    observational data, the second column uses the spherically
+    randomized version of the observational data, the third column
+    corresponds to the observational data recentered and normalized
+    by the randomized values. }%DIFDELCMD < \label{table:observations}%%%
+}
+%DIFAUXCMD
+%DIFDELCMD < \end{table*}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{table*}
+%DIFDELCMD <   \centering
+%DIFDELCMD <   \renewcommand{\arraystretch}{1.2}
+%DIFDELCMD <   \begin{tabular}{|p{2.5cm}|c|c|c|c|c|c|}
+%DIFDELCMD <     \hline
+%DIFDELCMD <     \multirow{2}{4.0cm}{} & \multicolumn{2}{c|}{\textbf{Illustris-1-Dark}} & \multicolumn{2}{c|}{\textbf{Illustris-1}} & \multicolumn{2}{c|}{\textbf{ELVIS}}\\
+%DIFDELCMD <     %%%
+%DIF <  \hline
+    %DIF <  \textbf{Inactive Modes} & \textbf{Description}\\
+    %DIFDELCMD < \cline{2-7}
+%DIFDELCMD <     & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}}%DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{M31}} %DIFAUXCMD
+%DIFDELCMD < & %%%
+\textbf{\DIFdelFL{MW}}%DIFAUXCMD
+%DIFDELCMD < \\
+%DIFDELCMD <     %%%
+%DIF < \hhline{~--}
+    %DIFDELCMD < \hline
+%DIFDELCMD <     %%%
+\DIFdelFL{Plane width (kpc) }%DIFDELCMD < & %%%
+\DIFdelFL{$62\pm 3$   }%DIFDELCMD < & %%%
+\DIFdelFL{$61\pm 3$     }%DIFDELCMD < & %%%
+\DIFdelFL{$70\pm 4$ }%DIFDELCMD < & %%%
+\DIFdelFL{$67\pm 2$ }%DIFDELCMD < & %%%
+\DIFdelFL{$70\pm 2$}%DIFDELCMD < & %%%
+\DIFdelFL{$68\pm 4$ }%DIFDELCMD < \\\hline
+%DIFDELCMD <     %%%
+\DIFdelFL{$c/a$ ratio }%DIFDELCMD < & %%%
+\DIFdelFL{$0.50\pm0.01$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.50\pm 0.02$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.52\pm 0.01$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.53\pm 0.01$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.54\pm 0.01$}%DIFDELCMD < & %%%
+\DIFdelFL{$0.49\pm 0.02$ }%DIFDELCMD < \\ \hline
+%DIFDELCMD <     %%%
+\DIFdelFL{$b/a$ ratio }%DIFDELCMD < & %%%
+\DIFdelFL{$0.79\pm0.01$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.81\pm 0.02$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.80\pm 0.01$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.80\pm 0.02$ }%DIFDELCMD < & %%%
+\DIFdelFL{$0.80\pm0.01$}%DIFDELCMD < & %%%
+\DIFdelFL{$0.81\pm 0.01$}%DIFDELCMD < \\ \hline
+%DIFDELCMD <   \end{tabular}
+%DIFDELCMD <   %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.30\textwidth]{normalized_width_n_dependence.pdf}
+\includegraphics[width=0.30\textwidth]{normalized_ca_ratio_n_dependence.pdf}
+\includegraphics[width=0.30\textwidth]{normalized_ba_ratio_n_dependence.pdf}
+\DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{Results }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Normalized asphericity scalars }\DIFaddendFL from \DIFdelbeginFL \DIFdelFL{simulations. Mean values and standard deviations for the different
+    quantities describing the }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{observations as a function
+  of }\DIFaddendFL satellite \DIFdelbeginFL \DIFdelFL{distributions}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{number. Left}\DIFaddendFL : plane width\DIFdelbeginFL \DIFdelFL{, }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{; center: }\DIFaddendFL $c/a$ ratio\DIFdelbeginFL \DIFdelFL{and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{;
+  right: }\DIFaddendFL $b/a$ ratio. 
+  The \DIFdelbeginFL \DIFdelFL{first column summarizes the results from the 24 pairs in
+    Illustris-1-Dark, the second column from the 20 pairs in
+    Illustris-1 }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{plane width }\DIFaddendFL and \DIFaddbeginFL \DIFaddFL{$c/a$ ratio for }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{third column from }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{MW is
+  consistently found beyond two standard
+  deviations.
+  M31 shows }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{12 pairs in the
+    ELVIS project}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{opposite trend and is always found
+  }\emph{\DIFaddFL{within}} \DIFaddFL{two standard deviations}\DIFaddendFL . \DIFdelbeginFL %DIFDELCMD < \label{table:simulations}%%%
+\DIFdelendFL \DIFaddbeginFL \label{fig:normalized_n}\DIFaddendFL } 
+\DIFdelbeginFL %DIFDELCMD < \end{table*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \end{figure*}
+\DIFaddend 
+
+
+
+\subsection{Describing Samples with the Inertia Tensor}
+
+We describe the satellites with the inertia
+tensor defined by the satellites' positions.  
+
+\begin{equation}
+{\bf{\bar{I}}} = \sum\DIFdelbegin \DIFdel{_{k=1}}\DIFdelend \DIFaddbegin \DIFadd{_{i=1}}\DIFaddend ^{N_p}[(\bf{r}_i - \bf{r}_0)^2\cdot \bf{1} -
+  (\bf{r}_i-\bf{r}_0)\cdot (\bf{r}_i - \bf{r}_0)^{T}],
+\label{eq:intensor}
+\end{equation}
+%
+where $k$ indexes the set of satellites of interest
+$\bf{r}_k$ are the satellites' positions, $\bf{r}_{0}$ is the location
+of the central galaxy $\bf{1}$ is the unit matrix, and  
+${\bf r}^T$ is the transposed vector $\bf{r}$. 
+We use $\bf{r}_0$ as the position of the central galaxy, and not the
+satellites' geometrical center, to allow for a fair comparison once
+the angular positions of the satellites are randomized around this
+point. 
+
+From this tensor we compute its eigenvalues,
+$\lambda_1>\lambda_2>\lambda_3$, and corresponding eigenvectors,
+$\hat{I}_1$, $\hat{I}_2$, $\hat{I}_3$.
+We define the size of the three ellipsoidal axis as
+$a=\lambda_1$, $b=\lambda_2$ and $c=\lambda_3$.
+We also define $\hat{n}\equiv \hat{I}_1$ as the vector perpendicular to the
+planar satellite distribution. 
+We also define the Root Mean Squared (RMS) plane width $w$ as the
+standard deviation of the satellite distances to the plane defined by
+the vector $\hat{n}$.    
+
+To summarize we characterize the satellite distribution with the following
+quantities obtained from the inertia tensor: 
+\begin{itemize}
+\item RMS plane width, $w$.
+\item $c/a$ axis ratio.
+\item $b/a$ axis ratio.
+\end{itemize}
+
+
+
+\subsection{Characterizing Asphericity}
+
+We compare each satellite distribution against its own spherically
+randomized distribution.
+We keep fixed the radial position of every satellite
+with respect to the central galaxy and then randomize its angular
+position. 
+We repeat this procedure \DIFdelbegin \DIFdel{1000 }\DIFdelend \DIFaddbegin \DIFadd{$10^4$ }\DIFaddend times for each satellite distribution
+and proceed to measure the quantities mentioned in the previous section:
+$w$, $c/a$ and $b/a$.
+\DIFdelbegin \DIFdel{For each quantity we compute the average and standard deviation from
+the 1000 random samples. 
+}\DIFdelend This allows us to build a normalized version of all quantities of
+interest by \DIFdelbegin \DIFdel{substracting }\DIFdelend \DIFaddbegin \DIFadd{subtracting }\DIFaddend the mean and dividing \DIFdelbegin \DIFdel{between }\DIFdelend \DIFaddbegin \DIFadd{by }\DIFaddend the standard
+deviation of the \DIFaddbegin \DIFadd{values from }\DIFaddend randomized samples.
+\DIFdelbegin \DIFdel{These normalized quantities are used }\DIFdelend \DIFaddbegin \DIFadd{We use the normalized quantities }\DIFaddend to build the \DIFdelbegin \DIFdel{explicit }\DIFdelend \DIFaddbegin \DIFadd{analytic }\DIFaddend probability
+distributions for the scalars describing asphericity. 
+
+
+\subsection{Building an \DIFdelbegin \DIFdel{explicit }\DIFdelend \DIFaddbegin \DIFadd{analytic }\DIFaddend asphericity probability distribution}
+
+After building the normalized variables with the simulated data we
+perform a Kolmogorov-Smirnov test with the null hypothesis of belonging
+to a normal distribution with mean and standard deviation computed
+from the mean and standard deviation estimated from the data.
+Although the physical quantities of interest are bound, unlike the
+random variables from a normal distribution, we find that the
+distributions for the normalized $w$, $c/a$ and $b/a$ are indeed
+consistent with gaussian \DIFdelbegin \DIFdel{ditributions}\DIFdelend \DIFaddbegin \DIFadd{distributions}\DIFaddend . 
+
+
+Based on this result we build a multivariate normal distribution for
+the joint distributions of the normalized $w$, $c/a$ and $b/a$:
+
+\begin{equation}
+p(X; \mu, \Sigma) = \frac{1}{(2\pi)^{3/2}|\Sigma|^{1/2}}
+\exp\left(-\frac{1}{2}(X-\mu)^{T}\Sigma^{-1}(X-\mu)\right), 
+\label{eq:multivariate}
+\end{equation}
+% 
+where $X=[w, c/a, b/a]^{T}$ is a vector variable with the normalized
+quantities, $\mu$ is the vector mean and the $\Sigma$ is the
+covariance matrix.  
+
+
+We compute the preferred covariance matrix and the mean distribution values
+with a jackknife technique. 
+That is, out of the \DIFdelbegin \DIFdel{the }\DIFdelend $n$ pairs in each simulation, we \DIFdelbegin \DIFdel{perfom }\DIFdelend \DIFaddbegin \DIFadd{perform }\DIFaddend $n$
+different covariance and mean value measurements using only $n-1$ pairs. 
+The reported covariance and mean values correspond to the average of
+all measurements, the corresponding standard deviation also helps us to
+estimate the uncertainty on every reported coefficient.
+This compact description allows us to generate samples of size $N$
+that are consistent by construction with their parent simulation. 
+
+Finally, we use the generated samples to estimate how
+common are the deviations from sphericity that we measure in the
+observational data.  
+We use a double-tailed test \DIFaddbegin \DIFadd{around the mean }\DIFaddend in this comparison, meaning that we
+always measure the fraction of points with absolute values larger than the
+\DIFdelbegin \DIFdel{treshold }\DIFdelend absolute observed value \DIFaddbegin \DIFadd{with the mean substracted}\DIFaddend . 
+
+
+% referencia posiciones satellites
+% http://adsabs.harvard.edu/abs/2013MNRAS.435.1928P
+
+\begin{figure*}
+\centering
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_random_ranked_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_ranked_illudm_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_width.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11.pdf}
+\includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11.pdf}
+\DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{Plane }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Scalars describing satellite shape around the LG galaxies for
+  a fixed number of satellites $N_s$=11:
+  plane }\DIFaddendFL width \DIFdelbeginFL \DIFdelFL{characterization }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$w$ }\DIFaddendFL in \DIFdelbeginFL \DIFdelFL{observations }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{physical units, $c/a$ ratio }\DIFaddendFL and \DIFdelbeginFL \DIFdelFL{simulations (Illustris-1-Dark in this case)}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$b/a$ ratio}\DIFaddendFL .
+  \DIFdelbeginFL \DIFdelFL{In all panels the
+  horizontal/vertical axis corresponds to the  }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Left: }\DIFaddendFL M31\DIFdelbeginFL \DIFdelFL{/}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, right: }\DIFaddendFL MW\DIFdelbeginFL \DIFdelFL{or the
+  most/less massive halo in the pair 
+  Left}\DIFdelendFL . \DIFdelbeginFL \DIFdelFL{Plane width in physical units comparing }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The square at }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{results from }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{center are }\DIFaddendFL observations\DIFdelbeginFL \DIFdelFL{(stars) against }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{; }\DIFaddendFL the
+\DIFdelbeginFL \DIFdelFL{result of spherically }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{2D histograms are the contour levels after }\DIFaddendFL randomizing \DIFaddbeginFL \DIFaddFL{$10^4$ }\DIFaddendFL the
+satellite positions \DIFdelbeginFL \DIFdelFL{(circles). 
+Middle. Average from }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{while keeping }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{observations (star) and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{radial distribution fixed; }\DIFaddendFL the
+\DIFdelbeginFL \DIFdelFL{average from each
+pair in the simulation (}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{blue }\DIFaddendFL circles \DIFdelbeginFL \DIFdelFL{).
+Right. Same as }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{are }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{middle panel except that this time each point has
+been normalized (median substracted and normalized by the standard
+deviation) to the }\DIFdelendFL results \DIFdelbeginFL \DIFdelFL{of its randomization}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{from Illustris-1-Dark}\DIFaddendFL . \DIFdelbeginFL \DIFdelFL{The main message of these panels is that }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{For }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{MW has a significantly
+thinner plane both compared to the result of its own satellite
+spherical randomization }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{M31 these
+three results }\DIFaddendFL (\DIFdelbeginFL \DIFdelFL{left panel) }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{observations, randomized observations }\DIFaddendFL and \DIFdelbeginFL \DIFdelFL{the expectation from
+}\DIFdelendFL simulations\DIFdelbeginFL \DIFdelFL{(middle and right panel}\DIFdelendFL )
+\DIFdelbeginFL \DIFdelFL{.  
+This low value is $2\sigma$ away from what is expected }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{seem to be }\DIFaddendFL in \DIFdelbeginFL \DIFdelFL{a spherical
+distribution. 
+In M31 the satellite distribution is in }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{broad }\DIFaddendFL agreement\DIFdelbeginFL \DIFdelFL{with }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{, while for }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{expectations both from a spherical distribution and }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{MW }\DIFaddendFL the \DIFaddbeginFL \DIFaddFL{three }\DIFaddendFL results
+\DIFdelbeginFL \DIFdelFL{from the
+simulations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{clearly differ}\DIFaddendFL . 
+\DIFdelbeginFL %DIFDELCMD < \label{fig:scatter_width}%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The corresponding plots for Illustris-1 and ELVIS are
+in Figures \ref{fig:all_plots_illustris1} and
+\ref{fig:all_plots_elvis},
+respectively. }\label{fig:physical_illustris1dark}\DIFaddendFL }     
+\end{figure*}
+
+\begin{figure*}
+\centering
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_random_ranked_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_ranked_illudm_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_ca_ratio.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11_normed.pdf}
+\includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11_normed.pdf}
+\DIFaddendFL \caption{
+Same layout as \DIFdelbeginFL \DIFdelFL{in }\DIFdelendFL Figure \DIFdelbeginFL \DIFdelFL{\ref{fig:scatter_width}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\ref{fig:physical_illustris1dark}}\DIFaddendFL . 
+  \DIFdelbeginFL \DIFdelFL{This time for }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Each scalar
+  quantity is re-centered and normalized by }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{$c/a$ axis ratio. 
+The same message holds in this case; namely, that 
+the MW has a significantly lower $c/a$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{mean }\DIFaddendFL value \DIFdelbeginFL \DIFdelFL{than the
+expectation from the spherical distribution }\DIFdelendFL and \DIFaddbeginFL \DIFaddFL{standard
+  deviation }\DIFaddendFL from the \DIFdelbeginFL \DIFdelFL{simulations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$10^4$ randomizations}\DIFaddendFL . 
+  \DIFdelbeginFL \DIFdelFL{This low value is also $2\sigma$ away }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The distribution }\DIFaddendFL from the \DIFdelbeginFL \DIFdelFL{expactations for a
+spherical distribution.
+On }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{randomizations (plots over }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{other hand, M31 is consistent both with }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{diagonal)
+  now has by definition }\DIFaddendFL a \DIFdelbeginFL \DIFdelFL{spherical
+distribution }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{mean of zero }\DIFaddendFL and \DIFdelbeginFL \DIFdelFL{with the }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{standard deviation of one. 
+The }\DIFaddendFL results \DIFaddbeginFL \DIFaddFL{for the width and $c/a$ ratio of MW satellites are more
+than two standard deviations away }\DIFaddendFL from \DIFdelbeginFL \DIFdelFL{simulations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{the mean}\DIFaddendFL . 
+\DIFdelbeginFL %DIFDELCMD < \label{fig:scatter_ca_ratio}%%%
+\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The corresponding plots for Illustris-1 and ELVIS are
+in Figures \ref{fig:all_plots_illustris1} and
+\ref{fig:all_plots_elvis},
+respectively. }\label{fig:normalized_illustris1dark}\DIFaddendFL }     
+\end{figure*}
+
+
+
+
+\begin{figure*}
+\centering
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_random_ranked_ba_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_ranked_illudm_ba_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.30\textwidth]{scatter_norm_ranked_illudm_ba_ratio.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.45\textwidth]{gaussian_model_illustris1dark_M31_n_11.pdf}
+\includegraphics[width=0.45\textwidth]{gaussian_model_illustris1dark_MW_n_11.pdf}
+\DIFaddendFL \caption{
+Same layout as \DIFdelbeginFL \DIFdelFL{in }\DIFdelendFL Figure \DIFdelbeginFL \DIFdelFL{\ref{fig:scatter_width}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\ref{fig:normalized_illustris1dark}}\DIFaddendFL . 
+This time \DIFdelbeginFL \DIFdelFL{for }\DIFdelendFL the \DIFdelbeginFL \DIFdelFL{$b/a$ axis ratio. In this case both }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{distribution comes from }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{MW and M31
+are consistent }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{multivariate gaussian model 
+}\DIFaddendFL with \DIFaddbeginFL \DIFaddFL{its parameters estimated from }\DIFaddendFL the \DIFaddbeginFL \DIFaddFL{Illustris-1-Dark }\DIFaddendFL results\DIFdelbeginFL \DIFdelFL{of a spherical distribution }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{.
+The corresponding plots for Illustris-1 }\DIFaddendFL and \DIFdelbeginFL \DIFdelFL{the simulations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ELVIS are
+in Figures \ref{fig:all_plots_illustris1} and \ref{fig:all_plots_elvis},
+respectively}\DIFaddendFL . \DIFdelbeginFL %DIFDELCMD < \label{fig:scatter_ba_ratio}%%%
+\DIFdelendFL \DIFaddbeginFL \label{fig:gaussian_illustris1dark}\DIFaddendFL }     
+\end{figure*}
+
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.45\textwidth]{gaussian_model_illustrisdm_M31.pdf}
+%DIFDELCMD < \includegraphics[width=0.45\textwidth]{gaussian_model_illustrisdm_MW.pdf}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Results from multivariate gaussian model fitted to the
+  normalized values for the plane width $w$, $c/a$ ratio and $b/a$
+  ratio from the Illustris-1-Dark results.  
+  Left/right panel correspond to M31/MW respectively.  
+  The cross indicates the observed values.
+  The contour levels in the 2D histograms correspond to the $1\sigma$,
+$2\sigma$ and $3\sigma$ contours in two dimensions.
+  The dashed vertical lines in the histograms along the diagonal
+  correspond to the $1\sigma$ boundaries in one dimension.
+  The results for the gaussian model are built from $10^6$ point
+  realizations in the three-dimensional space spaned by the variables of
+  interest for each halo. 
+  This plot clearly shows how the M31 results are well within the
+  expectations from simulations while the MW has an unusual low value for
+  the plane width and the $c/a$ axis ratio.
+}%DIFDELCMD < \label{fig:correlations_illustrisdm}%%%
+}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \section{Results}
+\label{sec:results}
+
+\DIFdelbegin \DIFdel{Table \ref{table:observations} and Table \ref{table:simulations}
+summarize the mean values and uncertainties for the plane }\DIFdelend \DIFaddbegin \DIFadd{Figure \ref{fig:normalized_n} shows, as a function of the number of
+satellites, the normalized plane width }\DIFaddend $w$, $c/a$ ratio and
+$b/a$ ratio \DIFdelbegin \DIFdel{in the observationsand simulations, respectively. 
+The uncertainty in the observations is computed from the results with
+different number of satellites; in the simulations it corresponds to
+the standard deviation over different halos.  
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The observed widths }\DIFdelend \DIFaddbegin \DIFadd{from observations. 
+The most oustanding feature of this plot is that for }\DIFaddend $w$ \DIFdelbegin \DIFdel{are always smaller than its randomized version.
+For M31 there is barely a ratio of $0.92$ between observed and
+randomized,
+while for the MW this factor goes down to less than half
+$0.48$.
+The observed }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend $c/a$
+\DIFdelbegin \DIFdel{ratio follows the same extreme trend for the MW compared to a }\DIFdelend \DIFaddbegin \DIFadd{ratio the MW is always two standard deviations away from the mean,
+while }\DIFaddend M31 \DIFdelbegin \DIFdel{distribution closer to spherical, 
+The }\DIFdelend \DIFaddbegin \DIFadd{is always within 2 standard deviations.
+The results for the }\DIFaddend $b/a$ ratio \DIFdelbegin \DIFdel{is statisically the same between observations and the
+spherical randomization}\DIFdelend \DIFaddbegin \DIFadd{are always 2 standard deviations both
+for the MW and M31}\DIFaddend . 
+This confirms the extreme planar distribution for the MW and the more
+spherical distribution for the M31.
+
+In the following subsections we describe in detail the results \DIFdelbegin \DIFdel{on the 
+distributions }\DIFdelend \DIFaddbegin \DIFadd{from
+Illustris-1-Dark }\DIFaddend for $w$, $c/a$ and $b/a$ \DIFdelbegin \DIFdel{. 
+The plots in the main body of the paper correspond to the
+Illustris-1-Dark simulation; the }\DIFdelend \DIFaddbegin \DIFadd{for a fixed number of
+satellites $N_s=11$.
+The }\DIFaddend results from the other \DIFaddbegin \DIFadd{two }\DIFaddend simulations are included in the
+Appendix \ref{appendix:plots}. 
+\DIFaddbegin \DIFadd{The full covariance matrices are in the Appendix
+\ref{appendix:matrices}. 
+}\DIFaddend 
+
+
+\subsection{\DIFdelbegin \DIFdel{Plane Width}\DIFdelend \DIFaddbegin \DIFadd{Physical Units}\DIFaddend }
+%DIF > subsection{Plane Width}
+
+
+
+Figure \DIFdelbegin \DIFdel{\ref{fig:scatter_width} }\DIFdelend \DIFaddbegin \DIFadd{\ref{fig:physical_illustris1dark} }\DIFaddend summarizes the results \DIFdelbegin \DIFdel{for the
+width
+measurements}\DIFdelend \DIFaddbegin \DIFadd{in
+physical units.
+It compares three different groups: observations, simulations and the
+observations randomized}\DIFaddend .
+The left panel \DIFdelbegin \DIFdel{compares }\DIFdelend \DIFaddbegin \DIFadd{shows }\DIFaddend the results for \DIFdelbegin \DIFdel{the MW and }\DIFdelend M31 \DIFdelbegin \DIFdel{observations (stars) against its spherically randomized satellites
+(circles).
+}\DIFdelend \DIFaddbegin \DIFadd{and the panel on the left for
+the MW.
+}
+
+\DIFaddend The most interesting outcome is that the MW plane width is smaller
+than $\approx 98\%$ of the planes computed from the randomized distribution\DIFdelbegin \DIFdel{,
+while the M31 plane width is only slightly smaller than the average of
+the distribution.   
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The middle panel in Figure \ref{fig:scatter_width} compares the
+observational result (star) against the measurements of all pairs from the Illustris1-Dark
+simulation (circles).
+In this case we have a similar result as before. 
+The observed MW width is smaller than all the results in the
+simulation, there is not a single halo with similar values.
+}\DIFdelend \DIFaddbegin \DIFadd{;
+its  $c/a$ ratio is also significantly lower than the measured values for
+the randomized distributions.   
+}\DIFaddend On the other hand \DIFdelbegin \DIFdel{, }\DIFdelend the results for \DIFdelbegin \DIFdel{the M31 are
+entirely consistent
+with observations. Most of the halos in the simulation show a width
+value similar to M31}\DIFdelend \DIFaddbegin \DIFadd{$M31$ for the same quantities are
+within $1\sigma$ of the randomized results}\DIFaddend .
+
+The \DIFdelbegin \DIFdel{right panel in Figure \ref{fig:scatter_width} shows the result for the normalized width. 
+This panel tells the same story as the
+middle panel. 
+The M31 values are typical while the MW is an outlier. 
+The added value of the data in this panel is that }\DIFdelend \DIFaddbegin \DIFadd{comparison against observations also provides an extreme picture
+for the MW. 
+In this case the mean witdh from simulation is almost twice as the
+mean width from the randomization. 
+A possible criticism to this result is that the typical halo mass in
+the simulation is larger than the }\DIFaddend it is \DIFaddbegin \DIFadd{for the MW. 
+For this reason we renormalize all quantities ($w$, $c/a$ and $b/a$)
+to }\DIFaddend the \DIFdelbegin \DIFdel{normalized
+which is consistent with normal distributions.
+This is the data used to build the mean values vector and covariance
+matrix described in Equation \ref{eq:multivariate}. 
+}\DIFdelend \DIFaddbegin \DIFadd{mean value and standard deviation provided by its spherical
+randomization. 
+In this way the physical scale of the halo becomes a second order
+effect and only the deviations from asphericity are protagonist.
+}\DIFaddend 
+
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.47\textwidth]{expected_numbers_n_M31.pdf}
+%DIFDELCMD < \includegraphics[width=0.47\textwidth]{expected_numbers_n_MW.pdf}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Probability distribution for the expected number of M31 and
+  MW halos showing the same degree of atypicality as the Local Group if drawn
+  from a sample of $10^4$ isolated pairs. 
+  The distributions correspond to results derived from Illustris-1-Dark, Illustris,
+  and ELVIS data.
+  In the most optimistic case (Illustris-1-Dark), $1\%$ of the pairs have
+  two halos with properties similar to the LG. 
+  In the case of Illustris-1 this percentage drops to $0.1\%$ and
+  $0.01\%$ for ELVIS. 
+}%DIFDELCMD < \label{fig:expected_number}%%%
+}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Normalized Units}}
+\DIFaddend 
+
+\DIFdelbegin \subsection{\DIFdel{$c/a$ axis ratio}}
+%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Figure \ref{fig:scatter_ca_ratio} shows the results for the minor to major axis ratio}\DIFdelend \DIFaddbegin \DIFadd{Figure \ref{fig:normalized_illustris1dark} summarizes  the results of
+renormalizing to the randomized results}\DIFaddend .
+The layout is the same as \DIFdelbegin \DIFdel{in Figure \ref{fig:scatter_width}.
+The results for the $c/a$ ratio follow the same trends as for the
+width $w$.
+}\DIFdelend \DIFaddbegin \DIFadd{Figure \ref{fig:physical_illustris1dark}.
+By construction, the relative position of the observations and the
+randomized results keeps constant; The MW continues to be atypical
+with respect to its own randomized distribution.
+}\DIFaddend 
+
+
+The \DIFdelbegin \DIFdel{left panel in Figure \ref{fig:scatter_ca_ratio} shows how the MW $c/a$ ratio is significantly lower than the measured values for
+spherical distributions, and it is smaller than $\approx 98\%$ of the
+randomized distributions.
+On the other hand the ratio for M31 is lower than the mean of the
+spherical values but still well within its variance.
+The middle panel in the same Figure shows the LG compared against the
+results }\DIFdelend \DIFaddbegin \DIFadd{most notorious difference comes from the changes }\DIFaddend in the
+simulations. 
+\DIFdelbegin \DIFdel{In this case we find a similar trend as before. 
+The MW is atypical and M31 is within the variance from the simulation data. 
+This time, however, there are two MW-like halos out of the total
+of 24 that show an $c/a$ as small as that of the MW.
+The right panel shows the normalized results. 
+The MW shows a low $c/a$ ratio close to between two and three
+standard deviations away from the
+mean value of the spherical
+distribution; this contrasts with the results for M31 which are
+close to
+$1$ standard deviation away}\DIFdelend \DIFaddbegin \DIFadd{The previous large difference betwen the width distribution from
+MW observations and simulations is reduced. 
+The reason is that normalized quantities are not dependent on the
+physical scale anymore; only the deviations from asphericity are
+important}\DIFaddend .
+
+\DIFdelbegin \subsection{\DIFdel{$b/a$ axis ratio}}
+%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{Figure \ref{fig:scatter_ba_ratio} shows the results for the minor to
+major axis ratio with the same layout as Figure \ref{fig:scatter_ca_ratio}
+In all cases of comparison (against randomized distribution
+and simulations)
+the results for both the MW and M31 are typical}\DIFdelend \DIFaddbegin \DIFadd{The distributions for the normalized quantities from simulations are
+well described by gaussians. 
+The parameters of the gaussian model (covariance matrix and mean)
+are different depending on the simulation and number of particles, but
+all of them are well described by the multivariate gaussian}\DIFaddend .
+
+\subsection{\DIFdelbegin \DIFdel{Fit to a }\DIFdelend Multivariate Gaussian \DIFdelbegin \DIFdel{Distributions}\DIFdelend \DIFaddbegin \DIFadd{model}\DIFaddend }
+
+Figure \DIFdelbegin \DIFdel{\ref{fig:correlations_illustrisdm} illustrates }\DIFdelend \DIFaddbegin \DIFadd{\ref{fig:gaussian_illustris1dark} summarized }\DIFaddend the results from
+ computing the covariance matrix and mean vector in
+ Eq.\ref{eq:multivariate} from the normalized quantities obtained from
+ the Illustris-1-Dark simulation.
+The distributions in this Figure are computed from $10^6$ points
+generated with the multivariate gaussian. 
+\DIFdelbegin \DIFdel{Similar plots for Illustris-1 and ELVIS are in the Appendix \ref{appendix:plots}.
+The values for all the covariance matrices and mean vectors
+corresponding to all the simulations are listed in the Appendix \ref{appendix:covariance}.
+}\DIFdelend 
+
+This \DIFdelbegin \DIFdel{result }\DIFdelend nicely summarizes the results we had in the previous
+sections. 
+The left hand triangular plot shows how M31 falls \DIFdelbegin \DIFdel{into the middle of all }\DIFdelend \DIFaddbegin \DIFadd{within the $2\sigma$
+contours in the }\DIFaddend 2D \DIFdelbegin \DIFdel{distributions and is always close to the peak and within the $1\sigma$
+range. 
+The }\DIFdelend \DIFaddbegin \DIFadd{scatter plots;
+while the }\DIFaddend right hand plot clearly places the MW observations \DIFdelbegin \DIFdel{outside the
+}\DIFdelend \DIFaddbegin \DIFadd{at the
+border of the }\DIFaddend $3\sigma$ range in the joint distributions that involve
+the width $w$.  
+
+In both cases the strongest positive correlation is present for the
+width and the $c/a$ axis ratio. 
+A weaker correlation is present for the width and the $b/a$ axis
+ratio.  
+\DIFaddbegin \DIFadd{The weakest correlation, positive or negative depending on the
+simulation, is present for the $c/a$ ratio and $b/a$ ratio.
+}\DIFaddend 
+
+\DIFaddbegin \DIFadd{The mean values also hold valuable information. 
+For the three quantities the mean is negative, a quantification trend
+that the satellite distribution from LCDM simulations tend to be aspherical.
+This trend has a very few exceptions. 
+Nmely the ELVIS results for M31 with $N_s=11,12$ and the Illustris-1
+results for the $MW$ with $N_s=11$, which are consistent with an
+spherical distribution. 
+We also computed the correlation between the M31 and MW results,
+finding that it is very weak and can be safely discarded. 
+}
+
+\DIFadd{The explicity formulation for this probability distribution allows us
+to generate large samples with asphericity properties consistent with
+the parent simulation. 
+From this samples we can explicitly compute the fraction of systems
+that, for instance, show the extreme MW values.
+}
+
+
+\DIFaddend \subsection{Number of Expected LG Systems}
+
+
+
+
+\DIFdelbegin \DIFdel{We use the fits to the multivariate gaussian distributions to compute the expected number of pairs with characteristics similar to those of the LG. 
+To do this we }\DIFdelend \DIFaddbegin \begin{figure*}
+\centering
+\includegraphics[width=0.32\textwidth]{LG_numbers.pdf}
+\includegraphics[width=0.32\textwidth]{M31_numbers.pdf}
+\includegraphics[width=0.32\textwidth]{MW_numbers.pdf}
+\caption{
+\DIFaddFL{Percentage of systems that have asphericity scalars as extreme as the
+LG (left), M31 (middle) and MW (right).  
+This percentage is computed as a function of satellite number for all
+the three simulations (Illustris-1-Dark, Illustris-1 and ELVIS).
+The common trend is that at most of $2\%$ of LG-like pairs are expected to
+be as extreme as observations, with most of the weight of this
+atypicality falls onto the MW; at most $4\%$ of similar systems have
+such an aspherical satellite distribution. 
+}\label{fig:expected_number}}
+\end{figure*}
+
+
+\DIFadd{Using the multivariate gaussian model we }\DIFaddend generate $10^3$ samples, each
+sample containing $10^4$ pairs, where each pair member is drawn from
+the corresponding multivariate gaussian distribution. 
+
+We consider that a sampled system is similar to the M31/MW galaxy if the
+\DIFaddbegin \DIFadd{absolute }\DIFaddend distance of each of its normalized characteristics ($w$, $c/a$, $b/a$) to the
+sample mean is equal or larger than the \DIFaddbegin \DIFadd{absolute }\DIFaddend distance of the observational
+values to the sample mean.   
+That is, we perform a double-tailed test \DIFaddbegin \DIFadd{around the mean }\DIFaddend using the
+observational values as a threshold.  
+
+Figure \ref{fig:expected_number} summarizes the results from this
+experiment \DIFdelbegin \DIFdel{. The left panel shows the probability density for the number of M31
+systems in a parent sampe of $10^4$ pairs, the right panel shows the
+results for the MW.
+For M31, between $27\%$ and $56\%$ of the pairs have a satellite
+distribution as aspherical as the observed in M31.
+This fraction drops
+dramatically for the MW where only $0.02\%$ to $3\%$ of the satellites
+are expected to have as extreme aspherical distributions as the MW.
+}\DIFdelend \DIFaddbegin \DIFadd{as a function of satellite number for all three simulations:
+Illustris-1-Dark, Illustris-1 and ELVIS.
+}\DIFaddend 
+
+Considering the joint distribution of M31 and MW we find that at most
+$2\%$ of the pairs are expected to be similar to the LG.
+In a three dimensional gaussian distribution, having a $1\sigma$,
+$2\sigma$ and $3\sigma$ interval corresponds to having respectively $19 \%$, $73 \%$ and
+$97 \%$ of the total of points in the distribution.
+With this result in mind the $LG$ has the same degree of atypicality
+as a $3\sigma$ outlier. 
+% FUNDAMENTALS OF MULTIVARIATE STATISTICS, for Imaging and optics,
+% Bajorski.
+%In [150]: stats.chi2.cdf(l**2,3)
+%Out[150]: array([ 0.19874804,  0.73853587,  0.97070911])
+
+\DIFaddbegin \DIFadd{For M31, between $5\%$ and $80\%$ of the pairs have a satellite
+distribution as aspherical as the one observed in M31.
+This fraction drops
+dramatically for the MW where only $0.02\%$ to $4\%$ of the satellites
+are expected to have as extreme aspherical distributions as the MW.
+A consistent finding is that the M31 fraction is always larger than
+the MW fraction at fixed $N_s$ and simulation.
+}
+
+\DIFaddend Among the three simulations, the results \DIFdelbegin \DIFdel{infered }\DIFdelend \DIFaddbegin \DIFadd{inferred }\DIFaddend from ELVIS data show
+the lowest fraction of M31 and MW systems; for Illustris-1-Dark we have
+the highest fraction of M31/MW systems. 
+The results from Illustris-1 are in between these two \DIFaddbegin \DIFadd{simulations}\DIFaddend , but
+closer to ELVIS. 
+
+\DIFdelbegin \DIFdel{The most }\DIFdelend \DIFaddbegin \DIFadd{A }\DIFaddend probable reason for these trends is the different median mass
+for the MW/M31 halos in the pairs from these simulations. 
+For instance for the MW halo the median maximum circular velocity is
+$\sim 160$ \kms, $\sim 150$ \kms and $\sim 120$ \kms in the ELVIS,
+Illustris-1 and Illustris-1-Dark simulations, respectively.
+For the M31 halo this median velocity is $\sim 200$\kms both for the
+ELVIS and Illustris1 simulations, while for the Illustris-1-Dark it is
+$\sim 160$ \kms. 
+
+Another element that influences this trend is the simulated physics.
+This is evident in the comparison between Illustris-1 and Illustris-1-Dark.
+These two simulations share the same characteristics except for the
+inclusion of baryonic physics in Illustris-1.
+We find that extreme MW systems are easier to find in the DM only
+simulation. 
+The results listed in Appendix \DIFdelbegin \DIFdel{\ref{appendix:covariance} }\DIFdelend \DIFaddbegin \DIFadd{\ref{appendix:matrices} }\DIFaddend show that
+halos are closer to spherical once baryonic effects are included. 
+For instance \DIFaddbegin \DIFadd{for $N_p=11$ }\DIFaddend the mean value for the normalized width goes
+closer to zero, from \DIFdelbegin \DIFdel{$-0.45\pm 0.04$  to $-0.17\pm0.04$}\DIFdelend \DIFaddbegin \DIFadd{$-0.43\pm 0.04$  to $-0.03\pm0.06$}\DIFaddend , and the same
+is true for the $c/a$ ratio that changes from \DIFdelbegin \DIFdel{$-0.61\pm0.04$ }\DIFdelend \DIFaddbegin \DIFadd{$-0.56\pm0.06$ }\DIFaddend in the DM
+only simulation to \DIFdelbegin \DIFdel{$-0.40\pm 0.04$ }\DIFdelend \DIFaddbegin \DIFadd{$-0.24\pm 0.06$ }\DIFaddend in Illustris-1.  
+\DIFaddbegin \DIFadd{This trend has been reported before for the DM distribution in the
+whole halo \mbox{%DIFAUXCMD
+\cite{2013MNRAS.429.3316B}}%DIFAUXCMD
+.
+Our results suggest that it also hold for the satellite distribution.
+}\DIFaddend We postpone a detailed quantification of this effect for a future
+study.  
+
+
+\DIFaddbegin \subsection{\DIFadd{How to understand an atypical MW}}
+
+\DIFadd{The highly aspherical satellite distribution in the MW is another piece of
+information that points at an atypical configuration in LCDM.
+We also have the number of satellites as bright as the Magellanic
+Clouds, only expected in $5\%$ of galaxies
+\mbox{%DIFAUXCMD
+\citep{2011ApJ...743..117B} }%DIFAUXCMD
+and 
+the satellite velocities around the MW with a radial/tangential
+anisotropy only expected in $3\%$ of systems in LCDM
+\mbox{%DIFAUXCMD
+\citep{2017MNRAS.468L..41C}}%DIFAUXCMD
+. 
+One could also add the atypical kinematics of M31 with a very low
+tangential velocity, which is only expected in less than $1\%$ of the pairs
+with similar environmental characteristics \mbox{%DIFAUXCMD
+\citep{ForeroRomero2013}}%DIFAUXCMD
+.  
+With the small numbers that we have in the simulations we used we
+cannot study properly those correlations. 
+We cannot even find a clear trend linking asphericity to halo mass or
+another pair property.
+}
+
+\DIFadd{Assuming that these atypical properties are independent one would need at
+least $10^6$ pairs in order to find a single pair that meets all four
+characteristics (aspherical satellite distribution, bright Magellanic
+Clouds, satellite velocity anisotropy and atypical pair kinematics).
+Using the number density for pairs in Illustris-1 ($2\times 10^{-5}$
+pairs/Mpc$^{3}$) this would imply a cubic simulation volume of $5$ Gpc on a
+side, something unfeasible under current technology.
+However, studying two characteristics at a time to find possible
+correlations, and at least one pair resembling observations, reduces
+the box size to $500$ Mpc, something that is close to current
+simulations such as Illustris-TNG \mbox{%DIFAUXCMD
+\citep{2018MNRAS.473.4077P}}%DIFAUXCMD
+. 
+}
+
+
+\DIFaddend \section{Conclusions}\label{sec:conclusions}
+
+In this paper we developed and \DIFdelbegin \DIFdel{demostrated }\DIFdelend \DIFaddbegin \DIFadd{demonstrated }\DIFaddend a method to quantify the
+asphericity of the satellite distribution around the MW and M31.  
+In the interest of keeping the \DIFdelbegin \DIFdel{method }\DIFdelend \DIFaddbegin \DIFadd{demonstration }\DIFaddend straightforward and robust we
+focus on the asphericity estimates for a fixed number of the brightest
+satellites around each galaxy. 
+
+The method uses as a reference the spherically randomized data
+of the system under study \citep{2017AN....338..854P}.  
+To this end, we first measure the width and axis ratios for the satellite
+distributions of interest. 
+Then, we measure the same quantities for the same set of points after
+the spherical \DIFdelbegin \DIFdel{randomziation }\DIFdelend \DIFaddbegin \DIFadd{randomization }\DIFaddend process.
+Finally, we renormalize the initial results to the mean value and
+standard deviation computed from the randomized data.  
+
+We found that these normalized quantities are well described by
+a multivariate gaussian distribution 
+\DIFdelbegin \DIFdel{in spite of the original
+quantities being bound.
+}\DIFdelend We estimated the mean and covariance of \DIFdelbegin \DIFdel{this }\DIFdelend \DIFaddbegin \DIFadd{these }\DIFaddend distributions using
+the results of LG pairs coming from three different numerical
+simulations (Illustris-1, Illustris-1-Dark and ELVIS). 
+Finally, we compared the observational results against the
+distributions derived from the simulations
+
+We \DIFdelbegin \DIFdel{found }\DIFdelend \DIFaddbegin \DIFadd{quantified }\DIFaddend that in the best case (\DIFdelbegin \DIFdel{Illustris1-Dark}\DIFdelend \DIFaddbegin \DIFadd{Illustris-1-Dark}\DIFaddend ) the degree of
+asphericity in the observed LG is only expected in \DIFdelbegin \DIFdel{$3\pm2$ pairs out
+of a sample of $10^4$ isolated }\DIFdelend \DIFaddbegin \DIFadd{$2\%$ of the
+}\DIFaddend pairs. 
+This places the LG as a $3\sigma$ outlier.   
+The weight to explain this atypical result is not distributed equally
+between the MW and M31. 
+While M31 presents a fully typical asphericity in the expectations
+from LCDM, the MW shows aspherical deviations in plane width and the
+major-to-minor axis ratio highly atypical in the framework of LCDM,
+confirming the original hint by \cite{2005A&A...431..517K} and more
+recent results by \cite{2015ApJ...815...19P}. 
+We estimated that with the M31 between \DIFdelbegin \DIFdel{$37\%$ and $58\%$ }\DIFdelend \DIFaddbegin \DIFadd{$5\%$ and $80\%$ }\DIFaddend of the pairs
+show aspherical characteristics larger than M31, while this fraction
+drops to less than \DIFdelbegin \DIFdel{$1\%$ }\DIFdelend \DIFaddbegin \DIFadd{$4\%$ }\DIFaddend for the MW.  
+These fractions are robust to changes in the numerical simulations,
+the criteria used to define the pairs\DIFaddbegin \DIFadd{, the way to select the
+satellites }\DIFaddend and to the methods used to estimate the parameters of the
+multivariate normal distribution.
+
+
+The focus of our approach was building an \DIFdelbegin \DIFdel{explicit probability
+distributions }\DIFdelend \DIFaddbegin \DIFadd{analytic probability
+distribution }\DIFaddend for the observables of interest, instead of trying to
+find simulated objects that fulfill different observational criteria. 
+This approach is particularly useful in the case of atypical
+observables\DIFdelbegin \DIFdel{as its the case of interest}\DIFdelend , as it allows for an \DIFdelbegin \DIFdel{atypicallity
+quantification without
+needing to build }\DIFdelend \DIFaddbegin \DIFadd{atypicality quantification without
+building }\DIFaddend explicit samples of objects that are already scarce and
+difficult to find in simulations.  
+
+
+An extension of this framework to outliers in higher order deviations
+(i.e. coherent \emph{velocity} structures) should also be possible, 
+provided that an \DIFdelbegin \DIFdel{explicit }\DIFdelend \DIFaddbegin \DIFadd{analytic }\DIFaddend probability distribution for the scalars of
+interest can be built.  
+The approach presented here is also useful to gauge the influence of 
+influence of different physical elements \DIFdelbegin \DIFdel{incluedes }\DIFdelend \DIFaddbegin \DIFadd{includes }\DIFaddend the simulation. 
+For instance, in our case the data hints towards rounder satellite
+distributions in simulations that include baryonic effects.  
+
+\DIFdelbegin \DIFdel{The highly aspherical satellite distribution in the MW is another piece of
+information that points at an atypical configuration in LCDM.
+We also have the number of satellites as bright as the Mageallanic
+Clouds, only expected in $5\%$ of galaxies
+\mbox{%DIFAUXCMD
+\citep{2011ApJ...743..117B} }%DIFAUXCMD
+and 
+the satellite velocities around the MW with a radial/tangential
+anisotropy only expected in $3\%$ of systems in LCDM
+\mbox{%DIFAUXCMD
+\citep{2017MNRAS.468L..41C}}%DIFAUXCMD
+. 
+One could also add the atypical kinematics of M31 with a very low
+tangential velocity, which is only expected in less than $1\%$ of the pairs
+with similar environmental characteristics \mbox{%DIFAUXCMD
+\citep{ForeroRomero2013}}%DIFAUXCMD
+.  
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend This atypicality should be seen as an opportunity to constrain in
+great detail the environment that allowed such a pattern to emerge. 
+Although broad correlations between LG assembly, pair kinematics, halo
+shapes and satellite distributions are expected in LCDM
+\citep{2011MNRAS.417.1434F,2014MNRAS.443.1090F,2015ApJ...799...45F,2015MNRAS.452.1052L},
+we claim that detailed studies of the satellite asphericity as a
+function of halo mass and cosmic web environment are still missing to
+understand what features in the initial conditions of our LG are
+responsible for the extreme features observed in its satellite
+distribution. 
+
+\section*{Acknowledgements} 
+\DIFdelbegin \DIFdel{We acknowledge financial support from : Universidad de Los Andes
+(Colombia); COLCIENCIAS (c\'odigo 120471250459,
+contrato FP44842-287-
+2016); }\DIFdelend \DIFaddbegin \DIFadd{JEFR acknowledges support from COLCIENCIAS Contract No. 287-2016,
+Project 1204-712-50459 and }\DIFaddend the European Union's Horizon 2020 Research and Innovation
+Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
+(LACEGAL).   
+
+\bibliographystyle{mnras}
+\bibliography{Dwarfs}
+
+\appendix
+
+
+\section{Physical Characteristics of the Isolated Pairs samples}
+\label{appendix:physical}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.30\textwidth]{int_distro_LG_v_rad.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_LG_d.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_M31_vmax.pdf}
+\includegraphics[width=0.30\textwidth]{int_distro_MW_vmax.pdf}
+\caption{Physical characteristics of the LG pairs selected in the
+  simulations. All \DIFdelbeginFL \DIFdelFL{lots }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{plots }\DIFaddendFL show the integrated distributions. The
+  physical properties are the radial comoving velocity between the MW
+  and M31, the radial separation between the MW and M31 and the
+  maximum circular velocity for the M31 and MW dark matter halo.
+\DIFdelbeginFL %DIFDELCMD < \label{fig:physical}%%%
+\DIFdelendFL \DIFaddbeginFL \label{fig:physical_pairs}\DIFaddendFL }
+\end{figure}
+
+
+
+\section{Covariance Matrices and Mean value vectors}
+\DIFdelbegin %DIFDELCMD < \label{appendix:covariance}
+%DIFDELCMD < %%%
+\subsection{\DIFdel{Illustris-1}}
+%DIFAUXCMD
+\addtocounter{subsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \label{appendix:matrices}
+\DIFaddend 
+
+\DIFdelbegin \subsubsection{\DIFdel{M31}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Illustris-1-Dark, M31, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+2.02 \pm 0.09 & 1.46 \pm 0.09 & 0.97 \pm 0.07\\
+1.46 \pm 0.09 & 1.69 \pm 0.10 & -0.01 \pm 0.05\\
+0.97 \pm 0.07 & -0.01 \pm 0.05 & 1.42 \pm 0.08\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.43 \pm 0.06 & -0.56 \pm 0.06 & -0.17 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1-Dark, MW, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.94 \pm 0.04 & 0.71 \pm 0.04 & 0.36 \pm 0.03\\
+0.71 \pm 0.04 & 0.93 \pm 0.05 & -0.27 \pm 0.03\\
+0.36 \pm 0.03 & -0.27 \pm 0.03 & 0.94 \pm 0.04\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.40 \pm 0.04 & -0.69 \pm 0.04 & -0.19 \pm 0.04\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFaddbegin \subsection{\DIFadd{Illustris-1, M31, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.59 \pm 0.08 & 1.23 \pm 0.07 & 0.80 \pm 0.06\\
+1.23 \pm 0.07 & 1.44 \pm 0.08 & 0.01 \pm 0.06\\
+0.80 \pm 0.06 & 0.01 \pm 0.06 & 1.26 \pm 0.08\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+0.03 \pm 0.06 & -0.24 \pm 0.06 & -0.01 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1, MW, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.01 \pm 0.05 & 0.72 \pm 0.05 & 0.62 \pm 0.04\\
+0.72 \pm 0.05 & 0.78 \pm 0.05 & 0.12 \pm 0.03\\
+0.62 \pm 0.04 & 0.12 \pm 0.03 & 0.80 \pm 0.04\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\DIFdelbegin \DIFdel{\Sigma}\DIFdelend \DIFaddbegin \DIFadd{\mu}\DIFaddend =
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD < 0.83\pm 0.03  & 0.78\pm 0.04  & 0.41\pm 0.04\\
+%DIFDELCMD < 0.78\pm 0.04  & 1.16\pm 0.05 & -0.15\pm 0.05\\
+%DIFDELCMD < 0.41\pm 0.04 & -0.15\pm 0.05 & 0.96\pm 0.04\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.07 \pm 0.05 & -0.45 \pm 0.04 & 0.02 \pm 0.04\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFaddbegin \subsection{\DIFadd{ELVIS, M31, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.77 \pm 0.23 & 1.44 \pm 0.18 & 0.65 \pm 0.09\\
+1.44 \pm 0.18 & 1.54 \pm 0.15 & 0.15 \pm 0.06\\
+0.65 \pm 0.09 & 0.15 \pm 0.06 & 0.77 \pm 0.11\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+0.07 \pm 0.09 & -0.06 \pm 0.08 & -0.08 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{ELVIS, MW, $N_s=11$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.59 \pm 0.06 & 0.61 \pm 0.11 & 0.11 \pm 0.08\\
+0.61 \pm 0.11 & 1.25 \pm 0.19 & -0.71 \pm 0.12\\
+0.11 \pm 0.08 & -0.71 \pm 0.12 & 1.13 \pm 0.11\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\mu=
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD < -0.18\pm 0.04 & -0.41\pm 0.05 & -0.20\pm 0.05\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.25 \pm 0.05 & -0.59 \pm 0.08 & -0.16 \pm 0.07\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFdelbegin \subsubsection{\DIFdel{MW}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Illustris-1-Dark, M31, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+2.34 \pm 0.11 & 1.72 \pm 0.11 & 1.10 \pm 0.06\\
+1.72 \pm 0.11 & 1.72 \pm 0.11 & 0.35 \pm 0.05\\
+1.10 \pm 0.06 & 0.35 \pm 0.05 & 1.21 \pm 0.07\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.58 \pm 0.07 & -0.49 \pm 0.06 & -0.41 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1-Dark, MW, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.25 \pm 0.06 & 0.97 \pm 0.06 & 0.62 \pm 0.04\\
+0.97 \pm 0.06 & 1.19 \pm 0.06 & -0.11 \pm 0.05\\
+0.62 \pm 0.04 & -0.11 \pm 0.05 & 1.19 \pm 0.04\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.38 \pm 0.05 & -0.55 \pm 0.05 & -0.28 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFaddbegin \subsection{\DIFadd{Illustris-1, M31, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.01 \pm 0.06 & 0.74 \pm 0.04 & 0.59 \pm 0.06\\
+0.74 \pm 0.04 & 1.03 \pm 0.05 & -0.16 \pm 0.04\\
+0.59 \pm 0.06 & -0.16 \pm 0.04 & 1.12 \pm 0.06\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.09 \pm 0.05 & -0.23 \pm 0.05 & -0.33 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1, MW, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.00 \pm 0.05 & 0.69 \pm 0.05 & 0.64 \pm 0.05\\
+0.69 \pm 0.05 & 0.87 \pm 0.06 & -0.06 \pm 0.04\\
+0.64 \pm 0.05 & -0.06 \pm 0.04 & 1.06 \pm 0.06\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\DIFdelbegin \DIFdel{\Sigma}\DIFdelend \DIFaddbegin \DIFadd{\mu}\DIFaddend =
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD <  0.78\pm 0.06 & 0.63 \pm 0.07  & 0.40 \pm 0.03\\
+%DIFDELCMD <   0.63\pm 0.07 & 0.69 \pm 0.08 &  0.06 \pm 0.02\\
+%DIFDELCMD <   0.40\pm 0.03 & 0.06 \pm 0.02 &  0.61\pm 0.04\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.16 \pm 0.05 & -0.46 \pm 0.04 & -0.12 \pm 0.05\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFaddbegin \subsection{\DIFadd{ELVIS, M31, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.97 \pm 0.28 & 1.64 \pm 0.21 & 0.57 \pm 0.11\\
+1.64 \pm 0.21 & 1.69 \pm 0.17 & 0.11 \pm 0.07\\
+0.57 \pm 0.11 & 0.11 \pm 0.07 & 0.70 \pm 0.12\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.06 \pm 0.09 & -0.18 \pm 0.09 & -0.13 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{ELVIS, MW, $N_s=12$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.58 \pm 0.05 & 0.47 \pm 0.10 & 0.23 \pm 0.09\\
+0.47 \pm 0.10 & 1.04 \pm 0.16 & -0.68 \pm 0.09\\
+0.23 \pm 0.09 & -0.68 \pm 0.09 & 1.23 \pm 0.11\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\mu=
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD < -0.17\pm 0.04 & -0.40\pm 0.04 & -0.23\pm 0.04\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.42 \pm 0.05 & -0.78 \pm 0.07 & -0.16 \pm 0.07\\
+\end{bmatrix}
+\DIFaddend \]
+
+\subsection{Illustris-1-Dark\DIFaddbegin \DIFadd{, M31, $N_s=13$}\DIFaddend }
+\DIFaddbegin \[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.79 \pm 0.09 & 1.19 \pm 0.08 & 0.90 \pm 0.06\\
+1.19 \pm 0.08 & 1.12 \pm 0.07 & 0.17 \pm 0.03\\
+0.90 \pm 0.06 & 0.17 \pm 0.03 & 1.12 \pm 0.07\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.61 \pm 0.06 & -0.67 \pm 0.05 & -0.37 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1-Dark, MW, $N_s=13$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.30 \pm 0.07 & 1.09 \pm 0.06 & 0.52 \pm 0.05\\
+1.09 \pm 0.06 & 1.42 \pm 0.08 & -0.18 \pm 0.06\\
+0.52 \pm 0.05 & -0.18 \pm 0.06 & 1.09 \pm 0.04\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.38 \pm 0.05 & -0.54 \pm 0.05 & -0.30 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFdelbegin \subsubsection{\DIFdel{M31}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Illustris-1, M31, $N_s=13$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.36 \pm 0.09 & 0.89 \pm 0.05 & 0.97 \pm 0.06\\
+0.89 \pm 0.05 & 0.92 \pm 0.05 & 0.22 \pm 0.05\\
+0.97 \pm 0.06 & 0.22 \pm 0.05 & 1.28 \pm 0.06\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.07 \pm 0.06 & -0.17 \pm 0.05 & -0.30 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1, MW, $N_s=13$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.95 \pm 0.08 & 0.90 \pm 0.09 & 0.33 \pm 0.05\\
+0.90 \pm 0.09 & 1.29 \pm 0.10 & -0.24 \pm 0.05\\
+0.33 \pm 0.05 & -0.24 \pm 0.05 & 0.89 \pm 0.08\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.13 \pm 0.05 & -0.47 \pm 0.06 & -0.09 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFaddbegin \subsection{\DIFadd{ELVIS, M31, $N_s=13$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.99 \pm 0.22 & 1.49 \pm 0.19 & 0.98 \pm 0.11\\
+1.49 \pm 0.19 & 1.45 \pm 0.15 & 0.38 \pm 0.10\\
+0.98 \pm 0.11 & 0.38 \pm 0.10 & 1.06 \pm 0.17\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.18 \pm 0.10 & -0.37 \pm 0.08 & -0.07 \pm 0.07\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{ELVIS, MW, $N_s=13$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.43 \pm 0.05 & 0.54 \pm 0.09 & -0.12 \pm 0.07\\
+0.54 \pm 0.09 & 1.20 \pm 0.17 & -0.85 \pm 0.12\\
+-0.12 \pm 0.07 & -0.85 \pm 0.12 & 0.94 \pm 0.10\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\DIFdelbegin \DIFdel{\Sigma}\DIFdelend \DIFaddbegin \DIFadd{\mu}\DIFaddend =
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD <  1.50\pm 0.08 & 1.27\pm 0.08 & 0.64\pm 0.04\\
+%DIFDELCMD <   1.27\pm 0.08 &  1.31\pm 0.08&  0.28\pm 0.04\\
+%DIFDELCMD <   0.64\pm 0.04 &  0.28\pm 0.04 & 0.70\pm 0.04\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.44 \pm 0.04 & -0.73 \pm 0.07 & -0.30 \pm 0.07\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFaddbegin \subsection{\DIFadd{Illustris-1-Dark, M31, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.60 \pm 0.11 & 1.34 \pm 0.09 & 0.68 \pm 0.05\\
+1.34 \pm 0.09 & 1.32 \pm 0.08 & 0.28 \pm 0.04\\
+0.68 \pm 0.05 & 0.28 \pm 0.04 & 0.85 \pm 0.05\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.33 \pm 0.06 & -0.53 \pm 0.05 & -0.15 \pm 0.04\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1-Dark, MW, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.27 \pm 0.06 & 1.12 \pm 0.06 & 0.40 \pm 0.04\\
+1.12 \pm 0.06 & 1.55 \pm 0.08 & -0.32 \pm 0.05\\
+0.40 \pm 0.04 & -0.32 \pm 0.05 & 1.02 \pm 0.04\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\mu=
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD < -0.37\pm 0.05& -0.55\pm 0.05 & -0.13\pm 0.03\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.52 \pm 0.05 & -0.64 \pm 0.06 & -0.40 \pm 0.05\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFdelbegin \subsubsection{\DIFdel{MW}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{Illustris-1, M31, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.11 \pm 0.05 & 0.88 \pm 0.05 & 0.83 \pm 0.05\\
+0.88 \pm 0.05 & 1.14 \pm 0.06 & 0.08 \pm 0.05\\
+0.83 \pm 0.05 & 0.08 \pm 0.05 & 1.39 \pm 0.07\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.06 \pm 0.05 & -0.24 \pm 0.05 & -0.23 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1, MW, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.99 \pm 0.07 & 0.88 \pm 0.08 & 0.38 \pm 0.06\\
+0.88 \pm 0.08 & 1.24 \pm 0.10 & -0.26 \pm 0.07\\
+0.38 \pm 0.06 & -0.26 \pm 0.07 & 0.97 \pm 0.09\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.39 \pm 0.05 & -0.62 \pm 0.06 & -0.28 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFaddbegin \subsection{\DIFadd{ELVIS, M31, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+2.04 \pm 0.24 & 1.21 \pm 0.14 & 1.27 \pm 0.17\\
+1.21 \pm 0.14 & 0.97 \pm 0.09 & 0.45 \pm 0.09\\
+1.27 \pm 0.17 & 0.45 \pm 0.09 & 1.31 \pm 0.19\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.37 \pm 0.10 & -0.38 \pm 0.07 & -0.40 \pm 0.08\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{ELVIS, MW, $N_s=14$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+0.82 \pm 0.08 & 1.06 \pm 0.14 & -0.11 \pm 0.06\\
+1.06 \pm 0.14 & 1.75 \pm 0.20 & -0.62 \pm 0.09\\
+-0.11 \pm 0.06 & -0.62 \pm 0.09 & 0.64 \pm 0.07\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\DIFdelbegin \DIFdel{\Sigma}\DIFdelend \DIFaddbegin \DIFadd{\mu}\DIFaddend =
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD <  1.03\pm 0.05 & 0.94\pm 0.05  & 0.36\pm 0.03\\
+%DIFDELCMD <   0.94\pm 0.05 & 1.24\pm 0.07 & -0.18\pm 0.04\\
+%DIFDELCMD <   0.36\pm 0.03 & -0.18\pm 0.04  & 0.86\pm 0.03\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.38 \pm 0.06 & -0.74 \pm 0.09 & -0.13 \pm 0.05\\
+\end{bmatrix}
+\DIFaddend \]
+
+\DIFaddbegin \subsection{\DIFadd{Illustris-1-Dark, M31, $N_s=15$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.65 \pm 0.10 & 1.35 \pm 0.09 & 0.81 \pm 0.06\\
+1.35 \pm 0.09 & 1.34 \pm 0.09 & 0.36 \pm 0.05\\
+0.81 \pm 0.06 & 0.36 \pm 0.05 & 0.97 \pm 0.05\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.31 \pm 0.06 & -0.51 \pm 0.05 & -0.16 \pm 0.05\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1-Dark, MW, $N_s=15$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.52 \pm 0.07 & 1.25 \pm 0.06 & 0.64 \pm 0.05\\
+1.25 \pm 0.06 & 1.58 \pm 0.08 & -0.15 \pm 0.06\\
+0.64 \pm 0.05 & -0.15 \pm 0.06 & 1.18 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend \[
+\mu=
+\DIFdelbegin %DIFDELCMD < \begin{bmatrix}
+%DIFDELCMD < -0.45\pm 0.04 & -0.61\pm 0.05 & -0.31\pm 0.04\\
+%DIFDELCMD < \end{bmatrix}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \begin{bmatrix}
+-0.50 \pm 0.06 & -0.63 \pm 0.06 & -0.33 \pm 0.05\\
+\end{bmatrix}
+\DIFaddend \]
+
+\subsection{\DIFdelbegin \DIFdel{ELVIS}\DIFdelend \DIFaddbegin \DIFadd{Illustris-1, M31, $N_s=15$}\DIFaddend }
+\DIFaddbegin \[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.18 \pm 0.04 & 0.91 \pm 0.05 & 0.84 \pm 0.05\\
+0.91 \pm 0.05 & 1.11 \pm 0.07 & 0.15 \pm 0.04\\
+0.84 \pm 0.05 & 0.15 \pm 0.04 & 1.23 \pm 0.06\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.25 \pm 0.06 & -0.41 \pm 0.05 & -0.32 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{Illustris-1, MW, $N_s=15$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.06 \pm 0.07 & 0.88 \pm 0.07 & 0.44 \pm 0.06\\
+0.88 \pm 0.07 & 1.11 \pm 0.08 & -0.11 \pm 0.05\\
+0.44 \pm 0.06 & -0.11 \pm 0.05 & 0.84 \pm 0.08\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.45 \pm 0.05 & -0.67 \pm 0.05 & -0.32 \pm 0.05\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+\DIFdelbegin \subsubsection{\DIFdel{M31}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+\DIFdelend \DIFaddbegin \subsection{\DIFadd{ELVIS, M31, $N_s=15$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.51 \pm 0.13 & 1.16 \pm 0.11 & 0.74 \pm 0.11\\
+1.16 \pm 0.11 & 1.06 \pm 0.11 & 0.32 \pm 0.06\\
+0.74 \pm 0.11 & 0.32 \pm 0.06 & 0.75 \pm 0.10\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.41 \pm 0.08 & -0.47 \pm 0.07 & -0.48 \pm 0.06\\
+\end{bmatrix}
+}\]
+\subsection{\DIFadd{ELVIS, MW, $N_s=15$}}
+\[
+\DIFadd{\Sigma=
+\begin{bmatrix}
+1.13 \pm 0.15 & 1.42 \pm 0.20 & -0.06 \pm 0.08\\
+1.42 \pm 0.20 & 2.16 \pm 0.25 & -0.58 \pm 0.09\\
+-0.06 \pm 0.08 & -0.58 \pm 0.09 & 0.74 \pm 0.09\\
+\end{bmatrix}
+}\]
+\[
+\DIFadd{\mu=
+\begin{bmatrix}
+-0.47 \pm 0.07 & -0.72 \pm 0.10 & -0.26 \pm 0.06\\
+\end{bmatrix}
+}\]
+\DIFaddend 
+
+
+
+
+\DIFdelbegin \[
+\DIFdel{\Sigma= 
+\begin{bmatrix}
+ 1.60\pm 0.19  & 1.22\pm 0.14 & 0.70 \pm 0.09\\
+  1.22\pm 0.14 &  1.08\pm 0.10 & 0.35 \pm 0.05\\
+  0.70\pm 0.09 & 0.35\pm 0.05  & 0.63 \pm 0.10\\
+\end{bmatrix}
+}\]
+%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\[
+\DIFdel{\mu= 
+\begin{bmatrix}
+-0.18\pm 0.08 & -0.28\pm 0.07 &-0.22\pm 0.05\\
+\end{bmatrix}
+}\]
+%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\subsubsection{\DIFdel{MW}}
+%DIFAUXCMD
+\addtocounter{subsubsection}{-1}%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\[
+\DIFdel{\Sigma= 
+\begin{bmatrix}
+ 0.45\pm 0.04 & 0.61\pm0.09 & -0.11\pm0.09 \\
+  0.61\pm0.09 & 1.21\pm0.17 & -0.63\pm0.09\\
+ -0.11\pm0.05 & -0.63\pm0.09 & 0.64\pm0.06\\
+\end{bmatrix}
+}\]
+%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\[
+\DIFdel{\mu= 
+\begin{bmatrix}
+-0.32\pm 0.04 & -0.74\pm 0.07 &-0.08\pm 0.05\\
+\end{bmatrix}
+}\]
+%DIFAUXCMD
+%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \section{Results from ELVIS and Illustris1}
+\label{appendix:plots}
+\DIFdelbegin %DIFDELCMD < \begin{figure*}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_elvis_ba_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_elvis_ba_ratio.pdf}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{ELVIs results for the quantities presented for the Illustris1-Dark
+  simulation in Figures  \ref{fig:scatter_width},
+  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
+Upper row corresponds to the raw values from observations and
+simulated pairs, while the second row normalizes the same values to
+the mean and standard deviation on its spherically randomized
+counterparts. 
+}%DIFDELCMD < \label{fig:scatter_elvis}%%%
+}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < %%%
+\DIFdelend 
+
+\begin{figure*}
+\centering
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.48\textwidth]{gaussian_model_elvis_M31.pdf}
+%DIFDELCMD < \includegraphics[width=0.48\textwidth]{gaussian_model_elvis_MW.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.37\textwidth]{input_illustris1_obs_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_M31_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{input_illustris1_obs_MW_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_MW_n_11.pdf}
+\DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{Same layout as Figure \ref{fig:correlations_illustrisdm}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Illustris-1 results for the quantities presented for the Illustris1-Dark
+  simulation in Figures  
+\ref{fig:physical_illustris1dark}}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{this time
+computed }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\ref{fig:normalized_illustris1dark}
+and \ref{fig:gaussian_illustris1dark}.
+Upper row corresponds to the raw values }\DIFaddendFL from \DIFaddbeginFL \DIFaddFL{observations and
+simulated pairs, while }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{ELVIS data}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{second row normalizes the same values to
+the mean and standard deviation on its spherically randomized
+counterparts}\DIFaddendFL . 
+\DIFdelbeginFL %DIFDELCMD < \label{fig:correlations_elvis}%%%
+\DIFdelendFL \DIFaddbeginFL \label{fig:all_plots_illustris1}\DIFaddendFL }
+\end{figure*}
+
+
+\begin{figure*}
+\centering
+\DIFdelbeginFL %DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_ranked_ba_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_width.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ca_ratio.pdf}
+%DIFDELCMD < \includegraphics[width=0.32\textwidth]{scatter_norm_ranked_ba_ratio.pdf}
+%DIFDELCMD < %%%
+\DIFdelendFL \DIFaddbeginFL \includegraphics[width=0.37\textwidth]{input_elvis_obs_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_MW_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_M31_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{input_elvis_obs_MW_n_11_normed.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_elvis_M31_n_11.pdf}
+\includegraphics[width=0.37\textwidth]{gaussian_model_elvis_MW_n_11.pdf}
+\DIFaddendFL \caption{\DIFdelbeginFL \DIFdelFL{Same layout as Figure \ref{fig:scatter_elvis}}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{ELVIs results for the quantities presented for the Illustris1-Dark
+  simulation in Figures  \ref{fig:scatter_width}}\DIFaddendFL ,
+  \DIFdelbeginFL \DIFdelFL{this time
+  computed }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{\ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
+Upper row corresponds to the raw values }\DIFaddendFL from \DIFaddbeginFL \DIFaddFL{observations and
+simulated pairs, while }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{Illustris-1 data}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{second row normalizes the same values to
+the mean and standard deviation on its spherically randomized
+counterparts}\DIFaddendFL . 
+\DIFdelbeginFL %DIFDELCMD < \label{fig:scatter_illustris}%%%
+\DIFdelendFL \DIFaddbeginFL \label{fig:all_plots_elvis}\DIFaddendFL }
+\DIFdelbeginFL %DIFDELCMD < \end{figure*}
+%DIFDELCMD < 
+
+%DIFDELCMD < \begin{figure*}
+%DIFDELCMD < \centering
+%DIFDELCMD < \includegraphics[width=0.48\textwidth]{gaussian_model_illustris_M31.pdf}
+%DIFDELCMD < \includegraphics[width=0.48\textwidth]{gaussian_model_illustris_MW.pdf}
+%DIFDELCMD < %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+\DIFdelFL{Same layout as Figure \ref{fig:correlations_illustrisdm}, this time
+computed from the Illustris-1 data.
+}%DIFDELCMD < \label{fig:correlations_illustris}%%%
+}
+%DIFAUXCMD
+\DIFdelendFL \end{figure*}
+
+
+
+\end{document}
