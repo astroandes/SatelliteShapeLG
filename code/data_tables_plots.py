@@ -46,13 +46,13 @@ import asphericity_stats as asp
 
 ObsTable = False
 SimTable = False
-CovPlots = True
+CovPlots = False
 ObsAsphPlots = False
 PrintModelNumbers = False
 PlotModelNumbers = False
 PlotShapeRandomObs = False
 PlotShapeObsSim = True
-PlotShapeObsSimNormed = True 
+PlotShapeObsSimNormed = False
 PrintCovarianceTables = False
 
 if ObsTable:
@@ -85,8 +85,8 @@ if PlotShapeRandomObs:
 if PlotShapeObsSim:
     for nsat in range(11,12):
         asp.plot_shape_obs_sims('illustris1dark', nsat)
-        #asp.plot_shape_obs_sims('illustris1', nsat)
-        #asp.plot_shape_obs_sims('elvis', nsat)
+        asp.plot_shape_obs_sims('illustris1', nsat)
+        asp.plot_shape_obs_sims('elvis', nsat)
 
 if PlotShapeObsSimNormed:
     for nsat in range(11,12):
