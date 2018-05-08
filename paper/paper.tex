@@ -517,12 +517,18 @@ Our main conclusions remain unchanged by those choices.
 \includegraphics[width=0.30\textwidth]{normalized_width_n_dependence.pdf}
 \includegraphics[width=0.30\textwidth]{normalized_ca_ratio_n_dependence.pdf}
 \includegraphics[width=0.30\textwidth]{normalized_ba_ratio_n_dependence.pdf}
-\caption{Normalized asphericity scalars from observations as a function
-  of satellite number. Left: plane width; center: $c/a$ ratio;
+\caption{Asphericity scalars from observations as a function
+  of satellite number. 
+  Left: plane width; center: $c/a$ ratio;
   right: $b/a$ ratio. 
+  These quantities can take positive or negative values because they
+  were recentered to the mean and normalized to the standard deviation 
+  of the spherically randomized satellites as explained in Section
+  \ref{sec:normalization}. 
   The plane width and $c/a$ ratio for the MW is
-  consistently found beyond two standard
-  deviations.
+  consistently found \emph{beyond} two standard
+  deviations of the expected result for an statistically spherical
+  distribution. 
   M31 shows the opposite trend and is always found
   \emph{within} two standard deviations. \label{fig:normalized_n}} 
 \end{figure*}
@@ -570,8 +576,8 @@ quantities obtained from the inertia tensor:
 
 
 
-\subsection{Characterizing Asphericity}
-
+\subsection{Characterizing asphericity with normalized scalars}
+\label{sec:normalization}
 We compare each satellite distribution against its own spherically
 randomized distribution.
 We keep fixed the radial position of every satellite
@@ -589,15 +595,13 @@ distributions for the scalars describing asphericity.
 
 \subsection{Building an analytic asphericity probability distribution}
 
-After building the normalized variables with the simulated data we
-perform a Kolmogorov-Smirnov test with the null hypothesis of belonging
-to a normal distribution with mean and standard deviation computed
-from the mean and standard deviation estimated from the data.
-Although the physical quantities of interest are bound, unlike the
-random variables from a normal distribution, we find that the
+After building the normalized variables for the simulated data we perform a
+Kolmogorov-Smirnov test with the null hypothesis of belonging to a
+normal distribution with mean and standard deviation computed from the
+mean and standard deviation estimated from the data. 
+Although the physical quantities of interest are bound, we find that the
 distributions for the normalized $w$, $c/a$ and $b/a$ are indeed
 consistent with gaussian distributions. 
-
 
 Based on this result we build a multivariate normal distribution for
 the joint distributions of the normalized $w$, $c/a$ and $b/a$:
@@ -626,9 +630,10 @@ that are consistent by construction with their parent simulation.
 Finally, we use the generated samples to estimate how
 common are the deviations from sphericity that we measure in the
 observational data.  
-We use a double-tailed test around the mean in this comparison, meaning that we
-always measure the fraction of points with absolute values larger than the
-absolute observed value with the mean substracted. 
+We use a double-tailed test around the mean in this comparison,
+meaning that we count the fraction of generated points points with
+absolute values larger than the absolute observed value with the mean
+substracted.  
 
 
 % referencia posiciones satellites
@@ -638,20 +643,24 @@ absolute observed value with the mean substracted.
 \centering
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_M31_n_11.pdf}
 \includegraphics[width=0.48\textwidth]{input_illustris1dark_obs_MW_n_11.pdf}
-\caption{Scalars describing satellite shape around the LG galaxies for
-  a fixed number of satellites $N_s$=11:
-  plane width $w$ in physical units, $c/a$ ratio and $b/a$ ratio.
-  Left: M31, right: MW. The square at the center are observations; the
-2D histograms are the contour levels after randomizing $10^4$ the
-satellite positions while keeping the radial distribution fixed; the
-blue circles are the results from Illustris-1-Dark. For the M31 these
-three results (observations, randomized observations and simulations)
-seem to be in broad agreement, while for the MW the three results
-clearly differ. 
-The corresponding plots for Illustris-1 and ELVIS are
-in Figures \ref{fig:all_plots_illustris1} and
-\ref{fig:all_plots_elvis},
-respectively. \label{fig:physical_illustris1dark}}     
+\caption{Scalars in physical units describing satellite shape around the LG galaxies for
+  a fixed number of satellites $N_s$=11: 
+  plane width $w$, $c/a$ ratio and $b/a$ ratio.
+  Left: M31, right: MW. 
+  The histograms along the diagonal show the distribution for the
+  $10^4$ values after spherical randomization; the vertical dashed
+  lines show the 16, 50 and 84 percentiles of this distribution; the vertical solid line correspond to
+  observations. 
+  Outside the diagonal there are 2D histograms showing the $1$, $2$, $3$
+  and $4\sigma$ contours for the randomized data.  
+  The square at the center of the cross are observations.
+  The blue circles are the results from Illustris-1-Dark. 
+  For the M31 these three results
+  (observations, randomized observations and simulations) seem to be
+  in broad agreement, while for the MW they clearly differ. 
+  The corresponding plots for Illustris-1 and ELVIS are
+  in Figures \ref{fig:all_plots_illustris1} and
+\ref{fig:all_plots_elvis}, respectively. \label{fig:physical_illustris1dark}}
 \end{figure*}
 
 \begin{figure*}
@@ -722,7 +731,7 @@ Figure \ref{fig:physical_illustris1dark} summarizes the results in
 physical units.
 It compares three different groups: observations, simulations and the
 observations randomized.
-The left panel shows the results for M31 and the panel on the left for
+The left panel shows the results for M31 and the panel on the right for
 the MW.
 
 The most interesting outcome is that the MW plane width is smaller
@@ -996,7 +1005,7 @@ influence of different physical elements includes the simulation.
 For instance, in our case the data hints towards rounder satellite
 distributions in simulations that include baryonic effects.  
 
-This atypicality should be seen as an opportunity to constrain in
+The LG atypicality should be seen as an opportunity to constrain in
 great detail the environment that allowed such a pattern to emerge. 
 Although broad correlations between LG assembly, pair kinematics, halo
 shapes and satellite distributions are expected in LCDM
@@ -1520,7 +1529,7 @@ Programme under the Marie Sk\l{}odowska-Curie grant agreement No 73437
 \includegraphics[width=0.37\textwidth]{input_illustris1_obs_MW_n_11_normed.pdf}
 \includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_M31_n_11.pdf}
 \includegraphics[width=0.37\textwidth]{gaussian_model_illustris1_MW_n_11.pdf}
-\caption{Illustris-1 results for the quantities presented for the Illustris1-Dark
+\caption{Illustris-1 results for the same quantities presented for the Illustris-1-Dark
   simulation in Figures  
 \ref{fig:physical_illustris1dark}, \ref{fig:normalized_illustris1dark}
 and \ref{fig:gaussian_illustris1dark}.
@@ -1540,9 +1549,10 @@ counterparts.
 \includegraphics[width=0.37\textwidth]{input_elvis_obs_MW_n_11_normed.pdf}
 \includegraphics[width=0.37\textwidth]{gaussian_model_elvis_M31_n_11.pdf}
 \includegraphics[width=0.37\textwidth]{gaussian_model_elvis_MW_n_11.pdf}
-\caption{ELVIs results for the quantities presented for the Illustris1-Dark
-  simulation in Figures  \ref{fig:scatter_width},
-  \ref{fig:scatter_ca_ratio}, \ref{fig:scatter_ba_ratio}.
+\caption{ELVIS results for the same quantities presented for the Illustris1-Dark
+  simulation in Figures  
+\ref{fig:physical_illustris1dark}, \ref{fig:normalized_illustris1dark}
+and \ref{fig:gaussian_illustris1dark}.
 Upper row corresponds to the raw values from observations and
 simulated pairs, while the second row normalizes the same values to
 the mean and standard deviation on its spherically randomized
