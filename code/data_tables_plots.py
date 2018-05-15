@@ -3,7 +3,7 @@ import compile_randomized_data as crd
 obs = False
 illustris1 = False
 illustris1dark = False
-elvis = True
+elvis = False
 
 if obs:        
     print('Compiling stats for the observations')
@@ -46,14 +46,14 @@ import asphericity_stats as asp
 
 ObsTable = False
 SimTable = False
-CovPlots = True
+CovPlots = False
 ObsAsphPlots = False
 PrintModelNumbers = False
 PlotModelNumbers = False
 PlotShapeRandomObs = False
-PlotShapeObsSim = True
+PlotShapeObsSim = False
 PlotShapeObsSimNormed = False
-PrintCovarianceTables = False
+PrintCovarianceTables = True
 
 if ObsTable:
     asp.print_table_obs_shape()
@@ -95,7 +95,7 @@ if PlotShapeObsSimNormed:
         asp.plot_shape_obs_sims_normed('elvis', nsat)
         
 if PrintCovarianceTables:
-    for nsat in range(11,12):
+    for nsat in range(11,16):
         asp.print_covariance('illustris1dark', nsat)
         asp.print_covariance('illustris1', nsat)
         asp.print_covariance('elvis', nsat)
