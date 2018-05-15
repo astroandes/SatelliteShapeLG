@@ -3,7 +3,7 @@ import compile_randomized_data as crd
 obs = False
 illustris1 = False
 illustris1dark = False
-elvis = False
+elvis = True
 
 if obs:        
     print('Compiling stats for the observations')
@@ -46,7 +46,7 @@ import asphericity_stats as asp
 
 ObsTable = False
 SimTable = False
-CovPlots = False
+CovPlots = True
 ObsAsphPlots = False
 PrintModelNumbers = False
 PlotModelNumbers = False

@@ -64,7 +64,7 @@ def load_snapshot(snap_name, boxsize=75000.0, elvis=False):
                 snap_data[col] = (snap_data[col] - 0.5 * boxsize) % boxsize
     if elvis: #change units
         for col in list(['x','y','z']):
-            snap_data[col] = snap_data[col] * 1000/hubble
+            snap_data[col] = snap_data[col] * 1000
     return snap_data
 
 def load_obs(obs_name):
